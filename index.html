@@ -1,87 +1,45 @@
-  <!DOCTYPE HTML>
-  <html lang="en">
-    <head>
-      <title>nzwPage</title>
-      <link rel="shortcut icon" href="./images/icon.jpeg">
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta name="description" content="" />
-      <meta name="keywords" content="" />
-      <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/skel.min.js"></script>
-      <script src="js/init.js"></script>
-      <noscript>
-        <link rel="stylesheet" href="css/skel.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/style-wide.css" />
-      </noscript>
-      <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-    </head>
-    <body>
-      
-      <!-- Header -->
-      <div id="header">
-        <!-- <span class="logo icon fa-paper-plane-o"></span> -->
-        <p>nzw's  private page.</p>
-      </div>
-      
-      <!-- Main -->
-      <div id="main">
-        <div class="box container">
-  	<section>
-  	  <header>
-  	    <h3>Profile</h3>
-  	  </header>
-  	  <blockquote>
-  	    I'm undergraduate student in College of Knowledge and Library Sciences, School of Informatics, University of Tsukuba.							
-  	  </blockquote>
-  	  <img src="./images/icon.jpeg" />
-  	</section>
-    <section>
-      <header>
-        <h3>Social accounts</h3>
-      </header>
-      <ul class="default">
-        <li><a href="https://twitter.com/nozawa0301">Twitter</a></li>
-        <li><a href="http://nzw.hatenablog.jp">hatena Blog</a></li>
-	<li><a href="https://bitbucket.org/nzw">bitbucket</a></li>
-	<li><a href="https://github.com/nzw0301">github</a></li>
-<!--	<li><a href="http://www.codingame.com/profile/d2d12cb43af4a6b7364cf8fe71721140752254">CodinGame</a></li> -->
-      </ul>
-    </section>
-        <section>
-      <header>
-        <h3>research</h3>
-      </header>
-      <ul class="default">
-        <li><a href="http://ci.nii.ac.jp/author?q=%E9%87%8E%E6%B2%A2+%E5%81%A5%E4%BA%BA">my research</a></li>
-        <li><a href="./reading.html">reading articles lists</a></li>
-        <li><a href="./books.html">reading books lists</a></li>
-      </ul>
-    </section>
-  	<section>
-  	  <header>
-  	    <h3>works</h3>
-  	  </header>
-  	  <ul class="default">
-  	    <li><a href="http://www5307ue.sakura.ne.jp/poke">Pokest</a></li>
-  	    <blockquote>Pokemon Circle List by sinatra and sqlite</blockquote>
-  	  </ul>
-  	</section>
-        </div>
-      </div>
-      
-      <!-- Footer -->
-      <div id="footer">
-        <div class="container small">
-            <ul class="icons">
-              <li><a href="https://twitter.com/nozawa0301" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-              <li><a href="https://github.com/nzw0301" class="icon fa-github"><span class="label">Github</span></a></li>
-            </ul>
-            <ul class="copyright">
-  	      <li>&copy; <a href="https://twitter.com/nozawa0301">@nozawa0301</a>. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-            </ul>
-        </div>
-      </div>    
-    </body>
-  </html>
+---
+layout: default
+---
+
+<div class="home">
+  <img src="http://cdn-ak.f.st-hatena.com/images/fotolife/a/another16javac/20150124/20150124063624.png" width="150" height="150" align="right" border="1" />
+
+  <h3>プロフィール</h3>
+  <ul>
+    <li>名前：nzw</li>
+    <li>言語：Java，Ruby，Clojure</li>
+    <li>環境：MacOS,Sublime Text,Eclipse</li>
+  </ul>
+  <br />
+
+  <h3>研究発表</h3>
+  <ul>
+    <li>野沢健人, 中岡 義貴，山本 修平，佐藤哲司.  word2vecを用いた代替食材の発見手法の提案 (データ工学) Finding Method of Replaceable Ingredients using Large Mounts of Cooking Recipes. データ工学と食メディア, 2014. </li>
+  </ul>
+
+  <br />
+  <h3>ソーシャル</h3>
+  <ul>
+    <li><a href="http://nzw.hatenablog.jp/">Blog</a></li>
+    <li><a href="https://github.com/nzw0301">github</a></li>
+    <li><a href="https://twitter.com">Twitter</a></li>
+  </ul>
+
+  <!-- <h1 class="page-heading">Posts</h1> -->
+
+<!--   <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul> -->
+
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+
+</div>
