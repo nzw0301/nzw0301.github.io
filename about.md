@@ -9,3 +9,4 @@ This is the base Jekyll theme. You can find out more info about customizing your
 You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
 
 my word	 [github.com/nzw0301](https://github.com/nzw0301)
+my word	 [github.com/nzw0301](https://github.com/nzw0301)
