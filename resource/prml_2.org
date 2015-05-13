@@ -1,6 +1,6 @@
-#+TITLE: PRML2章 PRML
+#+TITLE: PRML2章
 #+AUTHOR: nzw
-
+P
 #+OPTIONS: toc:nil num:nil f:nil
 
 ** 2.8 分散
