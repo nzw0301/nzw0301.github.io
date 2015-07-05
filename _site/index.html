@@ -54,6 +54,8 @@ HP
         
           <li><a href="/2015/07/hello">Hello</a></li>
         
+          <li><a href="/2015/07/PRML93">PRML演習9.3</a></li>
+        
     </ul>
 </div>
 
@@ -79,6 +81,41 @@ HP
             <h1 id="半分くらい移転しました">半分くらい移転しました</h1>
 
 <p>はてなブログで数式を書くと展開されずにつらいかったり，やたら読み込みが重いので，こちらに書いていこうかと思います．</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/07/PRML93">Jul 5, 2015 - PRML演習9.3</a></h1>
+        
+        <div class="content">
+            <p>\( K=2 \) とすると定義より \(\boldsymbol{z}\) は
+\begin{align}
+\boldsymbol{z} = [0,1],[1,0]
+\end{align}
+の2つのベクトルのうちどちらかを取りうる．</p>
+
+<p>また，以下の式の一番外側のシグマはこの2つの \(\boldsymbol{z}\) を足し合わせる．</p>
+
+<p>\begin{eqnarray}
+\sum_{\boldsymbol{z}}p(\boldsymbol{z})p(\boldsymbol{x}|\boldsymbol{z}) &amp;=&amp; \sum_{\boldsymbol{z}} \prod_{k=1}^2 \pi_k^{z_k} \prod_{k=1}^2 N(\boldsymbol{x}|\boldsymbol{\mu_k}, \Sigma_{k})^{z_k} \\
+&amp;=&amp; \sum_{\boldsymbol{z}}(\pi_1^{z_1}\pi_2^{z_2})(N(\boldsymbol{x}|\boldsymbol{\mu_1},\Sigma_1)^{z_1} N(\boldsymbol{x}|\boldsymbol{\mu_2},\Sigma_2)^{z_2} \\
+&amp;=&amp; \pi_1 N(\boldsymbol{x}|\boldsymbol{\mu_1},\Sigma_1) + \pi_2 N(\boldsymbol{x}|\boldsymbol{\mu_2},\Sigma_2) \\
+&amp;=&amp; \sum_{k=1}^2 \pi_k N(\boldsymbol{x}|\boldsymbol{\mu_k},\Sigma_k)
+\end{eqnarray}</p>
+
+<p>一般化して \(K\) の場合は，
+\(\sum_{\boldsymbol{z}}p(\boldsymbol{z})p(\boldsymbol{x}|\boldsymbol{z})\)
+は，内部の同時確率を変形した式を \(\prod\) 展開してから
+\(\sum_{\boldsymbol{z}}\) で足しあわせる．</p>
+
+<p>足し合わせると
+\(z_k=1\) を満たす \(k\) での
+\(\pi_k N(\boldsymbol{x}|\boldsymbol{\mu_k},\Sigma_k)\) の
+添字が1から\(K\)までの和だけが残るために
+式(9.12)のように周辺化することで式(9.7)を導くことができる．</p>
 
         </div>
     </div>
