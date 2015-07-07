@@ -61,7 +61,7 @@
 について最大化するが，第1項は．Q関数なので，&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\boldsymbol{\theta^{new}} &amp;amp;=&amp;amp; argmax_{\boldsymbol{\theta}} Q(\boldsymbol{\theta},\boldsymbol{\theta^{old}}) + \ln{p(\boldsymbol{\theta})}
+\boldsymbol{\theta^{new}} &amp;amp;=&amp;amp; argmax_{\boldsymbol{\theta}} (Q(\boldsymbol{\theta},\boldsymbol{\theta^{old}}) + \ln{p(\boldsymbol{\theta})})
 \end{eqnarray}&lt;/p&gt;
 
 &lt;p&gt;をMステップでは計算する．&lt;/p&gt;
