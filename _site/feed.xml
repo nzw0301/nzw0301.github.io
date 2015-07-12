@@ -7,6 +7,54 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>PRML演習9.8</title>
+				<description>&lt;h3 id=&quot;本題&quot;&gt;本題&lt;/h3&gt;
+
+&lt;p&gt;負担率を固定した際に，式(9.40)を
+\(\boldsymbol{\mu_{k}}\)
+について最大化しようとすると式(9.17)で与えられる陽な解が得られることを示す．&lt;/p&gt;
+
+&lt;p&gt;式(9.40)を
+\(\boldsymbol{\mu_{k}}\)
+で微分する．
+式(9.16)を)参考．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial}{\partial \mu_k} E_\boldsymbol{z}
+[\boldsymbol{X},\boldsymbol{Z}|\boldsymbol{\mu},\boldsymbol{\Sigma},\boldsymbol{\pi}]
+&amp;amp;=&amp;amp; 
+\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{\Sigma_k^{-1}}(\boldsymbol{x_n}-\boldsymbol{\mu_k})
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;微分した式を0とおいて，
+\(\mu_k\)
+について求める．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{\Sigma_k^{-1}}(\boldsymbol{x_n}-\boldsymbol{\mu_k})
+&amp;amp;=&amp;amp; 0 \\
+\sum_{n=1}^{N} \gamma(z_{zk})(\boldsymbol{x_n}-\boldsymbol{\mu_k})
+&amp;amp;=&amp;amp; 0 \\
+\sum_{n=1}^{N} \gamma(z_{zk})\boldsymbol{\mu_k}
+&amp;amp;=&amp;amp; 
+\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{x_n} \\
+\boldsymbol{\mu_k} 
+&amp;amp;=&amp;amp;
+\frac{1}{\sum_{n=1}^{N} \gamma(z_{zk})}\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{x_n}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;以上から式(9.17)が得られた．&lt;/p&gt;
+
+&lt;h3 id=&quot;所感&quot;&gt;所感&lt;/h3&gt;
+
+&lt;p&gt;公式の答えは上巻のガウス分布の式を使っていますので，私の解答はちょっとやりかたが違ってるかもしれません．&lt;/p&gt;
+</description>
+				<pubDate>Sun, 12 Jul 2015 22:25:00 +0900</pubDate>
+				<link>/2015/07/PRML98</link>
+				<guid isPermaLink="true">/2015/07/PRML98</guid>
+			</item>
+		
+			<item>
 				<title>PRML演習9.4</title>
 				<description>&lt;h3 id=&quot;おさらい&quot;&gt;おさらい&lt;/h3&gt;
 

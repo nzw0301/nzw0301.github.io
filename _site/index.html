@@ -52,6 +52,8 @@ HP
     <h1>Recent Posts</h1>
     <ul>
         
+          <li><a href="/2015/07/PRML98">PRML演習9.8</a></li>
+        
           <li><a href="/2015/07/PRML94">PRML演習9.4</a></li>
         
           <li><a href="/2015/07/hello">Hello</a></li>
@@ -75,6 +77,56 @@ HP
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/07/PRML98">Jul 12, 2015 - PRML演習9.8</a></h1>
+        
+        <div class="content">
+            <h3 id="本題">本題</h3>
+
+<p>負担率を固定した際に，式(9.40)を
+\(\boldsymbol{\mu_{k}}\)
+について最大化しようとすると式(9.17)で与えられる陽な解が得られることを示す．</p>
+
+<p>式(9.40)を
+\(\boldsymbol{\mu_{k}}\)
+で微分する．
+式(9.16)を)参考．</p>
+
+<p>\begin{eqnarray}
+\frac{\partial}{\partial \mu_k} E_\boldsymbol{z}
+[\boldsymbol{X},\boldsymbol{Z}|\boldsymbol{\mu},\boldsymbol{\Sigma},\boldsymbol{\pi}]
+&amp;=&amp; 
+\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{\Sigma_k^{-1}}(\boldsymbol{x_n}-\boldsymbol{\mu_k})
+\end{eqnarray}</p>
+
+<p>微分した式を0とおいて，
+\(\mu_k\)
+について求める．</p>
+
+<p>\begin{eqnarray}
+\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{\Sigma_k^{-1}}(\boldsymbol{x_n}-\boldsymbol{\mu_k})
+&amp;=&amp; 0 \\
+\sum_{n=1}^{N} \gamma(z_{zk})(\boldsymbol{x_n}-\boldsymbol{\mu_k})
+&amp;=&amp; 0 \\
+\sum_{n=1}^{N} \gamma(z_{zk})\boldsymbol{\mu_k}
+&amp;=&amp; 
+\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{x_n} \\
+\boldsymbol{\mu_k} 
+&amp;=&amp;
+\frac{1}{\sum_{n=1}^{N} \gamma(z_{zk})}\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{x_n}
+\end{eqnarray}</p>
+
+<p>以上から式(9.17)が得られた．</p>
+
+<h3 id="所感">所感</h3>
+
+<p>公式の答えは上巻のガウス分布の式を使っていますので，私の解答はちょっとやりかたが違ってるかもしれません．</p>
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2015/07/PRML94">Jul 7, 2015 - PRML演習9.4</a></h1>
@@ -165,45 +217,12 @@ HP
     </div>
 </div>
 
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/07/PRML93">Jul 5, 2015 - PRML演習9.3</a></h1>
-        
-        <div class="content">
-            <p>\( K=2 \) とすると定義より \(\boldsymbol{z}\) は
-\begin{align}
-\boldsymbol{z} = [0,1],[1,0]
-\end{align}
-の2つのベクトルのうちどちらかを取りうる．</p>
-
-<p>また，以下の式の一番外側のシグマはこの2つの \(\boldsymbol{z}\) を足し合わせる．</p>
-
-<p>\begin{eqnarray}
-\sum_{\boldsymbol{z}}p(\boldsymbol{z})p(\boldsymbol{x}|\boldsymbol{z}) &amp;=&amp; \sum_{\boldsymbol{z}} \prod_{k=1}^2 \pi_k^{z_k} \prod_{k=1}^2 N(\boldsymbol{x}|\boldsymbol{\mu_k}, \Sigma_{k})^{z_k} \\
-&amp;=&amp; \sum_{\boldsymbol{z}}(\pi_1^{z_1}\pi_2^{z_2})(N(\boldsymbol{x}|\boldsymbol{\mu_1},\Sigma_1)^{z_1} N(\boldsymbol{x}|\boldsymbol{\mu_2},\Sigma_2)^{z_2} \\
-&amp;=&amp; \pi_1 N(\boldsymbol{x}|\boldsymbol{\mu_1},\Sigma_1) + \pi_2 N(\boldsymbol{x}|\boldsymbol{\mu_2},\Sigma_2) \\
-&amp;=&amp; \sum_{k=1}^2 \pi_k N(\boldsymbol{x}|\boldsymbol{\mu_k},\Sigma_k)
-\end{eqnarray}</p>
-
-<p>一般化して \(K\) の場合は，
-\(\sum_{\boldsymbol{z}}p(\boldsymbol{z})p(\boldsymbol{x}|\boldsymbol{z})\)
-は，内部の同時確率を変形した式を \(\prod\) 展開してから
-\(\sum_{\boldsymbol{z}}\) で足しあわせる．</p>
-
-<p>足し合わせると
-\(z_k=1\) を満たす \(k\) での
-\(\pi_k N(\boldsymbol{x}|\boldsymbol{\mu_k},\Sigma_k)\) の
-添字が1から\(K\)までの和だけが残るために
-式(9.12)のように周辺化することで式(9.7)を導くことができる．</p>
-
-        </div>
-    </div>
-</div>
-
 
 <div class="pagination">
   
-  <span class="page_number ">Page: 1 of 1</span>
+  <span class="page_number ">Page: 1 of 2</span>
+  
+    <a class="btn btn-default" href="/page2" class="next">Older</a>
   
 </div>
 
