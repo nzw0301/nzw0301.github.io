@@ -7,6 +7,81 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>PRML演習9.4</title>
+				<description>&lt;h3 id=&quot;おさらい&quot;&gt;おさらい&lt;/h3&gt;
+
+&lt;p&gt;p156にあるように一般のEMアルゴリズムでは，
+尤度関数 \(p(\boldsymbol{X}|\boldsymbol{\theta})\) を
+\(\boldsymbol{\theta}\)
+について最大化を目的とした．&lt;/p&gt;
+
+&lt;p&gt;今回の問いでは尤度関数を\(p(\boldsymbol{\theta}|\boldsymbol{X})\) にして\(\boldsymbol{\theta}\) について最大化する．&lt;/p&gt;
+
+&lt;h3 id=&quot;本題&quot;&gt;本題&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;観測変数は
+\(\boldsymbol{X}\)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;\(\boldsymbol{\theta}\) は任意のパラメータ&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;\(\boldsymbol{Z}\)
+は潜在変数&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まず
+パラメータの初期値
+\(\boldsymbol{\theta^{old}}\)
+を選ぶ．&lt;/p&gt;
+
+&lt;p&gt;Eステップ．
+\(p(\boldsymbol{Z}|\boldsymbol{X},\boldsymbol{\theta^{old}})\)
+を計算する．
+ここまではp156のアルゴリズムと同じ．&lt;/p&gt;
+
+&lt;p&gt;Mステップ．
+最大化する対数尤度関数は
+\(\ln{p(\boldsymbol{\theta}|\boldsymbol{X})} \)
+である．&lt;/p&gt;
+
+&lt;p&gt;ベイズの定理から&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\ln{p(\boldsymbol{\theta}|\boldsymbol{X})}  &amp;amp;=&amp;amp;
+\ln{\frac{p(\boldsymbol{X}|\boldsymbol{\theta})p(\boldsymbol{\theta})}{p(\boldsymbol{X})}}  \\
+&amp;amp;=&amp;amp; \ln{p(\boldsymbol{X}|\boldsymbol{\theta})}
++ \ln{p(\boldsymbol{\theta})}
+- \ln{p(\boldsymbol{X})} \\
+&amp;amp;=&amp;amp; \ln{(\sum_{\boldsymbol{Z}} p(\boldsymbol{X,Z}|\boldsymbol{\theta}))}
++ \ln{p(\boldsymbol{\theta})}
+- \ln{p(\boldsymbol{X})}\
+\end{eqnarray}
+と変形する.&lt;/p&gt;
+
+&lt;p&gt;変形した式を
+\(\boldsymbol{\theta}\)
+について最大化するが，第1項は．Q関数なので，&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\boldsymbol{\theta^{new}} &amp;amp;=&amp;amp; argmax_{\boldsymbol{\theta}} (Q(\boldsymbol{\theta},\boldsymbol{\theta^{old}}) + \ln{p(\boldsymbol{\theta})})
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;をMステップでは計算する．&lt;/p&gt;
+
+&lt;p&gt;ベイズの定理で変形して出てきた
+\(\ln{p(\boldsymbol{X})}\)
+は
+\(\boldsymbol{\theta}\)
+とは，関係ないために定数として扱えるので，最大化する際には無視できる．&lt;/p&gt;
+
+&lt;h3 id=&quot;その他&quot;&gt;その他&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://amzn.to/1fki6cc&quot;&gt;言語処理のための機械学習入門 (自然言語処理シリーズ)  &lt;/a&gt;のp88を参考にしました．&lt;/p&gt;
+</description>
+				<pubDate>Tue, 07 Jul 2015 22:25:06 +0900</pubDate>
+				<link>/2015/07/PRML94</link>
+				<guid isPermaLink="true">/2015/07/PRML94</guid>
+			</item>
+		
+			<item>
 				<title>Hello</title>
 				<description>&lt;h1 id=&quot;半分くらい移転しました&quot;&gt;半分くらい移転しました&lt;/h1&gt;
 
