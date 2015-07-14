@@ -52,6 +52,8 @@ HP
     <h1>Recent Posts</h1>
     <ul>
         
+          <li><a href="/2015/07/PRML99pi">PRML演習9.9 pi</a></li>
+        
           <li><a href="/2015/07/PRML98">PRML演習9.8</a></li>
         
           <li><a href="/2015/07/PRML94">PRML演習9.4</a></li>
@@ -77,6 +79,62 @@ HP
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/07/PRML99pi">Jul 15, 2015 - PRML演習9.9 pi</a></h1>
+        
+        <div class="content">
+            <h3 id="本題">本題</h3>
+
+<p>負担率を固定した際に，式(9.40)を
+\(\pi_{k}\)
+について最大化しようとすると式(9.22)で与えられる陽な解が得られることを示す．</p>
+
+<p>\( \sum_k \pi_k = 1 \)
+という条件があるので，ラグランジュの未定乗数法を利用する．</p>
+
+<p>式(9.40)を
+\(\pi_{k}\)
+について最大化しつつ，
+\( \sum_k \pi_k = 1 \)
+を満たすように最大化を行う．</p>
+
+<p>ラグランジュ関数は
+\( L(\boldsymbol{\pi},\lambda) = f(\boldsymbol{\pi}) + \lambda ( \sum_k \pi_k - 1) \)
+となる．</p>
+
+<p>\( f(\boldsymbol{\pi} ) \)
+は式9.40をさします．</p>
+
+<p>ラグランジュ関数を
+\(\boldsymbol{\pi_k}\)
+について微分して0と置いた式と制約を満たすことから，</p>
+
+<p>\begin{eqnarray}
+\sum^N_{n=1} \gamma(z_{nk}) \frac{1}{\pi_k} + \lambda = 0 \\
+\sum_k \pi_k - 1 = 0
+\end{eqnarray}</p>
+
+<p>を使って
+\( \lambda \)
+について求める．</p>
+
+<p>微分した式を条件式に代入すると，</p>
+
+<p>\( - \sum_k \frac{N_k}{\lambda} = 1 \)
+なので，</p>
+
+<p>\( \lambda = -N \)</p>
+
+<p>よって</p>
+
+<p>\( \pi_k = \frac{N_k}{N} \)
+式(9.22)を導くことができた．</p>
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2015/07/PRML98">Jul 12, 2015 - PRML演習9.8</a></h1>
@@ -199,19 +257,6 @@ HP
 <h3 id="その他">その他</h3>
 
 <p><a href="http://amzn.to/1fki6cc">言語処理のための機械学習入門 (自然言語処理シリーズ)  </a>のp88を参考にしました．</p>
-
-        </div>
-    </div>
-</div>
-
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/07/hello">Jul 5, 2015 - Hello</a></h1>
-        
-        <div class="content">
-            <h1 id="半分くらい移転しました">半分くらい移転しました</h1>
-
-<p>はてなブログで数式を書くと展開されずにつらいかったり，やたら読み込みが重いので，こちらに書いていこうかと思います．</p>
 
         </div>
     </div>

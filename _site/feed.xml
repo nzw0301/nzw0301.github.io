@@ -7,6 +7,60 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>PRML演習9.9 pi</title>
+				<description>&lt;h3 id=&quot;本題&quot;&gt;本題&lt;/h3&gt;
+
+&lt;p&gt;負担率を固定した際に，式(9.40)を
+\(\pi_{k}\)
+について最大化しようとすると式(9.22)で与えられる陽な解が得られることを示す．&lt;/p&gt;
+
+&lt;p&gt;\( \sum_k \pi_k = 1 \)
+という条件があるので，ラグランジュの未定乗数法を利用する．&lt;/p&gt;
+
+&lt;p&gt;式(9.40)を
+\(\pi_{k}\)
+について最大化しつつ，
+\( \sum_k \pi_k = 1 \)
+を満たすように最大化を行う．&lt;/p&gt;
+
+&lt;p&gt;ラグランジュ関数は
+\( L(\boldsymbol{\pi},\lambda) = f(\boldsymbol{\pi}) + \lambda ( \sum_k \pi_k - 1) \)
+となる．&lt;/p&gt;
+
+&lt;p&gt;\( f(\boldsymbol{\pi} ) \)
+は式9.40をさします．&lt;/p&gt;
+
+&lt;p&gt;ラグランジュ関数を
+\(\boldsymbol{\pi_k}\)
+について微分して0と置いた式と制約を満たすことから，&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\sum^N_{n=1} \gamma(z_{nk}) \frac{1}{\pi_k} + \lambda = 0 \\
+\sum_k \pi_k - 1 = 0
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;を使って
+\( \lambda \)
+について求める．&lt;/p&gt;
+
+&lt;p&gt;微分した式を条件式に代入すると，&lt;/p&gt;
+
+&lt;p&gt;\( - \sum_k \frac{N_k}{\lambda} = 1 \)
+なので，&lt;/p&gt;
+
+&lt;p&gt;\( \lambda = -N \)&lt;/p&gt;
+
+&lt;p&gt;よって&lt;/p&gt;
+
+&lt;p&gt;\( \pi_k = \frac{N_k}{N} \)
+式(9.22)を導くことができた．&lt;/p&gt;
+</description>
+				<pubDate>Wed, 15 Jul 2015 12:25:00 +0900</pubDate>
+				<link>/2015/07/PRML99pi</link>
+				<guid isPermaLink="true">/2015/07/PRML99pi</guid>
+			</item>
+		
+			<item>
 				<title>PRML演習9.8</title>
 				<description>&lt;h3 id=&quot;本題&quot;&gt;本題&lt;/h3&gt;
 
