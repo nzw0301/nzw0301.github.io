@@ -45,12 +45,14 @@
     <div class="row">
         <div class="col-md-3 hidden-xs">
             <div class="sidebar well">
-HP
+メモと個人ページ
 </div>
 
 <div class="sidebar well">
     <h1>Recent Posts</h1>
     <ul>
+        
+          <li><a href="/2015/07/pythonIntro">Python勉強メモ</a></li>
         
           <li><a href="/2015/07/PRML99pi">PRML演習9.9 pi</a></li>
         
@@ -59,8 +61,6 @@ HP
           <li><a href="/2015/07/PRML94">PRML演習9.4</a></li>
         
           <li><a href="/2015/07/hello">Hello</a></li>
-        
-          <li><a href="/2015/07/PRML93">PRML演習9.3</a></li>
         
     </ul>
 </div>
@@ -79,6 +79,37 @@ HP
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/07/pythonIntro">Jul 16, 2015 - Python勉強メモ</a></h1>
+        
+        <div class="content">
+            <h1 id="はじめに">はじめに</h1>
+
+<p>講義の関係で少しだけNLTKとかgensimとかflaskを触りましたが，
+全然Pythonわからないので，いい加減勉強します．</p>
+
+<p>図書館にあったこれをひと通り読むつもりです．</p>
+
+<p><a href="http://www.amazon.co.jp/gp/product/4873116880/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=4873116880&linkCode=as2&tag=algebrae-22"><img border="0" src="http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4873116880&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=algebrae-22" ></a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=algebrae-22&l=as2&o=9&a=4873116880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<h1 id="環境">環境</h1>
+
+<ul>
+<li>pyenv</li>
+<li>pypy3-2.4.0</li>
+</ul>
+
+<p>Javaをよく書くのでJythonも検討しましたが，Javaとの連携がめんどうそうで手間でやめました．scikit-learnなどをやりたい方はanacondaを入れると必要なパッケージがだいたい入ってて簡単です．</p>
+
+<h1 id="本題">本題</h1>
+
+<p>coming soon...</p>
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2015/07/PRML99pi">Jul 15, 2015 - PRML演習9.9 pi</a></h1>
@@ -185,83 +216,6 @@ HP
     </div>
 </div>
 
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/07/PRML94">Jul 7, 2015 - PRML演習9.4</a></h1>
-        
-        <div class="content">
-            <h3 id="おさらい">おさらい</h3>
-
-<p>p156にあるように一般のEMアルゴリズムでは，
-尤度関数 \(p(\boldsymbol{X}|\boldsymbol{\theta})\) を
-\(\boldsymbol{\theta}\)
-について最大化を目的とした．</p>
-
-<p>今回の問いでは尤度関数を\(p(\boldsymbol{\theta}|\boldsymbol{X})\) にして\(\boldsymbol{\theta}\) について最大化する．</p>
-
-<h3 id="本題">本題</h3>
-
-<ul>
-<li><p>観測変数は
-\(\boldsymbol{X}\)</p></li>
-<li><p>\(\boldsymbol{\theta}\) は任意のパラメータ</p></li>
-<li><p>\(\boldsymbol{Z}\)
-は潜在変数</p></li>
-</ul>
-
-<p>まず
-パラメータの初期値
-\(\boldsymbol{\theta^{old}}\)
-を選ぶ．</p>
-
-<p>Eステップ．
-\(p(\boldsymbol{Z}|\boldsymbol{X},\boldsymbol{\theta^{old}})\)
-を計算する．
-ここまではp156のアルゴリズムと同じ．</p>
-
-<p>Mステップ．
-最大化する対数尤度関数は
-\(\ln{p(\boldsymbol{\theta}|\boldsymbol{X})} \)
-である．</p>
-
-<p>ベイズの定理から</p>
-
-<p>\begin{eqnarray}
-\ln{p(\boldsymbol{\theta}|\boldsymbol{X})}  &amp;=&amp;
-\ln{\frac{p(\boldsymbol{X}|\boldsymbol{\theta})p(\boldsymbol{\theta})}{p(\boldsymbol{X})}}  \\
-&amp;=&amp; \ln{p(\boldsymbol{X}|\boldsymbol{\theta})}
-+ \ln{p(\boldsymbol{\theta})}
-- \ln{p(\boldsymbol{X})} \\
-&amp;=&amp; \ln{(\sum_{\boldsymbol{Z}} p(\boldsymbol{X,Z}|\boldsymbol{\theta}))}
-+ \ln{p(\boldsymbol{\theta})}
-- \ln{p(\boldsymbol{X})}\
-\end{eqnarray}
-と変形する.</p>
-
-<p>変形した式を
-\(\boldsymbol{\theta}\)
-について最大化するが，第1項は．Q関数なので，</p>
-
-<p>\begin{eqnarray}
-\boldsymbol{\theta^{new}} &amp;=&amp; argmax_{\boldsymbol{\theta}} (Q(\boldsymbol{\theta},\boldsymbol{\theta^{old}}) + \ln{p(\boldsymbol{\theta})})
-\end{eqnarray}</p>
-
-<p>をMステップでは計算する．</p>
-
-<p>ベイズの定理で変形して出てきた
-\(\ln{p(\boldsymbol{X})}\)
-は
-\(\boldsymbol{\theta}\)
-とは，関係ないために定数として扱えるので，最大化する際には無視できる．</p>
-
-<h3 id="その他">その他</h3>
-
-<p><a href="http://amzn.to/1fki6cc">言語処理のための機械学習入門 (自然言語処理シリーズ)  </a>のp88を参考にしました．</p>
-
-        </div>
-    </div>
-</div>
-
 
 <div class="pagination">
   
@@ -272,6 +226,7 @@ HP
 </div>
 
         </div>
+        
     </div>
 </div>
 
