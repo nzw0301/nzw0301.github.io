@@ -21,15 +21,33 @@
 
 &lt;ul&gt;
 &lt;li&gt;pyenv&lt;/li&gt;
-&lt;li&gt;pypy3-2.4.0&lt;/li&gt;
+&lt;li&gt;anaconda3-2.1.0&lt;/li&gt;
+&lt;li&gt;Jupyter&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Javaをよく書くのでJythonも検討しましたが，Javaとの連携がめんどうそうで手間でやめました．scikit-learnなどをやりたい方はanacondaを入れると必要なパッケージがだいたい入ってて簡単です．&lt;/p&gt;
+&lt;p&gt;Javaをよく書くのでJythonも検討しましたが，Javaとの連携がめんどうそうで手間でやめました．&lt;/p&gt;
+
+&lt;p&gt;速い速いと聞くpypyもやろうとしましたが，パッケージ周りがめんどうだったのでやめました．&lt;/p&gt;
+
+&lt;p&gt;scikit-learnなどをやりたい方はanacondaを入れると必要なパッケージがだいたい入ってて簡単です．&lt;/p&gt;
 
 &lt;h1 id=&quot;本題&quot;&gt;本題&lt;/h1&gt;
 
-&lt;p&gt;coming soon...&lt;/p&gt;
-</description>
+&lt;p&gt;まずを環境つくります．
+グローバルでパッケージを管理したくないので，virtualenvを使います．&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;pip install virtualenv
+virtualenv no-site-packages anaconda3
+cd anaconda3
+. bin/activate #この環境を使う
+deactivate #この環境から抜ける
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;REPLでも十分ですが，jupyterでよりインタラクティブにpython使ってみます．
+ちなみにJuliaもつかえます．&lt;/p&gt;
+
+&lt;p&gt;jupyterからhtmlのslideも作れちゃうので，tutorialには便利そうです．&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;pip install ipython
+ipython notebook #ブラウザが起動
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
 				<pubDate>Thu, 16 Jul 2015 02:25:00 +0900</pubDate>
 				<link>/2015/07/pythonIntro</link>
 				<guid isPermaLink="true">/2015/07/pythonIntro</guid>

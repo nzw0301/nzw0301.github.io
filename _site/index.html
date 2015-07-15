@@ -97,15 +97,33 @@
 
 <ul>
 <li>pyenv</li>
-<li>pypy3-2.4.0</li>
+<li>anaconda3-2.1.0</li>
+<li>Jupyter</li>
 </ul>
 
-<p>Javaをよく書くのでJythonも検討しましたが，Javaとの連携がめんどうそうで手間でやめました．scikit-learnなどをやりたい方はanacondaを入れると必要なパッケージがだいたい入ってて簡単です．</p>
+<p>Javaをよく書くのでJythonも検討しましたが，Javaとの連携がめんどうそうで手間でやめました．</p>
+
+<p>速い速いと聞くpypyもやろうとしましたが，パッケージ周りがめんどうだったのでやめました．</p>
+
+<p>scikit-learnなどをやりたい方はanacondaを入れると必要なパッケージがだいたい入ってて簡単です．</p>
 
 <h1 id="本題">本題</h1>
 
-<p>coming soon...</p>
+<p>まずを環境つくります．
+グローバルでパッケージを管理したくないので，virtualenvを使います．</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">pip install virtualenv
+virtualenv no-site-packages anaconda3
+cd anaconda3
+. bin/activate #この環境を使う
+deactivate #この環境から抜ける
+</code></pre></div>
+<p>REPLでも十分ですが，jupyterでよりインタラクティブにpython使ってみます．
+ちなみにJuliaもつかえます．</p>
 
+<p>jupyterからhtmlのslideも作れちゃうので，tutorialには便利そうです．</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">pip install ipython
+ipython notebook #ブラウザが起動
+</code></pre></div>
         </div>
     </div>
 </div>
