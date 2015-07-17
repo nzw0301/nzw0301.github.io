@@ -52,6 +52,8 @@
     <h1>Recent Posts</h1>
     <ul>
         
+          <li><a href="/2015/07/prml2_12">PRML 演習2.12</a></li>
+        
           <li><a href="/2015/07/pythonIntro">Python勉強メモ</a></li>
         
           <li><a href="/2015/07/PRML99pi">PRML演習9.9 pi</a></li>
@@ -59,8 +61,6 @@
           <li><a href="/2015/07/PRML98">PRML演習9.8</a></li>
         
           <li><a href="/2015/07/PRML94">PRML演習9.4</a></li>
-        
-          <li><a href="/2015/07/hello">Hello</a></li>
         
     </ul>
 </div>
@@ -79,6 +79,54 @@
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/07/prml2_12">Jul 16, 2015 - PRML 演習2.12</a></h1>
+        
+        <div class="content">
+            <h1 id="はじめに">はじめに</h1>
+
+<p>9章で混合ガウス分布がこれでもかと出てくるので，一旦2章まで戻りました．
+ディリクレ分布までやったので今度はガウス分布です．</p>
+
+<h4 id="1-正規化の確認">1. 正規化の確認</h4>
+
+<p>連続変数なので，全区間を積分して1になることを確かめればよい．</p>
+
+<p>\begin{eqnarray}
+\int_a^b \frac{1}{b-a} dx &amp;=&amp; [\frac{x}{b-a}]_a^b \\
+&amp;=&amp; \frac{b}{b-a} - \frac{a}{b-a} \\
+&amp;=&amp; 1
+\end{eqnarray}</p>
+
+<h4 id="2-平均">2. 平均</h4>
+
+<p>式(1.34)を使うだけ</p>
+
+<p>\begin{eqnarray}
+E[x] &amp;=&amp; \int_a^b x \frac{1}{b-a} dx \\
+&amp;=&amp; [\frac{x^2}{2(b-a)}]_a^b \\
+&amp;=&amp; \frac{b^2}{2(b-a)} - \frac{a^2}{2(b-a)} \\
+&amp;=&amp; \frac{a+b}{2}
+\end{eqnarray}</p>
+
+<h4 id="3-分散">3. 分散</h4>
+
+<p>求めた平均と式(1.39)を使う</p>
+
+<p>\begin{eqnarray}
+var[x] &amp;=&amp; \int_a^b x^2 \frac{1}{b-a} dx - E[x]^2 \\
+&amp;=&amp; [\frac{x^3}{3(b-a)}]_a^b - \frac{(a+b)^2}{4}\\
+&amp;=&amp; \frac{b^2+ab+a^2}{3} - \frac{(a+b)^2}{4}\\
+&amp;=&amp; \frac{(a-b)^2}{12}
+\end{eqnarray}</p>
+
+<p>一様分布についてのもう少しだけ詳しい説明が付録Bにあります．</p>
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2015/07/pythonIntro">Jul 16, 2015 - Python勉強メモ</a></h1>
@@ -184,60 +232,10 @@ ipython notebook #ブラウザが起動
     </div>
 </div>
 
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/07/PRML98">Jul 12, 2015 - PRML演習9.8</a></h1>
-        
-        <div class="content">
-            <h3 id="本題">本題</h3>
-
-<p>負担率を固定した際に，式(9.40)を
-\(\boldsymbol{\mu_{k}}\)
-について最大化しようとすると式(9.17)で与えられる陽な解が得られることを示す．</p>
-
-<p>式(9.40)を
-\(\boldsymbol{\mu_{k}}\)
-で微分する．
-式(9.16)を)参考．</p>
-
-<p>\begin{eqnarray}
-\frac{\partial}{\partial \mu_k} E_\boldsymbol{z}
-[\boldsymbol{X},\boldsymbol{Z}|\boldsymbol{\mu},\boldsymbol{\Sigma},\boldsymbol{\pi}]
-&amp;=&amp; 
-\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{\Sigma_k^{-1}}(\boldsymbol{x_n}-\boldsymbol{\mu_k})
-\end{eqnarray}</p>
-
-<p>微分した式を0とおいて，
-\(\mu_k\)
-について求める．</p>
-
-<p>\begin{eqnarray}
-\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{\Sigma_k^{-1}}(\boldsymbol{x_n}-\boldsymbol{\mu_k})
-&amp;=&amp; 0 \\
-\sum_{n=1}^{N} \gamma(z_{zk})(\boldsymbol{x_n}-\boldsymbol{\mu_k})
-&amp;=&amp; 0 \\
-\sum_{n=1}^{N} \gamma(z_{zk})\boldsymbol{\mu_k}
-&amp;=&amp; 
-\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{x_n} \\
-\boldsymbol{\mu_k} 
-&amp;=&amp;
-\frac{1}{\sum_{n=1}^{N} \gamma(z_{zk})}\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{x_n}
-\end{eqnarray}</p>
-
-<p>以上から式(9.17)が得られた．</p>
-
-<h3 id="所感">所感</h3>
-
-<p>公式の答えは上巻のガウス分布の式を使っていますので，私の解答はちょっとやりかたが違ってるかもしれません．</p>
-
-        </div>
-    </div>
-</div>
-
 
 <div class="pagination">
   
-  <span class="page_number ">Page: 1 of 2</span>
+  <span class="page_number ">Page: 1 of 3</span>
   
     <a class="btn btn-default" href="/page2" class="next">Older</a>
   

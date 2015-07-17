@@ -7,6 +7,52 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>PRML 演習2.12</title>
+				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
+
+&lt;p&gt;9章で混合ガウス分布がこれでもかと出てくるので，一旦2章まで戻りました．
+ディリクレ分布までやったので今度はガウス分布です．&lt;/p&gt;
+
+&lt;h4 id=&quot;1-正規化の確認&quot;&gt;1. 正規化の確認&lt;/h4&gt;
+
+&lt;p&gt;連続変数なので，全区間を積分して1になることを確かめればよい．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\int_a^b \frac{1}{b-a} dx &amp;amp;=&amp;amp; [\frac{x}{b-a}]_a^b \\
+&amp;amp;=&amp;amp; \frac{b}{b-a} - \frac{a}{b-a} \\
+&amp;amp;=&amp;amp; 1
+\end{eqnarray}&lt;/p&gt;
+
+&lt;h4 id=&quot;2-平均&quot;&gt;2. 平均&lt;/h4&gt;
+
+&lt;p&gt;式(1.34)を使うだけ&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+E[x] &amp;amp;=&amp;amp; \int_a^b x \frac{1}{b-a} dx \\
+&amp;amp;=&amp;amp; [\frac{x^2}{2(b-a)}]_a^b \\
+&amp;amp;=&amp;amp; \frac{b^2}{2(b-a)} - \frac{a^2}{2(b-a)} \\
+&amp;amp;=&amp;amp; \frac{a+b}{2}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;h4 id=&quot;3-分散&quot;&gt;3. 分散&lt;/h4&gt;
+
+&lt;p&gt;求めた平均と式(1.39)を使う&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+var[x] &amp;amp;=&amp;amp; \int_a^b x^2 \frac{1}{b-a} dx - E[x]^2 \\
+&amp;amp;=&amp;amp; [\frac{x^3}{3(b-a)}]_a^b - \frac{(a+b)^2}{4}\\
+&amp;amp;=&amp;amp; \frac{b^2+ab+a^2}{3} - \frac{(a+b)^2}{4}\\
+&amp;amp;=&amp;amp; \frac{(a-b)^2}{12}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;一様分布についてのもう少しだけ詳しい説明が付録Bにあります．&lt;/p&gt;
+</description>
+				<pubDate>Thu, 16 Jul 2015 23:09:00 +0900</pubDate>
+				<link>/2015/07/prml2_12</link>
+				<guid isPermaLink="true">/2015/07/prml2_12</guid>
+			</item>
+		
+			<item>
 				<title>Python勉強メモ</title>
 				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
 
