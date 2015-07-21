@@ -52,6 +52,8 @@
     <h1>Recent Posts</h1>
     <ul>
         
+          <li><a href="/2015/07/prml2_15">PRML 演習2.15</a></li>
+        
           <li><a href="/2015/07/prml2_12">PRML 演習2.12</a></li>
         
           <li><a href="/2015/07/pythonIntro">Python勉強メモ</a></li>
@@ -59,8 +61,6 @@
           <li><a href="/2015/07/PRML99pi">PRML演習9.9 pi</a></li>
         
           <li><a href="/2015/07/PRML98">PRML演習9.8</a></li>
-        
-          <li><a href="/2015/07/PRML94">PRML演習9.4</a></li>
         
     </ul>
 </div>
@@ -79,6 +79,97 @@
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/07/prml2_15">Jul 21, 2015 - PRML 演習2.15</a></h1>
+        
+        <div class="content">
+            <p>多変量ガウス分布のエントロピーが</p>
+
+<p>\begin{eqnarray}
+H[\boldsymbol{x}] = \frac{1}{2} \ln | \boldsymbol{\Sigma}| + \frac{D}{2}(1+\ln(2\pi))
+\end{eqnarray}</p>
+
+<p>になることを示す．</p>
+
+<p>多変量ガウス分布は連続であるのでエントロピーの定義から</p>
+
+<p>\begin{eqnarray}
+H[\boldsymbol{x}] = - \int p(\boldsymbol{x}) \ln p(\boldsymbol{x}) d \boldsymbol{x}.
+\end{eqnarray}</p>
+
+<p>また多変量ガウス分布は，
+式(2.43)をエントロピーの式に代入し， \(\ln\) の関数の期待値とみることができるので</p>
+
+<p>\begin{eqnarray}
+H[\boldsymbol{x}] &amp;=&amp; - \int p(\boldsymbol{x}) \ln \Bigl(\frac{1}{(2\pi)^\frac{D}{2}}
+\frac{1}{|\boldsymbol{\Sigma}|^{\frac{1}{2}}}
+exp \bigl({-\frac{1}{2} (\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}
+(\boldsymbol{x}-\boldsymbol{\mu})}
+\bigr)\Bigr) d \boldsymbol{x} \\
+&amp;=&amp;-(-\frac{D}{2}\ln{(2\pi)} -
+\frac{1}{2}\ln |\boldsymbol{\Sigma}| -
+\frac{1}{2}
+E[(\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu})]
+) \\
+\end{eqnarray}</p>
+
+<p>ここでトレースを使う（線形代数でトレースを習わなかったので，ここに時間がかかりました）</p>
+
+<h1 id="トレース">トレース</h1>
+
+<p>トレースは，行列の対角和のことです．
+単位行列のトレースは，単位行列の次元数です．</p>
+
+<p>トレースの性質から
+もしAが対称行列であるなら</p>
+
+<p>\( X^{\mathrm{T}} A X = tr(A X X^{\mathrm{T}} ) \)</p>
+
+<p>を満たす．</p>
+
+<p>さきほどの式の最後の項の期待値の中身がこれで書き換えると，</p>
+
+<p>\begin{eqnarray}
+(\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu}) =
+tr (\boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu}) (\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}})
+\end{eqnarray}</p>
+
+<p>第3項目だけ取り出して変形していく．</p>
+
+<p>\begin{eqnarray}
+E[(\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu})] &amp;=&amp;
+E[tr (\boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu}) (\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}})] \\
+&amp;=&amp; tr (\boldsymbol{\Sigma^{-1}} E[(\boldsymbol{x}-\boldsymbol{\mu}) (\boldsymbol{x} -
+\boldsymbol{\mu}^{\mathrm{T}})]) \\
+&amp;=&amp; tr (\boldsymbol{\Sigma^{-1}} \boldsymbol{\Sigma} ) \\
+&amp;=&amp; D
+\end{eqnarray}</p>
+
+<p>よって</p>
+
+<p>\begin{eqnarray}
+H[\boldsymbol{x}] = \frac{1}{2} \ln | \boldsymbol{\Sigma}| + \frac{D}{2}(1+\ln(2\pi))
+\end{eqnarray}</p>
+
+<p>以上.</p>
+
+<h1 id="所感">所感</h1>
+
+<p>期待値は線形性を持っているのでトレースと順番入れ替えたのがちょっと心配です．</p>
+
+<h1 id="参考にした記事">参考にした記事</h1>
+
+<ul>
+<li><a href="http://sucrose.hatenablog.com/entry/2013/07/20/190146">正規分布間のKLダイバージェンスの導出</a></li>
+<li><a href="http://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf">Matrix Cookbook</a></li>
+<li><a href="http://www.r.dl.itc.u-tokyo.ac.jp/~nakagawa/SML1/math1.pdf">付録1．数学の復習</a></li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2015/07/prml2_12">Jul 16, 2015 - PRML 演習2.12</a></h1>
@@ -172,62 +263,6 @@ deactivate #この環境から抜ける
 <div class="highlight"><pre><code class="language-text" data-lang="text">pip install ipython
 ipython notebook #ブラウザが起動
 </code></pre></div>
-        </div>
-    </div>
-</div>
-
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/07/PRML99pi">Jul 15, 2015 - PRML演習9.9 pi</a></h1>
-        
-        <div class="content">
-            <h3 id="本題">本題</h3>
-
-<p>負担率を固定した際に，式(9.40)を
-\(\pi_{k}\)
-について最大化しようとすると式(9.22)で与えられる陽な解が得られることを示す．</p>
-
-<p>\( \sum_k \pi_k = 1 \)
-という条件があるので，ラグランジュの未定乗数法を利用する．</p>
-
-<p>式(9.40)を
-\(\pi_{k}\)
-について最大化しつつ，
-\( \sum_k \pi_k = 1 \)
-を満たすように最大化を行う．</p>
-
-<p>ラグランジュ関数は
-\( L(\boldsymbol{\pi},\lambda) = f(\boldsymbol{\pi}) + \lambda ( \sum_k \pi_k - 1) \)
-となる．</p>
-
-<p>\( f(\boldsymbol{\pi} ) \)
-は式9.40をさします．</p>
-
-<p>ラグランジュ関数を
-\(\boldsymbol{\pi_k}\)
-について微分して0と置いた式と制約を満たすことから，</p>
-
-<p>\begin{eqnarray}
-\sum^N_{n=1} \gamma(z_{nk}) \frac{1}{\pi_k} + \lambda = 0 \\
-\sum_k \pi_k - 1 = 0
-\end{eqnarray}</p>
-
-<p>を使って
-\( \lambda \)
-について求める．</p>
-
-<p>微分した式を条件式に代入すると，</p>
-
-<p>\( - \sum_k \frac{N_k}{\lambda} = 1 \)
-なので，</p>
-
-<p>\( \lambda = -N \)</p>
-
-<p>よって</p>
-
-<p>\( \pi_k = \frac{N_k}{N} \)
-式(9.22)を導くことができた．</p>
-
         </div>
     </div>
 </div>
