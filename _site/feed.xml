@@ -7,30 +7,6 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>PRML 演習2.13</title>
-				<description>&lt;p&gt;2つのガウス分布p(x),q(x)のKLダイバージェンスを求める．&lt;/p&gt;
-
-&lt;p&gt;式(1.113)の式を使うとエントロピーを2つ計算して差を取ればいい．
-エントロピーの定義が既にあるので，それを代入するだけな気がする．&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-KL(p||q) &amp;amp;=&amp;amp; - \int p(\boldsymbol{x}) \ln q(\boldsymbol{x}) d \boldsymbol{x} +
- \int p(\boldsymbol{x}) \ln p (\boldsymbol{x}) d \boldsymbol{x} \\
-&amp;amp;=&amp;amp; \frac{1}{2} \ln | \boldsymbol{L}| + \frac{D}{2}(1+\ln(2\pi)) -
-\frac{1}{2} \ln | \boldsymbol{\Sigma}| - \frac{D}{2}(1+\ln(2\pi)) \\
-&amp;amp;=&amp;amp; \frac{\ln(|\boldsymbol{L}|) - \ln (|\Sigma|)}{2}
-\end{eqnarray}&lt;/p&gt;
-
-&lt;h1 id=&quot;所感&quot;&gt;所感&lt;/h1&gt;
-
-&lt;p&gt;本当か？&lt;/p&gt;
-</description>
-				<pubDate>Tue, 21 Jul 2015 03:00:00 +0900</pubDate>
-				<link>/2015/07/prml2_13</link>
-				<guid isPermaLink="true">/2015/07/prml2_13</guid>
-			</item>
-		
-			<item>
 				<title>PRML 演習2.15</title>
 				<description>&lt;p&gt;多変量ガウス分布のエントロピーが&lt;/p&gt;
 

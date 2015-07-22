@@ -52,8 +52,6 @@
     <h1>Recent Posts</h1>
     <ul>
         
-          <li><a href="/2015/07/prml2_13">PRML 演習2.13</a></li>
-        
           <li><a href="/2015/07/prml2_15">PRML 演習2.15</a></li>
         
           <li><a href="/2015/07/prml2_12">PRML 演習2.12</a></li>
@@ -61,6 +59,8 @@
           <li><a href="/2015/07/pythonIntro">Python勉強メモ</a></li>
         
           <li><a href="/2015/07/PRML99pi">PRML演習9.9 pi</a></li>
+        
+          <li><a href="/2015/07/PRML98">PRML演習9.8</a></li>
         
     </ul>
 </div>
@@ -79,32 +79,6 @@
         </div>
         <div class="col-md-9">
             
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/07/prml2_13">Jul 21, 2015 - PRML 演習2.13</a></h1>
-        
-        <div class="content">
-            <p>2つのガウス分布p(x),q(x)のKLダイバージェンスを求める．</p>
-
-<p>式(1.113)の式を使うとエントロピーを2つ計算して差を取ればいい．
-エントロピーの定義が既にあるので，それを代入するだけな気がする．</p>
-
-<p>\begin{eqnarray}
-KL(p||q) &amp;=&amp; - \int p(\boldsymbol{x}) \ln q(\boldsymbol{x}) d \boldsymbol{x} +
- \int p(\boldsymbol{x}) \ln p (\boldsymbol{x}) d \boldsymbol{x} \\
-&amp;=&amp; \frac{1}{2} \ln | \boldsymbol{L}| + \frac{D}{2}(1+\ln(2\pi)) -
-\frac{1}{2} \ln | \boldsymbol{\Sigma}| - \frac{D}{2}(1+\ln(2\pi)) \\
-&amp;=&amp; \frac{\ln(|\boldsymbol{L}|) - \ln (|\Sigma|)}{2}
-\end{eqnarray}</p>
-
-<h1 id="所感">所感</h1>
-
-<p>本当か？</p>
-
-        </div>
-    </div>
-</div>
-
 <div class="article">
     <div class="well">
         <h1><a href="/2015/07/prml2_15">Jul 21, 2015 - PRML 演習2.15</a></h1>
@@ -240,6 +214,55 @@ var[x] &amp;=&amp; \int_a^b x^2 \frac{1}{b-a} dx - E[x]^2 \\
 
 <p>一様分布についてのもう少しだけ詳しい説明が付録Bにあります．</p>
 
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/07/pythonIntro">Jul 16, 2015 - Python勉強メモ</a></h1>
+        
+        <div class="content">
+            <h1 id="はじめに">はじめに</h1>
+
+<p>講義の関係で少しだけNLTKとかgensimとかflaskを触りましたが，
+全然Pythonわからないので，いい加減勉強します．</p>
+
+<p>図書館にあったこれをひと通り読むつもりです．</p>
+
+<p><a href="http://www.amazon.co.jp/gp/product/4873116880/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=4873116880&linkCode=as2&tag=algebrae-22"><img border="0" src="http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4873116880&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=algebrae-22" ></a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=algebrae-22&l=as2&o=9&a=4873116880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<h1 id="環境">環境</h1>
+
+<ul>
+<li>pyenv</li>
+<li>anaconda3-2.1.0</li>
+<li>Jupyter</li>
+</ul>
+
+<p>Javaをよく書くのでJythonも検討しましたが，Javaとの連携がめんどうそうで手間でやめました．</p>
+
+<p>速い速いと聞くpypyもやろうとしましたが，パッケージ周りがめんどうだったのでやめました．</p>
+
+<p>scikit-learnなどをやりたい方はanacondaを入れると必要なパッケージがだいたい入ってて簡単です．</p>
+
+<h1 id="本題">本題</h1>
+
+<p>まずを環境つくります．
+グローバルでパッケージを管理したくないので，virtualenvを使います．</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">pip install virtualenv
+virtualenv no-site-packages anaconda3
+cd anaconda3
+. bin/activate #この環境を使う
+deactivate #この環境から抜ける
+</code></pre></div>
+<p>REPLでも十分ですが，jupyterでよりインタラクティブにpython使ってみます．
+ちなみにJuliaもつかえます．</p>
+
+<p>jupyterからhtmlのslideも作れちゃうので，tutorialには便利そうです．</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">pip install ipython
+ipython notebook #ブラウザが起動
+</code></pre></div>
         </div>
     </div>
 </div>
