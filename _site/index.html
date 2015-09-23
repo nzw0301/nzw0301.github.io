@@ -52,6 +52,8 @@
     <h1>Recent Posts</h1>
     <ul>
         
+          <li><a href="/2015/09/paper">Antisocial Behavior in Online Discussion Communities 読んだ</a></li>
+        
           <li><a href="/2015/07/prml2_15">PRML 演習2.15</a></li>
         
           <li><a href="/2015/07/prml2_12">PRML 演習2.12</a></li>
@@ -59,8 +61,6 @@
           <li><a href="/2015/07/pythonIntro">Python勉強メモ</a></li>
         
           <li><a href="/2015/07/PRML99pi">PRML演習9.9 pi</a></li>
-        
-          <li><a href="/2015/07/PRML98">PRML演習9.8</a></li>
         
     </ul>
 </div>
@@ -80,6 +80,64 @@
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/09/paper">Sep 23, 2015 - Antisocial Behavior in Online Discussion Communities 読んだ</a></h1>
+        
+        <div class="content">
+            <p>当該の論文は<a href="http://cs.stanford.edu/people/jure/pubs/trolls-icwsm15.pdf" title="論文リンク">これ</a></p>
+
+<p>基本的に(nzw:)はnzwが感じことなどを書きます．</p>
+
+<h1 id="既存研究との違い">既存研究との違い</h1>
+
+<p>既存研究では，少人数のコミュニティを対象に人力で解析していたが，この研究では大規模なデータを解析</p>
+
+<h1 id="概要">概要</h1>
+
+<p>ニュースサイトやゲームサイトなどのコミュニティでは，ユーザ同士で議論を行うことができる．
+この論文でも使われているコミュニティサイトだと <a href="http://www.breitbart.com/big-government/2015/09/22/reza-aslan-gop-party-xenophobia-anti-muslim-bashing/" title="breitbart">例</a>のように1つの記事に対してコメント書くことができ，それに対してリプライできる．
+(nzw:1記事に5000以上のコメントが付いているのでデータ量はかなりある印象)</p>
+
+<p>これらのコミュニティでは，釣りなど迷惑行為を行うユーザが問題となる．
+そこで迷惑行為(antisocial behavior)を行うユーザの特徴を調べ，コミュニティに参加した初期段階でそのユーザが将来的にバンされるかを予測を行う．
+永久的にバンされたユーザを迷惑行為を行うユーザの正解データと定義して実験．</p>
+
+<p>扱うデータの特徴は以下のような感じ</p>
+
+<ul>
+<li>記事に対してユーザはコメントをつけることができる</li>
+<li>コメントにvoteやリプライできる</li>
+<li>管理者によってだけ投稿は削除される</li>
+<li>ユーザは他のユーザの投稿を報告できる</li>
+<li>迷惑行為がひどいユーザは管理者からバンされる </li>
+</ul>
+
+<p>この研究で使われる手法としては統計解析，機械学習（ロジスティック回帰とランダムフォレスト），クラウドソーシング(mechanical task)．</p>
+
+<p>以下では，論文に合わせて，バンされるユーザをFBUs，バンされないユーザをNBUsと表記．
+実験の結果から明らかになったことは</p>
+
+<ul>
+<li>FBUsの投稿文は読みにくい(ARIで計算)</li>
+<li>FBUsはリプライを受けやすい</li>
+<li>FBUsは複数のスレッド(スレッドは記事の単位)ではなく一部のスレッドに集中しやすい</li>
+<li>FBUsの投稿内容は時間経過にともない悪化</li>
+<li>時間経過によってコミュニティから寛容的に見られなくなる</li>
+<li>FBUsの平均投稿回数は264回（一般的なユーザは平均22回)</li>
+<li>FBUsの投稿は同じスレッドの前の投稿文と比べると類似度が低い</li>
+<li>他ユーザと同じような投稿内容でも自分だけ削除されると迷惑行為は悪化</li>
+</ul>
+
+<p>あるユーザがバンされるかの予測では，最初の5~10投稿を使うだけで十分な性能であった．
+投稿数が増えるほどバンされるかの予測が困難になる．</p>
+
+<p>また別のコミュニティサイトで学習したモデルを使っても性能が出る（特徴量は論文の表3を参照）</p>
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2015/07/prml2_15">Jul 21, 2015 - PRML 演習2.15</a></h1>
@@ -215,55 +273,6 @@ var[x] &amp;=&amp; \int_a^b x^2 \frac{1}{b-a} dx - E[x]^2 \\
 
 <p>一様分布についてのもう少しだけ詳しい説明が付録Bにあります．</p>
 
-        </div>
-    </div>
-</div>
-
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/07/pythonIntro">Jul 16, 2015 - Python勉強メモ</a></h1>
-        
-        <div class="content">
-            <h1 id="はじめに">はじめに</h1>
-
-<p>講義の関係で少しだけNLTKとかgensimとかflaskを触りましたが，
-全然Pythonわからないので，いい加減勉強します．</p>
-
-<p>図書館にあったこれをひと通り読むつもりです．</p>
-
-<p><a href="http://www.amazon.co.jp/gp/product/4873116880/ref=as_li_ss_il?ie=UTF8&camp=247&creative=7399&creativeASIN=4873116880&linkCode=as2&tag=algebrae-22"><img border="0" src="http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4873116880&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=algebrae-22" ></a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=algebrae-22&l=as2&o=9&a=4873116880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
-
-<h1 id="環境">環境</h1>
-
-<ul>
-<li>pyenv</li>
-<li>anaconda3-2.1.0</li>
-<li>Jupyter</li>
-</ul>
-
-<p>Javaをよく書くのでJythonも検討しましたが，Javaとの連携がめんどうそうで手間でやめました．</p>
-
-<p>速い速いと聞くpypyもやろうとしましたが，パッケージ周りがめんどうだったのでやめました．</p>
-
-<p>scikit-learnなどをやりたい方はanacondaを入れると必要なパッケージがだいたい入ってて簡単です．</p>
-
-<h1 id="本題">本題</h1>
-
-<p>まずを環境つくります．
-グローバルでパッケージを管理したくないので，virtualenvを使います．</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">pip install virtualenv
-virtualenv no-site-packages anaconda3
-cd anaconda3
-. bin/activate #この環境を使う
-deactivate #この環境から抜ける
-</code></pre></div>
-<p>REPLでも十分ですが，jupyterでよりインタラクティブにpython使ってみます．
-ちなみにJuliaもつかえます．</p>
-
-<p>jupyterからhtmlのslideも作れちゃうので，tutorialには便利そうです．</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">pip install ipython
-ipython notebook #ブラウザが起動
-</code></pre></div>
         </div>
     </div>
 </div>
