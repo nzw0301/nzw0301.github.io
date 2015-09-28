@@ -52,6 +52,8 @@
     <h1>Recent Posts</h1>
     <ul>
         
+          <li><a href="/2015/09/ACL2015InterestingPaper">ACL 2015で気になったもの一覧</a></li>
+        
           <li><a href="/2015/09/paper">Antisocial Behavior in Online Discussion Communities 読んだ</a></li>
         
           <li><a href="/2015/07/prml2_15">PRML 演習2.15</a></li>
@@ -59,8 +61,6 @@
           <li><a href="/2015/07/prml2_12">PRML 演習2.12</a></li>
         
           <li><a href="/2015/07/pythonIntro">Python勉強メモ</a></li>
-        
-          <li><a href="/2015/07/PRML99pi">PRML演習9.9 pi</a></li>
         
     </ul>
 </div>
@@ -80,6 +80,40 @@
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/09/ACL2015InterestingPaper">Sep 28, 2015 - ACL 2015で気になったもの一覧</a></h1>
+        
+        <div class="content">
+            <p>タイトルの通りである．</p>
+
+<p>論文の一覧は <a href="http://www.aclweb.org/anthology/P/P15/" title="ACL paper list">ここ</a></p>
+
+<h1 id="sensembed-learning-sense-embeddingsfor-word-and-relational-similarity"><a href="http://www.aclweb.org/anthology/P/P15/P15-1010.pdf" title="pdf link">SENSEMBED:Learning Sense Embeddingsfor Word and Relational Similarity</a></h1>
+
+<p>単語の意味のレベルで分散表現の獲得．意味のついたでかいコーパスがないので，WSDのstate-of-artsな手法を使う</p>
+
+<h1 id="learning-continuous-word-embedding-with-metadata-for-question-retrieval-in-community-question-answering"><a href="http://www.aclweb.org/anthology/P/P15/P15-1025.pdf" title="pdf link">Learning Continuous Word Embedding with Metadata for Question Retrieval in Community Question Answering</a></h1>
+
+<p>コミュニティQAサイトで過去に出た質問を探すために，分散表現をQAのタグやカテゴリと一緒に学習する．Skim-gram（word2vecに実装されてるやつ）の拡張．レシピでも同じことできそうだなぁと思った．（類似レシピを探して嬉しいかどうかはよくわからないけど）</p>
+
+<h1 id="その他アブスト読んだけどぱっと説明できなかったもの">その他アブスト読んだけどぱっと説明できなかったもの</h1>
+
+<p><a href="http://www.aclweb.org/anthology/P/P15/P15-1077.pdf" title="link">Gaussian LDA for Topic Models with Word Embeddings</a></p>
+
+<p>LDAの多項分布をガウス分布を使う手法．word embeddingsとの関係がいまいちつかめなかったので後で読む気がする</p>
+
+<p>knowledge Graph系2つ，もう一個はあったけどクラウドソーシング使ってて多分違うのでリストから外した．</p>
+
+<ul>
+<li><a href="http://www.aclweb.org/anthology/P/P15/P15-1067.pdf">Knowledge Graph Embedding via Dynamic Mapping Matrix</a></li>
+<li><a href="http://www.aclweb.org/anthology/P/P15/P15-1009.pdf">Semantically Smooth Knowledge Graph Embedding</a></li>
+</ul>
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2015/09/paper">Sep 23, 2015 - Antisocial Behavior in Online Discussion Communities 読んだ</a></h1>
@@ -229,58 +263,10 @@ H[\boldsymbol{x}] = \frac{1}{2} \ln | \boldsymbol{\Sigma}| + \frac{D}{2}(1+\ln(2
     </div>
 </div>
 
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/07/prml2_12">Jul 16, 2015 - PRML 演習2.12</a></h1>
-        
-        <div class="content">
-            <h1 id="はじめに">はじめに</h1>
-
-<p>9章で混合ガウス分布がこれでもかと出てくるので，一旦2章まで戻りました．
-ディリクレ分布までやったので今度はガウス分布です．</p>
-
-<h4 id="1-正規化の確認">1. 正規化の確認</h4>
-
-<p>連続変数なので，全区間を積分して1になることを確かめればよい．</p>
-
-<p>\begin{eqnarray}
-\int_a^b \frac{1}{b-a} dx &amp;=&amp; [\frac{x}{b-a}]_a^b \\
-&amp;=&amp; \frac{b}{b-a} - \frac{a}{b-a} \\
-&amp;=&amp; 1
-\end{eqnarray}</p>
-
-<h4 id="2-平均">2. 平均</h4>
-
-<p>式(1.34)を使うだけ</p>
-
-<p>\begin{eqnarray}
-E[x] &amp;=&amp; \int_a^b x \frac{1}{b-a} dx \\
-&amp;=&amp; [\frac{x^2}{2(b-a)}]_a^b \\
-&amp;=&amp; \frac{b^2}{2(b-a)} - \frac{a^2}{2(b-a)} \\
-&amp;=&amp; \frac{a+b}{2}
-\end{eqnarray}</p>
-
-<h4 id="3-分散">3. 分散</h4>
-
-<p>求めた平均と式(1.39)を使う</p>
-
-<p>\begin{eqnarray}
-var[x] &amp;=&amp; \int_a^b x^2 \frac{1}{b-a} dx - E[x]^2 \\
-&amp;=&amp; [\frac{x^3}{3(b-a)}]_a^b - \frac{(a+b)^2}{4}\\
-&amp;=&amp; \frac{b^2+ab+a^2}{3} - \frac{(a+b)^2}{4}\\
-&amp;=&amp; \frac{(a-b)^2}{12}
-\end{eqnarray}</p>
-
-<p>一様分布についてのもう少しだけ詳しい説明が付録Bにあります．</p>
-
-        </div>
-    </div>
-</div>
-
 
 <div class="pagination">
   
-  <span class="page_number ">Page: 1 of 3</span>
+  <span class="page_number ">Page: 1 of 4</span>
   
     <a class="btn btn-default" href="/page2" class="next">Older</a>
   

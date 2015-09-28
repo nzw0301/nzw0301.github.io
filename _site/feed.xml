@@ -7,6 +7,38 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>ACL 2015で気になったもの一覧</title>
+				<description>&lt;p&gt;タイトルの通りである．&lt;/p&gt;
+
+&lt;p&gt;論文の一覧は &lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/&quot; title=&quot;ACL paper list&quot;&gt;ここ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;sensembed-learning-sense-embeddingsfor-word-and-relational-similarity&quot;&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1010.pdf&quot; title=&quot;pdf link&quot;&gt;SENSEMBED:Learning Sense Embeddingsfor Word and Relational Similarity&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;単語の意味のレベルで分散表現の獲得．意味のついたでかいコーパスがないので，WSDのstate-of-artsな手法を使う&lt;/p&gt;
+
+&lt;h1 id=&quot;learning-continuous-word-embedding-with-metadata-for-question-retrieval-in-community-question-answering&quot;&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1025.pdf&quot; title=&quot;pdf link&quot;&gt;Learning Continuous Word Embedding with Metadata for Question Retrieval in Community Question Answering&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;コミュニティQAサイトで過去に出た質問を探すために，分散表現をQAのタグやカテゴリと一緒に学習する．Skim-gram（word2vecに実装されてるやつ）の拡張．レシピでも同じことできそうだなぁと思った．（類似レシピを探して嬉しいかどうかはよくわからないけど）&lt;/p&gt;
+
+&lt;h1 id=&quot;その他アブスト読んだけどぱっと説明できなかったもの&quot;&gt;その他アブスト読んだけどぱっと説明できなかったもの&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1077.pdf&quot; title=&quot;link&quot;&gt;Gaussian LDA for Topic Models with Word Embeddings&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;LDAの多項分布をガウス分布を使う手法．word embeddingsとの関係がいまいちつかめなかったので後で読む気がする&lt;/p&gt;
+
+&lt;p&gt;knowledge Graph系2つ，もう一個はあったけどクラウドソーシング使ってて多分違うのでリストから外した．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1067.pdf&quot;&gt;Knowledge Graph Embedding via Dynamic Mapping Matrix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1009.pdf&quot;&gt;Semantically Smooth Knowledge Graph Embedding&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+				<pubDate>Mon, 28 Sep 2015 16:30:00 +0900</pubDate>
+				<link>/2015/09/ACL2015InterestingPaper</link>
+				<guid isPermaLink="true">/2015/09/ACL2015InterestingPaper</guid>
+			</item>
+		
+			<item>
 				<title>Antisocial Behavior in Online Discussion Communities 読んだ</title>
 				<description>&lt;p&gt;当該の論文は&lt;a href=&quot;http://cs.stanford.edu/people/jure/pubs/trolls-icwsm15.pdf&quot; title=&quot;論文リンク&quot;&gt;これ&lt;/a&gt;&lt;/p&gt;
 
