@@ -40,3 +40,9 @@ comments: false
 3段目でchain ruleで展開したもう一方も総和で展開する．出力層なので，式(4.3)に対応．
 
 最終的には \\(k=l=j\\)でない項はすべて0になるので4段目の式が得られる．
+
+中間層はこれをほぼおなじやり方でchain ruleと関係式の展開を行っていくので，近いうちに書きます．
+
+青い深層学習も紫の深層学習も数式が丁寧に負えないような印象があるので，適宜
+<a href="http://goodfeli.github.io/dlbook/">Yoshua Bengio, Ian Goodfellow and Aaron CourvilleさんたちのDeep Learning</a>を参照するといいと思った．
+Chain ruleから説明があるしかなり分かりやすかった．
