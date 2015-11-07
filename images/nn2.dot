@@ -1,4 +1,5 @@
 digraph G {
+  graph [size="3.5"]
   ordering="out";
         rankdir=LR
 	splines=line
@@ -28,11 +29,13 @@ digraph G {
 
 	subgraph cluster_3 {
 		color=white;
-		node [shape=point];
+		node [shape=none];
 		u,v,w;
 	}
 
-        
+        u [label="y2"];
+        v [label="y3"];
+        w [label="y1"];        
         b1, b2 [label="+1"];
         o0,o2,a,c [label=""]
         b [label="j"]
@@ -47,12 +50,9 @@ digraph G {
         
         o1 -> v;
         
-        
-        
-            
         x1 -> a,c;
         x2 -> a,c;
-        x1,x2,x3,x4,b1 -> b [color = red];
+        x1,x2,x3,x4,b1 -> b;
         x3 -> a,c;
         x4 -> a,c;
         b1 -> a,c;

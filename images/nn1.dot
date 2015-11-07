@@ -1,4 +1,5 @@
 digraph G {
+  graph [size="3.5"]
   ordering="out";
         rankdir=LR
 	splines=line
@@ -32,26 +33,33 @@ digraph G {
 		u,v,w;
 	}
 
-        u [label="y2"];
-        v [label="y3"];
-        w [label="y1"];
+        u [label="y2"]
+        v [label="y3"]
+        w [label="y1"]
         b1, b2 [label="+1"];
-        o0,o1,o2,a,b,c [label=""]
+        b2 [color="red"]
+        a,c [label="" color="red"];
+        b [label="j", color="red"];
+        o0,o1 [label=""];
+        o2 [label="k"]
+        x1,x3,x4 [label=""];
+        x2 [label="i"]
+        b -> o0,o1;
+        b -> o2[color="red"];
         
-        a,b,c,b2 -> o0,o1,o2;
+        a,c,b2 -> o2 [color="red"];
+        a,c,b2 -> o0,o1;
         o0 -> u;
-        o2 -> w;
-        
+        o2 -> w;        
         o1 -> v;
-        
-        
-        
 
-        x1 -> a,b,c;
-        x2 -> a,b,c;
-        x3 -> a,b,c;
-        x4 -> a,b,c;
-        b1 -> a,b,c;
+        x1 -> a,c;
+        x2 -> a,c;
+        x1,x2,x3,x4,b1 -> b;
+
+        x3 -> a,c;
+        x4 -> a,c;
+        b1 -> a,c;
         
 }
 
