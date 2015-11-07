@@ -96,7 +96,7 @@ comments: false
 2項目も同様に分子を展開して微分すると
 
 \begin{eqnarray}
-\frac{\partial u_k^{(3)}}{\partial u_j^{(2)}} &=& \frac{\partial \sum_j w_{kj}^{(3)} f'(u_j^{(2)}) }{\partial u_j^{(2)}} \\\
+\frac{\partial u_k^{(3)}}{\partial u_j^{(2)}} &=& \frac{\partial \sum_j w_{kj}^{(3)} f(u_j^{(2)}) }{\partial u_j^{(2)}} \\\
 &=& w_{kj}^{(3)} f'(u_j^{(2)})
 \end{eqnarray}
 
