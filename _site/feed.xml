@@ -1,10 +1,358 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>nzw page</title>
-		<description>メモと個人ページ</description>
+		<title>鴨川η</title>
+		<description>数式がメイン</description>
 		<link></link>
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>青深層学習 4.4.2 行列表記</title>
+				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
+
+&lt;p&gt;前回の続きです．&lt;/p&gt;
+
+&lt;p&gt;順伝播，誤差逆伝播，重みとバイアスの更新を行列の表記で行います．&lt;/p&gt;
+
+&lt;h1 id=&quot;表記&quot;&gt;表記&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(N\) ：ミニバッチのデータ数&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{x}_n\)：1件のデータ(例えば1つ文書，行は単語の頻度とか)&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{X} = \left[ \begin{array}{c} \boldsymbol{x}_1 ... \boldsymbol{x}_N \end{array} \right]\)：ミニバッチの行列&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{W^{(l)}} = w_{ji}^{(l)} \)：\(l\)層のおける重みの行列 要素はユニット\(i\)からユニット\(j\)のリンクの重み&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{b}^{(l)}\)：\(l\)層のバイアスのベクトル&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{u}^{(l)}_n\)：データ\(\boldsymbol{x}_n\)のときの，\(l\)層の入力ベクトル 1行目はユニットの1つ目の入力に対応&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{U}^{(l)} = \left[ \begin{array}{c} \boldsymbol{u}_1^{(l)} ... \boldsymbol{u}_N^{(l)} \end{array} \right]\)：\(l\)層の入力の行列，列がデータ1件，行がユニットに対応&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{Z}^{(l)} = \left[ \begin{array}{c} \boldsymbol{z}_1^{(l)} ... \boldsymbol{z}_N^{(l)} \end{array} \right]\)：\(l\)層の出力の行列，列がデータ1件，行がユニットに対応，\(\boldsymbol{U}^{(l)}\)の各要素に活性化を適用しただけ&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{Y} = \left[ \begin{array}{c} \boldsymbol{y}_1 ... \boldsymbol{y}_N \end{array} \right]\)：各データに対する最終的な出力を列にもつ行列&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{\Delta^{(l)}}\)：列がミニバッチのデータ，行がユニットのデルタ\(\delta^{(l)}_j\)の行列&lt;/li&gt;
+&lt;li&gt;k：出力層のユニット数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;順伝播&quot;&gt;順伝播&lt;/h1&gt;
+
+&lt;p&gt;入力は恒等写像なので， \(\boldsymbol{Z}^{(1)}=\boldsymbol{X}\) ．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\boldsymbol{U}^{(l)} &amp;amp;=&amp;amp;\boldsymbol{W^{(l)}} \boldsymbol{Z^{(l-1)}} + \boldsymbol{b}^{(l)} \boldsymbol{1}_N^{T} \tag{1} \\
+\boldsymbol{Z}^{(l)} &amp;amp;=&amp;amp; f^{(l)}(\boldsymbol{U}^{(l)}) \tag{2}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(j\)：\((l)\)層のユニット数（バイアス除く）&lt;/li&gt;
+&lt;li&gt;\(i\)：\((l-1)\)層のユニット数（バイアス除く）&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{W}^{(l)}\)：\(j \times i\)&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{U}^{(l)}\)：\(j \times N\)&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{Z}^{(l)}\)：\(j \times N\)&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{b}^{(l)}\)：\(j \times 1\)&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{1}_N\)：\(1 \times N\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;逆伝播&quot;&gt;逆伝播&lt;/h1&gt;
+
+&lt;p&gt;出力層のデルタ\(\boldsymbol{\Delta^{(L)}} = \boldsymbol{D} - \boldsymbol{Y}\)
+を\((L-1)\)~\(2\)まで逆伝播させる．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\boldsymbol{\Delta}^{(l)} = f&amp;#39;^{(l)}(\boldsymbol{U}^{(l)}) \odot (\boldsymbol{W}^{(l+1)T} \boldsymbol{\Delta}^{(l+1)}) \tag{3}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(\boldsymbol{\Delta^{(L)}} , \boldsymbol{D} , \boldsymbol{Y}\)：\(k \times N\)&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)&lt;/li&gt;
+&lt;li&gt;\(\odot\)：&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%80%E3%83%9E%E3%83%BC%E3%83%AB%E7%A9%8D&quot; title=&quot;アダマール積&quot;&gt;アダマール積&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;重み更新&quot;&gt;重み更新&lt;/h1&gt;
+
+&lt;p&gt;逆伝播で計算したデルタを使って微分し，重み\(\boldsymbol{W}\)を更新．
+誤差逆伝播が漸化式で求めたので，重みの更新は並列して計算ができる．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(\partial \boldsymbol{W}^{(l)} \)：\((l)\)層の重み\(w_{ji}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j,i)\)成分にもつ行列&lt;/li&gt;
+&lt;li&gt;\(\partial \boldsymbol{b}^{(l)} \)：\((l)\)層の重み\(b_{j}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j)\)成分にもつ列ベクトル&lt;/li&gt;
+&lt;li&gt;\(\epsilon\)：学習率&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\partial \boldsymbol{W}^{(l)} &amp;amp;=&amp;amp; \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{Z^{(l-1)T}} \tag{4}\\
+\partial \boldsymbol{b}^{(l)} &amp;amp;=&amp;amp; \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{1}_N \tag{5}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\(\partial \boldsymbol{W}^{(l)}\)：\(j \times i\)&lt;/li&gt;
+&lt;li&gt;\(\partial \boldsymbol{b}^{(l)}\)：\(j \times 1\)&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{Z^{(l-1)}} \)：\(i \times N\)&lt;/li&gt;
+&lt;li&gt;\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)&lt;/li&gt;
+&lt;li&gt;\(j\)：\((l)\)層のユニット数（バイアス除く）&lt;/li&gt;
+&lt;li&gt;\(i\)：\((l-1)\)層のユニット数（バイアス除く）&lt;/li&gt;
+&lt;li&gt;\(N\)：ミニバッチのデータ数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;更新式は，&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\boldsymbol{W}^{(l)} &amp;amp;\leftarrow&amp;amp;
+\boldsymbol{W}^{(l)}
+- \epsilon \partial \boldsymbol{W}^{(l)} \tag{6} \\ 
+\boldsymbol{b}^{(l)} &amp;amp;\leftarrow&amp;amp;
+\boldsymbol{b}^{(l)}
+- \epsilon \partial \boldsymbol{b}^{(l)} \tag{7} \\ 
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;以上です．&lt;/p&gt;
+</description>
+				<pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
+				<link>/2015/11/blueDeepLearningChapter442</link>
+				<guid isPermaLink="true">/2015/11/blueDeepLearningChapter442</guid>
+			</item>
+		
+			<item>
+				<title>青深層学習 4.4.1 出力層でのデルタ</title>
+				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
+
+&lt;p&gt;前回の続きです．&lt;/p&gt;
+
+&lt;p&gt;高校生で培った微分を駆使してがんばります．&lt;/p&gt;
+
+&lt;h2 id=&quot;出力層のデルタ&quot;&gt;出力層のデルタ&lt;/h2&gt;
+
+&lt;p&gt;出力層のデルタを求めます．
+出力層のデルタは，誤差関数\(E_n\)を，出力層の入力 \(u_{j}^{(L)}\) で微分(式1)である．&lt;/p&gt;
+
+&lt;p&gt;なので，出力層の活性化関数と誤差関数によって計算が異なる（本書の例の場合結果は全て同じになる）&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\delta_j^{(L)} = 
+  \frac{\partial E_n }{\partial u_{j}^{(L)}} \tag1
+\end{eqnarray}&lt;/p&gt;
+
+&lt;h1 id=&quot;回帰&quot;&gt;回帰&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;活性化関数：恒等写像&lt;/li&gt;
+&lt;li&gt;誤差関数：2乗誤差&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2乗誤差は以下の式2であり，出力層が恒等写像なので，\(\boldsymbol{y}=\boldsymbol{z}=\boldsymbol{u}\)
+より式4に変形できる．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+E_n &amp;amp;=&amp;amp; \frac{1}{2} ||\boldsymbol{y} - \boldsymbol{d} ||^2 \tag{2}\\
+&amp;amp;=&amp;amp; \frac{1}{2}\sum_j (y_j-d_j)^2 \tag{3} \\
+&amp;amp;=&amp;amp; \frac{1}{2}\sum_j (u_j^{(L)} - d_j)^2 \tag{4} \\
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;式4を\(u_j^{(L)}\)で微分すればいいので\(L\)層のデルタは，
+\begin{eqnarray}
+\delta_j^{(L)} &amp;amp;=&amp;amp; u_j^{(L)} - d_j \tag{5} \\
+&amp;amp;=&amp;amp; y_j - d_j \tag{6}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;h1 id=&quot;2値分類&quot;&gt;2値分類&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;活性化関数：ロジスティック関数&lt;/li&gt;
+&lt;li&gt;誤差関数：対数尤度&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2値分類なので出力層のユニットは1つだけ．&lt;/p&gt;
+
+&lt;p&gt;対数尤度の総和の内側のデルタ（データ1つに対するデルタ）を求める．&lt;/p&gt;
+
+&lt;p&gt;式7で分子を対数尤度で展開し，式8はchain ruleを適用してyで展開する．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\delta^{(L)} &amp;amp;=&amp;amp; \frac
+{(\partial d \log(y) + (1-d)\log(1-y))}
+{\partial u} \tag{7} \\
+&amp;amp;=&amp;amp; \frac
+{(\partial d \log(y) + (1-d)\log(1-y))}
+{\partial y}
+\frac{\partial y}
+{\partial u} \tag{8} \\
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;式8の第1項目は，対数の微分，2項目は，出力層がロジスティック関数なので， \(y=\frac{1}{1+\exp(-u)}\) を\(u\)で微分する必要がある（高校でいうところの商の微分）．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\delta^{(L)} &amp;amp;=&amp;amp; (\frac{d}{y} - \frac{1-d}{1-y}) y(1-y) \tag{9}  \\
+&amp;amp;=&amp;amp; d(1-y)-(1-d)y \tag{10} \\
+&amp;amp;=&amp;amp; d-y \tag{11} \\
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;ロジスティック関数をちゃんと微分すると以下のようになる．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial y} {\partial u} &amp;amp;=&amp;amp; \frac{\partial}{\partial u} \frac{1}{1+\exp(-u)} \\
+&amp;amp;=&amp;amp; \frac{(-1)(1+\exp(-u))(-1)}{(1+\exp(-u))^2}\\
+&amp;amp;=&amp;amp; \frac{1+\exp(-u)}{(1+\exp(-u))^2}\\
+&amp;amp;=&amp;amp;(\frac{1}{1+\exp(-u)})(1-\frac{1}{1+\exp(-u)})\\
+&amp;amp;=&amp;amp;y(1-y)
+\end{eqnarray}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;合成関数の微分&lt;/li&gt;
+&lt;li&gt;商の微分&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;って名前がついてたきがする．&lt;/p&gt;
+
+&lt;h1 id=&quot;多値分類&quot;&gt;多値分類&lt;/h1&gt;
+
+&lt;p&gt;（これが一番時間がかかった）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;活性化関数：ソフトマックス関数&lt;/li&gt;
+&lt;li&gt;誤差関数：交差エントロピー&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;誤差関数をソフトマックス関数で展開すると式13になる．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
+&amp;amp;=&amp;amp; - \sum_k d_k \log (\frac{\exp(u_k^{(L)})}{\sum_i \exp(u_i^{(L)})}) \tag{13}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;\(\delta^{(L)}\)を求めるには，chain ruleを使って\(y\)で展開する．&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\delta^{(L)} &amp;amp;=&amp;amp; \sum_k \frac{\partial E_n}{\partial y_k} \frac{\partial y_k}{u_j^{(L)}} \tag{14} \\
+&amp;amp;=&amp;amp; \sum_k (-1) \frac{d_k}{y_k} \frac{\partial }{u_j^{(L)}} \frac{\exp(u_k^{(L)})}{\sum_i \exp(u_i^{(L)})} \tag{15}\\
+&amp;amp;=&amp;amp; 
+- \frac{d_j}{y_j} \frac{\exp(u_j^{(L)}) \{ \sum_i \exp(u_i^{(L)})\} - \{\exp(u_j^{(L)})\}^2 }{\{ \sum_i \exp(u_i^{(L)})\}^2}
+- \sum_{k \neq j} \frac{d_k}{y_k} \frac{-\{\exp(u_k^{(L)})\}\{\exp(u_j^{(L)})\}}{\{\sum_i \exp(u_i^{(L)})\}^2}
+ \tag{16}\\
+&amp;amp;=&amp;amp;
+- d_j \frac{\sum_i \exp(u_i^{(L)}) - 
+\exp(u_j^{(L)})
+  }{\sum_i \exp(u_i^{(L)})}
++ \sum_{k \neq j} \frac{d_k}{y_k} y_k y_j
+ \tag{17}\\
+ &amp;amp;=&amp;amp;
+- d_j + d_j y_j
++ \sum_{k \neq j} d_k y_j
+ \tag{18}\\ 
+ &amp;amp;=&amp;amp; - d_j + \sum_{k} d_k y_j \tag{19}\\
+ &amp;amp;=&amp;amp; - d_j + y_j \tag{20}\\
+\end{eqnarray}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;式15：第1項目はそのまま誤差関数を \(y_k\)で微分し，2項目はソフトマックスに展開する．&lt;/li&gt;
+&lt;li&gt;式16：\(k=j\)と\(k \neq j\)の2つで変わるので，2つに分解して商の微分をする．&lt;/li&gt;
+&lt;li&gt;式17,式18：ソフトマックス関数で約分して整理．&lt;/li&gt;
+&lt;li&gt;式19：第3項に第2項を合わせる．&lt;/li&gt;
+&lt;li&gt;式20：\(\sum_k d_k = 1\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;まとめ&quot;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;全部出力と正解の差になる．&lt;/p&gt;
+</description>
+				<pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
+				<link>/2015/11/blueDeepLearningChapter44</link>
+				<guid isPermaLink="true">/2015/11/blueDeepLearningChapter44</guid>
+			</item>
+		
+			<item>
+				<title>青深層学習 4.3 多層ネットワークへの一般化</title>
+				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
+
+&lt;p&gt;前回 &lt;a href=&quot;http://nzw0301.github.io/2015/11/blueDeepLearningChapter42/&quot; title=&quot;青深層学習，誤差逆伝播法の計算&quot;&gt;青深層学習，誤差逆伝播法の計算&lt;/a&gt;
+の続きです．&lt;/p&gt;
+
+&lt;p&gt;誤差逆伝播を層が全体で3層だけの場合ではなく，\(L\)層に拡張した時の挙動を確認します．&lt;/p&gt;
+
+&lt;p&gt;前回と赤で強調する場所が違うかもしれませんが，ご了承ください．&lt;/p&gt;
+
+&lt;h1 id=&quot;本題&quot;&gt;本題&lt;/h1&gt;
+
+&lt;p&gt;第\(l\)層の重み\(w_{ji}^{(l)}\)で誤差関数を微分することを考える．&lt;/p&gt;
+
+&lt;p&gt;前回と同じくネットワークを示すと赤いリンクの重みで誤差関数を微分する．\(l+1\) 層にもバイアスはある気がするので，ここでは書いている．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn431.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;前回の中間層の重みの微分と同じく，\(w_{ji}^{(l)}\)は\(l\)層のユニット\(j\)の総入力\(u_j^{(l)}\)の一部なので，chain ruleを使って展開する(式1)．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial E_n }{\partial w_{ji}^{(l)}} &amp;amp;=&amp;amp;
+\frac{\partial E_n }{\partial u_j^{(l)}} \frac{\partial u_j^{(l)} }{\partial w_{ji}^{(l)}} \tag{1}\\
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;式1の第1項\(\frac{\partial E_n }{\partial u_j^{(l)}}\)をまず展開する．
+下ぼネットワークで示したように
+\(u_j^{(l)}\)は，活性化関数\(f\)が適用され，
+出力\(z_j^{(l)}\)になり，赤いリンクの重みがかかって\(l+1\)層のユニット((\(l+1\))層のバイアス以外のユニット)入力の一部になる．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn432.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;なので，\(E_n\)を微分するために，chain ruleで展開する．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial E_n }{\partial u_{j}^{(l)}} &amp;amp;=&amp;amp;
+\sum_{k=1}^{K} \frac{\partial E_n }{\partial u_k^{(l+1)}} \frac{\partial u_k^{(l+1)} }{\partial u_j^{(l)}} \tag{2}\\
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;ここで式3のようにデルタを定義する．
+デルタは各層の各ユニットに存在する．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\delta_j^{(l)} \equiv 
+  \frac{\partial E_n }{\partial u_{j}^{(l)}} \tag{3}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;式2を式3を使った形で展開する．&lt;/p&gt;
+
+&lt;p&gt;式2の右辺を項ごとに展開する．
+\(\frac{\partial E_n }{\partial u_k^{(l+1)}} \frac{\partial u_k^{(l+1)} }{\partial u_j^{(l)}}\)の1項目は，式3のデルタの層が違うだけなので，&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial E_n }{\partial u_k^{(l+1)}} = \delta_k^{(l+1)} \tag{4}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;2項目 \(\frac{\partial u_k^{(l+1)} }{\partial u_j^{(l)}}\)は，前回展開やったように定義に戻って展開する．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial u_k^{(l+1)} }{\partial u_{j}^{(l)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{j&amp;#39;} w_{kj&amp;#39;}^{(l+1)} z_{j&amp;#39;}^{(l)} }{\partial u_j^{(l)}} \tag{5} \\
+&amp;amp;=&amp;amp; \frac{\partial \sum_{j&amp;#39;} w_{kj&amp;#39;}^{(l+1)} f(u_{j&amp;#39;}^{(l)}) }{\partial u_j^{(l)}} \tag{6} \\
+&amp;amp;=&amp;amp;  w_{kj}^{(l+1)} f&amp;#39;(u_{j}^{(l)})  \tag{7} \\
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;よって式2に式4と式6を代入するとデルタの関係式が得られる．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\delta_j^{(l)}  &amp;amp;=&amp;amp; \sum_{k=1}^{K} \delta_k^{(l+1)} (w_{kj}^{(l+1)} f&amp;#39;(u_{j}^{(l)})) \tag{8}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;これは\(l\)層のデルタは(\(l+1\))層の全デルタで計算されることを示す．
+（くどいが，最終的に必要なデルタは式1の1項目であり，\(L\)層から(\(l+1\))層までの全デルタを順伝播とは逆向きに求める．これが逆伝播の由来らしい）&lt;/p&gt;
+
+&lt;p&gt;式1の2項目は簡単に求められる．（前回の中間層の重みと同じ）
+\begin{eqnarray}
+\frac{\partial u_j^{(l)}} {\partial w_{ji}^{(l)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{i&amp;#39;} w_{ji&amp;#39;}^{(l)} z_{i&amp;#39;}^{(l-1)} }{\partial w_{ji}^{(l)}} \tag{9}\\
+  &amp;amp;=&amp;amp; z_i^{(l-1)} \tag{10}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;式1に式8と式10を代入すれば任意の重みがデルタと\(z\)で表現できる．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial E_n }{\partial w_{ji}^{(l)}} &amp;amp;=&amp;amp;
+\delta_j^{(l)} z_i^{(l-1)} \tag{11}\\
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;式8の通り，デルタは漸化式の形をしている．&lt;/p&gt;
+
+&lt;p&gt;最初のデルタは第\(L\)層のデルタであり，
+つまりは，誤差関数を出力層の入力\(u_j^{(L)}\)の微分である．&lt;/p&gt;
+</description>
+				<pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
+				<link>/2015/11/blueDeepLearningChapter43</link>
+				<guid isPermaLink="true">/2015/11/blueDeepLearningChapter43</guid>
+			</item>
 		
 			<item>
 				<title>青深層学習，誤差逆伝播法の計算</title>
@@ -22,30 +370,166 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/nn.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
 
+&lt;ul&gt;
+&lt;li&gt;回帰を扱うネットワークなので，output layerの活性化関数は恒等写像&lt;/li&gt;
+&lt;li&gt;\(E_n\) は，データ \(\boldsymbol{x_n}\) に対する誤差関数（ここでは自乗誤差），対応する正解データは， \(\boldsymbol{d_n}\) &lt;/li&gt;
+&lt;li&gt;\(w_{ji}^{(3)}\) 3層目の重みでhidden layerのユニット \(i\) からoutput layerのユニット \(j\) へのリンクの重み &lt;/li&gt;
+&lt;li&gt;+1 はバイアスのユニット&lt;/li&gt;
+&lt;li&gt;Input layerの x1~x4 は1つデータ各次元の値，この場合は \(\boldsymbol{x}_n\) は4次元のベクトル&lt;/li&gt;
+&lt;li&gt;出力は，3次元のベクトル \(\boldsymbol{y(x_n)}\)&lt;/li&gt;
+&lt;li&gt;\(u_i^{(2)}\) は hidden layerのユニット \(i\) の入力&lt;/li&gt;
+&lt;li&gt;\(z_i^{(2)}\) は hidden layerのユニット \(i\) の出力&lt;/li&gt;
+&lt;li&gt;\(f\) は活性化関数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;です．&lt;/p&gt;
+
+&lt;p&gt;ちなみに，そもそもなんで微分を求めるかというと誤差関数を最小とするような重みを2章の勾配法によって求めるのに必要なためです．&lt;/p&gt;
+
 &lt;h1 id=&quot;出力層の重み&quot;&gt;出力層の重み&lt;/h1&gt;
 
 &lt;p&gt;数学がよくわからないので微分したらなんで転置になるのかわからなくてこれが手間取った．&lt;/p&gt;
 
-&lt;p&gt;愚直に総和を展開した．&lt;/p&gt;
+&lt;p&gt;とりあえず愚直に総和を展開します．&lt;/p&gt;
 
-&lt;p&gt;微分するほうもされるほうもスカラなので結果もスカラになる&lt;/p&gt;
+&lt;p&gt;微分するほうもされるほうもスカラなので結果もスカラになる（はず）．&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
 \frac{\partial E_n }{\partial w_{ji}^{(3)}} &amp;amp;=&amp;amp;
-\sum_{k=1}^3 \frac{\partial E_n }{\partial y_{k}} \frac{\partial y_k }{\partial w_{ji}^{(3)}} \\
-&amp;amp;=&amp;amp;　\sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}\frac{\partial y_k}{\partial w_{ji}^{(3)}} \\
-&amp;amp;=&amp;amp;　\sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}
-\frac{\sum_i w_{ki}^{(3)}z_i^{(2)}  }{\partial w_{ji}^{(3)}}\\
-&amp;amp;=&amp;amp; (y_j(\boldsymbol{x})-d_j) z_i^{(2)}
+\sum_{k=1}^3 \frac{\partial E_n }{\partial y_{k}} \frac{\partial y_k }{\partial w_{ji}^{(3)}} \tag{1}\\
+&amp;amp;=&amp;amp; \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}\frac{\partial y_k}{\partial w_{ji}^{(3)}} \tag{2}\\
+&amp;amp;=&amp;amp; \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}
+\frac{\sum_{i&amp;#39;} w_{ki&amp;#39;}^{(3)}z_{i&amp;#39;}^{(2)}  }{\partial w_{ji}^{(3)}} \tag{3}\\
+&amp;amp;=&amp;amp; (y_j(\boldsymbol{x})-d_j) z_i^{(2)} \tag{4}
 \end{eqnarray}&lt;/p&gt;
 
-&lt;p&gt;まずchain ruleで展開して \(y_k\) を間に挟む&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn1.svg&quot; alt=&quot;nn&quot;&gt;
+式1の左辺，この図の赤いリンクの重みが \(w_{ji}^{(3)}\) ．&lt;/p&gt;
 
-&lt;p&gt;次の式で誤差関数の自乗誤差を展開する，展開してもその中身を \(y_k\) で微分するだけ．&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn3.svg&quot; alt=&quot;nn&quot;&gt; 式1右辺，chain ruleで展開 \(y_k\) を間に挟む&lt;/p&gt;
 
-&lt;p&gt;3段目でchain ruleで展開したもう一方も総和で展開する．出力層なので，式(4.3)に対応．&lt;/p&gt;
+&lt;p&gt;式2，誤差関数 \(E_n\) を定義通り展開．&lt;/p&gt;
 
-&lt;p&gt;最終的には \(k=l=j\)でない項はすべて0になるので4段目の式が得られる．&lt;/p&gt;
+&lt;p&gt;式3，chain ruleで展開したもう一方も定義に従って展開する．出力層なので，テキスト式(4.3)に対応．&lt;/p&gt;
+
+&lt;p&gt;式4，最終的には \(k=l=j , i=i&amp;#39;\)でない項はすべて0になる（ \(y_1, y_2\) は無関係）．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn4.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;最終的にこの赤い部分についてだけ微分すればよいとわかる&lt;/p&gt;
+
+&lt;p&gt;（直感的には出力層から入力層に向かって重み \(w_{ji}^{(3)}\) に関係する部分だけ微分してる）&lt;/p&gt;
+
+&lt;h1 id=&quot;中間層の重みの微分&quot;&gt;中間層の重みの微分&lt;/h1&gt;
+
+&lt;p&gt;(出力層から遠いほど計算がしんどくなってくるので，出力層の重みより計算は多くなりますが，がんばります．)&lt;/p&gt;
+
+&lt;p&gt;中間層に入る重みでの微分は
+\( \frac{\partial E_n }{\partial w_{ji}^{(2)}} \)
+で表される．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn5.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;つまり赤いリンクの重みで自乗誤差を微分する．&lt;/p&gt;
+
+&lt;p&gt;\(w_{ij}^{(2)}\) はhidden layerのユニット \(j\) の入力の一部として伝わるので，chain ruleを適用する．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial E_n }{\partial w_{ji}^{(2)}} = \frac{\partial E_n }{\partial u_j^{(2)}}  \frac{\partial u_j^{(2)}} {\partial w_{ji}^{(2)}} 
+\end{eqnarray} &lt;/p&gt;
+
+&lt;p&gt;このとき，2項目 \(\frac{\partial u_j^{(2)}} {\partial w_{ji}^{(2)}}\) は，&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial u_j^{(2)}} {\partial w_{ji}^{(2)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{i&amp;#39;} w_{ji&amp;#39;}^{(2)} z_{i&amp;#39;}^{(1)} }{\partial w_{ji}^{(2)}} \tag{1}\\
+  &amp;amp;=&amp;amp; z_i^{(1)} \tag{2}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn6.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;式1の右辺の分子はInput layerの各出力 \(z_i^{(1)}\) と赤いリンクの重みの積の総和．&lt;/p&gt;
+
+&lt;p&gt;これを \(w_{ij}^{(2)}\) で微分するので \(z_i^{(1)}\) 以外は0になる．&lt;/p&gt;
+
+&lt;p&gt;つまり第1層の \(i\) 番目の出力．（今回は \(x_i\) に相当）&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;hr&gt;
+
+&lt;hr&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;続いて第1項目 \(\frac{\partial E_n }{\partial u_j^{(2)}}\) ．&lt;/p&gt;
+
+&lt;p&gt;\(u_j^{(2)}\) (hidden layerのユニット\(j\) の入力) は活性化関数 \(f\)が適用され，重み \(w_{kj}^{(3)}  (k=1,2,3)\) (下図の赤線の重み) がかかってoutput layerの全てのユニットの入力の一部となる．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn2.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;式4.3から \(E_n\) が \(u_k^{(3)}(k=1,2,3)\) の関数であるので，chain ruleを適用する．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial E_n}{\partial u_j^{(2)}} &amp;amp;=&amp;amp; \sum_k \frac{\partial E_n}{\partial u_k^{(3)}} \frac{\partial u_k^{(3)}}{\partial u_j^{(2)}}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;図で表すと赤色のユニットの入力によって微分する．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn7.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;項ごとに展開を行う．出力層と同じく，第1項は，\(E_n\)を求めていく．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial E_n}{\partial u_k^{(3)}} &amp;amp;=&amp;amp; \frac{\partial \frac{1}{2} \sum_{k^{&amp;#39;}} (u_{k^{&amp;#39;}}^{(3)} - d_{k^{&amp;#39;}})^2}{\partial u_k^{(3)}} \\
+&amp;amp;=&amp;amp; u_k^{(3)} - d_k
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;となる．&lt;/p&gt;
+
+&lt;p&gt;\(y1\) ~ \(y3\) (図の赤い\(y1\) ~ \(y3\)) からそれぞれの正解の値 \(d_k\) との差の総和が分子で，それ \(k\) の入力で微分しているので，結局図の\(y1\)しか残らない．&lt;/p&gt;
+
+&lt;p&gt;今回は， \( y_k = z_k^{(3)} = u_k^{(3)} \) であるので簡単に求められている．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn8.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;hr&gt;
+
+&lt;hr&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;2項目\(\frac{\partial u_k^{(3)}}{\partial u_j^{(2)}}\)も同様に分子を展開して微分する．&lt;/p&gt;
+
+&lt;p&gt;微分する前に確認すると，\(k\)の入力を \(j\)の入力で微分するので，赤い部分に注目していることになる．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn9.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial u_k^{(3)}}{\partial u_j^{(2)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{j&amp;#39;} w_{k{j&amp;#39;}}^{(3)} f(u_{j&amp;#39;}^{(2)}) }{\partial u_j^{(2)}} \tag{1}\\
+&amp;amp;=&amp;amp; w_{kj}^{(3)} f&amp;#39;(u_j^{(2)}) \tag{2}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;式1は分子にあるユニット \(k\) の入力を展開しているので，下図の赤いリンクの重みと赤いノードのユニットの出力の形で書き直しているだけ．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn10.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;\(u_j^{(2)}\) で微分するので，結局分子が \(j=j&amp;#39;\)のときだけが残るので，式2となる．&lt;/p&gt;
+
+&lt;p&gt;以上をまとめると&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+\frac{\partial E_n }{\partial w_{ji}^{(2)}} = (f&amp;#39;(u_j^{(2)}) \sum_k w_{kj}^{(3)} (u_k^{(3)} -d_k)) z_i^{(1)}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;となる．&lt;/p&gt;
+
+&lt;h1 id=&quot;所感&quot;&gt;所感&lt;/h1&gt;
+
+&lt;p&gt;青い深層学習も紫の深層学習も数式が丁寧におえないような印象があるので，適宜
+&lt;a href=&quot;http://goodfeli.github.io/dlbook/&quot;&gt;Yoshua Bengio, Ian Goodfellow and Aaron CourvilleさんたちのDeep Learning&lt;/a&gt;を参照するといいと思った．
+Chain ruleから説明があるしかなり分かりやすかった．&lt;/p&gt;
 </description>
 				<pubDate>Tue, 03 Nov 2015 06:30:00 +0900</pubDate>
 				<link>/2015/11/blueDeepLearningChapter42</link>
@@ -374,140 +858,6 @@ ipython notebook #ブラウザが起動
 				<pubDate>Wed, 15 Jul 2015 12:25:00 +0900</pubDate>
 				<link>/2015/07/PRML99pi</link>
 				<guid isPermaLink="true">/2015/07/PRML99pi</guid>
-			</item>
-		
-			<item>
-				<title>PRML演習9.8</title>
-				<description>&lt;h3 id=&quot;本題&quot;&gt;本題&lt;/h3&gt;
-
-&lt;p&gt;負担率を固定した際に，式(9.40)を
-\(\boldsymbol{\mu_{k}}\)
-について最大化しようとすると式(9.17)で与えられる陽な解が得られることを示す．&lt;/p&gt;
-
-&lt;p&gt;式(9.40)を
-\(\boldsymbol{\mu_{k}}\)
-で微分する．
-式(9.16)を)参考．&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\frac{\partial}{\partial \mu_k} E_\boldsymbol{z}
-[\boldsymbol{X},\boldsymbol{Z}|\boldsymbol{\mu},\boldsymbol{\Sigma},\boldsymbol{\pi}]
-&amp;amp;=&amp;amp; 
-\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{\Sigma_k^{-1}}(\boldsymbol{x_n}-\boldsymbol{\mu_k})
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;微分した式を0とおいて，
-\(\mu_k\)
-について求める．&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{\Sigma_k^{-1}}(\boldsymbol{x_n}-\boldsymbol{\mu_k})
-&amp;amp;=&amp;amp; 0 \\
-\sum_{n=1}^{N} \gamma(z_{zk})(\boldsymbol{x_n}-\boldsymbol{\mu_k})
-&amp;amp;=&amp;amp; 0 \\
-\sum_{n=1}^{N} \gamma(z_{zk})\boldsymbol{\mu_k}
-&amp;amp;=&amp;amp; 
-\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{x_n} \\
-\boldsymbol{\mu_k} 
-&amp;amp;=&amp;amp;
-\frac{1}{\sum_{n=1}^{N} \gamma(z_{zk})}\sum_{n=1}^{N} \gamma(z_{zk}) \boldsymbol{x_n}
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;以上から式(9.17)が得られた．&lt;/p&gt;
-
-&lt;h3 id=&quot;所感&quot;&gt;所感&lt;/h3&gt;
-
-&lt;p&gt;公式の答えは上巻のガウス分布の式を使っていますので，私の解答はちょっとやりかたが違ってるかもしれません．&lt;/p&gt;
-</description>
-				<pubDate>Sun, 12 Jul 2015 22:25:00 +0900</pubDate>
-				<link>/2015/07/PRML98</link>
-				<guid isPermaLink="true">/2015/07/PRML98</guid>
-			</item>
-		
-			<item>
-				<title>PRML演習9.4</title>
-				<description>&lt;h3 id=&quot;おさらい&quot;&gt;おさらい&lt;/h3&gt;
-
-&lt;p&gt;p156にあるように一般のEMアルゴリズムでは，
-尤度関数 \(p(\boldsymbol{X}|\boldsymbol{\theta})\) を
-\(\boldsymbol{\theta}\)
-について最大化を目的とした．&lt;/p&gt;
-
-&lt;p&gt;今回の問いでは尤度関数を\(p(\boldsymbol{\theta}|\boldsymbol{X})\) にして\(\boldsymbol{\theta}\) について最大化する．&lt;/p&gt;
-
-&lt;h3 id=&quot;本題&quot;&gt;本題&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;観測変数は
-\(\boldsymbol{X}\)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;\(\boldsymbol{\theta}\) は任意のパラメータ&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;\(\boldsymbol{Z}\)
-は潜在変数&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;まず
-パラメータの初期値
-\(\boldsymbol{\theta^{old}}\)
-を選ぶ．&lt;/p&gt;
-
-&lt;p&gt;Eステップ．
-\(p(\boldsymbol{Z}|\boldsymbol{X},\boldsymbol{\theta^{old}})\)
-を計算する．
-ここまではp156のアルゴリズムと同じ．&lt;/p&gt;
-
-&lt;p&gt;Mステップ．
-最大化する対数尤度関数は
-\(\ln{p(\boldsymbol{\theta}|\boldsymbol{X})} \)
-である．&lt;/p&gt;
-
-&lt;p&gt;ベイズの定理から&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\ln{p(\boldsymbol{\theta}|\boldsymbol{X})}  &amp;amp;=&amp;amp;
-\ln{\frac{p(\boldsymbol{X}|\boldsymbol{\theta})p(\boldsymbol{\theta})}{p(\boldsymbol{X})}}  \\
-&amp;amp;=&amp;amp; \ln{p(\boldsymbol{X}|\boldsymbol{\theta})}
-+ \ln{p(\boldsymbol{\theta})}
-- \ln{p(\boldsymbol{X})} \\
-&amp;amp;=&amp;amp; \ln{(\sum_{\boldsymbol{Z}} p(\boldsymbol{X,Z}|\boldsymbol{\theta}))}
-+ \ln{p(\boldsymbol{\theta})}
-- \ln{p(\boldsymbol{X})}\
-\end{eqnarray}
-と変形する.&lt;/p&gt;
-
-&lt;p&gt;変形した式を
-\(\boldsymbol{\theta}\)
-について最大化するが，第1項は．Q関数なので，&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\boldsymbol{\theta^{new}} &amp;amp;=&amp;amp; argmax_{\boldsymbol{\theta}} (Q(\boldsymbol{\theta},\boldsymbol{\theta^{old}}) + \ln{p(\boldsymbol{\theta})})
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;をMステップでは計算する．&lt;/p&gt;
-
-&lt;p&gt;ベイズの定理で変形して出てきた
-\(\ln{p(\boldsymbol{X})}\)
-は
-\(\boldsymbol{\theta}\)
-とは，関係ないために定数として扱えるので，最大化する際には無視できる．&lt;/p&gt;
-
-&lt;h3 id=&quot;その他&quot;&gt;その他&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://amzn.to/1fki6cc&quot;&gt;言語処理のための機械学習入門 (自然言語処理シリーズ)  &lt;/a&gt;のp88を参考にしました．&lt;/p&gt;
-</description>
-				<pubDate>Tue, 07 Jul 2015 22:25:06 +0900</pubDate>
-				<link>/2015/07/PRML94</link>
-				<guid isPermaLink="true">/2015/07/PRML94</guid>
-			</item>
-		
-			<item>
-				<title>Hello</title>
-				<description>&lt;h1 id=&quot;半分くらい移転しました&quot;&gt;半分くらい移転しました&lt;/h1&gt;
-
-&lt;p&gt;はてなブログで数式を書くと展開されずにつらいかったり，やたら読み込みが重いので，こちらに書いていこうかと思います．&lt;/p&gt;
-</description>
-				<pubDate>Sun, 05 Jul 2015 18:25:06 +0900</pubDate>
-				<link>/2015/07/hello</link>
-				<guid isPermaLink="true">/2015/07/hello</guid>
 			</item>
 		
 	</channel>

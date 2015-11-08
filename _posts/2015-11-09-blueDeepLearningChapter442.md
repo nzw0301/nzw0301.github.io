@@ -65,8 +65,8 @@ comments: false
 - \\(\epsilon\\)：学習率
 
 \begin{eqnarray}
-\partial \boldsymbol{W}^{(l)} = \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{Z^{(l-1)T}} \tag{4}\\\
-\partial \boldsymbol{b}^{(l)} = \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{1}_N \tag{5}
+\partial \boldsymbol{W}^{(l)} &=& \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{Z^{(l-1)T}} \tag{4}\\\
+\partial \boldsymbol{b}^{(l)} &=& \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{1}_N \tag{5}
 \end{eqnarray}
 
 - \\(\partial \boldsymbol{W}^{(l)}\\)：\\(j \times i\\)
@@ -81,10 +81,10 @@ comments: false
 更新式は，
 
 \begin{eqnarray}
-\boldsymbol{W}^{(l)} \leftarrow
+\boldsymbol{W}^{(l)} &\leftarrow&
 \boldsymbol{W}^{(l)}
 - \epsilon \partial \boldsymbol{W}^{(l)} \tag{6} \\\ 
-\boldsymbol{b}^{(l)} \leftarrow
+\boldsymbol{b}^{(l)} &\leftarrow&
 \boldsymbol{b}^{(l)}
 - \epsilon \partial \boldsymbol{b}^{(l)} \tag{7} \\\ 
 \end{eqnarray}
