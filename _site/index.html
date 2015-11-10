@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>鴨川η</title>
+    <title>η</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -24,7 +24,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">鴨川η</a>
+                <a class="navbar-brand" href="/">η</a>
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -46,12 +46,14 @@
     <div class="row">
         <div class="col-md-3 hidden-xs">
             <div class="sidebar well">
-数式がメイン
+η is ...
 </div>
 
 <div class="sidebar well">
     <h1>Recent Posts</h1>
     <ul>
+        
+          <li><a href="/2015/11/blueDeepLearningChapter44code">青深層学習 4章 実装</a></li>
         
           <li><a href="/2015/11/blueDeepLearningChapter442">青深層学習 4.4.2 行列表記</a></li>
         
@@ -60,8 +62,6 @@
           <li><a href="/2015/11/blueDeepLearningChapter43">青深層学習 4.3 多層ネットワークへの一般化</a></li>
         
           <li><a href="/2015/11/blueDeepLearningChapter42">青深層学習，誤差逆伝播法の計算</a></li>
-        
-          <li><a href="/2015/09/ACL2015InterestingPaper">ACL 2015で気になったもの一覧</a></li>
         
     </ul>
 </div>
@@ -81,6 +81,62 @@
         </div>
         <div class="col-md-9">
             
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/11/blueDeepLearningChapter44code">Nov 9, 2015 - 青深層学習 4章 実装</a></h1>
+        
+        <div class="content">
+            <h1 id="はじめに">はじめに</h1>
+
+<p>前回まで数式の展開をしていたので，それをもとにして実装を行いました．</p>
+
+<p>Pythonを使いました．</p>
+
+<h1 id="データとタスク">データとタスク</h1>
+
+<p>データは例によって夢野久作の作品(<a href="http://www.aozora.gr.jp/cards/000096/files/2122_21847.html">オンチ</a>)を使います．</p>
+
+<p>1文が登場人物の発言なのか，地の文なのかの2値分類を行います．
+活性化関数はすべてロジスティック関数，損失関数は対数尤度です．
+（なので出力層のユニット数は1つ）</p>
+
+<blockquote>
+<p>tag sentence</p>
+
+<p>1 退け 退け ッ </p>
+
+<p>0 疎ら に なっ た 群衆 の 背後 から 、 今 出 た ばかり の 旭 が キラキラ と 映し 込ん で 来 た 。 </p>
+</blockquote>
+
+<p>このように地の文であれば0，発言であれば1をつけます．</p>
+
+<h1 id="コード">コード</h1>
+
+<p><code>hidden_layer</code> で指定する層を変えても問題ないように作ってあるので層の増減とユニット数の増減は好きに試すことができます．</p>
+
+<script src="https://gist.github.com/nzw0301/363b803268c2ece127f2.js"></script>
+
+<p>テストデータは作ってないので，パラメータによる誤差関数の変動のグラフをみて投稿を締めようかと思います．</p>
+
+<p>上記のコード
+1つ目がミニバッチを使った確率的勾配法
+2つ目が全データで学習する勾配法</p>
+
+<p><img src="/images/nn_err_rate.svg" alt="nn"> </p>
+
+<p>学習回数<code>400</code>，学習率<code>0.2</code>で固定し，隠れ層をいじってみます．
+<img src="/images/nn_hidden.svg" alt="nn"> </p>
+
+<p>学習率<code>0.2</code>と隠れ層を固定し，確率的勾配法を使います．
+ミニバッチによる変化を見ています．
+<img src="/images/nn_minibatch.svg" alt="nn"> </p>
+
+<p>以上です．</p>
+
+        </div>
+    </div>
+</div>
+
 <div class="article">
     <div class="well">
         <h1><a href="/2015/11/blueDeepLearningChapter442">Nov 9, 2015 - 青深層学習 4.4.2 行列表記</a></h1>
@@ -336,105 +392,6 @@ E_n &amp;=&amp; - \sum_k d_k \log(y_k) \tag{12} \\
     </div>
 </div>
 
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/11/blueDeepLearningChapter43">Nov 9, 2015 - 青深層学習 4.3 多層ネットワークへの一般化</a></h1>
-        
-        <div class="content">
-            <h1 id="はじめに">はじめに</h1>
-
-<p>前回 <a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter42/" title="青深層学習，誤差逆伝播法の計算">青深層学習，誤差逆伝播法の計算</a>
-の続きです．</p>
-
-<p>誤差逆伝播を層が全体で3層だけの場合ではなく，\(L\)層に拡張した時の挙動を確認します．</p>
-
-<p>前回と赤で強調する場所が違うかもしれませんが，ご了承ください．</p>
-
-<h1 id="本題">本題</h1>
-
-<p>第\(l\)層の重み\(w_{ji}^{(l)}\)で誤差関数を微分することを考える．</p>
-
-<p>前回と同じくネットワークを示すと赤いリンクの重みで誤差関数を微分する．\(l+1\) 層にもバイアスはある気がするので，ここでは書いている．</p>
-
-<p><img src="/images/nn431.svg" alt="nn"></p>
-
-<p>前回の中間層の重みの微分と同じく，\(w_{ji}^{(l)}\)は\(l\)層のユニット\(j\)の総入力\(u_j^{(l)}\)の一部なので，chain ruleを使って展開する(式1)．</p>
-
-<p>\begin{eqnarray}
-\frac{\partial E_n }{\partial w_{ji}^{(l)}} &amp;=&amp;
-\frac{\partial E_n }{\partial u_j^{(l)}} \frac{\partial u_j^{(l)} }{\partial w_{ji}^{(l)}} \tag{1}\\
-\end{eqnarray}</p>
-
-<p>式1の第1項\(\frac{\partial E_n }{\partial u_j^{(l)}}\)をまず展開する．
-下ぼネットワークで示したように
-\(u_j^{(l)}\)は，活性化関数\(f\)が適用され，
-出力\(z_j^{(l)}\)になり，赤いリンクの重みがかかって\(l+1\)層のユニット((\(l+1\))層のバイアス以外のユニット)入力の一部になる．</p>
-
-<p><img src="/images/nn432.svg" alt="nn"></p>
-
-<p>なので，\(E_n\)を微分するために，chain ruleで展開する．</p>
-
-<p>\begin{eqnarray}
-\frac{\partial E_n }{\partial u_{j}^{(l)}} &amp;=&amp;
-\sum_{k=1}^{K} \frac{\partial E_n }{\partial u_k^{(l+1)}} \frac{\partial u_k^{(l+1)} }{\partial u_j^{(l)}} \tag{2}\\
-\end{eqnarray}</p>
-
-<p>ここで式3のようにデルタを定義する．
-デルタは各層の各ユニットに存在する．</p>
-
-<p>\begin{eqnarray}
-\delta_j^{(l)} \equiv 
-  \frac{\partial E_n }{\partial u_{j}^{(l)}} \tag{3}
-\end{eqnarray}</p>
-
-<p>式2を式3を使った形で展開する．</p>
-
-<p>式2の右辺を項ごとに展開する．
-\(\frac{\partial E_n }{\partial u_k^{(l+1)}} \frac{\partial u_k^{(l+1)} }{\partial u_j^{(l)}}\)の1項目は，式3のデルタの層が違うだけなので，</p>
-
-<p>\begin{eqnarray}
-\frac{\partial E_n }{\partial u_k^{(l+1)}} = \delta_k^{(l+1)} \tag{4}
-\end{eqnarray}</p>
-
-<p>2項目 \(\frac{\partial u_k^{(l+1)} }{\partial u_j^{(l)}}\)は，前回展開やったように定義に戻って展開する．</p>
-
-<p>\begin{eqnarray}
-\frac{\partial u_k^{(l+1)} }{\partial u_{j}^{(l)}} &amp;=&amp; \frac{\partial \sum_{j&#39;} w_{kj&#39;}^{(l+1)} z_{j&#39;}^{(l)} }{\partial u_j^{(l)}} \tag{5} \\
-&amp;=&amp; \frac{\partial \sum_{j&#39;} w_{kj&#39;}^{(l+1)} f(u_{j&#39;}^{(l)}) }{\partial u_j^{(l)}} \tag{6} \\
-&amp;=&amp;  w_{kj}^{(l+1)} f&#39;(u_{j}^{(l)})  \tag{7} \\
-\end{eqnarray}</p>
-
-<p>よって式2に式4と式6を代入するとデルタの関係式が得られる．</p>
-
-<p>\begin{eqnarray}
-\delta_j^{(l)}  &amp;=&amp; \sum_{k=1}^{K} \delta_k^{(l+1)} (w_{kj}^{(l+1)} f&#39;(u_{j}^{(l)})) \tag{8}
-\end{eqnarray}</p>
-
-<p>これは\(l\)層のデルタは(\(l+1\))層の全デルタで計算されることを示す．
-（くどいが，最終的に必要なデルタは式1の1項目であり，\(L\)層から(\(l+1\))層までの全デルタを順伝播とは逆向きに求める．これが逆伝播の由来らしい）</p>
-
-<p>式1の2項目は簡単に求められる．（前回の中間層の重みと同じ）
-\begin{eqnarray}
-\frac{\partial u_j^{(l)}} {\partial w_{ji}^{(l)}} &amp;=&amp; \frac{\partial \sum_{i&#39;} w_{ji&#39;}^{(l)} z_{i&#39;}^{(l-1)} }{\partial w_{ji}^{(l)}} \tag{9}\\
-  &amp;=&amp; z_i^{(l-1)} \tag{10}
-\end{eqnarray}</p>
-
-<p>式1に式8と式10を代入すれば任意の重みがデルタと\(z\)で表現できる．</p>
-
-<p>\begin{eqnarray}
-\frac{\partial E_n }{\partial w_{ji}^{(l)}} &amp;=&amp;
-\delta_j^{(l)} z_i^{(l-1)} \tag{11}\\
-\end{eqnarray}</p>
-
-<p>式8の通り，デルタは漸化式の形をしている．</p>
-
-<p>最初のデルタは第\(L\)層のデルタであり，
-つまりは，誤差関数を出力層の入力\(u_j^{(L)}\)の微分である．</p>
-
-        </div>
-    </div>
-</div>
-
 
 <div class="pagination">
   
@@ -452,7 +409,7 @@ E_n &amp;=&amp; - \sum_k d_k \log(y_k) \tag{12} \\
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12 footer navbar-inverse navbar-fixed-bottom">
-            <p class="copyright">&copy;2015 鴨川η. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="https://github.com/scotte/jekyll-clean">Scott Emmons</a>
+            <p class="copyright">&copy;2015 η. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="https://github.com/scotte/jekyll-clean">Scott Emmons</a>
             under
             <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</a></p>
         </div>

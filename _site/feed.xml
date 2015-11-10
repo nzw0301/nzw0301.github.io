@@ -1,10 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>鴨川η</title>
-		<description>数式がメイン</description>
+		<title>η</title>
+		<description>η is ...</description>
 		<link></link>
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>青深層学習 4章 実装</title>
+				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
+
+&lt;p&gt;前回まで数式の展開をしていたので，それをもとにして実装を行いました．&lt;/p&gt;
+
+&lt;p&gt;Pythonを使いました．&lt;/p&gt;
+
+&lt;h1 id=&quot;データとタスク&quot;&gt;データとタスク&lt;/h1&gt;
+
+&lt;p&gt;データは例によって夢野久作の作品(&lt;a href=&quot;http://www.aozora.gr.jp/cards/000096/files/2122_21847.html&quot;&gt;オンチ&lt;/a&gt;)を使います．&lt;/p&gt;
+
+&lt;p&gt;1文が登場人物の発言なのか，地の文なのかの2値分類を行います．
+活性化関数はすべてロジスティック関数，損失関数は対数尤度です．
+（なので出力層のユニット数は1つ）&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;tag sentence&lt;/p&gt;
+
+&lt;p&gt;1 退け 退け ッ &lt;/p&gt;
+
+&lt;p&gt;0 疎ら に なっ た 群衆 の 背後 から 、 今 出 た ばかり の 旭 が キラキラ と 映し 込ん で 来 た 。 &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;このように地の文であれば0，発言であれば1をつけます．&lt;/p&gt;
+
+&lt;h1 id=&quot;コード&quot;&gt;コード&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;hidden_layer&lt;/code&gt; で指定する層を変えても問題ないように作ってあるので層の増減とユニット数の増減は好きに試すことができます．&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/nzw0301/363b803268c2ece127f2.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;テストデータは作ってないので，パラメータによる誤差関数の変動のグラフをみて投稿を締めようかと思います．&lt;/p&gt;
+
+&lt;p&gt;上記のコード
+1つ目がミニバッチを使った確率的勾配法
+2つ目が全データで学習する勾配法&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nn_err_rate.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;学習回数&lt;code&gt;400&lt;/code&gt;，学習率&lt;code&gt;0.2&lt;/code&gt;で固定し，隠れ層をいじってみます．
+&lt;img src=&quot;/images/nn_hidden.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;学習率&lt;code&gt;0.2&lt;/code&gt;と隠れ層を固定し，確率的勾配法を使います．
+ミニバッチによる変化を見ています．
+&lt;img src=&quot;/images/nn_minibatch.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;以上です．&lt;/p&gt;
+</description>
+				<pubDate>Mon, 09 Nov 2015 21:00:00 +0900</pubDate>
+				<link>/2015/11/blueDeepLearningChapter44code</link>
+				<guid isPermaLink="true">/2015/11/blueDeepLearningChapter44code</guid>
+			</item>
 		
 			<item>
 				<title>青深層学習 4.4.2 行列表記</title>
@@ -757,53 +811,6 @@ var[x] &amp;amp;=&amp;amp; \int_a^b x^2 \frac{1}{b-a} dx - E[x]^2 \\
 				<pubDate>Thu, 16 Jul 2015 23:09:00 +0900</pubDate>
 				<link>/2015/07/prml2_12</link>
 				<guid isPermaLink="true">/2015/07/prml2_12</guid>
-			</item>
-		
-			<item>
-				<title>Python勉強メモ</title>
-				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
-
-&lt;p&gt;講義の関係で少しだけNLTKとかgensimとかflaskを触りましたが，
-全然Pythonわからないので，いい加減勉強します．&lt;/p&gt;
-
-&lt;p&gt;図書館にあったこれをひと通り読むつもりです．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.amazon.co.jp/gp/product/4873116880/ref=as_li_ss_il?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=4873116880&amp;linkCode=as2&amp;tag=algebrae-22&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4873116880&amp;Format=_SL110_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=algebrae-22&quot; &gt;&lt;/a&gt;&lt;img src=&quot;http://ir-jp.amazon-adsystem.com/e/ir?t=algebrae-22&amp;l=as2&amp;o=9&amp;a=4873116880&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;環境&quot;&gt;環境&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;pyenv&lt;/li&gt;
-&lt;li&gt;anaconda3-2.1.0&lt;/li&gt;
-&lt;li&gt;Jupyter&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Javaをよく書くのでJythonも検討しましたが，Javaとの連携がめんどうそうで手間でやめました．&lt;/p&gt;
-
-&lt;p&gt;速い速いと聞くpypyもやろうとしましたが，パッケージ周りがめんどうだったのでやめました．&lt;/p&gt;
-
-&lt;p&gt;scikit-learnなどをやりたい方はanacondaを入れると必要なパッケージがだいたい入ってて簡単です．&lt;/p&gt;
-
-&lt;h1 id=&quot;本題&quot;&gt;本題&lt;/h1&gt;
-
-&lt;p&gt;まずを環境つくります．
-グローバルでパッケージを管理したくないので，virtualenvを使います．&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;pip install virtualenv
-virtualenv no-site-packages anaconda3
-cd anaconda3
-. bin/activate #この環境を使う
-deactivate #この環境から抜ける
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;REPLでも十分ですが，jupyterでよりインタラクティブにpython使ってみます．
-ちなみにJuliaもつかえます．&lt;/p&gt;
-
-&lt;p&gt;jupyterからhtmlのslideも作れちゃうので，tutorialには便利そうです．&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;pip install ipython
-ipython notebook #ブラウザが起動
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-				<pubDate>Thu, 16 Jul 2015 02:25:00 +0900</pubDate>
-				<link>/2015/07/pythonIntro</link>
-				<guid isPermaLink="true">/2015/07/pythonIntro</guid>
 			</item>
 		
 			<item>
