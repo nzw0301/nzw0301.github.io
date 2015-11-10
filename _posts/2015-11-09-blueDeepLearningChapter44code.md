@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "青深層学習 4章 実装"
-date: 2015-11-09 021:00:00 +0900
+date: 2015-11-09 21:00:00 +0900
 comments: false
 ---
 
@@ -41,6 +41,10 @@ Pythonを使いました．
 
 学習回数`400`，学習率`0.2`で固定し，隠れ層をいじってみます．
 ![nn]({{ site.url }}/images/nn_hidden.svg) 
+
+学習率`0.2`と隠れ層を固定し，確率的勾配法を使います．
+ミニバッチによる変化を見ています．
+![nn]({{ site.url }}/images/nn_minibatch.svg) 
 
 
 以上です．

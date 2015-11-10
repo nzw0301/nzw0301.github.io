@@ -27,6 +27,7 @@ comments: true
 permalink: /:year/:month/:title
 paginate: 3
 
+gems: [jekyll-paginate]
 highlighter: pygments
 markdown: redcarpet
 redcarpet:
