@@ -1,39 +1,49 @@
 {% include header.html %}
 <div class="container container-left">
-    <div class="row">
-        <div class="col-md-3 hidden-xs">
-            {% include sidebar.html %}
-        </div>
-        <div class="col-md-9">
-          <div class="article">
-            <div class="well">
-                <h1><a href="{{ site.baseurl}}{{ page.url }}">{{ page.date | date: "%b %-d, %Y" }} - {{ page.title }}</a></h1>
-            {% if site.comments == true and page.comments == true and site.disqus != '' %}
-                <p class="author"><a href="#disqus_thread">Comments</a></p>
-            {% endif %}
-            <div class="post-content">
-                        
-            {{ content }}
-            </div>
-            {% if page.comments %}
-            <div id="disqus_thread">
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-            {% endif %}
-            </div>
-          </div>
-          <div class="pagination">
-              {% if page.next %}
-                <a class="btn btn-default" href="{{ site.baseurl}}{{ page.next.url }}" class="next">Newer Post</a>
-              {% endif %}
-              {% if page.previous %}
-                <a class="btn btn-default" href="{{ site.baseurl}}{{ page.previous.url }}" class="previous">Older Post</a>
-              {% endif %}
-</div>
+  <div class="row">
 
-        </div>
+    <div class="col-md-3 hidden-xs">
+      {% include sidebar.html %}
     </div>
+    <div class="col-md-9">
+      <div class="article">
+        <div class="well">
+          <h1><a href="{{ site.baseurl}}{{ page.url }}">{{ page.date | date: "%b %-d, %Y" }} - {{ page.title }}</a></h1>
+          {% if site.comments == true and page.comments == true and site.disqus != '' %}
+          <p class="author"><a href="#disqus_thread">Comments</a></p>
+          {% endif %}
+          <div class="post-content">
+
+            {{ content }}
+
+            <hr />
+
+            <a id="twitter" class="twitter-share-button" href="http://twitter.com/share?text={{site.name}}|{{page.title | encode}}&via=nozawa0301"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">η</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+            <a href="{{site.url}}" class="hatena-bookmark-button" data-hatena-bookmark-title="{{page.title}}" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+          </div>
+          {% if page.comments %}
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="pagination">
+        {% if page.next %}
+        <a class="btn btn-default" href="{{ site.baseurl}}{{ page.next.url }}" class="next">Newer Post</a>
+        {% endif %}
+        {% if page.previous %}
+        <a class="btn btn-default" href="{{ site.baseurl}}{{ page.previous.url }}" class="previous">Older Post</a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
 </div>
 
 {% include disqus-comments.html %}
