@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>η</title>
+    <title>鴨川η</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -24,15 +24,13 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">η</a>
+                <a class="navbar-brand" href="/">鴨川η</a>
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li class="active visible-xs-block"><a href="/links.html">Links</a></li>
-                    <li class="active"><a href="/archive.html">Archive</a></li>
-                    <li class="active"><a href="/about.html">About</a></li>
-                    <li class="active"><a href="/memo.html">Memo</a></li>
+                    <li class="active"><a href="/archive">Archive</a></li>
+                    <li class="active"><a href="/about">About</a></li>
+                    <li class="active"><a href="/memo">Memo</a></li>
                     <li class="active"><a href="/feed.xml">RSS</a></li>
 
                 </ul>
@@ -53,15 +51,15 @@
     <h1>Recent Posts</h1>
     <ul>
         
-          <li><a href="/2015/11/blueDeepLearningChapter44code">青深層学習 4章 実装</a></li>
+          <li><a href="/2015/11/backpropagation">青深層学習 4章 まとめ</a></li>
         
-          <li><a href="/2015/11/blueDeepLearningChapter442">青深層学習 4.4.2 行列表記</a></li>
+          <li><a href="/2015/11/bluedeeplearningchapter44code">青深層学習 4章 実装</a></li>
         
-          <li><a href="/2015/11/blueDeepLearningChapter44">青深層学習 4.4.1 出力層でのデルタ</a></li>
+          <li><a href="/2015/11/bluedeeplearningchapter442">青深層学習 4.4.2 行列表記</a></li>
         
-          <li><a href="/2015/11/blueDeepLearningChapter43">青深層学習 4.3 多層ネットワークへの一般化</a></li>
+          <li><a href="/2015/11/bluedeeplearningchapter44">青深層学習 4.4.1 出力層でのデルタ</a></li>
         
-          <li><a href="/2015/11/blueDeepLearningChapter42">青深層学習，誤差逆伝播法の計算</a></li>
+          <li><a href="/2015/11/bluedeeplearningchapter43">青深層学習 4.3 多層ネットワークへの一般化</a></li>
         
     </ul>
 </div>
@@ -72,7 +70,8 @@
   <li><a href="https://github.com/nzw0301">github</a></li>
   <li><a href="https://twitter.com/nozawa0301">Twitter</a></li>
   <li><a href="http://nzw.hatenablog.jp/">Hatena</a></li>
-  <li><a href="http://wkblab.github.io/member/nzw.html">Research</a></li>
+  <li><a href="http://wkblab.github.io/member/nzw">Research</a></li>
+  <li><a href="http://www.slideshare.net/kentonozawa75">SlideShare</a></li>
   <li><a href="http://www.amazon.co.jp/gp/registry/wishlist/?ie=UTF8&camp=1207&creative=8415&linkCode=shr&tag=algebrae-22&requiresSignIn=1">wish list</a></li>
 </ul>
 
@@ -83,7 +82,97 @@
             
 <div class="article">
     <div class="well">
-        <h1><a href="/2015/11/blueDeepLearningChapter44code">Nov 9, 2015 - 青深層学習 4章 実装</a></h1>
+        <h1><a href="/2015/11/backpropagation">Nov 13, 2015 - 青深層学習 4章 まとめ</a></h1>
+        
+        <div class="content">
+            <p>4章誤差逆伝播法のまとめです．</p>
+
+<p>3章で扱った勾配降下法は，誤差関数の勾配を求めて重みを更新し，ネットワークの性能を高めるために使いました．</p>
+
+<p>誤差逆伝播法は，誤差関数の重みによる微分を効率良く計算するアルゴリズムです．</p>
+
+<h1 id="4-1-勾配計算の難しさ">4.1 勾配計算の難しさ</h1>
+
+<p><img src="/images/nn1.svg" alt="nn"></p>
+
+<p>順伝播によって得られた出力を使うため，重みが出力層から遠いほど（入力層に近いほど）chain ruleで展開する項の数が増えていきます．</p>
+
+<p>この場合では<code>hidden layer</code>と<code>output layer</code>の間の重みによる微分は比較的楽にできますが，<code>input layer</code>と<code>hidden layer</code>の間の重みによる微分は<code>hidden layer</code>の活性化関数を介しているので複雑になると言えます．</p>
+
+<p><code>4.2</code>以降で導出する誤差逆伝播法を用いることで効率的に計算を行えるようになります．</p>
+
+<h1 id="4-2-2層ネットワークでの計算">4.2 2層ネットワークでの計算</h1>
+
+<p>隠れ層が1層のニューラルネットワークにおいて，重みは<code>input layer</code>と<code>hidden layer</code>の間と<code>hidden layer</code>と<code>output layer</code>の間の2つに分けることができます．</p>
+
+<p><a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter42/">詳しい式の導出</a>はこちらを参照．</p>
+
+<p>冒頭の<code>4.1</code>で書いたように出力層から遠いほど式が複雑になっていることが確認できます．</p>
+
+<h1 id="4-3-多層ネットワークへの一般化">4.3 多層ネットワークへの一般化</h1>
+
+<p><code>4.2</code>は2層でしたが，層の数を一般化したときの微分を求めてます．
+なので，ここで誤差逆伝播法の本筋の話になります．</p>
+
+<p><a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter43/">詳しい式の導出</a>はこちらをみていただくとして，
+肝心なのは， 各層ごとに\(\delta\)を\(L\)層（出力層）から逆順に求めることで，各重みによる微分を効率的に計算できることです．
+\(\delta\)が計算できれば，重みの微分は別々に求めることができます．</p>
+
+<h1 id="4-4-勾配降下法の完全アルゴリズム">4.4 勾配降下法の完全アルゴリズム</h1>
+
+<p>前半部分では，出力層の\(\delta\)の導出を行います．
+<a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter44/">テキストより詳しい式変形をした</a>ので，これからわかる通り，出力層の\(\delta\)は出力と正解の差です．</p>
+
+<p>後半部分では，行列表記による</p>
+
+<ul>
+<li>順伝播法</li>
+<li>誤差逆伝播法</li>
+<li>重み\(w\)の更新</li>
+</ul>
+
+<p>の式です．
+詳細については，コーディングしやすいように行列の次元を意識して<a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter442/">かきました</a>．</p>
+
+<p><code>4.4.3 勾配の差分近似計算</code>  では，活性化関数や多層になった場合に誤差関数の勾配計算の計算が正しいかを確かめるために，近似計算を扱います．
+偏微分の定義から
+十分小さい\(\epsilon\)を用いた式1で検証できます．</p>
+
+<p>\begin{eqnarray}
+\frac{\partial E}{\partial w_{ji}^{(l)}} = \frac{E(...,w_{ji}^{(l)}+\epsilon,...)-E(...,w_{ji}^{(l)},...)}{\epsilon} \tag{1}
+\end{eqnarray}</p>
+
+<p>微分なので\(\epsilon\)は十分小さな値を選択する必要があります．
+注意点として計算機の特性上，打ち切り誤差や丸めの誤差などで誤差が大きくなるため以下のように
+<code>計算機イプシロン</code>(計算機の浮動小数点数で表現できる1より大きい最小の数と1との差のこと)\(\epsilon_c\)を使い，以下のように近似式の\(\epsilon\)を決定します．</p>
+
+<p>\begin{eqnarray}
+\epsilon = \sqrt{\epsilon_c} |w_{ji}|
+\end{eqnarray}</p>
+
+<p><code>python</code>の<code>numpy</code>でいえば<code>np.finfo(float).eps</code>が計算機イプシロンです．
+(手元では<code>2.2204460492503131e-16</code>でした)</p>
+
+<p>? 実際につかうんでしょうか？</p>
+
+<h1 id="4-5-勾配損失問題">4.5 勾配損失問題</h1>
+
+<p>順伝播は活性化関数を経由するので活性化関数が非線形ならば，この層の入出力も非線形であり，発散しません．（ロジスティック関数が活性化関数ならば0から1の間に収まる）</p>
+
+<p>対して逆伝播法は定義のように線形な計算なので，層が深くなるほど発散しやすい（あるいは一度0になるとずっと0）になってしまうため学習がうまくいかない<code>勾配損失問題</code>に直面します．</p>
+
+<p>\begin{eqnarray}
+\frac{\partial E_n }{\partial w_{ji}^{(l)}} &amp;=&amp;
+\delta_j^{(l)} z_i^{(l-1)} \tag{4.13}\\
+\end{eqnarray}</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class="well">
+        <h1><a href="/2015/11/bluedeeplearningchapter44code">Nov 9, 2015 - 青深層学習 4章 実装</a></h1>
         
         <div class="content">
             <h1 id="はじめに">はじめに</h1>
@@ -139,7 +228,7 @@
 
 <div class="article">
     <div class="well">
-        <h1><a href="/2015/11/blueDeepLearningChapter442">Nov 9, 2015 - 青深層学習 4.4.2 行列表記</a></h1>
+        <h1><a href="/2015/11/bluedeeplearningchapter442">Nov 9, 2015 - 青深層学習 4.4.2 行列表記</a></h1>
         
         <div class="content">
             <h1 id="はじめに">はじめに</h1>
@@ -180,7 +269,7 @@
 <li>\(\boldsymbol{U}^{(l)}\)：\(j \times N\)</li>
 <li>\(\boldsymbol{Z}^{(l)}\)：\(j \times N\)</li>
 <li>\(\boldsymbol{b}^{(l)}\)：\(j \times 1\)</li>
-<li>\(\boldsymbol{1}_N\)：\(1 \times N\)</li>
+<li>\(\boldsymbol{1}_N\)：\(N \times 1\)</li>
 </ul>
 
 <h1 id="逆伝播">逆伝播</h1>
@@ -201,7 +290,7 @@
 <h1 id="重み更新">重み更新</h1>
 
 <p>逆伝播で計算したデルタを使って微分し，重み\(\boldsymbol{W}\)を更新．
-誤差逆伝播が漸化式で求めたので，重みの更新は並列して計算ができる．</p>
+誤差逆伝播法で漸化式を求めたので，重みの更新は並列して計算ができる．</p>
 
 <ul>
 <li>\(\partial \boldsymbol{W}^{(l)} \)：\((l)\)層の重み\(w_{ji}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j,i)\)成分にもつ行列</li>
@@ -241,157 +330,6 @@
     </div>
 </div>
 
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/11/blueDeepLearningChapter44">Nov 9, 2015 - 青深層学習 4.4.1 出力層でのデルタ</a></h1>
-        
-        <div class="content">
-            <h1 id="はじめに">はじめに</h1>
-
-<p>前回の続きです．</p>
-
-<p>高校生で培った微分を駆使してがんばります．</p>
-
-<h2 id="出力層のデルタ">出力層のデルタ</h2>
-
-<p>出力層のデルタを求めます．
-出力層のデルタは，誤差関数\(E_n\)を，出力層の入力 \(u_{j}^{(L)}\) で微分(式1)である．</p>
-
-<p>なので，出力層の活性化関数と誤差関数によって計算が異なる（本書の例の場合結果は全て同じになる）</p>
-
-<p>\begin{eqnarray}
-\delta_j^{(L)} = 
-  \frac{\partial E_n }{\partial u_{j}^{(L)}} \tag1
-\end{eqnarray}</p>
-
-<h1 id="回帰">回帰</h1>
-
-<ul>
-<li>活性化関数：恒等写像</li>
-<li>誤差関数：2乗誤差</li>
-</ul>
-
-<p>2乗誤差は以下の式2であり，出力層が恒等写像なので，\(\boldsymbol{y}=\boldsymbol{z}=\boldsymbol{u}\)
-より式4に変形できる．</p>
-
-<p>\begin{eqnarray}
-E_n &amp;=&amp; \frac{1}{2} ||\boldsymbol{y} - \boldsymbol{d} ||^2 \tag{2}\\
-&amp;=&amp; \frac{1}{2}\sum_j (y_j-d_j)^2 \tag{3} \\
-&amp;=&amp; \frac{1}{2}\sum_j (u_j^{(L)} - d_j)^2 \tag{4} \\
-\end{eqnarray}</p>
-
-<p>式4を\(u_j^{(L)}\)で微分すればいいので\(L\)層のデルタは，
-\begin{eqnarray}
-\delta_j^{(L)} &amp;=&amp; u_j^{(L)} - d_j \tag{5} \\
-&amp;=&amp; y_j - d_j \tag{6}
-\end{eqnarray}</p>
-
-<h1 id="2値分類">2値分類</h1>
-
-<ul>
-<li>活性化関数：ロジスティック関数</li>
-<li>誤差関数：対数尤度</li>
-</ul>
-
-<p>2値分類なので出力層のユニットは1つだけ．</p>
-
-<p>対数尤度の総和の内側のデルタ（データ1つに対するデルタ）を求める．</p>
-
-<p>式7で分子を対数尤度で展開し，式8はchain ruleを適用してyで展開する．</p>
-
-<p>\begin{eqnarray}
-\delta^{(L)} &amp;=&amp; \frac
-{(\partial d \log(y) + (1-d)\log(1-y))}
-{\partial u} \tag{7} \\
-&amp;=&amp; \frac
-{(\partial d \log(y) + (1-d)\log(1-y))}
-{\partial y}
-\frac{\partial y}
-{\partial u} \tag{8} \\
-\end{eqnarray}</p>
-
-<p>式8の第1項目は，対数の微分，2項目は，出力層がロジスティック関数なので， \(y=\frac{1}{1+\exp(-u)}\) を\(u\)で微分する必要がある（高校でいうところの商の微分）．</p>
-
-<p>\begin{eqnarray}
-\delta^{(L)} &amp;=&amp; (\frac{d}{y} - \frac{1-d}{1-y}) y(1-y) \tag{9}  \\
-&amp;=&amp; d(1-y)-(1-d)y \tag{10} \\
-&amp;=&amp; d-y \tag{11} \\
-\end{eqnarray}</p>
-
-<p>ロジスティック関数をちゃんと微分すると以下のようになる．</p>
-
-<p>\begin{eqnarray}
-\frac{\partial y} {\partial u} &amp;=&amp; \frac{\partial}{\partial u} \frac{1}{1+\exp(-u)} \\
-&amp;=&amp; \frac{(-1)(1+\exp(-u))(-1)}{(1+\exp(-u))^2}\\
-&amp;=&amp; \frac{1+\exp(-u)}{(1+\exp(-u))^2}\\
-&amp;=&amp;(\frac{1}{1+\exp(-u)})(1-\frac{1}{1+\exp(-u)})\\
-&amp;=&amp;y(1-y)
-\end{eqnarray}</p>
-
-<ul>
-<li>合成関数の微分</li>
-<li>商の微分</li>
-</ul>
-
-<p>って名前がついてたきがする．</p>
-
-<h1 id="多値分類">多値分類</h1>
-
-<p>（これが一番時間がかかった）</p>
-
-<ul>
-<li>活性化関数：ソフトマックス関数</li>
-<li>誤差関数：交差エントロピー</li>
-</ul>
-
-<p>誤差関数をソフトマックス関数で展開すると式13になる．</p>
-
-<p>\begin{eqnarray}
-E_n &amp;=&amp; - \sum_k d_k \log(y_k) \tag{12} \\
-&amp;=&amp; - \sum_k d_k \log (\frac{\exp(u_k^{(L)})}{\sum_i \exp(u_i^{(L)})}) \tag{13}
-\end{eqnarray}</p>
-
-<p>\(\delta^{(L)}\)を求めるには，chain ruleを使って\(y\)で展開する．</p>
-
-<hr>
-
-<p>\begin{eqnarray}
-\delta^{(L)} &amp;=&amp; \sum_k \frac{\partial E_n}{\partial y_k} \frac{\partial y_k}{u_j^{(L)}} \tag{14} \\
-&amp;=&amp; \sum_k (-1) \frac{d_k}{y_k} \frac{\partial }{u_j^{(L)}} \frac{\exp(u_k^{(L)})}{\sum_i \exp(u_i^{(L)})} \tag{15}\\
-&amp;=&amp; 
-- \frac{d_j}{y_j} \frac{\exp(u_j^{(L)}) \{ \sum_i \exp(u_i^{(L)})\} - \{\exp(u_j^{(L)})\}^2 }{\{ \sum_i \exp(u_i^{(L)})\}^2}
-- \sum_{k \neq j} \frac{d_k}{y_k} \frac{-\{\exp(u_k^{(L)})\}\{\exp(u_j^{(L)})\}}{\{\sum_i \exp(u_i^{(L)})\}^2}
- \tag{16}\\
-&amp;=&amp;
-- d_j \frac{\sum_i \exp(u_i^{(L)}) - 
-\exp(u_j^{(L)})
-  }{\sum_i \exp(u_i^{(L)})}
-+ \sum_{k \neq j} \frac{d_k}{y_k} y_k y_j
- \tag{17}\\
- &amp;=&amp;
-- d_j + d_j y_j
-+ \sum_{k \neq j} d_k y_j
- \tag{18}\\ 
- &amp;=&amp; - d_j + \sum_{k} d_k y_j \tag{19}\\
- &amp;=&amp; - d_j + y_j \tag{20}\\
-\end{eqnarray}</p>
-
-<ul>
-<li>式15：第1項目はそのまま誤差関数を \(y_k\)で微分し，2項目はソフトマックスに展開する．</li>
-<li>式16：\(k=j\)と\(k \neq j\)の2つで変わるので，2つに分解して商の微分をする．</li>
-<li>式17,式18：ソフトマックス関数で約分して整理．</li>
-<li>式19：第3項に第2項を合わせる．</li>
-<li>式20：\(\sum_k d_k = 1\)</li>
-</ul>
-
-<h1 id="まとめ">まとめ</h1>
-
-<p>全部出力と正解の差になる．</p>
-
-        </div>
-    </div>
-</div>
-
 
 <div class="pagination">
   
@@ -409,7 +347,7 @@ E_n &amp;=&amp; - \sum_k d_k \log(y_k) \tag{12} \\
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12 footer navbar-inverse navbar-fixed-bottom">
-            <p class="copyright">&copy;2015 η. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="https://github.com/scotte/jekyll-clean">Scott Emmons</a>
+            <p class="copyright">&copy;2015 鴨川η. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="https://github.com/scotte/jekyll-clean">Scott Emmons</a>
             under
             <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</a></p>
         </div>
