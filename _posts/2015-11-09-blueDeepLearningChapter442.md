@@ -40,7 +40,7 @@ comments: false
 - \\(\boldsymbol{U}^{(l)}\\)：\\(j \times N\\)
 - \\(\boldsymbol{Z}^{(l)}\\)：\\(j \times N\\)
 - \\(\boldsymbol{b}^{(l)}\\)：\\(j \times 1\\)
-- \\(\boldsymbol{1}_N\\)：\\(1 \times N\\)
+- \\(\boldsymbol{1}_N\\)：\\(N \times 1\\)
 
 # 逆伝播
 
@@ -58,7 +58,7 @@ comments: false
 
 # 重み更新
 逆伝播で計算したデルタを使って微分し，重み\\(\boldsymbol{W}\\)を更新．
-誤差逆伝播が漸化式で求めたので，重みの更新は並列して計算ができる．
+誤差逆伝播法で漸化式を求めたので，重みの更新は並列して計算ができる．
 
 - \\(\partial \boldsymbol{W}^{(l)} \\)：\\((l)\\)層の重み\\(w_{ji}^{(l)}\\)で誤差関数\\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\\)を微分した値を\\((j,i)\\)成分にもつ行列
 - \\(\partial \boldsymbol{b}^{(l)} \\)：\\((l)\\)層の重み\\(b_{j}^{(l)}\\)で誤差関数\\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\\)を微分した値を\\((j)\\)成分にもつ列ベクトル
