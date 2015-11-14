@@ -19,14 +19,14 @@ comments: false
 
 ![nn]({{ site.url }}/images/nn.svg)
 
-- 回帰を扱うネットワークなので，output layerの活性化関数は恒等写像
+- 回帰を扱うネットワークなので，`output layer`の活性化関数は恒等写像
 - \\(E_n\\) は，データ \\(\boldsymbol{x_n}\\) に対する誤差関数（ここでは自乗誤差），対応する正解データは， \\(\boldsymbol{d_n}\\) 
-- \\(w_{ji}^{(3)}\\) 3層目の重みでhidden layerのユニット \\(i\\) からoutput layerのユニット \\(j\\) へのリンクの重み 
+- \\(w_{ji}^{(3)}\\) 3層目の重みで`hidden layer`のユニット \\(i\\) から`output layer`のユニット \\(j\\) へのリンクの重み 
 - +1 はバイアスのユニット
-- Input layerの x1~x4 は1つデータ各次元の値，この場合は \\(\boldsymbol{x}_n\\) は4次元のベクトル
+- `Input layer`の x1~x4 は1つデータ各次元の値，この場合は \\(\boldsymbol{x}_n\\) は4次元のベクトル
 - 出力は，3次元のベクトル \\(\boldsymbol{y(x_n)}\\)
-- \\(u_i^{(2)}\\) は hidden layerのユニット \\(i\\) の入力
-- \\(z_i^{(2)}\\) は hidden layerのユニット \\(i\\) の出力
+- \\(u_i^{(2)}\\) は `hidden layer`のユニット \\(i\\) の入力
+- \\(z_i^{(2)}\\) は `hidden layer`のユニット \\(i\\) の出力
 - \\(f\\) は活性化関数
 
 です．
@@ -39,7 +39,7 @@ comments: false
 
 とりあえず愚直に総和を展開します．
 
-微分するほうもされるほうもスカラなので結果もスカラになる（はず）．
+微分するほうもされるほうもスカラなので結果もスカラになる．
 
 
 \begin{eqnarray}
@@ -83,7 +83,7 @@ comments: false
 つまり赤いリンクの重みで自乗誤差を微分する．
 
 
-\\(w_{ij}^{(2)}\\) はhidden layerのユニット \\(j\\) の入力の一部として伝わるので，chain ruleを適用する．
+\\(w_{ij}^{(2)}\\) は`hidden layer`のユニット \\(j\\) の入力の一部として伝わるので，chain ruleを適用する．
 
 \begin{eqnarray}
 \frac{\partial E_n }{\partial w_{ji}^{(2)}} = \frac{\partial E_n }{\partial u_j^{(2)}}  \frac{\partial u_j^{(2)}} {\partial w_{ji}^{(2)}} 
@@ -99,7 +99,7 @@ comments: false
 
 ![nn]({{ site.url }}/images/nn6.svg) 
 
-式1の右辺の分子はInput layerの各出力 \\(z_i^{(1)}\\) と赤いリンクの重みの積の総和．
+式1の右辺の分子は`Input layer`の各出力 \\(z_i^{(1)}\\) と赤いリンクの重みの積の総和．
 
 これを \\(w_{ij}^{(2)}\\) で微分するので \\(z_i^{(1)}\\) 以外は0になる．
 
@@ -115,7 +115,7 @@ comments: false
 
 続いて第1項目 \\(\frac{\partial E_n }{\partial u_j^{(2)}}\\) ．
 
-\\(u_j^{(2)}\\) (hidden layerのユニット\\(j\\) の入力) は活性化関数 \\(f\\)が適用され，重み \\(w_{kj}^{(3)}  (k=1,2,3)\\) (下図の赤線の重み) がかかってoutput layerの全てのユニットの入力の一部となる．
+\\(u_j^{(2)}\\) (`hidden layer`のユニット\\(j\\) の入力) は活性化関数 \\(f\\)が適用され，重み \\(w_{kj}^{(3)}  (k=1,2,3)\\) (下図の赤線の重み) がかかって`output layer`の全てのユニットの入力の一部となる．
 
 ![nn]({{ site.url }}/images/nn2.svg)
 
