@@ -53,10 +53,10 @@ E_n &=& \frac{1}{2} ||\boldsymbol{y} - \boldsymbol{d} ||^2 \tag{2}\\\
 
 \begin{eqnarray}
 \delta^{(L)} &=& \frac
-{(\partial d \log(y) + (1-d)\log(1-y))}
+{\partial(d \log(y) + (1-d)\log(1-y))}
 {\partial u} \tag{7} \\\
 &=& \frac
-{(\partial d \log(y) + (1-d)\log(1-y))}
+{\partial (d \log(y) + (1-d)\log(1-y))}
 {\partial y}
 \frac{\partial y}
 {\partial u} \tag{8} \\\

@@ -23,7 +23,7 @@ comments: false
 - \\(E_n\\) は，データ \\(\boldsymbol{x_n}\\) に対する誤差関数（ここでは自乗誤差），対応する正解データは， \\(\boldsymbol{d_n}\\) 
 - \\(w_{ji}^{(3)}\\) 3層目の重みで`hidden layer`のユニット \\(i\\) から`output layer`のユニット \\(j\\) へのリンクの重み 
 - +1 はバイアスのユニット
-- `Input layer`の x1~x4 は1つデータ各次元の値，この場合は \\(\boldsymbol{x}_n\\) は4次元のベクトル
+- `Input layer`の x1~x4 は1つのデータの各次元の値に対応，この場合は \\(\boldsymbol{x}_n\\) は4次元のベクトル
 - 出力は，3次元のベクトル \\(\boldsymbol{y(x_n)}\\)
 - \\(u_i^{(2)}\\) は `hidden layer`のユニット \\(i\\) の入力
 - \\(z_i^{(2)}\\) は `hidden layer`のユニット \\(i\\) の出力
@@ -47,7 +47,7 @@ comments: false
 \sum_{k=1}^3 \frac{\partial E_n }{\partial y_{k}} \frac{\partial y_k }{\partial w_{ji}^{(3)}} \tag{1}\\\
 &=& \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}\frac{\partial y_k}{\partial w_{ji}^{(3)}} \tag{2}\\\
 &=& \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}
-\frac{\sum_{i'} w_{ki'}^{(3)}z_{i'}^{(2)}  }{\partial w_{ji}^{(3)}} \tag{3}\\\
+\frac{\partial \sum_{i'} w_{ki'}^{(3)}z_{i'}^{(2)}  }{\partial w_{ji}^{(3)}} \tag{3}\\\
 &=& (y_j(\boldsymbol{x})-d_j) z_i^{(2)} \tag{4}
 \end{eqnarray}
 

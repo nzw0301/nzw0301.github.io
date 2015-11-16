@@ -79,8 +79,7 @@ comments: false
 
 
 \begin{eqnarray}
-\frac{\partial E_n }{\partial w_{ji}^{(l)}} &=&
-\delta_j^{(l)} z_i^{(l-1)} \tag{4.13}\\\
+\delta_j^{(l)} &=& \sum_k \delta_k^{(l+1)} (w_{kj}^{( l+1)} f'(u_j^{(l)})) \tag{4.12}\\\
 \end{eqnarray}
 
 # 補足
