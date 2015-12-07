@@ -1,31 +1,39 @@
 ---
 layout: default
 ---
+<div id="home" class="page-content wc-container">
+	<div class="posts">
+  		{% for post in site.posts limit:10 %}
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+			        {{ post.title }}
+			      </a>
+    			</h3>
 
-{% for post in paginator.posts %}
-<div class="article">
-    <div class="well">
-        <h1><a href="{{ site.baseurl}}{{ post.url }}">{{ post.date | date: "%b %-d, %Y" }} - {{ post.title }}</a></h1>
-        {% if site.comments == true and post.comments == true and site.disqus != '' %}
-          <p class="author"><a href="{{ site.baseurl }}{{ post.url }}/#disqus_thread">Comments</a></p>
-        {% endif %}
-        <div class="content">
-            {{ post.content }}
-        </div>
-    </div>
-</div>
-{% endfor %}
-
-<div class="pagination">
-  {% if paginator.previous_page %}
-      {% if paginator.previous_page == 1 %}
-        <a class="btn btn-default" href="{{ site.baseurl}}/index.html" class="previous">Newer</a>
-      {% else %}
-        <a class="btn btn-default" href="{{ site.baseurl}}/page{{ paginator.previous_page }}" class="previous">Newer</a>
-      {% endif %}
-  {% endif %}
-  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-    <a class="btn btn-default" href="{{ site.baseurl}}/page{{ paginator.next_page }}" class="next">Older</a>
-  {% endif %}
+          <p class="post-meta">
+            {% if (post.categories.size > 0 %}
+            <span class="categories">
+            {{ post.categories | array_to_sentence_string }}
+            </span> |
+            {% endif %}
+            <span class="post-date">
+            {{ post.date | date: "%b %-d, %Y" }} 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				{{ post.excerpt }}	
+  				</p>
+  				<p>
+  					<a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" title="{{ post.title}}">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		{% endfor %}
+	</div>
+	<div class="post-footer">
+		<div class="column-full"><a href="{{ '/blog' | prepend: site.baseurl | prepend: site.url }}">Blog archive</a></div>
+	</div>
 </div>

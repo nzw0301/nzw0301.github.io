@@ -1,22 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>鴨川η</title>
-		<description>η is ...</description>
-		<link></link>
-		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-		
-			<item>
-				<title>青深層学習 4章 まとめ</title>
-				<description>&lt;p&gt;4章誤差逆伝播法のまとめです．&lt;/p&gt;
+  <channel>
+    <title></title>
+    <description>not δ</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 07 Dec 2015 13:49:21 +0900</pubDate>
+    <lastBuildDate>Mon, 07 Dec 2015 13:49:21 +0900</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>青トピックモデル 混合ユニグラムモデルの周辺化ギブスサンプリングのサンプル式</title>
+        <description>&lt;p&gt;ユニグラムモデルにおいて，トピックは文書集合に対して1つだけ存在した．
+一方，混合ユニグラムモデルは，トピック \(\phi\) は&lt;code&gt;K&lt;/code&gt;個存在する．(これをまとめたものを\(\Phi\)とかく)
+そのため各文書は，&lt;code&gt;K&lt;/code&gt;個のうちの1トピックをもつ．
+1つの\(\phi\)は，単語のカテゴリカル分布になる．
+加えて\(\theta\)はトピック分布を表す．（各トピックがどれだけ出現しやすいかを表現）
+これは混合ユニグラムモデルの中で1つだけ存在する．&lt;/p&gt;
+
+&lt;p&gt;残りはユニグラムモデルやLDAと一緒で&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;α&lt;/code&gt;及び&lt;code&gt;β&lt;/code&gt;：ディリクレ分布のパラメータ&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;D&lt;/code&gt;：文書集合の総数&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;N&lt;/code&gt;：文書\(d\)の単語数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;混合ユニグラムモデルをグラフィカルモデルで描くと以下のようになる．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/mix.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;新聞記事で例えると，記事はいくつかのトピック（スポーツとか政治とか）のどれか一つをもっていると仮定している．
+そして各トピックごとに出現しやすい単語の確率分布は異なる．
+（スポーツのトピックであれば”年棒, 野球, サッカー”といった単語が高確率で出現し，”選挙, 違法献金, 年金”は低確率で出現）&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;ベイズ推定&lt;/h3&gt;
+
+&lt;p&gt;ベイズ推定を使う場合，文書の生成確率を定義してから，事後確率分布を求める．
+混合ユニグラムモデルの文書の生成確率は以下のようにかける．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+p(\mathbf{W}|\Phi,\theta)
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;事後確率は，\(p(\bf{z},\Phi,\theta|\bf{W})\) となる．
+ここで&lt;a href=&quot;http://amzn.to/1SEuqld&quot;&gt;青トピックモデル本&lt;/a&gt;では，崩壊型ギブスサンプリングを導入するが頭がわるくてついていけなかったので少し丁寧にやってみる．&lt;/p&gt;
+
+&lt;p&gt;事後確率\(p(\bf{z},\Phi,\theta|\mathbf{W})\) をギブスサンプリングする場合は，\(\mathbf{z},\Phi,\theta\)のうち2つを固定して1つをサンプルする．
+崩壊型ギブスサンプリングでは，\(\Phi,\theta\)を積分消去して\(\mathbf{z}\)を直接求める．
+この辺りについては&lt;a href=&quot;http://amzn.to/1Nbzlq3&quot;&gt;白いトピックモデル本&lt;/a&gt;が大変参考になる．&lt;/p&gt;
+
+&lt;p&gt;つまりサンプリング式は \(p(z_d=k|\mathbf{z}_{-d}, \mathbf{W}, \alpha, \beta)\)で，これ計算したい．&lt;/p&gt;
+
+&lt;p&gt;ベイズの定理を使い，比例式を求める(青トピック本p51の式がこれに相当する)．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+p(z_d=k | \mathbf{z}_{-d}, \mathbf{W}, \alpha, \beta) &amp;amp;=&amp;amp;
+\frac{p(z_{i} = k, \bf{z}_{-d}, \bf{W} | \alpha, \beta)}{p(\bf{z}_{-d}, \bf{W} | \alpha, \beta)}  \tag{1} \\&lt;br /&gt;
+&amp;amp; \propto &amp;amp; p(z_d=k, \mathbf{z}_{-d}, \mathbf{W}| \alpha, \beta)  \tag{2} \\&lt;br /&gt;
+&amp;amp;= &amp;amp; p(\mathbf{w}_{d} | \mathbf{W}_{-d}, z_d=k, \mathbf{z}_{-d}, \alpha, \beta) \\\ &amp;amp; &amp;amp; \times p(\mathbf{W}_{-d}, z_d=k, \mathbf{z}_{-d} | \alpha, \beta)  \tag{3} \\&lt;br /&gt;
+&amp;amp;= &amp;amp; p(\mathbf{w}_d| \mathbf{W}_{-d}, z_d=k, \mathbf{z}_{-d}, \alpha, \beta) \times p(z_d=k| \mathbf{z}_{-d}, \mathbf{W}_{-d}, \alpha, \beta) \\\ &amp;amp; &amp;amp; \times
+p(\mathbf{W}_{-d}, \mathbf{z}_{-d} | \alpha, \beta)  \tag{4} \\&lt;br /&gt;
+&amp;amp; \propto &amp;amp; p(\mathbf{w}_d| \mathbf{W}_{-d}, z_d=k, \mathbf{z}_{-d}, \alpha, \beta) \\\ &amp;amp; &amp;amp; \times p(z_d=k| \mathbf{z}_{-d}, \mathbf{W}_{-d}, \alpha, \beta) \tag{5} \\&lt;br /&gt;
+&amp;amp;= &amp;amp; p(\mathbf{w}_d| \mathbf{W}_{-d}, z_d=k, \mathbf{z}_{-d}, \beta) \times p(z_d=k| \mathbf{z}_{-d}, \alpha) \tag{6}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;式(1)は，ベイズの定理で展開&lt;/li&gt;
+  &lt;li&gt;式(2)は，分母に\(z_i=k\)がないので比例式で置き換え&lt;/li&gt;
+  &lt;li&gt;式(3)は，ベイズの定理で1つの文書とそれ以外に展開&lt;/li&gt;
+  &lt;li&gt;式(4)は，式(3)の2項目をベイズの定理で展開&lt;/li&gt;
+  &lt;li&gt;式(5)は，式(4)の3項目に\(z_i=k\)がないので比例式で置き換え&lt;/li&gt;
+  &lt;li&gt;式(6)は，条件付き独立を用いる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;間違っていたらごめんなさい．&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 06 Dec 2015 18:00:00 +0900</pubDate>
+        <link>/2015/12/06/mixgibbs/</link>
+        <guid isPermaLink="true">/2015/12/06/mixgibbs/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Gadfly</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;はじめに&lt;/h3&gt;
+&lt;p&gt;卒論の時期になりました．
+私もクリスマス締め切りの卒論を書いています．&lt;/p&gt;
+
+&lt;p&gt;さて，卒論の実験結果や統計処理をした結果をグラフで出す必要がある方はけっこういるのではないでしょうか．&lt;/p&gt;
+
+&lt;p&gt;そんな方に&lt;a href=&quot;http://gadflyjl.org/&quot;&gt;Gadfly&lt;/a&gt;を紹介します．&lt;/p&gt;
+
+&lt;p&gt;実行環境はMacを前提としていますので適宜お手元の環境に読み替えてください．&lt;/p&gt;
+
+&lt;h3 id=&quot;gadfly&quot;&gt;Gadflyって何？&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://julialang.org/&quot;&gt;julia&lt;/a&gt;という技術計算向けの高速でイケてる言語の描画パッケージの1つです．&lt;/p&gt;
+
+&lt;p&gt;手軽にかっこいい画像が作れます．&lt;/p&gt;
+
+&lt;p&gt;保存形式は以下の6つに対応しています．&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SVG&lt;/li&gt;
+  &lt;li&gt;SVGJS&lt;/li&gt;
+  &lt;li&gt;PNG&lt;/li&gt;
+  &lt;li&gt;PDF&lt;/li&gt;
+  &lt;li&gt;PS&lt;/li&gt;
+  &lt;li&gt;PGF&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;nzwはPDFで出力してTeXやパワーポイントに貼り付けてることが多いです．&lt;/p&gt;
+
+&lt;p&gt;ちなみにGadfly以外にもいろいろとあるようです．&lt;a href=&quot;https://en.wikibooks.org/wiki/Introducing_Julia/Plotting&quot;&gt;julia plotting&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;導入&lt;/h3&gt;
+
+&lt;p&gt;juliaの導入はhomebrewなりを使ってやるとして，juliaを起動したら以下のコマンドでGadflyをインストールします．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Gadfly&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;インストールが成功したら，以下のコマンドを実行すればplotができるようになります．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Gadfly&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;あとirisのデータを例にあげることがあるので&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;Pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;RDatasets&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RDatasets&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;をあらかじめやっておきます．&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;1. 散布図&lt;/h3&gt;
+&lt;p&gt;まずは簡単な散布図から．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/gadfly1.svg&quot; alt=&quot;ex1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rand(13)&lt;/code&gt;は乱数を13個生成しています．
+&lt;code&gt;x&lt;/code&gt;と&lt;code&gt;y&lt;/code&gt;でindexが同じものを1つのデータ点としてplotしています．&lt;/p&gt;
+
+&lt;p&gt;基本的に&lt;code&gt;plot&lt;/code&gt;関数にデータやパラメータを渡して描画する流れになります．&lt;/p&gt;
+
+&lt;p&gt;plotする図によってパラメータが違っていて散布図(point)であれば&lt;code&gt;color&lt;/code&gt;が指定できます．&lt;/p&gt;
+
+&lt;p&gt;この例では，アヤメの品種によって3色にわけています．
+irisのデータは&lt;code&gt;DataFrame&lt;/code&gt;に格納されていますので，x軸，y軸にあるかを指定する必要があります．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;datasets&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;iris&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PetalLength&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PetalWidth&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Geom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/gadfly2.svg&quot; alt=&quot;ex2&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 01 Dec 2015 01:00:00 +0900</pubDate>
+        <link>/2015/12/01/gadfly/</link>
+        <guid isPermaLink="true">/2015/12/01/gadfly/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>青深層学習 4章 まとめ</title>
+        <description>&lt;p&gt;4章誤差逆伝播法のまとめです．&lt;/p&gt;
 
 &lt;p&gt;3章で扱った勾配降下法は，誤差関数の勾配を求めて重みを更新し，ネットワークの性能を高めるために使いました．&lt;/p&gt;
 
 &lt;p&gt;誤差逆伝播法は，誤差関数の重みによる微分を効率良く計算するアルゴリズムです．&lt;/p&gt;
 
-&lt;h1 id=&quot;4-1-勾配計算の難しさ&quot;&gt;4.1 勾配計算の難しさ&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/nn1.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;section&quot;&gt;4.1 勾配計算の難しさ&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn1.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;順伝播によって得られた出力を使うため，重みが出力層から遠いほど（入力層に近いほど）chain ruleで展開する項の数が増えていきます．&lt;/p&gt;
 
@@ -24,16 +180,14 @@
 
 &lt;p&gt;&lt;code&gt;4.2&lt;/code&gt;以降で導出する誤差逆伝播法を用いることで効率的に計算を行えるようになります．&lt;/p&gt;
 
-&lt;h1 id=&quot;4-2-2層ネットワークでの計算&quot;&gt;4.2 2層ネットワークでの計算&lt;/h1&gt;
-
+&lt;h4 id=&quot;section-1&quot;&gt;4.2 2層ネットワークでの計算&lt;/h4&gt;
 &lt;p&gt;隠れ層が1層のニューラルネットワークにおいて，重みは&lt;code&gt;input layer&lt;/code&gt;と&lt;code&gt;hidden layer&lt;/code&gt;の間と&lt;code&gt;hidden layer&lt;/code&gt;と&lt;code&gt;output layer&lt;/code&gt;の間の2つに分けることができます．&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://nzw0301.github.io/2015/11/blueDeepLearningChapter42/&quot;&gt;詳しい式の導出&lt;/a&gt;はこちらを参照．&lt;/p&gt;
 
 &lt;p&gt;冒頭の&lt;code&gt;4.1&lt;/code&gt;で書いたように出力層から遠いほど式が複雑になっていることが確認できます．&lt;/p&gt;
 
-&lt;h1 id=&quot;4-3-多層ネットワークへの一般化&quot;&gt;4.3 多層ネットワークへの一般化&lt;/h1&gt;
-
+&lt;h4 id=&quot;section-2&quot;&gt;4.3 多層ネットワークへの一般化&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;4.2&lt;/code&gt;は2層でしたが，層の数を一般化したときの微分を求めてます．
 なので，ここで誤差逆伝播法の本筋の話になります．&lt;/p&gt;
 
@@ -41,7 +195,7 @@
 肝心なのは， 各層ごとに\(\delta\)を\(L\)層（出力層）から逆順に求めることで，各重みによる微分を効率的に計算できることです．
 \(\delta\)が計算できれば，重みの微分は別々に求めることができます．&lt;/p&gt;
 
-&lt;h1 id=&quot;4-4-勾配降下法の完全アルゴリズム&quot;&gt;4.4 勾配降下法の完全アルゴリズム&lt;/h1&gt;
+&lt;h4 id=&quot;section-3&quot;&gt;4.4 勾配降下法の完全アルゴリズム&lt;/h4&gt;
 
 &lt;p&gt;前半部分では，出力層の\(\delta\)の導出を行います．
 &lt;a href=&quot;http://nzw0301.github.io/2015/11/blueDeepLearningChapter44/&quot;&gt;テキストより詳しい式変形をした&lt;/a&gt;ので，これからわかる通り，出力層の\(\delta\)は出力と正解の差です．&lt;/p&gt;
@@ -49,20 +203,20 @@
 &lt;p&gt;後半部分では，行列表記による&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;順伝播法&lt;/li&gt;
-&lt;li&gt;誤差逆伝播法&lt;/li&gt;
-&lt;li&gt;重み\(w\)の更新&lt;/li&gt;
+  &lt;li&gt;順伝播法&lt;/li&gt;
+  &lt;li&gt;誤差逆伝播法&lt;/li&gt;
+  &lt;li&gt;重み\(w\)の更新&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;の式です．
 詳細については，コーディングしやすいように行列の次元を意識して&lt;a href=&quot;http://nzw0301.github.io/2015/11/blueDeepLearningChapter442/&quot;&gt;かきました&lt;/a&gt;．&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;4.4.3 勾配の差分近似計算&lt;/code&gt;  では，活性化関数や多層になった場合に誤差関数の勾配計算の計算が正しいかを確かめるために，近似計算を扱います．
+&lt;p&gt;&lt;code&gt;4.4.3 勾配の差分近似計算&lt;/code&gt;  では，多層になった場合に誤差関数の勾配計算の計算が正しいかを確かめるために，近似計算を扱います．
 偏微分の定義から
 十分小さい\(\epsilon\)を用いた式1で検証できます．&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\frac{\partial E}{\partial w_{ji}^{(l)}} = \frac{E(...,w_{ji}^{(l)}+\epsilon,...)-E(...,w_{ji}^{(l)},...)}{\epsilon} \tag{1}
+\frac{\partial E}{\partial w_{ji}^{(l)}} = \frac{E(…,w_{ji}^{(l)}+\epsilon,…)-E(…,w_{ji}^{(l)},…)}{\epsilon} \tag{1}
 \end{eqnarray}&lt;/p&gt;
 
 &lt;p&gt;微分なので\(\epsilon\)は十分小さな値を選択する必要があります．
@@ -78,43 +232,42 @@
 
 &lt;p&gt;? 実際につかうんでしょうか？&lt;/p&gt;
 
-&lt;h1 id=&quot;4-5-勾配損失問題&quot;&gt;4.5 勾配損失問題&lt;/h1&gt;
+&lt;h4 id=&quot;section-4&quot;&gt;4.5 勾配消失問題&lt;/h4&gt;
 
 &lt;p&gt;順伝播は活性化関数を経由するので活性化関数が非線形ならば，この層の出力も非線形であり，発散しません．（ロジスティック関数が活性化関数ならば0から1の間に収まる）&lt;/p&gt;
 
-&lt;p&gt;対して逆伝播法は定義(4.13)のように線形な計算なので，層が深くなるほど発散しやすい（あるいは一度0になるとずっと0）になってしまうため学習がうまくいかない&lt;code&gt;勾配損失問題&lt;/code&gt;に直面します．&lt;/p&gt;
+&lt;p&gt;対して逆伝播法は定義(4.13)のように線形な計算なので，層が深くなるほど発散しやすい（あるいは一度0になるとずっと0）になってしまうため学習がうまくいかない&lt;code&gt;勾配消失問題&lt;/code&gt;に直面します．&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\delta_j^{(l)} &amp;amp;=&amp;amp; \sum_k \delta_k^{(l+1)} (w_{kj}^{( l+1)} f&amp;#39;(u_j^{(l)})) \tag{4.12}\\
+\delta_j^{(l)} &amp;amp;=&amp;amp; \sum_k \delta_k^{(l+1)} (w_{kj}^{( l+1)} f’(u_j^{(l)})) \tag{4.12}\\
 \end{eqnarray}&lt;/p&gt;
 
-&lt;h1 id=&quot;補足&quot;&gt;補足&lt;/h1&gt;
+&lt;h4 id=&quot;section-5&quot;&gt;補足&lt;/h4&gt;
 
-&lt;p&gt;多層のパーセプトロンにおいて隠れ層の数や層のノード数をいくつにするか決める必要がある．
-十分多い隠れ層が1層あれば任意の入出力の関係を実現できるが，タスクよっては層を増やしたほうが必要なノード数は少なく済む．
-ただし，層を増やしすぎると勾配損失が起こる．[深層学習, 人工知能学会]&lt;/p&gt;
+&lt;p&gt;十分多い隠れ層が1層あれば任意の入出力の関係を実現できるが，タスクよっては層を増やしたほうが必要なノード数は少なく済む．
+ただし，層を増やしすぎると勾配消失が起こる．[深層学習, 人工知能学会]&lt;/p&gt;
 
-&lt;h1 id=&quot;参考&quot;&gt;参考&lt;/h1&gt;
-
+&lt;h4 id=&quot;section-6&quot;&gt;参考&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;深層学習. 人工知能学会, 神嶌 敏弘, 麻生 英樹, 安田 宗樹, 前田 新一, 岡野原 大輔, 岡谷 貴之, 久保 陽太郎, Bollegala Danushka. 近代科学社, 2015.&lt;/li&gt;
-&lt;li&gt;深層学習 = Deep learning. 岡谷 貴之. 講談社, MLP機械学習プロフェッショナルシリーズ, 2015.&lt;/li&gt;
+  &lt;li&gt;深層学習. 人工知能学会, 神嶌 敏弘, 麻生 英樹, 安田 宗樹, 前田 新一, 岡野原 大輔, 岡谷 貴之, 久保 陽太郎, Bollegala Danushka. 近代科学社, 2015.&lt;/li&gt;
+  &lt;li&gt;深層学習 = Deep learning. 岡谷 貴之. 講談社, MLP機械学習プロフェッショナルシリーズ, 2015.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Fri, 13 Nov 2015 21:00:00 +0900</pubDate>
-				<link>/2015/11/backpropagation</link>
-				<guid isPermaLink="true">/2015/11/backpropagation</guid>
-			</item>
-		
-			<item>
-				<title>青深層学習 4章 実装</title>
-				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
-
+        <pubDate>Fri, 13 Nov 2015 21:00:00 +0900</pubDate>
+        <link>/2015/11/13/backpropagation/</link>
+        <guid isPermaLink="true">/2015/11/13/backpropagation/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>青深層学習 4章 実装</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;はじめに&lt;/h4&gt;
 &lt;p&gt;前回まで数式の展開をしていたので，それをもとにして実装を行いました．&lt;/p&gt;
 
 &lt;p&gt;Pythonを使いました．&lt;/p&gt;
 
-&lt;h1 id=&quot;データとタスク&quot;&gt;データとタスク&lt;/h1&gt;
+&lt;h4 id=&quot;section-1&quot;&gt;データとタスク&lt;/h4&gt;
 
 &lt;p&gt;データは例によって夢野久作の作品(&lt;a href=&quot;http://www.aozora.gr.jp/cards/000096/files/2122_21847.html&quot;&gt;オンチ&lt;/a&gt;)を使います．&lt;/p&gt;
 
@@ -123,17 +276,20 @@
 （なので出力層のユニット数は1つ）&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;tag sentence&lt;/p&gt;
+  &lt;p&gt;tag sentence&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;1 退け 退け ッ &lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;1 退け 退け ッ&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;0 疎ら に なっ た 群衆 の 背後 から 、 今 出 た ばかり の 旭 が キラキラ と 映し 込ん で 来 た 。 &lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;0 疎ら に なっ た 群衆 の 背後 から 、 今 出 た ばかり の 旭 が キラキラ と 映し 込ん で 来 た 。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;このように地の文であれば0，発言であれば1をつけます．&lt;/p&gt;
 
-&lt;h1 id=&quot;コード&quot;&gt;コード&lt;/h1&gt;
-
+&lt;h4 id=&quot;section-2&quot;&gt;コード&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;hidden_layer&lt;/code&gt; で指定する層を変えても問題ないように作ってあるので層の増減とユニット数の増減は好きに試すことができます．&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/nzw0301/363b803268c2ece127f2.js&quot;&gt;&lt;/script&gt;
@@ -144,47 +300,48 @@
 1つ目がミニバッチを使った確率的勾配法
 2つ目が全データで学習する勾配法&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn_err_rate.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn_err_rate.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;学習回数&lt;code&gt;400&lt;/code&gt;，学習率&lt;code&gt;0.2&lt;/code&gt;で固定し，隠れ層をいじってみます．
-&lt;img src=&quot;/images/nn_hidden.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+&lt;img src=&quot;/images/nn_hidden.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;学習率&lt;code&gt;0.2&lt;/code&gt;と隠れ層を固定し，確率的勾配法を使います．
 ミニバッチによる変化を見ています．
-&lt;img src=&quot;/images/nn_minibatch.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+&lt;img src=&quot;/images/nn_minibatch.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;以上です．&lt;/p&gt;
 </description>
-				<pubDate>Mon, 09 Nov 2015 21:00:00 +0900</pubDate>
-				<link>/2015/11/bluedeeplearningchapter44code</link>
-				<guid isPermaLink="true">/2015/11/bluedeeplearningchapter44code</guid>
-			</item>
-		
-			<item>
-				<title>青深層学習 4.4.2 行列表記</title>
-				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
-
+        <pubDate>Mon, 09 Nov 2015 21:00:00 +0900</pubDate>
+        <link>/2015/11/09/blueDeepLearningChapter44code/</link>
+        <guid isPermaLink="true">/2015/11/09/blueDeepLearningChapter44code/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>青深層学習 4.4.2 行列表記</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;はじめに&lt;/h4&gt;
 &lt;p&gt;前回の続きです．&lt;/p&gt;
 
 &lt;p&gt;順伝播，誤差逆伝播，重みとバイアスの更新を行列の表記で行います．&lt;/p&gt;
 
-&lt;h1 id=&quot;表記&quot;&gt;表記&lt;/h1&gt;
+&lt;h4 id=&quot;section-1&quot;&gt;表記&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;\(N\) ：ミニバッチのデータ数&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{x}_n\)：1件のデータ(例えば1つ文書，行は単語の頻度とか)&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{X} = \left[ \begin{array}{c} \boldsymbol{x}_1 ... \boldsymbol{x}_N \end{array} \right]\)：ミニバッチの行列&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{Y} = \left[ \begin{array}{c} \boldsymbol{y}_1 ... \boldsymbol{y}_N \end{array} \right]\)：各データに対する最終的な出力を列にもつ行列&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{W^{(l)}} = w_{ji}^{(l)} \)：\(l\)層のおける重みの行列 要素はユニット\(i\)からユニット\(j\)のリンクの重み&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{b}^{(l)}\)：\(l\)層のバイアスのベクトル&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{u}^{(l)}_n\)：データ\(\boldsymbol{x}_n\)のときの，\(l\)層の入力ベクトル 1行目はユニットの1つ目の入力に対応&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{U}^{(l)} = \left[ \begin{array}{c} \boldsymbol{u}_1^{(l)} ... \boldsymbol{u}_N^{(l)} \end{array} \right]\)：\(l\)層の入力の行列，列がデータ1件，行がユニットに対応&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{Z}^{(l)} = \left[ \begin{array}{c} \boldsymbol{z}_1^{(l)} ... \boldsymbol{z}_N^{(l)} \end{array} \right]\)：\(l\)層の出力の行列，列がデータ1件，行がユニットに対応，\(\boldsymbol{U}^{(l)}\)の各要素に活性化を適用しただけ&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{\Delta^{(l)}}\)：列がミニバッチのデータ，行がユニットのデルタ\(\delta^{(l)}_j\)の行列&lt;/li&gt;
-&lt;li&gt;k：出力層のユニット数&lt;/li&gt;
+  &lt;li&gt;\(N\) ：ミニバッチのデータ数&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{x}_n\)：1件のデータ(例えば1つ文書，行は単語の頻度とか)&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{X} = \left[ \begin{array}{c} \boldsymbol{x}_1 … \boldsymbol{x}_N \end{array} \right]\)：ミニバッチの行列&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{Y} = \left[ \begin{array}{c} \boldsymbol{y}_1 … \boldsymbol{y}_N \end{array} \right]\)：各データに対する最終的な出力を列にもつ行列&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{W^{(l)}} = w_{ji}^{(l)} \)：\(l\)層のおける重みの行列 要素はユニット\(i\)からユニット\(j\)のリンクの重み&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{b}^{(l)}\)：\(l\)層のバイアスのベクトル&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{u}^{(l)}_n\)：データ\(\boldsymbol{x}_n\)のときの，\(l\)層の入力ベクトル 1行目はユニットの1つ目の入力に対応&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{U}^{(l)} = \left[ \begin{array}{c} \boldsymbol{u}_1^{(l)} … \boldsymbol{u}_N^{(l)} \end{array} \right]\)：\(l\)層の入力の行列，列がデータ1件，行がユニットに対応&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{Z}^{(l)} = \left[ \begin{array}{c} \boldsymbol{z}_1^{(l)} … \boldsymbol{z}_N^{(l)} \end{array} \right]\)：\(l\)層の出力の行列，列がデータ1件，行がユニットに対応，\(\boldsymbol{U}^{(l)}\)の各要素に活性化を適用しただけ&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{\Delta^{(l)}}\)：列がミニバッチのデータ，行がユニットのデルタ\(\delta^{(l)}_j\)の行列&lt;/li&gt;
+  &lt;li&gt;k：出力層のユニット数&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;順伝播&quot;&gt;順伝播&lt;/h1&gt;
+&lt;h4 id=&quot;section-2&quot;&gt;順伝播&lt;/h4&gt;
 
 &lt;p&gt;入力は恒等写像なので， \(\boldsymbol{Z}^{(1)}=\boldsymbol{X}\) ．&lt;/p&gt;
 
@@ -194,39 +351,38 @@
 \end{eqnarray}&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;\(j\)：\((l)\)層のユニット数（バイアス除く）&lt;/li&gt;
-&lt;li&gt;\(i\)：\((l-1)\)層のユニット数（バイアス除く）&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{W}^{(l)}\)：\(j \times i\)&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{U}^{(l)}\)：\(j \times N\)&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{Z}^{(l)}\)：\(j \times N\)&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{b}^{(l)}\)：\(j \times 1\)&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{1}_N\)：\(N \times 1\)&lt;/li&gt;
+  &lt;li&gt;\(j\)：\((l)\)層のユニット数（バイアス除く）&lt;/li&gt;
+  &lt;li&gt;\(i\)：\((l-1)\)層のユニット数（バイアス除く）&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{W}^{(l)}\)：\(j \times i\)&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{U}^{(l)}\)：\(j \times N\)&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{Z}^{(l)}\)：\(j \times N\)&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{b}^{(l)}\)：\(j \times 1\)&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{1}_N\)：\(N \times 1\)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;逆伝播&quot;&gt;逆伝播&lt;/h1&gt;
+&lt;h4 id=&quot;section-3&quot;&gt;逆伝播&lt;/h4&gt;
 
 &lt;p&gt;出力層のデルタ\(\boldsymbol{\Delta^{(L)}} = \boldsymbol{D} - \boldsymbol{Y}\)
 を\((L-1)\)~\(2\)まで逆伝播させる．&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\boldsymbol{\Delta}^{(l)} = f&amp;#39;^{(l)}(\boldsymbol{U}^{(l)}) \odot (\boldsymbol{W}^{(l+1)T} \boldsymbol{\Delta}^{(l+1)}) \tag{3}
+\boldsymbol{\Delta}^{(l)} = f’^{(l)}(\boldsymbol{U}^{(l)}) \odot (\boldsymbol{W}^{(l+1)T} \boldsymbol{\Delta}^{(l+1)}) \tag{3}
 \end{eqnarray}&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;\(\boldsymbol{\Delta^{(L)}} , \boldsymbol{D} , \boldsymbol{Y}\)：\(k \times N\)&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)&lt;/li&gt;
-&lt;li&gt;\(\odot\)：&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%80%E3%83%9E%E3%83%BC%E3%83%AB%E7%A9%8D&quot; title=&quot;アダマール積&quot;&gt;アダマール積&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{\Delta^{(L)}} , \boldsymbol{D} , \boldsymbol{Y}\)：\(k \times N\)&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)&lt;/li&gt;
+  &lt;li&gt;\(\odot\)：&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%80%E3%83%9E%E3%83%BC%E3%83%AB%E7%A9%8D&quot; title=&quot;アダマール積&quot;&gt;アダマール積&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;重み更新&quot;&gt;重み更新&lt;/h1&gt;
-
+&lt;h4 id=&quot;section-4&quot;&gt;重み更新&lt;/h4&gt;
 &lt;p&gt;逆伝播で計算したデルタを使って微分し，重み\(\boldsymbol{W}\)を更新．
 誤差逆伝播法で漸化式を求めたので，重みの更新は並列して計算ができる．&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;\(\partial \boldsymbol{W}^{(l)} \)：\((l)\)層の重み\(w_{ji}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j,i)\)成分にもつ行列&lt;/li&gt;
-&lt;li&gt;\(\partial \boldsymbol{b}^{(l)} \)：\((l)\)層の重み\(b_{j}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j)\)成分にもつ列ベクトル&lt;/li&gt;
-&lt;li&gt;\(\epsilon\)：学習率&lt;/li&gt;
+  &lt;li&gt;\(\partial \boldsymbol{W}^{(l)} \)：\((l)\)層の重み\(w_{ji}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j,i)\)成分にもつ行列&lt;/li&gt;
+  &lt;li&gt;\(\partial \boldsymbol{b}^{(l)} \)：\((l)\)層の重み\(b_{j}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j)\)成分にもつ列ベクトル&lt;/li&gt;
+  &lt;li&gt;\(\epsilon\)：学習率&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;\begin{eqnarray}
@@ -235,13 +391,13 @@
 \end{eqnarray}&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;\(\partial \boldsymbol{W}^{(l)}\)：\(j \times i\)&lt;/li&gt;
-&lt;li&gt;\(\partial \boldsymbol{b}^{(l)}\)：\(j \times 1\)&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{Z^{(l-1)}} \)：\(i \times N\)&lt;/li&gt;
-&lt;li&gt;\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)&lt;/li&gt;
-&lt;li&gt;\(j\)：\((l)\)層のユニット数（バイアス除く）&lt;/li&gt;
-&lt;li&gt;\(i\)：\((l-1)\)層のユニット数（バイアス除く）&lt;/li&gt;
-&lt;li&gt;\(N\)：ミニバッチのデータ数&lt;/li&gt;
+  &lt;li&gt;\(\partial \boldsymbol{W}^{(l)}\)：\(j \times i\)&lt;/li&gt;
+  &lt;li&gt;\(\partial \boldsymbol{b}^{(l)}\)：\(j \times 1\)&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{Z^{(l-1)}} \)：\(i \times N\)&lt;/li&gt;
+  &lt;li&gt;\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)&lt;/li&gt;
+  &lt;li&gt;\(j\)：\((l)\)層のユニット数（バイアス除く）&lt;/li&gt;
+  &lt;li&gt;\(i\)：\((l-1)\)層のユニット数（バイアス除く）&lt;/li&gt;
+  &lt;li&gt;\(N\)：ミニバッチのデータ数&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;更新式は，&lt;/p&gt;
@@ -257,22 +413,21 @@
 
 &lt;p&gt;以上です．&lt;/p&gt;
 </description>
-				<pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
-				<link>/2015/11/bluedeeplearningchapter442</link>
-				<guid isPermaLink="true">/2015/11/bluedeeplearningchapter442</guid>
-			</item>
-		
-			<item>
-				<title>青深層学習 4.4.1 出力層でのデルタ</title>
-				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
-
+        <pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
+        <link>/2015/11/09/blueDeepLearningChapter442/</link>
+        <guid isPermaLink="true">/2015/11/09/blueDeepLearningChapter442/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>青深層学習 4.4.1 出力層でのデルタ</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;はじめに&lt;/h4&gt;
 &lt;p&gt;前回の続きです．&lt;/p&gt;
 
-&lt;p&gt;高校生で培った微分を駆使してがんばります．&lt;/p&gt;
-
-&lt;h1 id=&quot;出力層のデルタ&quot;&gt;出力層のデルタ&lt;/h1&gt;
-
-&lt;p&gt;出力層のデルタを求めます．
+&lt;p&gt;高校生で培った微分を駆使してがんばります．
+#### 出力層のデルタ
+出力層のデルタを求めます．
 出力層のデルタは，誤差関数\(E_n\)を，出力層の入力 \(u_{j}^{(L)}\) で微分(式1)である．&lt;/p&gt;
 
 &lt;p&gt;なので，出力層の活性化関数と誤差関数によって計算が異なる（本書の例の場合結果は全て同じになる）&lt;/p&gt;
@@ -282,11 +437,11 @@
   \frac{\partial E_n }{\partial u_{j}^{(L)}} \tag1
 \end{eqnarray}&lt;/p&gt;
 
-&lt;h1 id=&quot;回帰&quot;&gt;回帰&lt;/h1&gt;
+&lt;h4 id=&quot;section-1&quot;&gt;回帰&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;活性化関数：恒等写像&lt;/li&gt;
-&lt;li&gt;誤差関数：2乗誤差&lt;/li&gt;
+  &lt;li&gt;活性化関数：恒等写像&lt;/li&gt;
+  &lt;li&gt;誤差関数：2乗誤差&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;2乗誤差は以下の式2であり，出力層が恒等写像なので，\(\boldsymbol{y}=\boldsymbol{z}=\boldsymbol{u}\)
@@ -304,11 +459,11 @@ E_n &amp;amp;=&amp;amp; \frac{1}{2} ||\boldsymbol{y} - \boldsymbol{d} ||^2 \tag{
 &amp;amp;=&amp;amp; y_j - d_j \tag{6}
 \end{eqnarray}&lt;/p&gt;
 
-&lt;h1 id=&quot;2値分類&quot;&gt;2値分類&lt;/h1&gt;
+&lt;h4 id=&quot;section-2&quot;&gt;2値分類&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;活性化関数：ロジスティック関数&lt;/li&gt;
-&lt;li&gt;誤差関数：対数尤度&lt;/li&gt;
+  &lt;li&gt;活性化関数：ロジスティック関数&lt;/li&gt;
+  &lt;li&gt;誤差関数：対数尤度&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;2値分類なので出力層のユニットは1つだけ．&lt;/p&gt;
@@ -347,19 +502,18 @@ E_n &amp;amp;=&amp;amp; \frac{1}{2} ||\boldsymbol{y} - \boldsymbol{d} ||^2 \tag{
 \end{eqnarray}&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;合成関数の微分&lt;/li&gt;
-&lt;li&gt;商の微分&lt;/li&gt;
+  &lt;li&gt;合成関数の微分&lt;/li&gt;
+  &lt;li&gt;商の微分&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;って名前がついてたきがする．&lt;/p&gt;
 
-&lt;h1 id=&quot;多値分類&quot;&gt;多値分類&lt;/h1&gt;
-
+&lt;h4 id=&quot;section-3&quot;&gt;多値分類&lt;/h4&gt;
 &lt;p&gt;（これが一番時間がかかった）&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;活性化関数：ソフトマックス関数&lt;/li&gt;
-&lt;li&gt;誤差関数：交差エントロピー&lt;/li&gt;
+  &lt;li&gt;活性化関数：ソフトマックス関数&lt;/li&gt;
+  &lt;li&gt;誤差関数：交差エントロピー&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;誤差関数をソフトマックス関数で展開すると式13になる．&lt;/p&gt;
@@ -371,7 +525,7 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 
 &lt;p&gt;\(\delta^{(L)}\)を求めるには，chain ruleを使って\(y\)で展開する．&lt;/p&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
 &lt;p&gt;\begin{eqnarray}
 \delta^{(L)} &amp;amp;=&amp;amp; \sum_k \frac{\partial E_n}{\partial y_k} \frac{\partial y_k}{u_j^{(L)}} \tag{14} \\
@@ -395,40 +549,40 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 \end{eqnarray}&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;式15：第1項目はそのまま誤差関数を \(y_k\)で微分し，2項目はソフトマックスに展開する．&lt;/li&gt;
-&lt;li&gt;式16：\(k=j\)と\(k \neq j\)の2つで変わるので，2つに分解して商の微分をする．&lt;/li&gt;
-&lt;li&gt;式17,式18：ソフトマックス関数で約分して整理．&lt;/li&gt;
-&lt;li&gt;式19：第3項に第2項を合わせる．&lt;/li&gt;
-&lt;li&gt;式20：\(\sum_k d_k = 1\)&lt;/li&gt;
+  &lt;li&gt;式15：第1項目はそのまま誤差関数を \(y_k\)で微分し，2項目はソフトマックスに展開する．&lt;/li&gt;
+  &lt;li&gt;式16：\(k=j\)と\(k \neq j\)の2つで変わるので，2つに分解して商の微分をする．&lt;/li&gt;
+  &lt;li&gt;式17,式18：ソフトマックス関数で約分して整理．&lt;/li&gt;
+  &lt;li&gt;式19：第3項に第2項を合わせる．&lt;/li&gt;
+  &lt;li&gt;式20：\(\sum_k d_k = 1\)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;まとめ&quot;&gt;まとめ&lt;/h1&gt;
+&lt;h4 id=&quot;section-4&quot;&gt;まとめ&lt;/h4&gt;
 
 &lt;p&gt;全部出力と正解の差になる．&lt;/p&gt;
 </description>
-				<pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
-				<link>/2015/11/bluedeeplearningchapter44</link>
-				<guid isPermaLink="true">/2015/11/bluedeeplearningchapter44</guid>
-			</item>
-		
-			<item>
-				<title>青深層学習 4.3 多層ネットワークへの一般化</title>
-				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
-
+        <pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
+        <link>/2015/11/09/blueDeepLearningChapter44/</link>
+        <guid isPermaLink="true">/2015/11/09/blueDeepLearningChapter44/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>青深層学習 4.3 多層ネットワークへの一般化</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;はじめに&lt;/h4&gt;
 &lt;p&gt;前回 &lt;a href=&quot;http://nzw0301.github.io/2015/11/blueDeepLearningChapter42/&quot; title=&quot;青深層学習，誤差逆伝播法の計算&quot;&gt;青深層学習，誤差逆伝播法の計算&lt;/a&gt;
 の続きです．&lt;/p&gt;
 
 &lt;p&gt;誤差逆伝播を層が全体で3層だけの場合ではなく，\(L\)層に拡張した時の挙動を確認します．&lt;/p&gt;
 
-&lt;p&gt;前回と赤で強調する場所が違うかもしれませんが，ご了承ください．&lt;/p&gt;
-
-&lt;h1 id=&quot;本題&quot;&gt;本題&lt;/h1&gt;
+&lt;p&gt;前回と赤で強調する場所が違うかもしれませんが，ご了承ください．
+#### 本題&lt;/p&gt;
 
 &lt;p&gt;第\(l\)層の重み\(w_{ji}^{(l)}\)で誤差関数を微分することを考える．&lt;/p&gt;
 
 &lt;p&gt;前回と同じくネットワークを示すと赤いリンクの重みで誤差関数を微分する．\(l+1\) 層にもバイアスはある気がするので，ここでは書いている．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn431.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn431.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;前回の中間層の重みの微分と同じく，\(w_{ji}^{(l)}\)は\(l\)層のユニット\(j\)の総入力\(u_j^{(l)}\)の一部なので，chain ruleを使って展開する(式1)．&lt;/p&gt;
 
@@ -442,7 +596,7 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 \(u_j^{(l)}\)は，活性化関数\(f\)が適用され，
 出力\(z_j^{(l)}\)になり，赤いリンクの重みがかかって\(l+1\)層のユニット((\(l+1\))層のバイアス以外のユニット)入力の一部になる．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn432.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn432.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;なので，\(E_n\)を微分するために，chain ruleで展開する．&lt;/p&gt;
 
@@ -471,15 +625,15 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 &lt;p&gt;2項目 \(\frac{\partial u_k^{(l+1)} }{\partial u_j^{(l)}}\)は，前回展開やったように定義に戻って展開する．&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\frac{\partial u_k^{(l+1)} }{\partial u_{j}^{(l)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{j&amp;#39;} w_{kj&amp;#39;}^{(l+1)} z_{j&amp;#39;}^{(l)} }{\partial u_j^{(l)}} \tag{5} \\
-&amp;amp;=&amp;amp; \frac{\partial \sum_{j&amp;#39;} w_{kj&amp;#39;}^{(l+1)} f(u_{j&amp;#39;}^{(l)}) }{\partial u_j^{(l)}} \tag{6} \\
-&amp;amp;=&amp;amp;  w_{kj}^{(l+1)} f&amp;#39;(u_{j}^{(l)})  \tag{7} \\
+\frac{\partial u_k^{(l+1)} }{\partial u_{j}^{(l)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{j’} w_{kj’}^{(l+1)} z_{j’}^{(l)} }{\partial u_j^{(l)}} \tag{5} \\
+&amp;amp;=&amp;amp; \frac{\partial \sum_{j’} w_{kj’}^{(l+1)} f(u_{j’}^{(l)}) }{\partial u_j^{(l)}} \tag{6} \\
+&amp;amp;=&amp;amp;  w_{kj}^{(l+1)} f’(u_{j}^{(l)})  \tag{7} \\
 \end{eqnarray}&lt;/p&gt;
 
 &lt;p&gt;よって式2に式4と式7を代入するとデルタの関係式が得られる．&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\delta_j^{(l)}  &amp;amp;=&amp;amp; \sum_{k=1}^{K} \delta_k^{(l+1)} (w_{kj}^{(l+1)} f&amp;#39;(u_{j}^{(l)})) \tag{8}
+\delta_j^{(l)}  &amp;amp;=&amp;amp; \sum_{k=1}^{K} \delta_k^{(l+1)} (w_{kj}^{(l+1)} f’(u_{j}^{(l)})) \tag{8}
 \end{eqnarray}&lt;/p&gt;
 
 &lt;p&gt;これにより\(l\)層のデルタは(\(l+1\))層の全デルタで計算されることがわかる．&lt;/p&gt;
@@ -488,7 +642,7 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 
 &lt;p&gt;式1の2項目は簡単に求められる．（前回の中間層の重みと同じ）
 \begin{eqnarray}
-\frac{\partial u_j^{(l)}} {\partial w_{ji}^{(l)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{i&amp;#39;} w_{ji&amp;#39;}^{(l)} z_{i&amp;#39;}^{(l-1)} }{\partial w_{ji}^{(l)}} \tag{9}\\
+\frac{\partial u_j^{(l)}} {\partial w_{ji}^{(l)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{i’} w_{ji’}^{(l)} z_{i’}^{(l-1)} }{\partial w_{ji}^{(l)}} \tag{9}\\
   &amp;amp;=&amp;amp; z_i^{(l-1)} \tag{10}
 \end{eqnarray}&lt;/p&gt;
 
@@ -504,44 +658,44 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 &lt;p&gt;最初のデルタは第\(L\)層のデルタであり，
 つまりは，誤差関数の出力層の入力\(u_j^{(L)}\)による微分である．&lt;/p&gt;
 </description>
-				<pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
-				<link>/2015/11/bluedeeplearningchapter43</link>
-				<guid isPermaLink="true">/2015/11/bluedeeplearningchapter43</guid>
-			</item>
-		
-			<item>
-				<title>青深層学習，誤差逆伝播法の計算</title>
-				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
-
+        <pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
+        <link>/2015/11/09/blueDeepLearningChapter43/</link>
+        <guid isPermaLink="true">/2015/11/09/blueDeepLearningChapter43/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>青深層学習，誤差逆伝播法の計算</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;はじめに&lt;/h4&gt;
 &lt;p&gt;青いほうの深層学習を読んでいたら誤差逆伝播法の式変形が意味不明だったので，自分なりのやり方で書いてみます．&lt;/p&gt;
 
 &lt;p&gt;（個人的には中間層の重みを計算するやり方のほうがしっくりきて出力層の重みで転置がでてくるのがちょっと天下りっぽくて理解しにくかった，ベクトル解析をやってないせいだろうか）&lt;/p&gt;
 
-&lt;h1 id=&quot;本題&quot;&gt;本題&lt;/h1&gt;
-
+&lt;h4 id=&quot;section-1&quot;&gt;本題&lt;/h4&gt;
 &lt;p&gt;2つあるので片方ずつやっていきます．&lt;/p&gt;
 
 &lt;p&gt;このような3層のネットワークを考えます．(p42)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;回帰を扱うネットワークなので，&lt;code&gt;output layer&lt;/code&gt;の活性化関数は恒等写像&lt;/li&gt;
-&lt;li&gt;\(E_n\) は，データ \(\boldsymbol{x_n}\) に対する誤差関数（ここでは自乗誤差），対応する正解データは， \(\boldsymbol{d_n}\) &lt;/li&gt;
-&lt;li&gt;\(w_{ji}^{(3)}\) 3層目の重みで&lt;code&gt;hidden layer&lt;/code&gt;のユニット \(i\) から&lt;code&gt;output layer&lt;/code&gt;のユニット \(j\) へのリンクの重み &lt;/li&gt;
-&lt;li&gt;+1 はバイアスのユニット&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Input layer&lt;/code&gt;の x1~x4 は1つのデータの各次元の値に対応，この場合は \(\boldsymbol{x}_n\) は4次元のベクトル&lt;/li&gt;
-&lt;li&gt;出力は，3次元のベクトル \(\boldsymbol{y(x_n)}\)&lt;/li&gt;
-&lt;li&gt;\(u_i^{(2)}\) は &lt;code&gt;hidden layer&lt;/code&gt;のユニット \(i\) の入力&lt;/li&gt;
-&lt;li&gt;\(z_i^{(2)}\) は &lt;code&gt;hidden layer&lt;/code&gt;のユニット \(i\) の出力&lt;/li&gt;
-&lt;li&gt;\(f\) は活性化関数&lt;/li&gt;
+  &lt;li&gt;回帰を扱うネットワークなので，&lt;code&gt;output layer&lt;/code&gt;の活性化関数は恒等写像&lt;/li&gt;
+  &lt;li&gt;\(E_n\) は，データ \(\boldsymbol{x_n}\) に対する誤差関数（ここでは自乗誤差），対応する正解データは， \(\boldsymbol{d_n}\)&lt;/li&gt;
+  &lt;li&gt;\(w_{ji}^{(3)}\) 3層目の重みで&lt;code&gt;hidden layer&lt;/code&gt;のユニット \(i\) から&lt;code&gt;output layer&lt;/code&gt;のユニット \(j\) へのリンクの重み&lt;/li&gt;
+  &lt;li&gt;+1 はバイアスのユニット&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Input layer&lt;/code&gt;の x1~x4 は1つのデータの各次元の値に対応，この場合は \(\boldsymbol{x}_n\) は4次元のベクトル&lt;/li&gt;
+  &lt;li&gt;出力は，3次元のベクトル \(\boldsymbol{y(x_n)}\)&lt;/li&gt;
+  &lt;li&gt;\(u_i^{(2)}\) は &lt;code&gt;hidden layer&lt;/code&gt;のユニット \(i\) の入力&lt;/li&gt;
+  &lt;li&gt;\(z_i^{(2)}\) は &lt;code&gt;hidden layer&lt;/code&gt;のユニット \(i\) の出力&lt;/li&gt;
+  &lt;li&gt;\(f\) は活性化関数&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;です．&lt;/p&gt;
 
 &lt;p&gt;ちなみに，そもそもなんで微分を求めるかというと誤差関数を最小とするような重みを2章の勾配法によって求めるのに必要なためです．&lt;/p&gt;
 
-&lt;h1 id=&quot;出力層の重み&quot;&gt;出力層の重み&lt;/h1&gt;
+&lt;h4 id=&quot;section-2&quot;&gt;出力層の重み&lt;/h4&gt;
 
 &lt;p&gt;数学がよくわからないので微分したらなんで転置になるのかわからなくてこれが手間取った．&lt;/p&gt;
 
@@ -554,28 +708,28 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 \sum_{k=1}^3 \frac{\partial E_n }{\partial y_{k}} \frac{\partial y_k }{\partial w_{ji}^{(3)}} \tag{1}\\
 &amp;amp;=&amp;amp; \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}\frac{\partial y_k}{\partial w_{ji}^{(3)}} \tag{2}\\
 &amp;amp;=&amp;amp; \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}
-\frac{\partial \sum_{i&amp;#39;} w_{ki&amp;#39;}^{(3)}z_{i&amp;#39;}^{(2)}  }{\partial w_{ji}^{(3)}} \tag{3}\\
+\frac{\partial \sum_{i’} w_{ki’}^{(3)}z_{i’}^{(2)}  }{\partial w_{ji}^{(3)}} \tag{3}\\
 &amp;amp;=&amp;amp; (y_j(\boldsymbol{x})-d_j) z_i^{(2)} \tag{4}
 \end{eqnarray}&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn1.svg&quot; alt=&quot;nn&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn1.svg&quot; alt=&quot;nn&quot; /&gt;
 式1の左辺，この図の赤いリンクの重みが \(w_{ji}^{(3)}\) ．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn3.svg&quot; alt=&quot;nn&quot;&gt; 式1右辺，chain ruleで展開 \(y_k\) を間に挟む&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn3.svg&quot; alt=&quot;nn&quot; /&gt; 式1右辺，chain ruleで展開 \(y_k\) を間に挟む&lt;/p&gt;
 
 &lt;p&gt;式2，誤差関数 \(E_n\) を定義通り展開．&lt;/p&gt;
 
 &lt;p&gt;式3，chain ruleで展開したもう一方も定義に従って展開する．出力層なので，テキスト式(4.3)に対応．&lt;/p&gt;
 
-&lt;p&gt;式4，最終的には \(k=l=j , i=i&amp;#39;\)でない項はすべて0になる（ \(y_1, y_2\) は無関係）．&lt;/p&gt;
+&lt;p&gt;式4，最終的には \(k=l=j , i=i’\)でない項はすべて0になる（ \(y_1, y_2\) は無関係）．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn4.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn4.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;最終的にこの赤い部分についてだけ微分すればよいとわかる&lt;/p&gt;
 
 &lt;p&gt;（直感的には出力層から入力層に向かって重み \(w_{ji}^{(3)}\) に関係する部分だけ微分してる）&lt;/p&gt;
 
-&lt;h1 id=&quot;中間層の重みの微分&quot;&gt;中間層の重みの微分&lt;/h1&gt;
+&lt;h4 id=&quot;section-3&quot;&gt;中間層の重みの微分&lt;/h4&gt;
 
 &lt;p&gt;(出力層から遠いほど計算がしんどくなってくるので，出力層の重みより計算は多くなりますが，がんばります．)&lt;/p&gt;
 
@@ -583,7 +737,7 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 \( \frac{\partial E_n }{\partial w_{ji}^{(2)}} \)
 で表される．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn5.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn5.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;つまり赤いリンクの重みで自乗誤差を微分する．&lt;/p&gt;
 
@@ -591,16 +745,16 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 
 &lt;p&gt;\begin{eqnarray}
 \frac{\partial E_n }{\partial w_{ji}^{(2)}} = \frac{\partial E_n }{\partial u_j^{(2)}}  \frac{\partial u_j^{(2)}} {\partial w_{ji}^{(2)}} 
-\end{eqnarray} &lt;/p&gt;
+\end{eqnarray}&lt;/p&gt;
 
 &lt;p&gt;このとき，2項目 \(\frac{\partial u_j^{(2)}} {\partial w_{ji}^{(2)}}\) は，&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\frac{\partial u_j^{(2)}} {\partial w_{ji}^{(2)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{i&amp;#39;} w_{ji&amp;#39;}^{(2)} z_{i&amp;#39;}^{(1)} }{\partial w_{ji}^{(2)}} \tag{1}\\
+\frac{\partial u_j^{(2)}} {\partial w_{ji}^{(2)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{i’} w_{ji’}^{(2)} z_{i’}^{(1)} }{\partial w_{ji}^{(2)}} \tag{1}\\
   &amp;amp;=&amp;amp; z_i^{(1)} \tag{2}
 \end{eqnarray}&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn6.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn6.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;式1の右辺の分子は&lt;code&gt;Input layer&lt;/code&gt;の各出力 \(z_i^{(1)}\) と赤いリンクの重みの積の総和．&lt;/p&gt;
 
@@ -608,19 +762,19 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 
 &lt;p&gt;つまり第1層の \(i\) 番目の出力．（今回は \(x_i\) に相当）&lt;/p&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
 &lt;p&gt;続いて第1項目 \(\frac{\partial E_n }{\partial u_j^{(2)}}\) ．&lt;/p&gt;
 
 &lt;p&gt;\(u_j^{(2)}\) (&lt;code&gt;hidden layer&lt;/code&gt;のユニット\(j\) の入力) は活性化関数 \(f\)が適用され，重み \(w_{kj}^{(3)}  (k=1,2,3)\) (下図の赤線の重み) がかかって&lt;code&gt;output layer&lt;/code&gt;の全てのユニットの入力の一部となる．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn2.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn2.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;式4.3から \(E_n\) が \(u_k^{(3)}(k=1,2,3)\) の関数であるので，chain ruleを適用する．&lt;/p&gt;
 
@@ -630,12 +784,12 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 
 &lt;p&gt;図で表すと赤色のユニットの入力によって微分する．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn7.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn7.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;項ごとに展開を行う．出力層と同じく，第1項は，\(E_n\)を展開する．&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\frac{\partial E_n}{\partial u_k^{(3)}} &amp;amp;=&amp;amp; \frac{\partial \frac{1}{2} \sum_{k^{&amp;#39;}} (u_{k^{&amp;#39;}}^{(3)} - d_{k^{&amp;#39;}})^2}{\partial u_k^{(3)}} \\
+\frac{\partial E_n}{\partial u_k^{(3)}} &amp;amp;=&amp;amp; \frac{\partial \frac{1}{2} \sum_{k^{‘}} (u_{k^{‘}}^{(3)} - d_{k^{‘}})^2}{\partial u_k^{(3)}} \\
 &amp;amp;=&amp;amp; u_k^{(3)} - d_k
 \end{eqnarray}&lt;/p&gt;
 
@@ -645,68 +799,68 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 
 &lt;p&gt;今回は， \( y_k = z_k^{(3)} = u_k^{(3)} \) であるので簡単に求められている．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn8.svg&quot; alt=&quot;nn&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn8.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
-&lt;hr&gt;
+&lt;hr /&gt;
 
 &lt;p&gt;2項目\(\frac{\partial u_k^{(3)}}{\partial u_j^{(2)}}\)も同様に分子を展開して微分する．&lt;/p&gt;
 
 &lt;p&gt;微分する前に確認すると，\(k\)の入力を \(j\)の入力で微分するので，赤い部分に注目していることになる．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn9.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn9.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\frac{\partial u_k^{(3)}}{\partial u_j^{(2)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{j&amp;#39;} w_{k{j&amp;#39;}}^{(3)} f(u_{j&amp;#39;}^{(2)}) }{\partial u_j^{(2)}} \tag{1}\\
-&amp;amp;=&amp;amp; w_{kj}^{(3)} f&amp;#39;(u_j^{(2)}) \tag{2}
+\frac{\partial u_k^{(3)}}{\partial u_j^{(2)}} &amp;amp;=&amp;amp; \frac{\partial \sum_{j’} w_{k{j’}}^{(3)} f(u_{j’}^{(2)}) }{\partial u_j^{(2)}} \tag{1}\\
+&amp;amp;=&amp;amp; w_{kj}^{(3)} f’(u_j^{(2)}) \tag{2}
 \end{eqnarray}&lt;/p&gt;
 
 &lt;p&gt;式1は分子にあるユニット \(k\) の入力を展開しているので，下図の赤いリンクの重みと赤いノードのユニットの出力の形で書き直しているだけ．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/nn10.svg&quot; alt=&quot;nn&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/nn10.svg&quot; alt=&quot;nn&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;\(u_j^{(2)}\) で微分するので，結局分子が \(j=j&amp;#39;\)のときだけが残るので，式2となる．&lt;/p&gt;
+&lt;p&gt;\(u_j^{(2)}\) で微分するので，結局分子が \(j=j’\)のときだけが残るので，式2となる．&lt;/p&gt;
 
 &lt;p&gt;以上をまとめると&lt;/p&gt;
 
 &lt;p&gt;\begin{eqnarray}
-\frac{\partial E_n }{\partial w_{ji}^{(2)}} = (f&amp;#39;(u_j^{(2)}) \sum_k w_{kj}^{(3)} (u_k^{(3)} -d_k)) z_i^{(1)}
+\frac{\partial E_n }{\partial w_{ji}^{(2)}} = (f’(u_j^{(2)}) \sum_k w_{kj}^{(3)} (u_k^{(3)} -d_k)) z_i^{(1)}
 \end{eqnarray}&lt;/p&gt;
 
 &lt;p&gt;となる．&lt;/p&gt;
 
-&lt;h1 id=&quot;所感&quot;&gt;所感&lt;/h1&gt;
+&lt;h4 id=&quot;section-4&quot;&gt;所感&lt;/h4&gt;
 
 &lt;p&gt;青い深層学習も紫の深層学習も数式が丁寧におえないような印象があるので，適宜
 &lt;a href=&quot;http://goodfeli.github.io/dlbook/&quot;&gt;Yoshua Bengio, Ian Goodfellow and Aaron CourvilleさんたちのDeep Learning&lt;/a&gt;を参照するといいと思った．
 Chain ruleから説明があるしかなり分かりやすかった．&lt;/p&gt;
 </description>
-				<pubDate>Tue, 03 Nov 2015 06:30:00 +0900</pubDate>
-				<link>/2015/11/bluedeeplearningchapter42</link>
-				<guid isPermaLink="true">/2015/11/bluedeeplearningchapter42</guid>
-			</item>
-		
-			<item>
-				<title>ACL 2015で気になったもの一覧</title>
-				<description>&lt;p&gt;タイトルの通りである．&lt;/p&gt;
+        <pubDate>Tue, 03 Nov 2015 06:30:00 +0900</pubDate>
+        <link>/2015/11/03/blueDeepLearningChapter42/</link>
+        <guid isPermaLink="true">/2015/11/03/blueDeepLearningChapter42/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>ACL 2015で気になったもの一覧</title>
+        <description>&lt;p&gt;タイトルの通りである．&lt;/p&gt;
 
 &lt;p&gt;論文の一覧は &lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/&quot; title=&quot;ACL paper list&quot;&gt;ここ&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;sensembed-learning-sense-embeddingsfor-word-and-relational-similarity&quot;&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1010.pdf&quot; title=&quot;pdf link&quot;&gt;SENSEMBED:Learning Sense Embeddingsfor Word and Relational Similarity&lt;/a&gt;&lt;/h1&gt;
-
+&lt;h1 id=&quot;sensembedlearning-sense-embeddingsfor-word-and-relational-similarityhttpwwwaclweborganthologypp15p15-1010pdf-pdf-link&quot;&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1010.pdf&quot; title=&quot;pdf link&quot;&gt;SENSEMBED:Learning Sense Embeddingsfor Word and Relational Similarity&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;単語の意味のレベルで分散表現の獲得．意味のついたでかいコーパスがないので，WSDのstate-of-artsな手法を使う&lt;/p&gt;
 
-&lt;h1 id=&quot;learning-continuous-word-embedding-with-metadata-for-question-retrieval-in-community-question-answering&quot;&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1025.pdf&quot; title=&quot;pdf link&quot;&gt;Learning Continuous Word Embedding with Metadata for Question Retrieval in Community Question Answering&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;learning-continuous-word-embedding-with-metadata-for-question-retrieval-in-community-question-answeringhttpwwwaclweborganthologypp15p15-1025pdf-pdf-link&quot;&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1025.pdf&quot; title=&quot;pdf link&quot;&gt;Learning Continuous Word Embedding with Metadata for Question Retrieval in Community Question Answering&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;コミュニティQAサイトで過去に出た質問を探すために，分散表現をQAのタグやカテゴリと一緒に学習する．Skim-gram（word2vecに実装されてるやつ）の拡張．レシピでも同じことできそうだなぁと思った．（類似レシピを探して嬉しいかどうかはよくわからないけど）&lt;/p&gt;
 
-&lt;h1 id=&quot;その他アブスト読んだけどぱっと説明できなかったもの&quot;&gt;その他アブスト読んだけどぱっと説明できなかったもの&lt;/h1&gt;
-
+&lt;h1 id=&quot;section&quot;&gt;その他アブスト読んだけどぱっと説明できなかったもの&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1077.pdf&quot; title=&quot;link&quot;&gt;Gaussian LDA for Topic Models with Word Embeddings&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;LDAの多項分布をガウス分布を使う手法．word embeddingsとの関係がいまいちつかめなかったので後で読む気がする&lt;/p&gt;
@@ -714,27 +868,27 @@ Chain ruleから説明があるしかなり分かりやすかった．&lt;/p&gt;
 &lt;p&gt;knowledge Graph系2つ，もう一個はあったけどクラウドソーシング使ってて多分違うのでリストから外した．&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1067.pdf&quot;&gt;Knowledge Graph Embedding via Dynamic Mapping Matrix&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1009.pdf&quot;&gt;Semantically Smooth Knowledge Graph Embedding&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1067.pdf&quot;&gt;Knowledge Graph Embedding via Dynamic Mapping Matrix&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1009.pdf&quot;&gt;Semantically Smooth Knowledge Graph Embedding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-				<pubDate>Mon, 28 Sep 2015 16:30:00 +0900</pubDate>
-				<link>/2015/09/acl2015interestingpaper</link>
-				<guid isPermaLink="true">/2015/09/acl2015interestingpaper</guid>
-			</item>
-		
-			<item>
-				<title>Antisocial Behavior in Online Discussion Communities 読んだ</title>
-				<description>&lt;p&gt;当該の論文は&lt;a href=&quot;http://cs.stanford.edu/people/jure/pubs/trolls-icwsm15.pdf&quot; title=&quot;論文リンク&quot;&gt;これ&lt;/a&gt;&lt;/p&gt;
+        <pubDate>Mon, 28 Sep 2015 16:30:00 +0900</pubDate>
+        <link>/2015/09/28/ACL2015InterestingPaper/</link>
+        <guid isPermaLink="true">/2015/09/28/ACL2015InterestingPaper/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Antisocial Behavior in Online Discussion Communities 読んだ</title>
+        <description>&lt;p&gt;当該の論文は&lt;a href=&quot;http://cs.stanford.edu/people/jure/pubs/trolls-icwsm15.pdf&quot; title=&quot;論文リンク&quot;&gt;これ&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;基本的に(nzw:)はnzwが感じことなどを書きます．&lt;/p&gt;
 
-&lt;h1 id=&quot;既存研究との違い&quot;&gt;既存研究との違い&lt;/h1&gt;
-
+&lt;h1 id=&quot;section&quot;&gt;既存研究との違い&lt;/h1&gt;
 &lt;p&gt;既存研究では，少人数のコミュニティを対象に人力で解析していたが，この研究では大規模なデータを解析&lt;/p&gt;
 
-&lt;h1 id=&quot;概要&quot;&gt;概要&lt;/h1&gt;
-
+&lt;h1 id=&quot;section-1&quot;&gt;概要&lt;/h1&gt;
 &lt;p&gt;ニュースサイトやゲームサイトなどのコミュニティでは，ユーザ同士で議論を行うことができる．
 この論文でも使われているコミュニティサイトだと &lt;a href=&quot;http://www.breitbart.com/big-government/2015/09/22/reza-aslan-gop-party-xenophobia-anti-muslim-bashing/&quot; title=&quot;breitbart&quot;&gt;例&lt;/a&gt;のように1つの記事に対してコメント書くことができ，それに対してリプライできる．
 (nzw:1記事に5000以上のコメントが付いているのでデータ量はかなりある印象)&lt;/p&gt;
@@ -746,11 +900,11 @@ Chain ruleから説明があるしかなり分かりやすかった．&lt;/p&gt;
 &lt;p&gt;扱うデータの特徴は以下のような感じ&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;記事に対してユーザはコメントをつけることができる&lt;/li&gt;
-&lt;li&gt;コメントにvoteやリプライできる&lt;/li&gt;
-&lt;li&gt;管理者によってだけ投稿は削除される&lt;/li&gt;
-&lt;li&gt;ユーザは他のユーザの投稿を報告できる&lt;/li&gt;
-&lt;li&gt;迷惑行為がひどいユーザは管理者からバンされる &lt;/li&gt;
+  &lt;li&gt;記事に対してユーザはコメントをつけることができる&lt;/li&gt;
+  &lt;li&gt;コメントにvoteやリプライできる&lt;/li&gt;
+  &lt;li&gt;管理者によってだけ投稿は削除される&lt;/li&gt;
+  &lt;li&gt;ユーザは他のユーザの投稿を報告できる&lt;/li&gt;
+  &lt;li&gt;迷惑行為がひどいユーザは管理者からバンされる&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;この研究で使われる手法としては統計解析，機械学習（ロジスティック回帰とランダムフォレスト），クラウドソーシング(mechanical task)．&lt;/p&gt;
@@ -759,160 +913,28 @@ Chain ruleから説明があるしかなり分かりやすかった．&lt;/p&gt;
 実験の結果から明らかになったことは&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;FBUsの投稿文は読みにくい(ARIで計算)&lt;/li&gt;
-&lt;li&gt;FBUsはリプライを受けやすい&lt;/li&gt;
-&lt;li&gt;FBUsは複数のスレッド(スレッドは記事の単位)ではなく一部のスレッドに集中しやすい&lt;/li&gt;
-&lt;li&gt;FBUsの投稿内容は時間経過にともない悪化&lt;/li&gt;
-&lt;li&gt;時間経過によってコミュニティから寛容的に見られなくなる&lt;/li&gt;
-&lt;li&gt;FBUsの平均投稿回数は264回（一般的なユーザは平均22回)&lt;/li&gt;
-&lt;li&gt;FBUsの投稿は同じスレッドの前の投稿文と比べると類似度が低い&lt;/li&gt;
-&lt;li&gt;他ユーザと同じような投稿内容でも自分だけ削除されると迷惑行為は悪化&lt;/li&gt;
+  &lt;li&gt;FBUsの投稿文は読みにくい(ARIで計算)&lt;/li&gt;
+  &lt;li&gt;FBUsはリプライを受けやすい&lt;/li&gt;
+  &lt;li&gt;FBUsは複数のスレッド(スレッドは記事の単位)ではなく一部のスレッドに集中しやすい&lt;/li&gt;
+  &lt;li&gt;FBUsの投稿内容は時間経過にともない悪化&lt;/li&gt;
+  &lt;li&gt;時間経過によってコミュニティから寛容的に見られなくなる&lt;/li&gt;
+  &lt;li&gt;FBUsの平均投稿回数は264回（一般的なユーザは平均22回)&lt;/li&gt;
+  &lt;li&gt;FBUsの投稿は同じスレッドの前の投稿文と比べると類似度が低い&lt;/li&gt;
+  &lt;li&gt;他ユーザと同じような投稿内容でも自分だけ削除されると迷惑行為は悪化&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;あるユーザがバンされるかの予測では，最初の5~10投稿を使うだけで十分な性能であった．
 投稿数が増えるほどバンされるかの予測が困難になる．&lt;/p&gt;
 
 &lt;p&gt;また別のコミュニティサイトで学習したモデルを使っても性能が出る（特徴量は論文の表3を参照）&lt;/p&gt;
+
 </description>
-				<pubDate>Wed, 23 Sep 2015 16:30:00 +0900</pubDate>
-				<link>/2015/09/paper</link>
-				<guid isPermaLink="true">/2015/09/paper</guid>
-			</item>
-		
-			<item>
-				<title>PRML 演習2.15</title>
-				<description>&lt;p&gt;多変量ガウス分布のエントロピーが&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-H[\boldsymbol{x}] = \frac{1}{2} \ln | \boldsymbol{\Sigma}| + \frac{D}{2}(1+\ln(2\pi))
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;になることを示す．&lt;/p&gt;
-
-&lt;p&gt;多変量ガウス分布は連続であるのでエントロピーの定義から&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-H[\boldsymbol{x}] = - \int p(\boldsymbol{x}) \ln p(\boldsymbol{x}) d \boldsymbol{x}.
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;また多変量ガウス分布は，
-式(2.43)をエントロピーの式に代入し， \(\ln\) の関数の期待値とみることができるので&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-H[\boldsymbol{x}] &amp;amp;=&amp;amp; - \int p(\boldsymbol{x}) \ln \Bigl(\frac{1}{(2\pi)^\frac{D}{2}}
-\frac{1}{|\boldsymbol{\Sigma}|^{\frac{1}{2}}}
-exp \bigl({-\frac{1}{2} (\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}
-(\boldsymbol{x}-\boldsymbol{\mu})}
-\bigr)\Bigr) d \boldsymbol{x} \\
-&amp;amp;=&amp;amp;-(-\frac{D}{2}\ln{(2\pi)} -
-\frac{1}{2}\ln |\boldsymbol{\Sigma}| -
-\frac{1}{2}
-E[(\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu})]
-) \\
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;ここでトレースを使う（線形代数でトレースを習わなかったので，ここに時間がかかりました）&lt;/p&gt;
-
-&lt;h1 id=&quot;トレース&quot;&gt;トレース&lt;/h1&gt;
-
-&lt;p&gt;トレースは，行列の対角和のことです．
-単位行列のトレースは，単位行列の次元数です．&lt;/p&gt;
-
-&lt;p&gt;トレースの性質から
-もしAが対称行列であるなら&lt;/p&gt;
-
-&lt;p&gt;\( X^{\mathrm{T}} A X = tr(A X X^{\mathrm{T}} ) \)&lt;/p&gt;
-
-&lt;p&gt;を満たす．&lt;/p&gt;
-
-&lt;p&gt;さきほどの式の最後の項の期待値の中身がこれで書き換えると，&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-(\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu}) =
-tr (\boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu}) (\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}})
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;第3項目だけ取り出して変形していく．&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-E[(\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu})] &amp;amp;=&amp;amp;
-E[tr (\boldsymbol{\Sigma}^{-1} (\boldsymbol{x}-\boldsymbol{\mu}) (\boldsymbol{x}-\boldsymbol{\mu})^{\mathrm{T}})] \\
-&amp;amp;=&amp;amp; tr (\boldsymbol{\Sigma^{-1}} E[(\boldsymbol{x}-\boldsymbol{\mu}) (\boldsymbol{x} -
-\boldsymbol{\mu}^{\mathrm{T}})]) \\
-&amp;amp;=&amp;amp; tr (\boldsymbol{\Sigma^{-1}} \boldsymbol{\Sigma} ) \\
-&amp;amp;=&amp;amp; D
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;よって&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-H[\boldsymbol{x}] = \frac{1}{2} \ln | \boldsymbol{\Sigma}| + \frac{D}{2}(1+\ln(2\pi))
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;以上.&lt;/p&gt;
-
-&lt;h1 id=&quot;所感&quot;&gt;所感&lt;/h1&gt;
-
-&lt;p&gt;期待値は線形性を持っているのでトレースと順番入れ替えたのがちょっと心配です．&lt;/p&gt;
-
-&lt;h1 id=&quot;参考にした記事&quot;&gt;参考にした記事&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://sucrose.hatenablog.com/entry/2013/07/20/190146&quot;&gt;正規分布間のKLダイバージェンスの導出&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf&quot;&gt;Matrix Cookbook&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.r.dl.itc.u-tokyo.ac.jp/~nakagawa/SML1/math1.pdf&quot;&gt;付録1．数学の復習&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Tue, 21 Jul 2015 01:30:00 +0900</pubDate>
-				<link>/2015/07/prml2-15</link>
-				<guid isPermaLink="true">/2015/07/prml2-15</guid>
-			</item>
-		
-			<item>
-				<title>PRML 演習2.12</title>
-				<description>&lt;h1 id=&quot;はじめに&quot;&gt;はじめに&lt;/h1&gt;
-
-&lt;p&gt;9章で混合ガウス分布がこれでもかと出てくるので，一旦2章まで戻りました．
-ディリクレ分布までやったので今度はガウス分布です．&lt;/p&gt;
-
-&lt;h4 id=&quot;1-正規化の確認&quot;&gt;1. 正規化の確認&lt;/h4&gt;
-
-&lt;p&gt;連続変数なので，全区間を積分して1になることを確かめればよい．&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\int_a^b \frac{1}{b-a} dx &amp;amp;=&amp;amp; [\frac{x}{b-a}]_a^b \\
-&amp;amp;=&amp;amp; \frac{b}{b-a} - \frac{a}{b-a} \\
-&amp;amp;=&amp;amp; 1
-\end{eqnarray}&lt;/p&gt;
-
-&lt;h4 id=&quot;2-平均&quot;&gt;2. 平均&lt;/h4&gt;
-
-&lt;p&gt;式(1.34)を使うだけ&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-E[x] &amp;amp;=&amp;amp; \int_a^b x \frac{1}{b-a} dx \\
-&amp;amp;=&amp;amp; [\frac{x^2}{2(b-a)}]_a^b \\
-&amp;amp;=&amp;amp; \frac{b^2}{2(b-a)} - \frac{a^2}{2(b-a)} \\
-&amp;amp;=&amp;amp; \frac{a+b}{2}
-\end{eqnarray}&lt;/p&gt;
-
-&lt;h4 id=&quot;3-分散&quot;&gt;3. 分散&lt;/h4&gt;
-
-&lt;p&gt;求めた平均と式(1.39)を使う&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-var[x] &amp;amp;=&amp;amp; \int_a^b x^2 \frac{1}{b-a} dx - E[x]^2 \\
-&amp;amp;=&amp;amp; [\frac{x^3}{3(b-a)}]_a^b - \frac{(a+b)^2}{4}\\
-&amp;amp;=&amp;amp; \frac{b^2+ab+a^2}{3} - \frac{(a+b)^2}{4}\\
-&amp;amp;=&amp;amp; \frac{(a-b)^2}{12}
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;一様分布についてのもう少しだけ詳しい説明が付録Bにあります．&lt;/p&gt;
-</description>
-				<pubDate>Thu, 16 Jul 2015 23:09:00 +0900</pubDate>
-				<link>/2015/07/prml2-12</link>
-				<guid isPermaLink="true">/2015/07/prml2-12</guid>
-			</item>
-		
-	</channel>
+        <pubDate>Wed, 23 Sep 2015 16:30:00 +0900</pubDate>
+        <link>/2015/09/23/paper/</link>
+        <guid isPermaLink="true">/2015/09/23/paper/</guid>
+        
+        
+      </item>
+    
+  </channel>
 </rss>

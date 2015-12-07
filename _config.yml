@@ -1,36 +1,55 @@
-# Jekyll configuration
+# Harmony Jekyll theme general configurations 
 
-name: 鴨川η
-description: η is ...
+# Site live URL
 
-# url is currently only used only for the RSS feed in feed.xml
-# url: http://scotte.github.io
+# Localhost 
+# url: http://127.0.0.1:4000  
 
-# baseurl will often be '', but for a project page on gh-pages, it needs to
-# be the project name.
-# *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
-#     run it like so: jekyll serve --baseurl=''
-baseurl: ''
+# Harmony theme configuration. Please change accordingly.
+harmony:
+  name: 鴨川η
+  # Little description about your site
+  description: not δ
+  # 'meta_description:' Write an awesome description for your new site here.
+  # It will appear in your document head meta (for Google search results) and 
+  # in your feed.xml site description.
+  meta_description: nzw's blog
+  basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
+  author: # Author details
+    name: nzw
+    url: http://nzw0301.github.io
 
-# This can be '' to hide the Github nav button
-github: 'nzw0301'
+  # Google Analytics key, leave blank to ignore
+  google_analytics_key: UA-56934733-2
 
-# Set this to your UA-# value, or '' to disable the block completely
-gaaccount: 'UA-56934733-2'
+  # Profile links, leave blank to ignore
+  social: 
+    github: nzw0301
+    twitter: nozawa0301
+    pinterest: 
+  # Toggle disclaimer in footer
+  show_disclaimer: true
 
-# Set this to your disqus shortname to enable comments. Note that the 'comments'
-# setting below must also be true. Individual posts can override 'comments' to
-# disable on a post-by-post basis
-disqus: ''
-comments: false
+# Conversion / Build settings 
+markdown: kramdown
+# This is how you put pygments config in jekyll 2.0 instead of pygments: true
+highlighter: pygments 
 
-permalink: /:year/:month/:title
-paginate: 3
+# Permalinks
+permalink:  pretty
 
-gems: [jekyll-paginate]
-highlighter: pygments
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+exclude: 
+  - CNAME
+  - Gemfile
+  - Rakefile
+  - README.md
+  - .gitignore
+  - .sass-cache
+  - Gemfile.lock 
+  - LICENSE 
+  - vendor
 
-exclude: ['README.md', 'LICENSE', 'vendor']
+# Sass conversion configs
+sass:
+    sass_dir: assets/css/_sass
+    style: :compressed

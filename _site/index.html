@@ -1,386 +1,409 @@
 <!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <title>鴨川η</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/theme.css" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</head>
-
-<body>
-
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">鴨川η</a>
-              </div>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/archive">Archive</a></li>
-                    <li class="active"><a href="/about">About</a></li>
-                    <li class="active"><a href="/memo">Memo</a></li>
-                    <li class="active"><a href="/feed.xml">RSS</a></li>
-
-                </ul>
-              </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="container container-left">
-    <div class="row">
-        <div class="col-md-3 hidden-xs">
-            <div class="sidebar well">
-η is ...
-</div>
-
-<div class="sidebar well">
-    <h1>Recent Posts</h1>
-    <ul>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>鴨川η</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="description" content="nzw's blog">
+        <link rel="canonical" 
+        href="/">
         
-          <li><a href="/2015/11/backpropagation">青深層学習 4章 まとめ</a></li>
-        
-          <li><a href="/2015/11/bluedeeplearningchapter44code">青深層学習 4章 実装</a></li>
-        
-          <li><a href="/2015/11/bluedeeplearningchapter442">青深層学習 4.4.2 行列表記</a></li>
-        
-          <li><a href="/2015/11/bluedeeplearningchapter44">青深層学習 4.4.1 出力層でのデルタ</a></li>
-        
-          <li><a href="/2015/11/bluedeeplearningchapter43">青深層学習 4.3 多層ネットワークへの一般化</a></li>
-        
-    </ul>
-</div>
+        <!-- Harmony styles -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
-<div class="sidebar well">
-<h1>Links</h1>
-<ul>
-  <li><a href="https://github.com/nzw0301">github</a></li>
-  <li><a href="https://twitter.com/nozawa0301">Twitter</a></li>
-  <li><a href="http://nzw.hatenablog.jp/">Hatena</a></li>
-  <li><a href="http://wkblab.github.io/member/nzw">Research</a></li>
-  <li><a href="http://www.slideshare.net/kentonozawa75">SlideShare</a></li>
-  <li><a href="http://www.amazon.co.jp/gp/registry/wishlist/?ie=UTF8&camp=1207&creative=8415&linkCode=shr&tag=algebrae-22&requiresSignIn=1">wish list</a></li>
-</ul>
+        <!-- Modernizr js -->
+        <script async src="/assets/js/modernizr.js"></script>
+        <!-- IE Fixes -->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->        
 
-</div>
+  </head>
+    <body class="theme-base-01">
+        <header class="main-header">
+            <div class="wc-container">
+                <h1><a href="/">鴨川η</a></h1>
+                <h2>not δ</h2>
+                <ul>
+	<li>
+		<a href="/about">About</a><span>/</span>
+	</li>
+	<li>
+		<a href="/blog">Blog</a><span>/</span>
+	</li>
+</ul>                
+            </div>
+        </header>
+        <div id="home" class="page-content wc-container">
+	<div class="posts">
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/12/06/mixgibbs/">
+			        青トピックモデル 混合ユニグラムモデルの周辺化ギブスサンプリングのサンプル式
+			      </a>
+    			</h3>
 
-        </div>
-        <div class="col-md-9">
+          <p class="post-meta">
             
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/11/backpropagation">Nov 13, 2015 - 青深層学習 4章 まとめ</a></h1>
-        
-        <div class="content">
-            <p>4章誤差逆伝播法のまとめです．</p>
+            <span class="post-date">
+            Dec 6, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<p>ユニグラムモデルにおいて，トピックは文書集合に対して1つだけ存在した．
+一方，混合ユニグラムモデルは，トピック \(\phi\) は<code>K</code>個存在する．(これをまとめたものを\(\Phi\)とかく)
+そのため各文書は，<code>K</code>個のうちの1トピックをもつ．
+1つの\(\phi\)は，単語のカテゴリカル分布になる．
+加えて\(\theta\)はトピック分布を表す．（各トピックがどれだけ出現しやすいかを表現）
+これは混合ユニグラムモデルの中で1つだけ存在する．</p>
 
-<p>3章で扱った勾配降下法は，誤差関数の勾配を求めて重みを更新し，ネットワークの性能を高めるために使いました．</p>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/12/06/mixgibbs/" title="青トピックモデル 混合ユニグラムモデルの周辺化ギブスサンプリングのサンプル式">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/12/01/gadfly/">
+			        Gadfly
+			      </a>
+    			</h3>
 
-<p>誤差逆伝播法は，誤差関数の重みによる微分を効率良く計算するアルゴリズムです．</p>
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Dec 1, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<h3 id="section">はじめに</h3>
+<p>卒論の時期になりました．
+私もクリスマス締め切りの卒論を書いています．</p>
 
-<h1 id="4-1-勾配計算の難しさ">4.1 勾配計算の難しさ</h1>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/12/01/gadfly/" title="Gadfly">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/11/13/backpropagation/">
+			        青深層学習 4章 まとめ
+			      </a>
+    			</h3>
 
-<p><img src="/images/nn1.svg" alt="nn"></p>
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Nov 13, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<p>4章誤差逆伝播法のまとめです．</p>
 
-<p>順伝播によって得られた出力を使うため，重みが出力層から遠いほど（入力層に近いほど）chain ruleで展開する項の数が増えていきます．</p>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/11/13/backpropagation/" title="青深層学習 4章 まとめ">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/11/09/blueDeepLearningChapter44code/">
+			        青深層学習 4章 実装
+			      </a>
+    			</h3>
 
-<p>この場合では<code>hidden layer</code>と<code>output layer</code>の間の重みによる微分は比較的楽にできますが，<code>input layer</code>と<code>hidden layer</code>の間の重みによる微分は<code>hidden layer</code>の活性化関数を介しているので複雑になると言えます．</p>
-
-<p><code>4.2</code>以降で導出する誤差逆伝播法を用いることで効率的に計算を行えるようになります．</p>
-
-<h1 id="4-2-2層ネットワークでの計算">4.2 2層ネットワークでの計算</h1>
-
-<p>隠れ層が1層のニューラルネットワークにおいて，重みは<code>input layer</code>と<code>hidden layer</code>の間と<code>hidden layer</code>と<code>output layer</code>の間の2つに分けることができます．</p>
-
-<p><a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter42/">詳しい式の導出</a>はこちらを参照．</p>
-
-<p>冒頭の<code>4.1</code>で書いたように出力層から遠いほど式が複雑になっていることが確認できます．</p>
-
-<h1 id="4-3-多層ネットワークへの一般化">4.3 多層ネットワークへの一般化</h1>
-
-<p><code>4.2</code>は2層でしたが，層の数を一般化したときの微分を求めてます．
-なので，ここで誤差逆伝播法の本筋の話になります．</p>
-
-<p><a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter43/">詳しい式の導出</a>はこちらをみていただくとして，
-肝心なのは， 各層ごとに\(\delta\)を\(L\)層（出力層）から逆順に求めることで，各重みによる微分を効率的に計算できることです．
-\(\delta\)が計算できれば，重みの微分は別々に求めることができます．</p>
-
-<h1 id="4-4-勾配降下法の完全アルゴリズム">4.4 勾配降下法の完全アルゴリズム</h1>
-
-<p>前半部分では，出力層の\(\delta\)の導出を行います．
-<a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter44/">テキストより詳しい式変形をした</a>ので，これからわかる通り，出力層の\(\delta\)は出力と正解の差です．</p>
-
-<p>後半部分では，行列表記による</p>
-
-<ul>
-<li>順伝播法</li>
-<li>誤差逆伝播法</li>
-<li>重み\(w\)の更新</li>
-</ul>
-
-<p>の式です．
-詳細については，コーディングしやすいように行列の次元を意識して<a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter442/">かきました</a>．</p>
-
-<p><code>4.4.3 勾配の差分近似計算</code>  では，活性化関数や多層になった場合に誤差関数の勾配計算の計算が正しいかを確かめるために，近似計算を扱います．
-偏微分の定義から
-十分小さい\(\epsilon\)を用いた式1で検証できます．</p>
-
-<p>\begin{eqnarray}
-\frac{\partial E}{\partial w_{ji}^{(l)}} = \frac{E(...,w_{ji}^{(l)}+\epsilon,...)-E(...,w_{ji}^{(l)},...)}{\epsilon} \tag{1}
-\end{eqnarray}</p>
-
-<p>微分なので\(\epsilon\)は十分小さな値を選択する必要があります．
-注意点として計算機の特性上，打ち切り誤差や丸めの誤差などで誤差が大きくなるため以下のように
-<code>計算機イプシロン</code>(計算機の浮動小数点数で表現できる1より大きい最小の数と1との差のこと)\(\epsilon_c\)を使い，以下のように近似式の\(\epsilon\)を決定します．</p>
-
-<p>\begin{eqnarray}
-\epsilon = \sqrt{\epsilon_c} |w_{ji}|
-\end{eqnarray}</p>
-
-<p><code>python</code>の<code>numpy</code>でいえば<code>np.finfo(float).eps</code>が計算機イプシロンです．
-(手元では<code>2.2204460492503131e-16</code>でした)</p>
-
-<p>? 実際につかうんでしょうか？</p>
-
-<h1 id="4-5-勾配損失問題">4.5 勾配損失問題</h1>
-
-<p>順伝播は活性化関数を経由するので活性化関数が非線形ならば，この層の出力も非線形であり，発散しません．（ロジスティック関数が活性化関数ならば0から1の間に収まる）</p>
-
-<p>対して逆伝播法は定義(4.13)のように線形な計算なので，層が深くなるほど発散しやすい（あるいは一度0になるとずっと0）になってしまうため学習がうまくいかない<code>勾配損失問題</code>に直面します．</p>
-
-<p>\begin{eqnarray}
-\delta_j^{(l)} &amp;=&amp; \sum_k \delta_k^{(l+1)} (w_{kj}^{( l+1)} f&#39;(u_j^{(l)})) \tag{4.12}\\
-\end{eqnarray}</p>
-
-<h1 id="補足">補足</h1>
-
-<p>多層のパーセプトロンにおいて隠れ層の数や層のノード数をいくつにするか決める必要がある．
-十分多い隠れ層が1層あれば任意の入出力の関係を実現できるが，タスクよっては層を増やしたほうが必要なノード数は少なく済む．
-ただし，層を増やしすぎると勾配損失が起こる．[深層学習, 人工知能学会]</p>
-
-<h1 id="参考">参考</h1>
-
-<ul>
-<li>深層学習. 人工知能学会, 神嶌 敏弘, 麻生 英樹, 安田 宗樹, 前田 新一, 岡野原 大輔, 岡谷 貴之, 久保 陽太郎, Bollegala Danushka. 近代科学社, 2015.</li>
-<li>深層学習 = Deep learning. 岡谷 貴之. 講談社, MLP機械学習プロフェッショナルシリーズ, 2015.</li>
-</ul>
-
-        </div>
-    </div>
-</div>
-
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/11/bluedeeplearningchapter44code">Nov 9, 2015 - 青深層学習 4章 実装</a></h1>
-        
-        <div class="content">
-            <h1 id="はじめに">はじめに</h1>
-
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Nov 9, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<h4 id="section">はじめに</h4>
 <p>前回まで数式の展開をしていたので，それをもとにして実装を行いました．</p>
 
-<p>Pythonを使いました．</p>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/11/09/blueDeepLearningChapter44code/" title="青深層学習 4章 実装">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/11/09/blueDeepLearningChapter442/">
+			        青深層学習 4.4.2 行列表記
+			      </a>
+    			</h3>
 
-<h1 id="データとタスク">データとタスク</h1>
-
-<p>データは例によって夢野久作の作品(<a href="http://www.aozora.gr.jp/cards/000096/files/2122_21847.html">オンチ</a>)を使います．</p>
-
-<p>1文が登場人物の発言なのか，地の文なのかの2値分類を行います．
-活性化関数はすべてロジスティック関数，損失関数は対数尤度です．
-（なので出力層のユニット数は1つ）</p>
-
-<blockquote>
-<p>tag sentence</p>
-
-<p>1 退け 退け ッ </p>
-
-<p>0 疎ら に なっ た 群衆 の 背後 から 、 今 出 た ばかり の 旭 が キラキラ と 映し 込ん で 来 た 。 </p>
-</blockquote>
-
-<p>このように地の文であれば0，発言であれば1をつけます．</p>
-
-<h1 id="コード">コード</h1>
-
-<p><code>hidden_layer</code> で指定する層を変えても問題ないように作ってあるので層の増減とユニット数の増減は好きに試すことができます．</p>
-
-<script src="https://gist.github.com/nzw0301/363b803268c2ece127f2.js"></script>
-
-<p>テストデータは作ってないので，パラメータによる誤差関数の変動のグラフをみて投稿を締めようかと思います．</p>
-
-<p>上記のコード
-1つ目がミニバッチを使った確率的勾配法
-2つ目が全データで学習する勾配法</p>
-
-<p><img src="/images/nn_err_rate.svg" alt="nn"> </p>
-
-<p>学習回数<code>400</code>，学習率<code>0.2</code>で固定し，隠れ層をいじってみます．
-<img src="/images/nn_hidden.svg" alt="nn"> </p>
-
-<p>学習率<code>0.2</code>と隠れ層を固定し，確率的勾配法を使います．
-ミニバッチによる変化を見ています．
-<img src="/images/nn_minibatch.svg" alt="nn"> </p>
-
-<p>以上です．</p>
-
-        </div>
-    </div>
-</div>
-
-<div class="article">
-    <div class="well">
-        <h1><a href="/2015/11/bluedeeplearningchapter442">Nov 9, 2015 - 青深層学習 4.4.2 行列表記</a></h1>
-        
-        <div class="content">
-            <h1 id="はじめに">はじめに</h1>
-
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Nov 9, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<h4 id="section">はじめに</h4>
 <p>前回の続きです．</p>
 
-<p>順伝播，誤差逆伝播，重みとバイアスの更新を行列の表記で行います．</p>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/11/09/blueDeepLearningChapter442/" title="青深層学習 4.4.2 行列表記">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/11/09/blueDeepLearningChapter44/">
+			        青深層学習 4.4.1 出力層でのデルタ
+			      </a>
+    			</h3>
 
-<h1 id="表記">表記</h1>
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Nov 9, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<h4 id="section">はじめに</h4>
+<p>前回の続きです．</p>
 
-<ul>
-<li>\(N\) ：ミニバッチのデータ数</li>
-<li>\(\boldsymbol{x}_n\)：1件のデータ(例えば1つ文書，行は単語の頻度とか)</li>
-<li>\(\boldsymbol{X} = \left[ \begin{array}{c} \boldsymbol{x}_1 ... \boldsymbol{x}_N \end{array} \right]\)：ミニバッチの行列</li>
-<li>\(\boldsymbol{Y} = \left[ \begin{array}{c} \boldsymbol{y}_1 ... \boldsymbol{y}_N \end{array} \right]\)：各データに対する最終的な出力を列にもつ行列</li>
-<li>\(\boldsymbol{W^{(l)}} = w_{ji}^{(l)} \)：\(l\)層のおける重みの行列 要素はユニット\(i\)からユニット\(j\)のリンクの重み</li>
-<li>\(\boldsymbol{b}^{(l)}\)：\(l\)層のバイアスのベクトル</li>
-<li>\(\boldsymbol{u}^{(l)}_n\)：データ\(\boldsymbol{x}_n\)のときの，\(l\)層の入力ベクトル 1行目はユニットの1つ目の入力に対応</li>
-<li>\(\boldsymbol{U}^{(l)} = \left[ \begin{array}{c} \boldsymbol{u}_1^{(l)} ... \boldsymbol{u}_N^{(l)} \end{array} \right]\)：\(l\)層の入力の行列，列がデータ1件，行がユニットに対応</li>
-<li>\(\boldsymbol{Z}^{(l)} = \left[ \begin{array}{c} \boldsymbol{z}_1^{(l)} ... \boldsymbol{z}_N^{(l)} \end{array} \right]\)：\(l\)層の出力の行列，列がデータ1件，行がユニットに対応，\(\boldsymbol{U}^{(l)}\)の各要素に活性化を適用しただけ</li>
-<li>\(\boldsymbol{\Delta^{(l)}}\)：列がミニバッチのデータ，行がユニットのデルタ\(\delta^{(l)}_j\)の行列</li>
-<li>k：出力層のユニット数</li>
-</ul>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/11/09/blueDeepLearningChapter44/" title="青深層学習 4.4.1 出力層でのデルタ">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/11/09/blueDeepLearningChapter43/">
+			        青深層学習 4.3 多層ネットワークへの一般化
+			      </a>
+    			</h3>
 
-<h1 id="順伝播">順伝播</h1>
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Nov 9, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<h4 id="section">はじめに</h4>
+<p>前回 <a href="http://nzw0301.github.io/2015/11/blueDeepLearningChapter42/" title="青深層学習，誤差逆伝播法の計算">青深層学習，誤差逆伝播法の計算</a>
+の続きです．</p>
 
-<p>入力は恒等写像なので， \(\boldsymbol{Z}^{(1)}=\boldsymbol{X}\) ．</p>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/11/09/blueDeepLearningChapter43/" title="青深層学習 4.3 多層ネットワークへの一般化">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/11/03/blueDeepLearningChapter42/">
+			        青深層学習，誤差逆伝播法の計算
+			      </a>
+    			</h3>
 
-<p>\begin{eqnarray}
-\boldsymbol{U}^{(l)} &amp;=&amp;\boldsymbol{W^{(l)}} \boldsymbol{Z^{(l-1)}} + \boldsymbol{b}^{(l)} \boldsymbol{1}_N^{T} \tag{1} \\
-\boldsymbol{Z}^{(l)} &amp;=&amp; f^{(l)}(\boldsymbol{U}^{(l)}) \tag{2}
-\end{eqnarray}</p>
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Nov 3, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<h4 id="section">はじめに</h4>
+<p>青いほうの深層学習を読んでいたら誤差逆伝播法の式変形が意味不明だったので，自分なりのやり方で書いてみます．</p>
 
-<ul>
-<li>\(j\)：\((l)\)層のユニット数（バイアス除く）</li>
-<li>\(i\)：\((l-1)\)層のユニット数（バイアス除く）</li>
-<li>\(\boldsymbol{W}^{(l)}\)：\(j \times i\)</li>
-<li>\(\boldsymbol{U}^{(l)}\)：\(j \times N\)</li>
-<li>\(\boldsymbol{Z}^{(l)}\)：\(j \times N\)</li>
-<li>\(\boldsymbol{b}^{(l)}\)：\(j \times 1\)</li>
-<li>\(\boldsymbol{1}_N\)：\(N \times 1\)</li>
-</ul>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/11/03/blueDeepLearningChapter42/" title="青深層学習，誤差逆伝播法の計算">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/09/28/ACL2015InterestingPaper/">
+			        ACL 2015で気になったもの一覧
+			      </a>
+    			</h3>
 
-<h1 id="逆伝播">逆伝播</h1>
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Sep 28, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<p>タイトルの通りである．</p>
 
-<p>出力層のデルタ\(\boldsymbol{\Delta^{(L)}} = \boldsymbol{D} - \boldsymbol{Y}\)
-を\((L-1)\)~\(2\)まで逆伝播させる．</p>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/09/28/ACL2015InterestingPaper/" title="ACL 2015で気になったもの一覧">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+  			<div class="post">
+    			<h3 class="post-title">
+			      <a href="/2015/09/23/paper/">
+			        Antisocial Behavior in Online Discussion Communities 読んだ
+			      </a>
+    			</h3>
 
-<p>\begin{eqnarray}
-\boldsymbol{\Delta}^{(l)} = f&#39;^{(l)}(\boldsymbol{U}^{(l)}) \odot (\boldsymbol{W}^{(l+1)T} \boldsymbol{\Delta}^{(l+1)}) \tag{3}
-\end{eqnarray}</p>
+          <p class="post-meta">
+            
+            <span class="post-date">
+            Sep 23, 2015 
+            </span>
+          </p>          
+    			    			
+  				<p>
+	  				<p>当該の論文は<a href="http://cs.stanford.edu/people/jure/pubs/trolls-icwsm15.pdf" title="論文リンク">これ</a></p>
 
-<ul>
-<li>\(\boldsymbol{\Delta^{(L)}} , \boldsymbol{D} , \boldsymbol{Y}\)：\(k \times N\)</li>
-<li>\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)</li>
-<li>\(\odot\)：<a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%80%E3%83%9E%E3%83%BC%E3%83%AB%E7%A9%8D" title="アダマール積">アダマール積</a></li>
-</ul>
-
-<h1 id="重み更新">重み更新</h1>
-
-<p>逆伝播で計算したデルタを使って微分し，重み\(\boldsymbol{W}\)を更新．
-誤差逆伝播法で漸化式を求めたので，重みの更新は並列して計算ができる．</p>
-
-<ul>
-<li>\(\partial \boldsymbol{W}^{(l)} \)：\((l)\)層の重み\(w_{ji}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j,i)\)成分にもつ行列</li>
-<li>\(\partial \boldsymbol{b}^{(l)} \)：\((l)\)層の重み\(b_{j}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j)\)成分にもつ列ベクトル</li>
-<li>\(\epsilon\)：学習率</li>
-</ul>
-
-<p>\begin{eqnarray}
-\partial \boldsymbol{W}^{(l)} &amp;=&amp; \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{Z^{(l-1)T}} \tag{4}\\
-\partial \boldsymbol{b}^{(l)} &amp;=&amp; \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{1}_N \tag{5}
-\end{eqnarray}</p>
-
-<ul>
-<li>\(\partial \boldsymbol{W}^{(l)}\)：\(j \times i\)</li>
-<li>\(\partial \boldsymbol{b}^{(l)}\)：\(j \times 1\)</li>
-<li>\(\boldsymbol{Z^{(l-1)}} \)：\(i \times N\)</li>
-<li>\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)</li>
-<li>\(j\)：\((l)\)層のユニット数（バイアス除く）</li>
-<li>\(i\)：\((l-1)\)層のユニット数（バイアス除く）</li>
-<li>\(N\)：ミニバッチのデータ数</li>
-</ul>
-
-<p>更新式は，</p>
-
-<p>\begin{eqnarray}
-\boldsymbol{W}^{(l)} &amp;\leftarrow&amp;
-\boldsymbol{W}^{(l)}
-- \epsilon \partial \boldsymbol{W}^{(l)} \tag{6} \\ 
-\boldsymbol{b}^{(l)} &amp;\leftarrow&amp;
-\boldsymbol{b}^{(l)}
-- \epsilon \partial \boldsymbol{b}^{(l)} \tag{7} \\ 
-\end{eqnarray}</p>
-
-<p>以上です．</p>
-
-        </div>
-    </div>
+	
+  				</p>
+  				<p>
+  					<a href="/2015/09/23/paper/" title="Antisocial Behavior in Online Discussion Communities 読んだ">
+  						Read More
+					</a>
+  				</p>
+  			</div>
+  		
+	</div>
+	<div class="post-footer">
+		<div class="column-full"><a href="/blog">Blog archive</a></div>
+	</div>
 </div>
+        <footer class="main-footer">
+            <div class="wc-container">
+                <div class="column one">
+                    <h6>Few more links</h6>
+<ul class="menu">
+    <li><a href="/about">About</a></li>
+    <li><a href="/blog">Blog</a></li>
+</ul>		                    
+                </div>
+                <div class="column two">
+                    <h6>Follow me</h6>
+
+<ul class="social-media">
 
 
-<div class="pagination">
-  
-  <span class="page_number ">Page: 1 of 5</span>
-  
-    <a class="btn btn-default" href="/page2" class="next">Older</a>
-  
-</div>
+    
+    <li>
+        <a title="nozawa0301 on Twitter" 
+            href="https://twitter.com/nozawa0301" 
+            class="twitter wc-img-replace" target="_blank">Twitter</a>
+    </li>   
+    
 
-        </div>
+    
+    <li>
+        <a title="nzw0301 on Github" 
+            href="https://github.com/nzw0301" 
+            class="github wc-img-replace" target="_blank">Github</a>
+    </li>
+     
+
+    
+
+    
+
+    
+
+    
+
+</ul>
+                </div>
+            </div>
+            <p class="wc-container disclaimer">
+                
+	Made by <a href="http://gayan.me" target="_blank">Gayan Virajith</a> For everyone.      
+
+Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>
+            </p>
+        </footer>
+        <script type="text/javascript">
+          /* To avoid render blocking css */
+          var cb = function() {
+            var l = document.createElement('link'); l.rel = 'stylesheet';
+            l.href = 'http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin';
+            var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(cb);
+          else window.addEventListener('load', cb);
+        </script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- When no internet load JQuery from local -->
+        <script>window.jQuery || document.write('<script src="/assets/js/jquery.min.js"><\/script>')</script>
+        <!-- Site js -->
+        <script src="/assets/js/all.js"></script>
+        <!-- Google analytics  -->
         
-    </div>
-</div>
+<script type="text/javascript">
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span12 footer navbar-inverse navbar-fixed-bottom">
-            <p class="copyright">&copy;2015 鴨川η. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="https://github.com/scotte/jekyll-clean">Scott Emmons</a>
-            under
-            <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</a></p>
-        </div>
-    </div>
-</div>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-56934733-2']);
+  _gaq.push(['_trackPageview']);
 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
+</script>
 
-
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-56934733-2', 'auto');
-    ga('send', 'pageview');
-  </script>
-
-
-
-</body>
+        <script type="text/x-mathjax-config">
+</script>
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>        
 </html>
-
