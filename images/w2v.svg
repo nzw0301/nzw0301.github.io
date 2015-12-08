@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="100mm" height="80mm" viewBox="0 0 100 80"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="fig-8a4056be537a4701b9b806a4da18f993-element-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-8a4056be537a4701b9b806a4da18f993-element-2">
+    <text x="54.74" y="68.39" text-anchor="middle" dy="0.6em">x</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-8a4056be537a4701b9b806a4da18f993-element-3">
+    <text x="16.48" y="61.72" text-anchor="middle" dy="0.6em">0</text>
+    <text x="35.61" y="61.72" text-anchor="middle" dy="0.6em">1</text>
+    <text x="54.74" y="61.72" text-anchor="middle" dy="0.6em">2</text>
+    <text x="73.87" y="61.72" text-anchor="middle" dy="0.6em">3</text>
+    <text x="93" y="61.72" text-anchor="middle" dy="0.6em">4</text>
+  </g>
+  <g clip-path="url(#fig-8a4056be537a4701b9b806a4da18f993-element-5)" id="fig-8a4056be537a4701b9b806a4da18f993-element-4">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="fig-8a4056be537a4701b9b806a4da18f993-element-6">
+      <rect x="14.48" y="5" width="80.52" height="55.72"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-8a4056be537a4701b9b806a4da18f993-element-7">
+      <path fill="none" d="M14.48,58.72 L 95 58.72"/>
+      <path fill="none" d="M14.48,45.79 L 95 45.79"/>
+      <path fill="none" d="M14.48,32.86 L 95 32.86"/>
+      <path fill="none" d="M14.48,19.93 L 95 19.93"/>
+      <path fill="none" d="M14.48,7 L 95 7"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="fig-8a4056be537a4701b9b806a4da18f993-element-8">
+      <path fill="none" d="M16.48,5 L 16.48 60.72"/>
+      <path fill="none" d="M35.61,5 L 35.61 60.72"/>
+      <path fill="none" d="M54.74,5 L 54.74 60.72"/>
+      <path fill="none" d="M73.87,5 L 73.87 60.72"/>
+      <path fill="none" d="M93,5 L 93 60.72"/>
+    </g>
+    <g class="plotpanel" id="fig-8a4056be537a4701b9b806a4da18f993-element-9">
+      <g class="geometry" stroke="#000000" stroke-opacity="0.000" fill="#4C404B" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" id="fig-8a4056be537a4701b9b806a4da18f993-element-10">
+        <text x="39.67" y="35.19" text-anchor="middle" dy="0.35em" visibility="visible">man</text>
+        <text x="60.88" y="22.27" text-anchor="middle" dy="0.35em" visibility="visible">woman</text>
+        <text x="58.76" y="35.19" text-anchor="middle" dy="0.35em" visibility="visible">king</text>
+        <text x="79.25" y="22.27" text-anchor="middle" dy="0.35em" visibility="visible">queen</text>
+      </g>
+      <g class="geometry" id="fig-8a4056be537a4701b9b806a4da18f993-element-11">
+        <g class="color_RGBA{Float32}(0.0f0,0.74736935f0,1.0f0,1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="fig-8a4056be537a4701b9b806a4da18f993-element-12">
+          <circle cx="35.61" cy="32.86" r="0.9"/>
+          <circle cx="54.74" cy="19.93" r="0.9"/>
+          <circle cx="54.74" cy="32.86" r="0.9"/>
+          <circle cx="73.87" cy="19.93" r="0.9"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="fig-8a4056be537a4701b9b806a4da18f993-element-13">
+    <text x="13.48" y="58.72" text-anchor="end" dy="0.35em">0</text>
+    <text x="13.48" y="45.79" text-anchor="end" dy="0.35em">1</text>
+    <text x="13.48" y="32.86" text-anchor="end" dy="0.35em">2</text>
+    <text x="13.48" y="19.93" text-anchor="end" dy="0.35em">3</text>
+    <text x="13.48" y="7" text-anchor="end" dy="0.35em">4</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="fig-8a4056be537a4701b9b806a4da18f993-element-14">
+    <text x="8.81" y="32.86" text-anchor="end" dy="0.35em">y</text>
+  </g>
+</g>
+<defs>
+<clipPath id="fig-8a4056be537a4701b9b806a4da18f993-element-5">
+  <path d="M14.48,5 L 95 5 95 60.72 14.48 60.72" />
+</clipPath
+></defs>
+</svg>
