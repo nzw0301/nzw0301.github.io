@@ -5,9 +5,217 @@
     <description>not δ</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 07 Dec 2015 13:49:21 +0900</pubDate>
-    <lastBuildDate>Mon, 07 Dec 2015 13:49:21 +0900</lastBuildDate>
+    <pubDate>Wed, 27 Jan 2016 18:43:21 +0900</pubDate>
+    <lastBuildDate>Wed, 27 Jan 2016 18:43:21 +0900</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>SENSEMBED：Learning Sense Embeddings for Word and Relational Similarity</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;概要&lt;/h4&gt;
+&lt;p&gt;ACL2015の&lt;a href=&quot;http://wwwusers.di.uniroma1.it/~navigli/pubs/ACL_2015_Iacobaccietal.pdf&quot;&gt;論文&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;nzwは，手法の部分が気になったので，その部分をかいつまんで説明します．（といっても数行）&lt;/p&gt;
+
+&lt;p&gt;word2vecやGloVeといったツールで獲得できる分散表現は，多義語でも1つのベクトルとして表現する．
+例えば &lt;em&gt;bank&lt;/em&gt; は，土手の意味と銀行の意味をもっているがこれを1つのベクトルで表現している．
+この論文は，語義ごとにベクトルを学習できれば，より分散表現として優れるのではという研究．&lt;/p&gt;
+
+&lt;p&gt;モデル自体は単純で，まずWSDのSOTAな手法を使ってコーパスの単語ごとに語義を付与する．
+次にCBoWで分散表現を学習する．
+このときに同じ単語でも別の語義は付与されていれば別の単語とみなす．
+この部分だけ気になっていたのでここらへんで読むのをやめた．&lt;/p&gt;
+
+&lt;p&gt;（コーパスだけを使って語義を取れるものだと勘違いしていた）&lt;/p&gt;
+
+&lt;p&gt;おそらくメインは残りで，類似度計算をCosine similarityではなく，語義を考慮したような式をいくつか提案している．
+それをもとに既存手法と順位相関係数で評価．&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;気になったこと&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;analogyの評価指標にaccuracyがでてこないので，Mikolov論文やglove論文などの評価と違う&lt;/li&gt;
+  &lt;li&gt;分散表現の良さは，ベクトルの演算と単語の演算（？）の対応がうまくできていて，扱いやすく計算が速いこと，という認識を持っていたのでだけど，この手法だと計算が重そう．
+    &lt;ul&gt;
+      &lt;li&gt;（出してないということは普通にベクトルとして計算してもあんまり性能が上がらなかった？）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 27 Jan 2016 18:15:04 +0900</pubDate>
+        <link>/2016/01/senseembed</link>
+        <guid isPermaLink="true">/2016/01/senseembed</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Topic Modeling for Word Sense Induction</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;概要&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;Word Sense Induction&lt;/code&gt;（WSI）のタスクに&lt;code&gt;LDA&lt;/code&gt;を使ってみましたという&lt;a href=&quot;http://publications.wim.uni-mannheim.de/informatik/lski/Knopp13TopicModelingforWSI.pdf&quot;&gt;2013年のGSCLの会議論文&lt;/a&gt;．&lt;/p&gt;
+
+&lt;p&gt;WSIでは，出現した単語ごとの文脈などを単位としてベクトルを作り，それを&lt;code&gt;k-means&lt;/code&gt;でクラスタリングすることで，出現した位置における語義を分けられるかというやり方がある．
+トピックが語義に対応しているという仮定して，そのベクトルを作る際に&lt;code&gt;LDA&lt;/code&gt;で得られるトピックごとの単語の確率分布\(\phi\)を使ってやろうというもの．
+なので&lt;code&gt;LDA&lt;/code&gt;を拡張したわけではないのでわりと直感的である．（&lt;code&gt;gensim&lt;/code&gt;+&lt;code&gt;scikit-learn&lt;/code&gt;+&lt;code&gt;NLTK&lt;/code&gt;さえあればできそう）&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;気になったこと&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;トピック数が&lt;code&gt;3~10&lt;/code&gt;と比較的とかなり小さい(この分野ではそうなんだろうか)&lt;/li&gt;
+  &lt;li&gt;評価には&lt;code&gt;WordNet&lt;/code&gt;と&lt;code&gt;SeｍEval2010&lt;/code&gt;を使ってる（名詞と動詞だけで評価，評価指標は&lt;code&gt;F-score&lt;/code&gt;と&lt;code&gt;V-measure&lt;/code&gt;）&lt;/li&gt;
+  &lt;li&gt;クラスタリングの手法は複数試したほうが良さそう（WSIのsurveyでいくつ言及あり）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 20 Dec 2015 13:18:00 +0900</pubDate>
+        <link>/2015/12/TopicModelingforWordSenseInduction</link>
+        <guid isPermaLink="true">/2015/12/TopicModelingforWordSenseInduction</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Gadflyの紹介</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;はじめに&lt;/h3&gt;
+
+&lt;p&gt;卒論の時期になりました．
+私もクリスマス締め切りの卒論を書いています．&lt;/p&gt;
+
+&lt;p&gt;さて，卒論の実験結果や統計処理した結果をグラフに出す必要がある方はけっこういるのではないでしょうか．&lt;/p&gt;
+
+&lt;p&gt;というわけで&lt;a href=&quot;http://gadflyjl.org/&quot;&gt;Gadfly&lt;/a&gt;を紹介します．
+夏休みに書いた論文の図はGadflyで描きましたし，輪講で使うグラフもGadflyで描きました．
+ゼミ生の中で好評でした✌️&lt;/p&gt;
+
+&lt;p&gt;実行環境はMacを前提としていますので適宜お手元の環境に読み替えてください．&lt;/p&gt;
+
+&lt;h3 id=&quot;gadfly&quot;&gt;Gadflyって何？&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://julialang.org/&quot;&gt;julia&lt;/a&gt;という技術計算向けの高速でイケてる言語の描画パッケージの1つです．&lt;/p&gt;
+
+&lt;p&gt;手軽にかっこいい画像が作れます．&lt;/p&gt;
+
+&lt;p&gt;保存形式は以下の6つに対応しています．&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SVG&lt;/li&gt;
+  &lt;li&gt;SVGJS&lt;/li&gt;
+  &lt;li&gt;PNG&lt;/li&gt;
+  &lt;li&gt;PDF&lt;/li&gt;
+  &lt;li&gt;PS&lt;/li&gt;
+  &lt;li&gt;PGF&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;nzwはPDFで出力してTeXやパワーポイントに貼り付けてることが多いです．&lt;/p&gt;
+
+&lt;p&gt;ちなみにGadfly以外にもいろいろとあるようです．-&amp;gt; &lt;a href=&quot;https://en.wikibooks.org/wiki/Introducing_Julia/Plotting&quot;&gt;julia plotting&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;導入&lt;/h3&gt;
+
+&lt;p&gt;juliaの導入は&lt;code&gt;homebrew&lt;/code&gt;なりを使ってやるとして，juliaを起動したら以下のコマンドでGadflyをインストールします．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Gadfly&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;インストールが成功したら，以下のコマンドを実行すればplotができるようになります．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Gadfly&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;iris&lt;/code&gt;(アヤメという多年草)のデータを例にあげることがあるので&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;Pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;RDatasets&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RDatasets&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;をあらかじめやっておきます．&lt;/p&gt;
+
+&lt;p&gt;全て紹介すると大変なので，ここでは自分がよく使うものだけ紹介します．&lt;/p&gt;
+
+&lt;h3 id=&quot;plot&quot;&gt;自分がよくつかうplot&lt;/h3&gt;
+&lt;p&gt;まずは簡単な散布図から．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/gadfly1.svg&quot; alt=&quot;ex1&quot; /&gt;
+はい，綺麗ですね．うっとりします．&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;rand(13)&lt;/code&gt;は13個の乱数がはいった&lt;code&gt;Array&lt;/code&gt;を生成しています．
+&lt;code&gt;x&lt;/code&gt;と&lt;code&gt;y&lt;/code&gt;でindexが同じものを1つのデータ点としてplotしています．&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;plotする図によってパラメータが違っていて散布図(point)であれば&lt;code&gt;color&lt;/code&gt;が指定できます．&lt;/p&gt;
+
+&lt;p&gt;この例では，アヤメの品種にごとに色わけしています．
+irisのデータは&lt;code&gt;DataFrame&lt;/code&gt;(excelの表みたいなやつ)に格納されているので，x軸，y軸を指定する必要があります．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;datasets&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;iris&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PetalLength&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PetalWidth&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Geom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/gadfly2.svg&quot; alt=&quot;ex2&quot; /&gt;
+イィ…&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;言語処理をやっているのでword2vec(分散表現)の例を示すことがあります．
+ざっくり分散表現を説明すると，密なベクトル空間の1点に単語をマッピングすることです．&lt;/p&gt;
+
+&lt;p&gt;例えば，以下の4行からなるCSVファイル&lt;code&gt;w2v.csv&lt;/code&gt;がjuliaのREPLを起動したディレクトリにあったとして描画します．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;
+&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;man&lt;/span&gt;
+&lt;span class=&quot;mf&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;woman&lt;/span&gt;
+&lt;span class=&quot;mf&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;king&lt;/span&gt;
+&lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queen&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readtable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;w2v.csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;word&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Geom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Geom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Scale&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x_continuous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minvalue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxvalue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;4.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Scale&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y_continuous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minvalue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxvalue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;4.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;df&lt;/code&gt;はCSVファイルを読み込んだDataFrameです．&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;x=&quot;x&quot;&lt;/code&gt;の右辺で&lt;code&gt;df&lt;/code&gt;の列名を指定します．&lt;code&gt;label=&quot;word&quot;&lt;/code&gt;についても同様です．&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Scale.x_continuous(minvalue=0.0, maxvalue=4.0)&lt;/code&gt;は，描画するx軸の最小値最大値の範囲を指定します．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/w2v.svg&quot; alt=&quot;ex1&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;関数の描画も可能です．
+例えばlogistic関数とtanhについて \(-5 \leq x \leq 5\) を定義域とした場合で描画します．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tanh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;logistic&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;tanh&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/func.svg&quot; alt=&quot;ex1&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;code&gt;subplot_grid&lt;/code&gt;を使うと複数のグラフを並べることができます．
+この例ではアルゴリズムごとに棒グラフをわけて描画してます．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Algorithm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;methodA&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;methodA&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;methodB&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;methodB&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;proposal&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;proposal&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;data1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;data2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;data1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;data2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;data1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;data2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Precision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.62&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xgroup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Algorithm&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Dataset&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Precision&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Dataset&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Scale&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y_continuous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minvalue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Guide&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;正解率&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Guide&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;テストデータに対する正解率の比較&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Geom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplot_grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Geom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/bar.svg&quot; alt=&quot;ex&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;おわりに&lt;/h3&gt;
+&lt;p&gt;紹介しきれませんでしたが，フォントサイズや表示する目盛などを調整できます．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gadflyjl.org/&quot;&gt;Docs&lt;/a&gt;にまとまっているのでそちらをご参照ください．&lt;/p&gt;
+
+&lt;p&gt;以上 &lt;a href=&quot;http://www.adventar.org/calendars/1005&quot;&gt;klis advent calendar 2015&lt;/a&gt; &amp;amp; &lt;a href=&quot;http://www.adventar.org/calendars/1315&quot;&gt;卒研 advent calendar 2015&lt;/a&gt;の8日目の記事でした．&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Dec 2015 12:18:00 +0900</pubDate>
+        <link>/2015/12/gadfly</link>
+        <guid isPermaLink="true">/2015/12/gadfly</guid>
+        
+        
+      </item>
     
       <item>
         <title>青トピックモデル 混合ユニグラムモデルの周辺化ギブスサンプリングのサンプル式</title>
@@ -78,87 +286,8 @@ p(\mathbf{W}_{-d}, \mathbf{z}_{-d} | \alpha, \beta)  \tag{4} \\&lt;br /&gt;
 
 </description>
         <pubDate>Sun, 06 Dec 2015 18:00:00 +0900</pubDate>
-        <link>/2015/12/06/mixgibbs/</link>
-        <guid isPermaLink="true">/2015/12/06/mixgibbs/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Gadfly</title>
-        <description>&lt;h3 id=&quot;section&quot;&gt;はじめに&lt;/h3&gt;
-&lt;p&gt;卒論の時期になりました．
-私もクリスマス締め切りの卒論を書いています．&lt;/p&gt;
-
-&lt;p&gt;さて，卒論の実験結果や統計処理をした結果をグラフで出す必要がある方はけっこういるのではないでしょうか．&lt;/p&gt;
-
-&lt;p&gt;そんな方に&lt;a href=&quot;http://gadflyjl.org/&quot;&gt;Gadfly&lt;/a&gt;を紹介します．&lt;/p&gt;
-
-&lt;p&gt;実行環境はMacを前提としていますので適宜お手元の環境に読み替えてください．&lt;/p&gt;
-
-&lt;h3 id=&quot;gadfly&quot;&gt;Gadflyって何？&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://julialang.org/&quot;&gt;julia&lt;/a&gt;という技術計算向けの高速でイケてる言語の描画パッケージの1つです．&lt;/p&gt;
-
-&lt;p&gt;手軽にかっこいい画像が作れます．&lt;/p&gt;
-
-&lt;p&gt;保存形式は以下の6つに対応しています．&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;SVG&lt;/li&gt;
-  &lt;li&gt;SVGJS&lt;/li&gt;
-  &lt;li&gt;PNG&lt;/li&gt;
-  &lt;li&gt;PDF&lt;/li&gt;
-  &lt;li&gt;PS&lt;/li&gt;
-  &lt;li&gt;PGF&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;nzwはPDFで出力してTeXやパワーポイントに貼り付けてることが多いです．&lt;/p&gt;
-
-&lt;p&gt;ちなみにGadfly以外にもいろいろとあるようです．&lt;a href=&quot;https://en.wikibooks.org/wiki/Introducing_Julia/Plotting&quot;&gt;julia plotting&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;導入&lt;/h3&gt;
-
-&lt;p&gt;juliaの導入はhomebrewなりを使ってやるとして，juliaを起動したら以下のコマンドでGadflyをインストールします．&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Gadfly&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;インストールが成功したら，以下のコマンドを実行すればplotができるようになります．&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;julia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Gadfly&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;あとirisのデータを例にあげることがあるので&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;Pkg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;RDatasets&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RDatasets&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;をあらかじめやっておきます．&lt;/p&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;1. 散布図&lt;/h3&gt;
-&lt;p&gt;まずは簡単な散布図から．&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/gadfly1.svg&quot; alt=&quot;ex1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;rand(13)&lt;/code&gt;は乱数を13個生成しています．
-&lt;code&gt;x&lt;/code&gt;と&lt;code&gt;y&lt;/code&gt;でindexが同じものを1つのデータ点としてplotしています．&lt;/p&gt;
-
-&lt;p&gt;基本的に&lt;code&gt;plot&lt;/code&gt;関数にデータやパラメータを渡して描画する流れになります．&lt;/p&gt;
-
-&lt;p&gt;plotする図によってパラメータが違っていて散布図(point)であれば&lt;code&gt;color&lt;/code&gt;が指定できます．&lt;/p&gt;
-
-&lt;p&gt;この例では，アヤメの品種によって3色にわけています．
-irisのデータは&lt;code&gt;DataFrame&lt;/code&gt;に格納されていますので，x軸，y軸にあるかを指定する必要があります．&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;datasets&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;iris&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PetalLength&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;PetalWidth&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Geom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/gadfly2.svg&quot; alt=&quot;ex2&quot; /&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 01 Dec 2015 01:00:00 +0900</pubDate>
-        <link>/2015/12/01/gadfly/</link>
-        <guid isPermaLink="true">/2015/12/01/gadfly/</guid>
+        <link>/2015/12/mixgibbs</link>
+        <guid isPermaLink="true">/2015/12/mixgibbs</guid>
         
         
       </item>
@@ -254,8 +383,8 @@ irisのデータは&lt;code&gt;DataFrame&lt;/code&gt;に格納されています
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 13 Nov 2015 21:00:00 +0900</pubDate>
-        <link>/2015/11/13/backpropagation/</link>
-        <guid isPermaLink="true">/2015/11/13/backpropagation/</guid>
+        <link>/2015/11/backpropagation</link>
+        <guid isPermaLink="true">/2015/11/backpropagation</guid>
         
         
       </item>
@@ -312,8 +441,8 @@ irisのデータは&lt;code&gt;DataFrame&lt;/code&gt;に格納されています
 &lt;p&gt;以上です．&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 21:00:00 +0900</pubDate>
-        <link>/2015/11/09/blueDeepLearningChapter44code/</link>
-        <guid isPermaLink="true">/2015/11/09/blueDeepLearningChapter44code/</guid>
+        <link>/2015/11/blueDeepLearningChapter44code</link>
+        <guid isPermaLink="true">/2015/11/blueDeepLearningChapter44code</guid>
         
         
       </item>
@@ -414,8 +543,8 @@ irisのデータは&lt;code&gt;DataFrame&lt;/code&gt;に格納されています
 &lt;p&gt;以上です．&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
-        <link>/2015/11/09/blueDeepLearningChapter442/</link>
-        <guid isPermaLink="true">/2015/11/09/blueDeepLearningChapter442/</guid>
+        <link>/2015/11/blueDeepLearningChapter442</link>
+        <guid isPermaLink="true">/2015/11/blueDeepLearningChapter442</guid>
         
         
       </item>
@@ -561,8 +690,8 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 &lt;p&gt;全部出力と正解の差になる．&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
-        <link>/2015/11/09/blueDeepLearningChapter44/</link>
-        <guid isPermaLink="true">/2015/11/09/blueDeepLearningChapter44/</guid>
+        <link>/2015/11/blueDeepLearningChapter44</link>
+        <guid isPermaLink="true">/2015/11/blueDeepLearningChapter44</guid>
         
         
       </item>
@@ -575,9 +704,9 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 
 &lt;p&gt;誤差逆伝播を層が全体で3層だけの場合ではなく，\(L\)層に拡張した時の挙動を確認します．&lt;/p&gt;
 
-&lt;p&gt;前回と赤で強調する場所が違うかもしれませんが，ご了承ください．
-#### 本題&lt;/p&gt;
+&lt;p&gt;前回と赤で強調する場所が違うかもしれませんが，ご了承ください．&lt;/p&gt;
 
+&lt;h4 id=&quot;section-1&quot;&gt;本題&lt;/h4&gt;
 &lt;p&gt;第\(l\)層の重み\(w_{ji}^{(l)}\)で誤差関数を微分することを考える．&lt;/p&gt;
 
 &lt;p&gt;前回と同じくネットワークを示すと赤いリンクの重みで誤差関数を微分する．\(l+1\) 層にもバイアスはある気がするので，ここでは書いている．&lt;/p&gt;
@@ -659,8 +788,8 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 つまりは，誤差関数の出力層の入力\(u_j^{(L)}\)による微分である．&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
-        <link>/2015/11/09/blueDeepLearningChapter43/</link>
-        <guid isPermaLink="true">/2015/11/09/blueDeepLearningChapter43/</guid>
+        <link>/2015/11/blueDeepLearningChapter43</link>
+        <guid isPermaLink="true">/2015/11/blueDeepLearningChapter43</guid>
         
         
       </item>
@@ -841,97 +970,8 @@ E_n &amp;amp;=&amp;amp; - \sum_k d_k \log(y_k) \tag{12} \\
 Chain ruleから説明があるしかなり分かりやすかった．&lt;/p&gt;
 </description>
         <pubDate>Tue, 03 Nov 2015 06:30:00 +0900</pubDate>
-        <link>/2015/11/03/blueDeepLearningChapter42/</link>
-        <guid isPermaLink="true">/2015/11/03/blueDeepLearningChapter42/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>ACL 2015で気になったもの一覧</title>
-        <description>&lt;p&gt;タイトルの通りである．&lt;/p&gt;
-
-&lt;p&gt;論文の一覧は &lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/&quot; title=&quot;ACL paper list&quot;&gt;ここ&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;sensembedlearning-sense-embeddingsfor-word-and-relational-similarityhttpwwwaclweborganthologypp15p15-1010pdf-pdf-link&quot;&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1010.pdf&quot; title=&quot;pdf link&quot;&gt;SENSEMBED:Learning Sense Embeddingsfor Word and Relational Similarity&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;単語の意味のレベルで分散表現の獲得．意味のついたでかいコーパスがないので，WSDのstate-of-artsな手法を使う&lt;/p&gt;
-
-&lt;h1 id=&quot;learning-continuous-word-embedding-with-metadata-for-question-retrieval-in-community-question-answeringhttpwwwaclweborganthologypp15p15-1025pdf-pdf-link&quot;&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1025.pdf&quot; title=&quot;pdf link&quot;&gt;Learning Continuous Word Embedding with Metadata for Question Retrieval in Community Question Answering&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;コミュニティQAサイトで過去に出た質問を探すために，分散表現をQAのタグやカテゴリと一緒に学習する．Skim-gram（word2vecに実装されてるやつ）の拡張．レシピでも同じことできそうだなぁと思った．（類似レシピを探して嬉しいかどうかはよくわからないけど）&lt;/p&gt;
-
-&lt;h1 id=&quot;section&quot;&gt;その他アブスト読んだけどぱっと説明できなかったもの&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1077.pdf&quot; title=&quot;link&quot;&gt;Gaussian LDA for Topic Models with Word Embeddings&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;LDAの多項分布をガウス分布を使う手法．word embeddingsとの関係がいまいちつかめなかったので後で読む気がする&lt;/p&gt;
-
-&lt;p&gt;knowledge Graph系2つ，もう一個はあったけどクラウドソーシング使ってて多分違うのでリストから外した．&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1067.pdf&quot;&gt;Knowledge Graph Embedding via Dynamic Mapping Matrix&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.aclweb.org/anthology/P/P15/P15-1009.pdf&quot;&gt;Semantically Smooth Knowledge Graph Embedding&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 28 Sep 2015 16:30:00 +0900</pubDate>
-        <link>/2015/09/28/ACL2015InterestingPaper/</link>
-        <guid isPermaLink="true">/2015/09/28/ACL2015InterestingPaper/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Antisocial Behavior in Online Discussion Communities 読んだ</title>
-        <description>&lt;p&gt;当該の論文は&lt;a href=&quot;http://cs.stanford.edu/people/jure/pubs/trolls-icwsm15.pdf&quot; title=&quot;論文リンク&quot;&gt;これ&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;基本的に(nzw:)はnzwが感じことなどを書きます．&lt;/p&gt;
-
-&lt;h1 id=&quot;section&quot;&gt;既存研究との違い&lt;/h1&gt;
-&lt;p&gt;既存研究では，少人数のコミュニティを対象に人力で解析していたが，この研究では大規模なデータを解析&lt;/p&gt;
-
-&lt;h1 id=&quot;section-1&quot;&gt;概要&lt;/h1&gt;
-&lt;p&gt;ニュースサイトやゲームサイトなどのコミュニティでは，ユーザ同士で議論を行うことができる．
-この論文でも使われているコミュニティサイトだと &lt;a href=&quot;http://www.breitbart.com/big-government/2015/09/22/reza-aslan-gop-party-xenophobia-anti-muslim-bashing/&quot; title=&quot;breitbart&quot;&gt;例&lt;/a&gt;のように1つの記事に対してコメント書くことができ，それに対してリプライできる．
-(nzw:1記事に5000以上のコメントが付いているのでデータ量はかなりある印象)&lt;/p&gt;
-
-&lt;p&gt;これらのコミュニティでは，釣りなど迷惑行為を行うユーザが問題となる．
-そこで迷惑行為(antisocial behavior)を行うユーザの特徴を調べ，コミュニティに参加した初期段階でそのユーザが将来的にバンされるかを予測を行う．
-永久的にバンされたユーザを迷惑行為を行うユーザの正解データと定義して実験．&lt;/p&gt;
-
-&lt;p&gt;扱うデータの特徴は以下のような感じ&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;記事に対してユーザはコメントをつけることができる&lt;/li&gt;
-  &lt;li&gt;コメントにvoteやリプライできる&lt;/li&gt;
-  &lt;li&gt;管理者によってだけ投稿は削除される&lt;/li&gt;
-  &lt;li&gt;ユーザは他のユーザの投稿を報告できる&lt;/li&gt;
-  &lt;li&gt;迷惑行為がひどいユーザは管理者からバンされる&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;この研究で使われる手法としては統計解析，機械学習（ロジスティック回帰とランダムフォレスト），クラウドソーシング(mechanical task)．&lt;/p&gt;
-
-&lt;p&gt;以下では，論文に合わせて，バンされるユーザをFBUs，バンされないユーザをNBUsと表記．
-実験の結果から明らかになったことは&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FBUsの投稿文は読みにくい(ARIで計算)&lt;/li&gt;
-  &lt;li&gt;FBUsはリプライを受けやすい&lt;/li&gt;
-  &lt;li&gt;FBUsは複数のスレッド(スレッドは記事の単位)ではなく一部のスレッドに集中しやすい&lt;/li&gt;
-  &lt;li&gt;FBUsの投稿内容は時間経過にともない悪化&lt;/li&gt;
-  &lt;li&gt;時間経過によってコミュニティから寛容的に見られなくなる&lt;/li&gt;
-  &lt;li&gt;FBUsの平均投稿回数は264回（一般的なユーザは平均22回)&lt;/li&gt;
-  &lt;li&gt;FBUsの投稿は同じスレッドの前の投稿文と比べると類似度が低い&lt;/li&gt;
-  &lt;li&gt;他ユーザと同じような投稿内容でも自分だけ削除されると迷惑行為は悪化&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あるユーザがバンされるかの予測では，最初の5~10投稿を使うだけで十分な性能であった．
-投稿数が増えるほどバンされるかの予測が困難になる．&lt;/p&gt;
-
-&lt;p&gt;また別のコミュニティサイトで学習したモデルを使っても性能が出る（特徴量は論文の表3を参照）&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 23 Sep 2015 16:30:00 +0900</pubDate>
-        <link>/2015/09/23/paper/</link>
-        <guid isPermaLink="true">/2015/09/23/paper/</guid>
+        <link>/2015/11/blueDeepLearningChapter42</link>
+        <guid isPermaLink="true">/2015/11/blueDeepLearningChapter42</guid>
         
         
       </item>
