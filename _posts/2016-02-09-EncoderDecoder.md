@@ -11,7 +11,7 @@ comments: false
 [青深層学習の7章](http://amzn.to/1T9JfPS) で系列データに対して使われるRNNを扱いました．
 本ではCTCを使って，入出力で系列長の異なるデータへの対応をしました（読んでる限りは入力系列より短くはできるが長くはできないような）．
 
-この [EMNLP2014](http://arxiv.org/pdf/1406.1078v3.pdf) の論文では，encoder–decoderのモデルの提案とLSTM likeなユニット，機械翻訳の提案をしています．（word embeddingsも少し出てきます）
+この [EMNLP2014](http://arxiv.org/pdf/1406.1078v3.pdf) の論文では，encoder–decoderの提案とLSTM likeなユニット，機械翻訳での実験しています．（word embeddingsも少し出てきます）
 
 nzwは機械翻訳について全くの素人であるので，モデル自体の話しかしません．
 また詳しいslideは [slideshare](http://www.slideshare.net/yutakikuchi927/learning-phrase-representations-using-rnn-encoderdecoder-for-statistical-machine-translation) で菊池さんのが非常にわかりやすいのでこちらをお勧めします．
