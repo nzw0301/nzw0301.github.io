@@ -5,8 +5,8 @@
     <description>not δ</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 14 Feb 2016 16:45:58 +0900</pubDate>
-    <lastBuildDate>Sun, 14 Feb 2016 16:45:58 +0900</lastBuildDate>
+    <pubDate>Sun, 14 Feb 2016 17:06:19 +0900</pubDate>
+    <lastBuildDate>Sun, 14 Feb 2016 17:06:19 +0900</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
     
       <item>
@@ -53,7 +53,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ABC&lt;/code&gt; : 入力系列 (ex: 英語の1文)&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;EOS&amp;gt;&lt;/code&gt; : 文末記号&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WXYZW&lt;/code&gt; : 出力系列 (ex: フランス語の1文)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WXYZ&lt;/code&gt; : 出力系列 (ex: フランス語の1文)&lt;/li&gt;
   &lt;li&gt;出力層 : &lt;code class=&quot;highlighter-rouge&quot;&gt;softmax&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
