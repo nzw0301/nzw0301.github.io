@@ -5,9 +5,318 @@
     <description>not δ</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 17 Feb 2016 14:27:40 +0900</pubDate>
-    <lastBuildDate>Wed, 17 Feb 2016 14:27:40 +0900</lastBuildDate>
+    <pubDate>Wed, 17 Feb 2016 20:54:26 +0900</pubDate>
+    <lastBuildDate>Wed, 17 Feb 2016 20:54:26 +0900</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
+    
+      <item>
+        <title>joint topic modelのサンプリング式導出</title>
+        <description>&lt;h4 id=&quot;section&quot;&gt;はじめに&lt;/h4&gt;
+&lt;p&gt;間違っていたら&lt;a href=&quot;https://twitter.com/nzw0301&quot;&gt;nzw&lt;/a&gt;までお願いします．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://amzn.to/1Nbzlq3&quot;&gt;トピックモデルによる統計的潜在意味解析&lt;/a&gt;の3章の周辺化ギブスサンプリングの式を参考にjoint topic modelのサンプリング式を導出します．&lt;/p&gt;
+
+&lt;p&gt;まずグラフィカルモデルを&lt;a href=&quot;https://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf&quot;&gt;Blei+, 2003&lt;/a&gt;のものと合わせて示します．&lt;/p&gt;
+
+&lt;p&gt;topic model
+&lt;img src=&quot;/images/topic_model.svg&quot; alt=&quot;gmodel&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;joint topic model
+&lt;img src=&quot;/images/joint_topic_model.svg&quot; alt=&quot;gmodel&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf&quot;&gt;Blei+, 2003&lt;/a&gt;とほぼ同じ形をしていますが， 観測できる変数が1つ増え，それに合わせて潜在変数も増えています．&lt;/p&gt;
+
+&lt;p&gt;通常のLDAでは1つの文書集合が与えられますが，このモデルでは，さらにそれぞれの文書ごとに補助情報が与えられます．
+補助情報ごとに &lt;script type=&quot;math/tex&quot;&gt;N_{*}&lt;/script&gt;のプレートと&lt;script type=&quot;math/tex&quot;&gt;\beta&lt;/script&gt;と&lt;script type=&quot;math/tex&quot;&gt;\phi&lt;/script&gt;が増えます．&lt;/p&gt;
+
+&lt;p&gt;このようなデータの例としては，&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;レシピの手順をひとまとめにしたもとを1文書とし，そのレシピについているつくれぽ&lt;/li&gt;
+  &lt;li&gt;日本語のwikipediaの1記事と対応する英語のwikipedia1記事&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などが挙げられます．
+（WSIにこのモデルを使った論文では，context–windowとPOSを使っていました）&lt;/p&gt;
+
+&lt;p&gt;示したグラフィカルモデルでは&lt;script type=&quot;math/tex&quot;&gt;N_{*}&lt;/script&gt;のプレートは2つですが，いくつでも増やせます．（wikipediaの例を使うと，&lt;code class=&quot;highlighter-rouge&quot;&gt;[英語, 日本語, ロシア語]&lt;/code&gt; など）&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;本題&lt;/h4&gt;
+
+&lt;p&gt;『トピックモデルによる〜』のp55を踏襲します．&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;z_{d,i}^{1}&lt;/script&gt; は1番目の文書集合の&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;番目の文書の&lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;番目の単語のトピックです．
+このとき&lt;script type=&quot;math/tex&quot;&gt;w_{d,i}^{1}&lt;/script&gt; は1番目の文書集合の&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;番目の文書の&lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;番目の単語です．&lt;/p&gt;
+
+&lt;p&gt;同様に，&lt;script type=&quot;math/tex&quot;&gt;z_{d,i}^{2}&lt;/script&gt;は2番目の文書集合の&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;番目の文書の&lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;番目の単語のトピックで，&lt;script type=&quot;math/tex&quot;&gt;w_{d,i}^{2}&lt;/script&gt;は2番目の文書集合の&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;番目の文書の&lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;番目の単語です．
+文書集合の要素に対応関係が取れていれば，対応する文書長は一致しなくても構いません．&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;{\boldsymbol \beta}^1&lt;/script&gt; は，1番目の文書集合の語彙数次元あるディリクレ分布のパラメータベクトル，&lt;script type=&quot;math/tex&quot;&gt;{\boldsymbol \beta}^2&lt;/script&gt; は，2番目の文書集合の語彙数次元あるディリクレ分布のパラメータベクトルです．
+&lt;script type=&quot;math/tex&quot;&gt;{\boldsymbol \beta}&lt;/script&gt; の次元数は一致しなくても構いません．&lt;/p&gt;
+
+&lt;p&gt;このとき，周辺化ギブスサンプリングにおける&lt;script type=&quot;math/tex&quot;&gt;z_{d,i}^{1}&lt;/script&gt;のサンプリング式を考えます．&lt;/p&gt;
+
+&lt;p&gt;\begin{eqnarray}
+  p(z_{d,i}^{1}=k|
+    w_{d,i}^{1}=v, 
+    \mathbf{W}^{1}_{\backslash d,i},
+    \mathbf{W}^{2},
+    \mathbf{Z}^{1}_{\backslash d,i},
+    \mathbf{Z}^{2},
+    {\boldsymbol \alpha},
+    {\boldsymbol \beta}^{1},
+    {\boldsymbol \beta}^{2})
+  &amp;amp;=&amp;amp; \frac{p(z_{d,i}^{1}=k, w_{d,i}^{1}=v, 
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2},
+      | {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2})}
+    {p(w_{d,i}^{1}=v, 
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2},
+      | {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2})} \tag{1}\\
+  &amp;amp; \propto &amp;amp; p(z_{d,i}^{1}=k, w_{d,i}^{1}=v, 
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2},
+      | {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2}) \tag{2} \\
+  &amp;amp;=&amp;amp; p(w_{d,i}^{1}=v | 
+      z_{d,i}^{1}=k,
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2},
+      {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2}) \\
+    &amp;amp; &amp;amp;\times 
+      p(z_{d,i}^{1}=k,
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2}
+      | {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2}) \tag{3} \\
+    &amp;amp;=&amp;amp; p(w_{d,i}^{1}=v | 
+      z_{d,i}^{1}=k,
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2},
+      {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2}) \\
+    &amp;amp; &amp;amp;\times 
+      p(z_{d,i}^{1}=k|
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2}
+      {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2}) \\
+    &amp;amp;&amp;amp; \times
+      p(\mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2}
+      | {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2}) \tag{4} \\
+    &amp;amp; \propto &amp;amp; p(w_{d,i}^{1}=v | 
+      z_{d,i}^{1}=k,
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2},
+      {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2}) \\
+    &amp;amp; &amp;amp;\times 
+      p(z_{d,i}^{1}=k|
+      \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{W}^{2},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2}
+      {\boldsymbol \alpha},
+      {\boldsymbol \beta}^{1},
+      {\boldsymbol \beta}^{2}) \tag{5} \\
+    &amp;amp;=&amp;amp; \int p(w_{d,i}^{1}=v|{\boldsymbol \phi}^1_{k}) p({\boldsymbol \phi}^1_{k}| \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      {\boldsymbol \beta}^{1})  d {\boldsymbol \phi}^1_{k} \\
+    &amp;amp;&amp;amp; \times  \int p(z_{d,i}^{1}=k|{\boldsymbol \theta}_{d})
+     p({\boldsymbol \theta}_{d}|
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2},
+      {\boldsymbol \alpha}) d {\boldsymbol \theta}_{d} \tag{6} \\
+    &amp;amp;=&amp;amp; \int \phi_{k,v}^{1} \times p({\boldsymbol \phi}^1_{k}| \mathbf{W}^{1}_{\backslash d,i},
+      \mathbf{Z}^{1}_{\backslash d,i},
+      {\boldsymbol \beta}^{1})  d {\boldsymbol \phi}^1_{k} \\
+    &amp;amp;&amp;amp; \times  \int \theta_{d,k} \times
+     p({\boldsymbol \theta}_{d}|
+      \mathbf{Z}^{1}_{\backslash d,i},
+      \mathbf{Z}^{2},
+      {\boldsymbol \alpha}) d {\boldsymbol \theta}_{d} \tag{6} \\ 
+    &amp;amp;=&amp;amp; \mathbb{E}_{p({\boldsymbol \phi}^1_{k}| \mathbf{W}^{1}_  {\backslash d,i},\mathbf{Z}^{1}_{\backslash d,i},      {\boldsymbol \beta}^{1})}[\phi_{k,v}^{1}] 
+    \mathbb{E}_{p({\boldsymbol \theta}_{d}|
+      \mathbf{Z}^{1}_{\backslash d,i}, \mathbf{Z}^{2},{\boldsymbol \alpha}) d {\boldsymbol \theta}_{d}}[\theta_{d,k}] \tag{7} \\
+    &amp;amp;=&amp;amp; \frac{n_{k,v, \backslash d,i}^{1}+\beta_{v}}{\sum_{v’} (n_{k,v’, \backslash d,i}^{1}+\beta_{v’})} 
+        \frac{n_{d,k, \backslash d,i}^{1} + n_{d,k}^{2} + \alpha_k}{\sum_{k’} (n_{d, k’, \backslash d,i}^{1} + n_{d,k’}^{2} + \alpha_{k’})} \tag{8}
+\end{eqnarray}&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;z_{d,i}^{2}&lt;/script&gt;の場合も同様に求まります．&lt;/p&gt;
+
+&lt;p&gt;単語の分布(&lt;script type=&quot;math/tex&quot;&gt;\phi&lt;/script&gt;)は，文書集合ごとに別なので，トピックモデルと同じ式に帰着します．
+&lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt;は，各文書集合の潜在変数&lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt;で繋がっていますが，ディリクレ分布の期待値計算から上記の式のように求まります．&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;実行例&lt;/h4&gt;
+&lt;p&gt;以下のような2つの文書集合を使ってみました．
+それぞれ1行が1文書とみなし，行ごとに対応関係（この例では対訳）であるとします．&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;lisp lisp lisp scala scala scala clojure clojure&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;java java java scala scala scala&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;book book library library lisp lisp clojure clojure&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;writing writing book book library library&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;scala book lisp book java book clojure&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;movie movie article article book book mars mars&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;movie movie article article mars mars mars&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;リスプ リスプ リスプ スカラ スカラ スカラ&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ジャバ ジャバ ジャバ スカラ スカラ スカラ&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本 本 図書館 図書館 リスプ リスプ&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;書く 書く 本 本 図書館 図書館&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;スカラ ジャバ リスプ 本 本 本&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;映画 映画 論文 論文 本 本 火星 火星&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;映画 映画 論文 論文 火星 火星 火星&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;トピック数3くらいで実行したときの， &lt;script type=&quot;math/tex&quot;&gt;\phi_{k,v}&lt;/script&gt;の確率値の高い単語の一覧を示します．&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;英語
+    &lt;ul&gt;
+      &lt;li&gt;topic=0
+        &lt;ul&gt;
+          &lt;li&gt;mars 0.382442748092&lt;/li&gt;
+          &lt;li&gt;article 0.306106870229&lt;/li&gt;
+          &lt;li&gt;movie 0.306106870229&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;topic=1
+        &lt;ul&gt;
+          &lt;li&gt;book 0.596688741722&lt;/li&gt;
+          &lt;li&gt;library 0.265562913907&lt;/li&gt;
+          &lt;li&gt;writing 0.133112582781&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;topic=2
+        &lt;ul&gt;
+          &lt;li&gt;scala 0.317194570136&lt;/li&gt;
+          &lt;li&gt;lisp 0.271945701357&lt;/li&gt;
+          &lt;li&gt;clojure 0.226696832579&lt;/li&gt;
+          &lt;li&gt;java 0.181447963801&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;日本語
+    &lt;ul&gt;
+      &lt;li&gt;topic=0
+        &lt;ul&gt;
+          &lt;li&gt;火星 0.382734912147&lt;/li&gt;
+          &lt;li&gt;論文 0.306340718105&lt;/li&gt;
+          &lt;li&gt;映画 0.306340718105&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;topic=1
+        &lt;ul&gt;
+          &lt;li&gt;本 0.597084161696&lt;/li&gt;
+          &lt;li&gt;図書館 0.265738899934&lt;/li&gt;
+          &lt;li&gt;書く 0.133200795229&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;topic=2
+        &lt;ul&gt;
+          &lt;li&gt;スカラ 0.410181392627&lt;/li&gt;
+          &lt;li&gt;リスプ 0.351667641896&lt;/li&gt;
+          &lt;li&gt;ジャバ 0.234640140433&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;このときトピックは共通しているため（同じ&lt;script type=&quot;math/tex&quot;&gt;\theta&lt;/script&gt;から&lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt;が生成されるため），言語が違っていても共通したトピックから生成される単語分布を求めることができます．&lt;/p&gt;
+
+&lt;p&gt;コードはそのうちgithubで公開すると思います．&lt;/p&gt;
+
+&lt;p&gt;以上です．&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;参考文献など&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://bioinformatics.oxfordjournals.org/content/early/2005/05/26/bioinformatics.bti515.full.pdf&quot;&gt;青いトピックモデル本で言及されているjoint topic modelの論文&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Feb 2016 15:00:00 +0900</pubDate>
+        <link>/2016/02/jointTopicModelsEquation</link>
+        <guid isPermaLink="true">/2016/02/jointTopicModelsEquation</guid>
+        
+        
+      </item>
     
       <item>
         <title>Sequence to Sequence Learning with Neural Networks</title>
@@ -742,108 +1051,6 @@ p(\mathbf{W}_{-d}, \mathbf{z}_{-d} | \alpha, \beta)  \tag{4} \\&lt;br /&gt;
         <pubDate>Mon, 09 Nov 2015 21:00:00 +0900</pubDate>
         <link>/2015/11/blueDeepLearningChapter44code</link>
         <guid isPermaLink="true">/2015/11/blueDeepLearningChapter44code</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>青深層学習 4.4.2 行列表記</title>
-        <description>&lt;h4 id=&quot;section&quot;&gt;はじめに&lt;/h4&gt;
-&lt;p&gt;前回の続きです．&lt;/p&gt;
-
-&lt;p&gt;順伝播，誤差逆伝播，重みとバイアスの更新を行列の表記で行います．&lt;/p&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;表記&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;\(N\) ：ミニバッチのデータ数&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{x}_n\)：1件のデータ(例えば1つ文書，行は単語の頻度とか)&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{X} = \left[ \begin{array}{c} \boldsymbol{x}_1 … \boldsymbol{x}_N \end{array} \right]\)：ミニバッチの行列&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{Y} = \left[ \begin{array}{c} \boldsymbol{y}_1 … \boldsymbol{y}_N \end{array} \right]\)：各データに対する最終的な出力を列にもつ行列&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{W^{(l)}} = w_{ji}^{(l)} \)：\(l\)層のおける重みの行列 要素はユニット\(i\)からユニット\(j\)のリンクの重み&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{b}^{(l)}\)：\(l\)層のバイアスのベクトル&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{u}^{(l)}_n\)：データ\(\boldsymbol{x}_n\)のときの，\(l\)層の入力ベクトル 1行目はユニットの1つ目の入力に対応&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{U}^{(l)} = \left[ \begin{array}{c} \boldsymbol{u}_1^{(l)} … \boldsymbol{u}_N^{(l)} \end{array} \right]\)：\(l\)層の入力の行列，列がデータ1件，行がユニットに対応&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{Z}^{(l)} = \left[ \begin{array}{c} \boldsymbol{z}_1^{(l)} … \boldsymbol{z}_N^{(l)} \end{array} \right]\)：\(l\)層の出力の行列，列がデータ1件，行がユニットに対応，\(\boldsymbol{U}^{(l)}\)の各要素に活性化を適用しただけ&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{\Delta^{(l)}}\)：列がミニバッチのデータ，行がユニットのデルタ\(\delta^{(l)}_j\)の行列&lt;/li&gt;
-  &lt;li&gt;k：出力層のユニット数&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;順伝播&lt;/h4&gt;
-
-&lt;p&gt;入力は恒等写像なので， \(\boldsymbol{Z}^{(1)}=\boldsymbol{X}\) ．&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\boldsymbol{U}^{(l)} &amp;amp;=&amp;amp;\boldsymbol{W^{(l)}} \boldsymbol{Z^{(l-1)}} + \boldsymbol{b}^{(l)} \boldsymbol{1}_N^{T} \tag{1} \\
-\boldsymbol{Z}^{(l)} &amp;amp;=&amp;amp; f^{(l)}(\boldsymbol{U}^{(l)}) \tag{2}
-\end{eqnarray}&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;\(j\)：\((l)\)層のユニット数（バイアス除く）&lt;/li&gt;
-  &lt;li&gt;\(i\)：\((l-1)\)層のユニット数（バイアス除く）&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{W}^{(l)}\)：\(j \times i\)&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{U}^{(l)}\)：\(j \times N\)&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{Z}^{(l)}\)：\(j \times N\)&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{b}^{(l)}\)：\(j \times 1\)&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{1}_N\)：\(N \times 1\)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-3&quot;&gt;逆伝播&lt;/h4&gt;
-
-&lt;p&gt;出力層のデルタ\(\boldsymbol{\Delta^{(L)}} = \boldsymbol{D} - \boldsymbol{Y}\)
-を\((L-1)\)~\(2\)まで逆伝播させる．&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\boldsymbol{\Delta}^{(l)} = f’^{(l)}(\boldsymbol{U}^{(l)}) \odot (\boldsymbol{W}^{(l+1)T} \boldsymbol{\Delta}^{(l+1)}) \tag{3}
-\end{eqnarray}&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;\(\boldsymbol{\Delta^{(L)}} , \boldsymbol{D} , \boldsymbol{Y}\)：\(k \times N\)&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)&lt;/li&gt;
-  &lt;li&gt;\(\odot\)：&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%80%E3%83%9E%E3%83%BC%E3%83%AB%E7%A9%8D&quot; title=&quot;アダマール積&quot;&gt;アダマール積&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-4&quot;&gt;重み更新&lt;/h4&gt;
-&lt;p&gt;逆伝播で計算したデルタを使って微分し，重み\(\boldsymbol{W}\)を更新．
-誤差逆伝播法で漸化式を求めたので，重みの更新は並列して計算ができる．&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;\(\partial \boldsymbol{W}^{(l)} \)：\((l)\)層の重み\(w_{ji}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j,i)\)成分にもつ行列&lt;/li&gt;
-  &lt;li&gt;\(\partial \boldsymbol{b}^{(l)} \)：\((l)\)層の重み\(b_{j}^{(l)}\)で誤差関数\(E=\sum_{n=1}^N E_n(\boldsymbol{W})\)を微分した値を\((j)\)成分にもつ列ベクトル&lt;/li&gt;
-  &lt;li&gt;\(\epsilon\)：学習率&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\partial \boldsymbol{W}^{(l)} &amp;amp;=&amp;amp; \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{Z^{(l-1)T}} \tag{4}\\
-\partial \boldsymbol{b}^{(l)} &amp;amp;=&amp;amp; \frac{1}{N} \boldsymbol{\Delta^{(l)}} \boldsymbol{1}_N \tag{5}
-\end{eqnarray}&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;\(\partial \boldsymbol{W}^{(l)}\)：\(j \times i\)&lt;/li&gt;
-  &lt;li&gt;\(\partial \boldsymbol{b}^{(l)}\)：\(j \times 1\)&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{Z^{(l-1)}} \)：\(i \times N\)&lt;/li&gt;
-  &lt;li&gt;\(\boldsymbol{\Delta^{(l)}} \)：\(j \times N\)&lt;/li&gt;
-  &lt;li&gt;\(j\)：\((l)\)層のユニット数（バイアス除く）&lt;/li&gt;
-  &lt;li&gt;\(i\)：\((l-1)\)層のユニット数（バイアス除く）&lt;/li&gt;
-  &lt;li&gt;\(N\)：ミニバッチのデータ数&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;更新式は，&lt;/p&gt;
-
-&lt;p&gt;\begin{eqnarray}
-\boldsymbol{W}^{(l)} &amp;amp;\leftarrow&amp;amp;
-\boldsymbol{W}^{(l)}
-- \epsilon \partial \boldsymbol{W}^{(l)} \tag{6} \\ 
-\boldsymbol{b}^{(l)} &amp;amp;\leftarrow&amp;amp;
-\boldsymbol{b}^{(l)}
-- \epsilon \partial \boldsymbol{b}^{(l)} \tag{7} \\ 
-\end{eqnarray}&lt;/p&gt;
-
-&lt;p&gt;以上です．&lt;/p&gt;
-</description>
-        <pubDate>Mon, 09 Nov 2015 01:22:00 +0900</pubDate>
-        <link>/2015/11/blueDeepLearningChapter442</link>
-        <guid isPermaLink="true">/2015/11/blueDeepLearningChapter442</guid>
         
         
       </item>
