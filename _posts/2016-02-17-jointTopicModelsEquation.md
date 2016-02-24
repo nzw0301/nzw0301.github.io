@@ -253,4 +253,4 @@ $$\theta$$は，各文書集合の潜在変数$$z$$で繋がっていますが�
 以上です．
 
 #### 参考文献など
-[青いトピックモデル本で言及されているjoint topic modelの論文](https://bioinformatics.oxfordjournals.org/content/early/2005/05/26/bioinformatics.bti515.full.pdf)
+[青いトピックモデル本で言及されているjoint topic modelの論文](http://dirichlet.net/pdf/mimno09polylingual.pdf)
