@@ -130,8 +130,8 @@ $$n_{w|t} \neq 0$$だけを走査はすればよい．
 一様分布のパラメータに出てくるため，
 $$s,r,q$$の値を計算する必要がある．
 
-- $$s$$はDicichlet分布のパラメータ$${\boldsymbol \alpha}$$が更新したときだけ更新
-- $$r$$は，1つの文書をgibbs samplingで更新したら$$r$$を更新
+- $$s$$はDicichlet分布のパラメータ$${\boldsymbol \alpha}$$が更新したら更新
+- $$r$$は，1つの文書をgibbs samplingする前に一旦$$r$$を計算し，gibbs samplingで更新したら$$r$$を更新
 
 
 $$q$$だけやや複雑になる．
