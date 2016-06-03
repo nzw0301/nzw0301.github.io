@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tweet2Vec: Character-Based Distributed Representations for Social Media"
-date: 2016-06-03 02:00:00 +0900
+date: 2016-06-04 02:00:00 +0900
 comments: false
 ---
 
