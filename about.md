@@ -4,7 +4,7 @@ title: About me
 permalink: /about/
 ---
 
-大学院してます．
+大学院生してます．
 鴨川が好きです．
 
 - [profile](http://wkblab.github.io/member/nzw) : 所属とか研究についてはこちら
