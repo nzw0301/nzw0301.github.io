@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Delete own liked tweets"
+title: "Delete liked tweets"
 date: 2016-07-03 18:00:00 +0900
 comments: false
 ---
@@ -29,7 +29,7 @@ client = Twitter::REST::Client.new do |config|
   config.access_token_secret = access_token_secret
 end
 
-# delete own liked tweets
+# delete my liked tweets
 while true
   client.favorites(:count => 200).each do |elem|
     client.unfavorite(elem.id)
@@ -37,7 +37,7 @@ while true
 end
 
 # options
-# delete own tweets
+# delete my tweets
 while true
   client.user_timeline(:count => 200).each do |elem|
     client.destroy_status(elem.id)
