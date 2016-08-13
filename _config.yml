@@ -55,3 +55,4 @@ sass:
     style: :compressed
 
 timezone: JPN
+future: true
