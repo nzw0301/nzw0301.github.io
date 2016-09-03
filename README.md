@@ -1,1 +1,1 @@
-thema [harmony](https://github.com/gayanvirajith/harmony)
+theme [harmony](https://github.com/gayanvirajith/harmony)
