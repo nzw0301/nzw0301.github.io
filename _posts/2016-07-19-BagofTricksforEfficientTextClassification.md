@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 論文紹介 "Bag of Tricks for Efficient Text Classification"
+title: "Bag of Tricks for Efficient Text Classification"
 date: 2016-07-19 03:20:00 +0900
 comments: false
 ---
