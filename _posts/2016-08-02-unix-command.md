@@ -11,3 +11,7 @@ comments: false
 ex. open pdf files
 
 `find . -name "*.pdf" | xargs open`
+
+# convert pdf to text file
+
+`for f in *.pdf; do pdftotext "$f"; done`
