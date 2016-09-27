@@ -1,7 +1,7 @@
 ---
 layout: post
 title: jupyter notebookをCUIで実行
-date: 2016-04-27 00:00:00 +0900
+date: 2016-05-08 00:00:00 +0900
 comments: false
 ---
 
