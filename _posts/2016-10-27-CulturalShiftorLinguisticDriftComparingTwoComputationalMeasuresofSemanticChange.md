@@ -55,9 +55,9 @@ $$d^G(w_i^{t}, w_i^{t+1}) = 1-cos(\mathbf{w}_i^{t}, \mathbf{w}_i^{t+1})$$
 
 $$d^L(w_i^{t}, w_i^{t+1}) = 1-cos(\mathbf{s}_i^{t}, \mathbf{s}_i^{t+1})$$
 
-$$\mathbf{s}^{t}(j) = cos(\mathbf{s}_i^{t}, \mathbf{s}_i^{t+1}),  \forall w_i \in {\cal N}_k (w_i^{(t)})  \cup  {\cal N}_k (w_i^{(t+1)})  $$
+$$\mathbf{s}^{t}(j) = cos(\mathbf{w}_i^{t}, \mathbf{w}_i^{t+1}),  \forall w_i \in {\cal N}_k (w_i^{(t)})  \cup  {\cal N}_k (w_i^{(t+1)})  $$
 
-$$\mathbf{s}^{t}(j)$$は，要素値に類似度もつ$$k$$次元のベクトルになる．
+$$\mathbf{s}^{t}(j)$$は，要素値に類似度もつ最小で$$k$$次元のベクトルになる．
 $${\cal N}_k (w_i^{(t)})$$は，$$cos$$類似度の上位$$k$$単語の集合．
 今回は，$$k=25$$．
 
