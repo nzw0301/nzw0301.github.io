@@ -14,3 +14,4 @@ permalink: /about/
 
 - [SlideShare](http://www.slideshare.net/kentonozawa75) : LTや論文読みのスライド (~2016までで以後更新しません)
 - [hatena blog](http://nzw.hatenablog.jp/) : 2014年から．技術ネタとか雑記っぽいことが中心でした．年数回しか更新しません．
+- [blogger: 鴨川α](http://alphalamo.blogspot.jp/) : 読書のメモ的なことを書く気がします．
