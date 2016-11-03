@@ -45,8 +45,8 @@ comments: false
 \begin{eqnarray}
 \frac{\partial E_n }{\partial w_{ji}^{(3)}} &=&
 \sum_{k=1}^3 \frac{\partial E_n }{\partial y_{k}} \frac{\partial y_k }{\partial w_{ji}^{(3)}} \tag{1}\\\
-&=& \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}\frac{\partial y_k}{\partial w_{ji}^{(3)}} \tag{2}\\\
-&=& \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}
+&=& \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3\_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}\frac{\partial y_k}{\partial w_{ji}^{(3)}} \tag{2}\\\
+&=& \sum_{k=1}^3 \frac{\partial ( \frac{1}{2} \sum^3\_{l=1} (y_l(\boldsymbol{x}) - d_l)^2) }{\partial y_{k}}
 \frac{\partial \sum_{i'} w_{ki'}^{(3)}z_{i'}^{(2)}  }{\partial w_{ji}^{(3)}} \tag{3}\\\
 &=& (y_j(\boldsymbol{x})-d_j) z_i^{(2)} \tag{4}
 \end{eqnarray}
