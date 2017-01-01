@@ -2,7 +2,7 @@
 layout: post
 title: "Neural Variational Inference For Topic Models"
 comments: false
-abstract: VAEでトピックモデル
+abstract: NVIでLDA
 ---
 
 ### メタデータとか
@@ -13,7 +13,7 @@ Akash Srivastava, Charles Suttonの[論文](https://openreview.net/forum?id=Bybt
 
 ### 本題
 
-LDAの学習方法として有名なものはVariational BayesとCollapsed Gibbs samplingである．[VAE](https://arxiv.org/abs/1312.6114)は前者に対応するアルゴリズムなので．VAEを使ってLDAをやるのがこの論文．
+LDAの学習方法として有名なものはVariational BayesとCollapsed Gibbs samplingである．[VAE](https://arxiv.org/abs/1312.6114)は前者に対応するアルゴリズムなので．VAEのNeural Variational Inference (NVI) を使ってLDAをやるのがこの論文．
 
 encoderでは，LDAのパラメータ$$\theta$$を生成するDirichlet分布のパラメータを推定する．うまく$$\theta$$をreparametarization trickで構成できないので，Dirichlet分布をラプラス近似し，そのサンプルにSoftmax関数を適用することで$$\theta$$のサンプルとして代用する．これが貢献．ラプラス近似の詳細はここでは詳しく説明しないが，ある分布を正規分布で近似する方法．よって，多変量正規分布の平均ベクトルと共分散行列を推定する．事前分布を対称なDirichlet分布としているので，共分散行列は対角成分のみのベクトルとして推定する．VAE論文と違って，標準正規分布を事前分布としないので，encoderのロス関数が少しだけ複雑になる．
 
