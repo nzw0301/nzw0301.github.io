@@ -26,15 +26,13 @@ model.add(Bidirectional(LSTM(10, return_sequences=True), input_shape=(5, 10)))
 
 `Bidirectional`の引数に双方向に処理するRNNのレイヤーを渡します．
 注意点として，Bidirectionalにしたあとの2つテンソルに対する操作は，
-`Bidirectional`の引数`merge_mode`に以下のいづれか
+`Bidirectional`の引数`merge_mode`に以下のどれか1つから選択する必要があります．デフォルトは`concat`です．
 
 - `'sum'`: 要素和
 - `'mul'`: 要素積
 - `'concat'`: 結合
 - `'ave'`: 平均
 - `None`: 結合せずに`list`を返す
-
-から選択する必要があります．デフォルトは`concat`です．
 
 ここにない操作，例えばcosine similarityやdot，
 などは行数が増えてしまいますが，`None`を指定してから，[`merge`](https://github.com/fchollet/keras/blob/f573a86b42e49754386e536358e08e861d40d24c/keras/engine/topology.py#L1617) を使うことで可能になります．
