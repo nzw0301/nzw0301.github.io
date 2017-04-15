@@ -16,7 +16,6 @@ ICLR2017のレビュー中の論文．
 
 同じくICLR2017に投稿中の[Gumbel-Softmax](https://arxiv.org/abs/1611.01144)とほぼコンフリクトしてる．
 
-
 ### 本題
 
 [VAE](https://arxiv.org/abs/1312.6114)で出てきたreparametarization trickは，ガウス分布とベルヌーイ分布に対して行われていた．
@@ -31,9 +30,9 @@ reparametarization trickと同様に単純な分布からサンプル値を構�
 サンプルする離散値は， $$K$$ 次元ベクトルの正の実数
 $$\boldsymbol{\alpha}$$
 に対して
-\begin{aligned}
-argmax_{i} \big(G_i + \log \alpha_i  \big) \sim \frac{\alpha_i}{\sum_k \alpha_k }
-\end{aligned}
+
+$$argmax_{i} \big(G_i + \log \alpha_i  \big) \sim \frac{\alpha_i}{\sum_k \alpha_k }$$
+
 によって構成できる．
 Gumbel分布自体は
 $$G_i \sim -log(-log(u))$$ , $$where$$ $$u \sim (U(0, 1)$$
@@ -43,16 +42,15 @@ Google 翻訳させてもnzwがよくわからなかったのだが，
 $$argmax$$ だと $$\alpha_i$$ 対応する次元以外は0になってしまうので，
 $$K-1$$ 次元については勾配が消えてしまうためGumbel-Max trickは今回の用途には不適切らしい．
 そこで離散値をサンプルせずに直接one-hotベクトルを構成する _Concrete distribution_ を導入する．
-\begin{aligned}
-z_i =\frac{exp(\Big(\log(\alpha_i) + G_i) / \lambda \Big)}{ \sum_k \Big( exp(\log(\alpha_k) + G_i)/\lambda \Big)}
-\end{aligned}
+
+$$z_i =\frac{exp(\Big(\log(\alpha_i) + G_i) / \lambda \Big)}{ \sum_k \Big( exp(\log(\alpha_k) + G_i)/\lambda \Big)}$$
+
 これが $$\mathbf{z}$$ の $$i$$ 要素となる．
 $$\lambda$$ は _temperature_ で0に近いほどone-hotベクトルになり，
 大きいほど離散一様分布のパラメータを要素に持つようなベクトルに近くなる．
 よってone-hotベクトルの近似を求めている．
 
 実験で使ってるネットワークは馴染みがないので読み飛ばした．
-
 
 ### その他
 

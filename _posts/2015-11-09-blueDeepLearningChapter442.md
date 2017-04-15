@@ -82,12 +82,9 @@ comments: false
 
 \begin{eqnarray}
 \boldsymbol{W}^{(l)} &\leftarrow&
-\boldsymbol{W}^{(l)}
-- \epsilon \partial \boldsymbol{W}^{(l)} \tag{6} \\\ 
+\boldsymbol{W}^{(l)} - \epsilon \partial \boldsymbol{W}^{(l)} \tag{6} \\\
 \boldsymbol{b}^{(l)} &\leftarrow&
-\boldsymbol{b}^{(l)}
-- \epsilon \partial \boldsymbol{b}^{(l)} \tag{7} \\\ 
+\boldsymbol{b}^{(l)} - \epsilon \partial \boldsymbol{b}^{(l)} \tag{7} \\\
 \end{eqnarray}
-
 
 以上です．

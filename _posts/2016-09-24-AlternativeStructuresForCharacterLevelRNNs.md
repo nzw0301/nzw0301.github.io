@@ -38,9 +38,9 @@ First authorがFAIRでインターンしてたときの成果をICLR2016に出�
 
 次の文字を予測する際の中間層の計算は次のようになる．
 
-\begin{eqnarray}
-h_t = \sigma(\mathbf{A} c_t + \mathbf{R} h_{t-1})
-\end{eqnarray}
+
+$$h_t = \sigma(\mathbf{A} c_t + \mathbf{R} h_{t-1})$$
+
 
 このモデルでは，文字が単位なので記憶する長さが単語単位と比較して長くなりやすい．
 中間層を十分にとれば単語単位のモデルと同じくらいの学習ができるが，計算量が増えるため好ましくない．
@@ -52,9 +52,7 @@ h_t = \sigma(\mathbf{A} c_t + \mathbf{R} h_{t-1})
 
 中間層の式を次のようにして単語の情報も利用する．
 
-\begin{eqnarray}
-h_t = \sigma(\mathbf{A} c_t + \mathbf{R} h_{t-1} + \mathbf{Q} z_{t})
-\end{eqnarray}
+$$h_t = \sigma(\mathbf{A} c_t + \mathbf{R} h_{t-1} + \mathbf{Q} z_{t})$$
 
 ベースとなるモデルでは文字についてのRNNしかなかったが，ここでは単語についてのRNNも加えている．
 $$z_{t}$$ は，$$c_{t}$$ を含んでいる単語 $$w_p$$ の一つ前の単語 $$w_{p-1}$$ における単語RNNの中間層である．
@@ -69,9 +67,7 @@ Conditioning on Wordsでは単語のRNNを加えたが，それをしないの�
 中間層は，ベースとなるモデルのままで，出力層の計算にn-gramのone-hot表現 $$n_t$$ をかける．
 ただし，$$n_t$$ として複数のn-gramが該当する場合は，長い方を優先．
 
-\begin{eqnarray}
-y_t = f(n_t^{T} \mathbf{U} h_t)
-\end{eqnarray}
+$$y_t = f(n_t^{T} \mathbf{U} h_t)$$
 
 ただし，$$\mathbf{U}$$ はテンソル．
 

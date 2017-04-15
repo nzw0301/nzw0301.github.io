@@ -17,7 +17,7 @@ comments: false
 なので，出力層の活性化関数と誤差関数によって計算が異なる（本書の例の場合結果は全て同じになる）
 
 \begin{eqnarray}
-\delta_j^{(L)} = 
+\delta_j^{(L)} =
   \frac{\partial E_n }{\partial u_{j}^{(L)}} \tag1
 \end{eqnarray}
 
@@ -102,28 +102,19 @@ E_n &=& - \sum_k d_k \log(y_k) \tag{12} \\\
 
 \\(\delta^{(L)}\\)を求めるには，chain ruleを使って\\(y\\)で展開する．
 
-- - - 
+---
 
-\begin{eqnarray}
-\delta^{(L)} &=& \sum_k \frac{\partial E_n}{\partial y_k} \frac{\partial y_k}{u_j^{(L)}} \tag{14} \\\
-&=& \sum_k (-1) \frac{d_k}{y_k} \frac{\partial }{u_j^{(L)}} \frac{\exp(u_k^{(L)})}{\sum_i \exp(u_i^{(L)})} \tag{15}\\\
-&=& 
-- \frac{d_j}{y_j} \frac{\exp(u_j^{(L)}) \\{ \sum_i \exp(u_i^{(L)})\\} - \\{\exp(u_j^{(L)})\\}^2 }{\\{ \sum_i \exp(u_i^{(L)})\\}^2}
-- \sum_{k \neq j} \frac{d_k}{y_k} \frac{-\\{\exp(u_k^{(L)})\\}\\{\exp(u_j^{(L)})\\}}{\\{\sum_i \exp(u_i^{(L)})\\}^2}
- \tag{16}\\\
-&=&
-- d_j \frac{\sum_i \exp(u_i^{(L)}) - 
-\exp(u_j^{(L)})
-  }{\sum_i \exp(u_i^{(L)})}
-+ \sum_{k \neq j} \frac{d_k}{y_k} y_k y_j
- \tag{17}\\\
- &=&
-- d_j + d_j y_j
-+ \sum_{k \neq j} d_k y_j
- \tag{18}\\\ 
- &=& - d_j + \sum_{k} d_k y_j \tag{19}\\\
- &=& - d_j + y_j \tag{20}\\\
-\end{eqnarray}
+
+$$ \begin{align}
+\delta^{(L)} &=& \sum_k \frac{\partial E_n}{\partial y_k} \frac{\partial y_k}{u_j^{(L)}} \tag{14} \\
+&=& \sum_k (-1) \frac{d_k}{y_k} \frac{\partial }{u_j^{(L)}} \frac{\exp(u_k^{(L)})}{\sum_i \exp(u_i^{(L)})} \tag{15} \\
+&=& - \frac{d_j}{y_j} \frac{\exp(u_j^{(L)}) \{ \sum_i \exp(u_i^{(L)})\} - \{\exp(u_j^{(L)})\}^2 }{\{ \sum_i \exp(u_i^{(L)})\}^2} - \sum_{k \neq j} \frac{d_k}{y_k} \frac{-\{\exp(u_k^{(L)})\}\{\exp(u_j^{(L)})\}}{\{\sum_i \exp(u_i^{(L)})\}^2} \tag{16} \\
+&=& - d_j \frac{\sum_i \exp(u_i^{(L)}) - \exp(u_j^{(L)})  }{\sum_i \exp(u_i^{(L)})} + \sum_{k \neq j} \frac{d_k}{y_k} y_k y_j \tag{17} \\
+&=& - d_j + d_j y_j + \sum_{k \neq j} d_k y_j  \tag{18} \\
+&=& - d_j + \sum_{k} d_k y_j \tag{19} \\
+&=& - d_j + y_j \tag{20} \\
+\end{align} $$
+
 
 - 式15：第1項目はそのまま誤差関数を \\(y_k\\)で微分し，2項目はソフトマックスに展開する．
 - 式16：\\(k=j\\)と\\(k \neq j\\)の2つで変わるので，2つに分解して商の微分をする．
