@@ -6,7 +6,7 @@ permalink: /publications/
 
 ## Workshop (refereed)
 
-1. Kento Nozawa and Kei Wakabayashi. Scalable Algorithm for Probabilistic Overlapping Community Detection. In Proc WSDM First Workshop on Scholarly Web Mining, 2017. [[slide](https://ornlcda.github.io/SWM2017/slides/swm_2017-paper_5.pdf)], [pdf], [[BibTex](http://nzw0301.github.io/bibtex/nzw-swm2017.bib)]
+1. Kento Nozawa and Kei Wakabayashi. Scalable Algorithm for Probabilistic Overlapping Community Detection. In Proc. WSDM 1st Workshop on Scholarly Web Mining, pp. 9--16, 2017. [[slide](https://ornlcda.github.io/SWM2017/slides/swm_2017-paper_5.pdf)], [[acm](http://dl.acm.org/citation.cfm?id=3057150&CFID=755784727&CFTOKEN=89060339)], [[BibTex](http://nzw0301.github.io/bibtex/nzw-swm2017.bib)]
 
 ## Journal
 
