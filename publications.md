@@ -32,7 +32,7 @@ permalink: /publications/
 ## Awards
 
 1. Jul. 2016, [IPSJ Computer Science Research Award for Young Scientists / コンピュータサイエンス領域奨励賞](https://www.ipsj.or.jp/award/cs-awardee-2016.html)
-1. Mar. 2016, School of Infomatics Provost's Award / 筑波大学情報学群長表彰
+1. Mar. 2016, School of Informatics Provost's Award / 筑波大学情報学群長表彰
 1. Mar. 2016, Representative of College of Knowledge and Library Science / 筑波大学情報学群知識情報・図書館学類 学位記受領総代
 1. Nov. 2015, WebDB Forum 2015 Excellent Paper Award / 第8回 Webとデータベースに関するフォーラム (WebDB Forum 2015). 優秀論文賞
 
