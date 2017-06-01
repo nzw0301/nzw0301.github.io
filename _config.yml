@@ -1,9 +1,9 @@
-# Harmony Jekyll theme general configurations 
+# Harmony Jekyll theme general configurations
 
 # Site live URL
 
-# Localhost 
-# url: http://127.0.0.1:4000  
+# Localhost
+# url: http://127.0.0.1:4000
 
 # Harmony theme configuration. Please change accordingly.
 harmony:
@@ -11,7 +11,7 @@ harmony:
   # Little description about your site
   description: not δ
   # 'meta_description:' Write an awesome description for your new site here.
-  # It will appear in your document head meta (for Google search results) and 
+  # It will appear in your document head meta (for Google search results) and
   # in your feed.xml site description.
   meta_description: nzw's blog
   basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
@@ -23,30 +23,31 @@ harmony:
   google_analytics_key: UA-56934733-2
 
   # Profile links, leave blank to ignore
-  social: 
+  social:
     github: nzw0301
     twitter: nzw0301
-    pinterest: 
+    facebook:
+    pinterest:
   # Toggle disclaimer in footer
   show_disclaimer: true
 
-# Conversion / Build settings 
+# Conversion / Build settings
 markdown: kramdown
 # This is how you put pygments config in jekyll 2.0 instead of pygments: true
-highlighter: rouge 
+highlighter: rouge
 
 # Permalinks
 permalink: /:year/:month/:title
 
-exclude: 
+exclude:
   - CNAME
   - Gemfile
   - Rakefile
   - README.md
   - .gitignore
   - .sass-cache
-  - Gemfile.lock 
-  - LICENSE 
+  - Gemfile.lock
+  - LICENSE
   - vendor
 
 # Sass conversion configs
@@ -56,3 +57,5 @@ sass:
 
 timezone: JPN
 future: true
+
+livereload: true     # You no longer need to include --livereload
