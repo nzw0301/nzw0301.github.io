@@ -4,10 +4,7 @@ title: About me
 permalink: /about/
 ---
 
-大学院生してます．
-鴨川が好きです．
-
-- [Profile](http://wkblab.github.io/member/nzw) : 所属とか研究について
+- [Profile](http://wkblab.github.io/member/nzw)
 - [Speaker Deck](https://speakerdeck.com/nzw0301) : LTや論文読みのスライド (2016~)
 - [GitHub](https://github.com/nzw0301)
 - [Twitter](https://twitter.com/nzw0301)
