@@ -18,3 +18,8 @@ permalink: /about/
 
 - [VAE note (ja)]({{ site.url }}/notes/vae.pdf)
 - [somethig2vec list](https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e)
+
+---
+
+[![yattemiyou](http://yattemiyou.sakura.ne.jp/img/logo_yattemiyou_small1.jpg)](http://yattemiyou.sakura.ne.jp/)
+気持ちになったら元気になれるサイト
