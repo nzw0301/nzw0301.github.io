@@ -7,7 +7,7 @@ abstract: 計算テクニック
 
 ### はじめに
 
-Skip-gram&NegativeSamplingでは（正例数 $$\times$$ #negative_sampling $$\times$$ 反復回数）だけ出力層でsigmoid関数を呼ぶ。
+Skip-gram&NegativeSamplingでは（正例数 $$\times$$ (neg+1) $$\times$$ 反復回数）だけ出力層でsigmoid関数を呼ぶ。
 これを避けるためにword2vecやfasttextではsigmoid関数の評価値をキャッシュすることで高速化している。
 ざっくりとした解説を以下に書く。
 
@@ -22,7 +22,7 @@ word2vecの拡張ライブラリである[fasttext](https://github.com/facebookr
 word2vecでは1000、[fasttextでは512](https://github.com/facebookresearch/fastText/blob/fbc42146893cbdfdc784c50956d9b09dda9d46de/src/model.h#L24)。
 
 `MAX_SIGMOID`は、sigmoid関数の引数の最大値。
-この値より大きい数値の場合は、1を返す（`-MAX_SIGMOID`より小さければ0）。
+この値より大きければ1を返す（`-MAX_SIGMOID`より小さければ0）。
 word2vecでは6、[fasttextでは8](https://github.com/facebookresearch/fastText/blob/fbc42146893cbdfdc784c50956d9b09dda9d46de/src/model.h#L25)。
 
 Pythonで書くと以下のようになる。
