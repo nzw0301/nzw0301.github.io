@@ -10,16 +10,16 @@ comments: false
 
 
 [トピックモデルによる統計的潜在意味解析](http://amzn.to/1Nbzlq3)の3章の周辺化ギブスサンプリングの式を参考にjoint topic modelのサンプリング式を導出します．
-
+Joint topic modelよりもpolylingual topic modelの名前のほうが有名かもしれないです．
 
 まずグラフィカルモデルを[Blei+, 2003](https://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf)のものと合わせて示します．
 
 
-topic model
-![gmodel]({{ site.url }}/images/topic_model.svg) 
+Topic model
+![gmodel]({{ site.url }}/images/topic_model.svg)
 
-joint topic model
-![gmodel]({{ site.url }}/images/joint_topic_model.svg) 
+Joint topic model
+![gmodel]({{ site.url }}/images/joint_topic_model.svg)
 
 [Blei+, 2003](https://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf)とほぼ同じ形をしていますが， 観測できる変数が1つ増え，それに合わせて潜在変数も増えています．
 
@@ -54,7 +54,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
 
 \begin{eqnarray}
   p(z_{d,i}^{1}=k|
-    w_{d,i}^{1}=v, 
+    w_{d,i}^{1}=v,
     \mathbf{W}^{1}\_{\backslash d,i},
     \mathbf{W}^{2},
     \mathbf{Z}^{1}\_{\backslash d,i},
@@ -62,7 +62,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
     {\boldsymbol \alpha},
     {\boldsymbol \beta}^{1},
     {\boldsymbol \beta}^{2})
-  &=& \frac{p(z_{d,i}^{1}=k, w_{d,i}^{1}=v, 
+  &=& \frac{p(z_{d,i}^{1}=k, w_{d,i}^{1}=v,
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
       \mathbf{Z}^{1}\_{\backslash d,i},
@@ -70,7 +70,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
       | {\boldsymbol \alpha},
       {\boldsymbol \beta}^{1},
       {\boldsymbol \beta}^{2})}
-    {p(w_{d,i}^{1}=v, 
+    {p(w_{d,i}^{1}=v,
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
       \mathbf{Z}^{1}\_{\backslash d,i},
@@ -78,7 +78,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
       | {\boldsymbol \alpha},
       {\boldsymbol \beta}^{1},
       {\boldsymbol \beta}^{2})} \tag{1}\\\
-  & \propto & p(z_{d,i}^{1}=k, w_{d,i}^{1}=v, 
+  & \propto & p(z_{d,i}^{1}=k, w_{d,i}^{1}=v,
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
       \mathbf{Z}^{1}\_{\backslash d,i},
@@ -86,7 +86,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
       | {\boldsymbol \alpha},
       {\boldsymbol \beta}^{1},
       {\boldsymbol \beta}^{2}) \tag{2} \\\
-  &=& p(w_{d,i}^{1}=v | 
+  &=& p(w_{d,i}^{1}=v |
       z_{d,i}^{1}=k,
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
@@ -95,7 +95,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
       {\boldsymbol \alpha},
       {\boldsymbol \beta}^{1},
       {\boldsymbol \beta}^{2}) \\\
-    & &\times 
+    & &\times
       p(z_{d,i}^{1}=k,
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
@@ -104,7 +104,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
       | {\boldsymbol \alpha},
       {\boldsymbol \beta}^{1},
       {\boldsymbol \beta}^{2}) \tag{3} \\\
-    &=& p(w_{d,i}^{1}=v | 
+    &=& p(w_{d,i}^{1}=v |
       z_{d,i}^{1}=k,
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
@@ -113,7 +113,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
       {\boldsymbol \alpha},
       {\boldsymbol \beta}^{1},
       {\boldsymbol \beta}^{2}) \\\
-    & &\times 
+    & &\times
       p(z_{d,i}^{1}=k|
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
@@ -130,7 +130,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
       | {\boldsymbol \alpha},
       {\boldsymbol \beta}^{1},
       {\boldsymbol \beta}^{2}) \tag{4} \\\
-    & \propto & p(w_{d,i}^{1}=v | 
+    & \propto & p(w_{d,i}^{1}=v |
       z_{d,i}^{1}=k,
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
@@ -139,7 +139,7 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
       {\boldsymbol \alpha},
       {\boldsymbol \beta}^{1},
       {\boldsymbol \beta}^{2}) \\\
-    & &\times 
+    & &\times
       p(z_{d,i}^{1}=k|
       \mathbf{W}^{1}\_{\backslash d,i},
       \mathbf{W}^{2},
@@ -163,11 +163,11 @@ $${\boldsymbol \beta}$$ の次元数は一致しなくても構いません．
      p({\boldsymbol \theta}\_{d}|
       \mathbf{Z}^{1}\_{\backslash d,i},
       \mathbf{Z}^{2},
-      {\boldsymbol \alpha}) d {\boldsymbol \theta}\_{d} \tag{6} \\\ 
-    &=& \mathbb{E}\_{p({\boldsymbol \phi}^1\_{k}| \mathbf{W}^{1}\_  {\backslash d,i},\mathbf{Z}^{1}\_{\backslash d,i},      {\boldsymbol \beta}^{1})}[\phi\_{k,v}^{1}] 
+      {\boldsymbol \alpha}) d {\boldsymbol \theta}\_{d} \tag{6} \\\
+    &=& \mathbb{E}\_{p({\boldsymbol \phi}^1\_{k}| \mathbf{W}^{1}\_  {\backslash d,i},\mathbf{Z}^{1}\_{\backslash d,i},      {\boldsymbol \beta}^{1})}[\phi\_{k,v}^{1}]
     \mathbb{E}\_{p({\boldsymbol \theta}\_{d}|
       \mathbf{Z}^{1}\_{\backslash d,i}, \mathbf{Z}^{2},{\boldsymbol \alpha}) d {\boldsymbol \theta}\_{d}}[\theta\_{d,k}] \tag{7} \\\
-    &=& \frac{n\_{k,v, \backslash d,i}^{1}+\beta\_{v}}{\sum\_{v'} (n\_{k,v', \backslash d,i}^{1}+\beta\_{v'})} 
+    &=& \frac{n\_{k,v, \backslash d,i}^{1}+\beta^{1}\_{v}}{\sum\_{v'} (n\_{k,v', \backslash d,i}^{1}+\beta^{1}\_{v'})}
         \frac{n\_{d,k, \backslash d,i}^{1} + n\_{d,k}^{2} + \alpha\_k}{\sum\_{k'} (n\_{d, k', \backslash d,i}^{1} + n\_{d,k'}^{2} + \alpha\_{k'})} \tag{8}
 \end{eqnarray}
 
@@ -178,9 +178,9 @@ $$\theta$$は，各文書集合の潜在変数$$z$$で繋がっていますが�
 
 #### 実行例
 以下のような2つの文書集合を使ってみました．
-それぞれ1行が1文書とみなし，行ごとに対応関係（この例では対訳）であるとします．
+それぞれ1行が1文書とみなし，行ごとに対応関係（この例では対訳のページ）であるとします．
 
-- - - 
+- - -
 
 > lisp lisp lisp scala scala scala clojure clojure
 
@@ -196,7 +196,7 @@ $$\theta$$は，各文書集合の潜在変数$$z$$で繋がっていますが�
 
 > movie movie article article mars mars mars
 
-- - - 
+- - -
 
 > リスプ リスプ リスプ スカラ スカラ スカラ
 
@@ -212,13 +212,14 @@ $$\theta$$は，各文書集合の潜在変数$$z$$で繋がっていますが�
 
 > 映画 映画 論文 論文 火星 火星 火星
 
-- - - 
+- - -
 
-トピック数3くらいで実行したときの， $$\phi_{k,v}$$の確率値の高い単語の一覧を示します．
+トピック数3で実行したときの， $$\phi_{k,v}$$の確率値の高い単語の一覧を示します．
 
+```
 - 英語
   - topic=0
-    - mars 0.382442748092 
+    - mars 0.382442748092
     - article 0.306106870229
     - movie 0.306106870229
   - topic=1
@@ -232,7 +233,7 @@ $$\theta$$は，各文書集合の潜在変数$$z$$で繋がっていますが�
     - java 0.181447963801
 
 - 日本語
-  - topic=0 
+  - topic=0
     - 火星 0.382734912147
     - 論文 0.306340718105
     - 映画 0.306340718105
@@ -244,13 +245,11 @@ $$\theta$$は，各文書集合の潜在変数$$z$$で繋がっていますが�
     - スカラ 0.410181392627
     - リスプ 0.351667641896
     - ジャバ 0.234640140433
-
+```
 
 このときトピックは共通しているため（同じ$$\theta$$から$$z$$が生成されるため），言語が違っていても共通したトピックから生成される単語分布を求めることができます．
 
-コードはそのうちgithubで公開すると思います．
+せっかくなので[Juliaでのコード](https://github.com/nzw0301/TopicModels.jl)を公開しました．
 
-以上です．
-
-#### 参考文献など
-[青いトピックモデル本で言及されているjoint topic modelの論文](http://dirichlet.net/pdf/mimno09polylingual.pdf)
+#### 参考資料
+- [青いトピックモデル本で言及されているjoint topic modelの論文](http://dirichlet.net/pdf/mimno09polylingual.pdf)
