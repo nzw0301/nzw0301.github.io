@@ -44,7 +44,7 @@ U \sim {\cal u}(0, \sum\_{z} q(z))
 まず，式(5)を展開して依存関係をわかりやすくする．
 
 \begin{eqnarray}
-p(z=t \mid w) \propto \frac{\alpha_t\beta}{\beta V + n_{\cdot \mid t}} + \frac{n_{t \mid d}\beta}{\beta V + n_{\cdot \mid t}} + \frac{(\alpha_t+ n_{t|= \mid d})n_{w \mid t}}{\beta V + n\_{\cdot \mid t}} \tag{6}
+p(z=t \mid w) \propto \frac{\alpha_t\beta}{\beta V + n_{\cdot \mid t}} + \frac{n_{t \mid d}\beta}{\beta V + n_{\cdot \mid t}} + \frac{(\alpha_t+ n_{t \mid d})n_{w \mid t}}{\beta V + n\_{\cdot \mid t}} \tag{6}
 \end{eqnarray}
 
 - 第1項：全文書に対して固定
@@ -129,7 +129,7 @@ $$q$$だけやや複雑になる．
 まず，$$q$$を以下のように2つの項に分解する．
 
 $$
-\sum\_{t} \Bigl[\frac{\alpha_{t}+ n\_{t \mid d}}{\beta V + n\_{\cdot \mid t}} \times n\_{w \mid t} \Bigr] \tag{10}
+\sum_{t} \Bigl[\frac{\alpha_{t}+ n_{t \mid d}}{\beta V + n_{\cdot \mid t}} \times n_{w \mid t} \Bigr] \tag{10}
 $$
 
 
