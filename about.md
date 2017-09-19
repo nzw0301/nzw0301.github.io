@@ -7,7 +7,7 @@ permalink: /about/
 - [GitHub](https://github.com/nzw0301)
 - [Twitter](https://twitter.com/nzw0301) (mostly in Japanese)
 - [Lab page](http://wkblab.github.io/)
-- [Resume](https://www.dropbox.com/s/arfn2ope5blkfax/main.pdf?dl=0)
+- [Resume](https://www.dropbox.com/s/wve1sk9rdh90yw8/main.pdf?dl=0)
 
 ---
 
