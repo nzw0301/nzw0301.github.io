@@ -31,6 +31,7 @@ permalink: /publications_ja/
 
 ## 受賞歴
 
+1. Oct. 2017, [The Mangaki Data Challenge](http://research.mangaki.fr/2017/10/08/mangaki-data-challenge-winners-en/) 2位.
 1. Jul. 2016, [コンピュータサイエンス領域奨励賞](https://www.ipsj.or.jp/award/cs-awardee-2016.html)
 1. Mar. 2016, 筑波大学情報学群長表彰
 1. Mar. 2016, 筑波大学情報学群知識情報・図書館学類 学位記受領総代
@@ -40,9 +41,10 @@ permalink: /publications_ja/
 
 ## 職歴
 
-- Aug. 2017 - Sept. 2017: Engineer Intern, [Treasure Data Inc.](https://www.treasuredata.com/), Japan.
-- Apr. 2016 - July 2017: Research assistant, [AIRC](http://www.airc.aist.go.jp).
-- Dec. 2015 - Mar. 2016: Technical stuff, [AIRC](http://www.airc.aist.go.jp).
+- Oct. 2017 -- : Research assistant, [AIRC](http://www.airc.aist.go.jp).
+- Aug. 2017 -- Sept. 2017: Engineer Intern, [Treasure Data Inc.](https://www.treasuredata.com/), Japan.
+- Apr. 2016 -- July 2017: Research assistant, [AIRC](http://www.airc.aist.go.jp).
+- Dec. 2015 -- Mar. 2016: Technical stuff, [AIRC](http://www.airc.aist.go.jp).
 
 ----
 

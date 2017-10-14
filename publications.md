@@ -26,6 +26,7 @@ permalink: /publications/
 
 ## Awards
 
+1. Oct. 2017, 2nd prize, [The Mangaki Data Challenge](http://research.mangaki.fr/2017/10/08/mangaki-data-challenge-winners-en/).
 1. Jul. 2016, [IPSJ Computer Science Research Award for Young Scientists](https://www.ipsj.or.jp/award/cs-awardee-2016.html)
 1. Mar. 2016, School of Informatics Provost's Award
 1. Mar. 2016, Representative of College of Knowledge and Library Science
@@ -35,8 +36,9 @@ permalink: /publications/
 
 ## Work Experience
 
-- Aug. 2017 - Sept. 2017: Engineer Intern, [Treasure Data Inc.](https://www.treasuredata.com/), Japan.
-- Apr. 2016 - July 2017: Research assistant, [AIRC](http://www.airc.aist.go.jp/en/).
-- Dec. 2015 - Mar. 2016: Technical stuff, [AIRC](http://www.airc.aist.go.jp/en/).
+- Oct. 2017 -- : Research assistant, [AIRC](http://www.airc.aist.go.jp/en/).
+- Aug. 2017 -- Sept. 2017: Engineer Intern, [Treasure Data Inc.](https://www.treasuredata.com/), Japan.
+- Apr. 2016 -- July 2017: Research assistant, [AIRC](http://www.airc.aist.go.jp/en/).
+- Dec. 2015 -- Mar. 2016: Technical stuff, [AIRC](http://www.airc.aist.go.jp/en/).
 
 [ja]({{ site.url }}/publications_ja)
