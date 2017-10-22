@@ -17,4 +17,4 @@ layout: page
 
 ---
 
-[日本語]({{ site.url }}/index_ja)
+[日本語版]({{ site.url }}/index_ja)

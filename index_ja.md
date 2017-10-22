@@ -3,7 +3,6 @@ layout: page
 permalink: /index_ja/
 ---
 
-
 - [Speaker Deck](https://speakerdeck.com/nzw0301) : LTや論文読みのスライド (2016~)
 - [GitHub](https://github.com/nzw0301)
 - [Twitter](https://twitter.com/nzw0301) (mostly in Japanese)
