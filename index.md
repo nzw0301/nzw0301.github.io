@@ -3,7 +3,7 @@ title: About me
 layout: page
 ---
 
-- Master's student, [Library, Information and Media Studies](http://www.slis.tsukuba.ac.jp/grad/) at [Tsukuba University](http://www.tsukuba.ac.jp/en/)
+- Master's student, [Library, Information and Media Studies](http://www.slis.tsukuba.ac.jp/grad/) at [University of Tsukuba](http://www.tsukuba.ac.jp/en/)
 
 - Interest:
   - Unsupervised Machine Learning
