@@ -39,7 +39,7 @@ layout: page
 - Oct. 2017 -- : Research assistant, [AIRC](http://www.airc.aist.go.jp/en/), Japan.
 - Aug. 2017 -- Sept. 2017: Engineer Intern, [Treasure Data Inc.](https://www.treasuredata.com/), Japan.
 - Apr. 2016 -- July 2017: Research assistant, [AIRC](http://www.airc.aist.go.jp/en/), Japan.
-- Dec. 2015 -- Mar. 2016: Technical stuff, [AIRC](http://www.airc.aist.go.jp/en/), Japan.
+- Dec. 2015 -- Mar. 2016: Technical staff, [AIRC](http://www.airc.aist.go.jp/en/), Japan.
 
 ---
 
