@@ -47,6 +47,6 @@ layout: page
 
 - [somethig2vec list](https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e)
 - [Cat Photos](https://goo.gl/photos/LRmdx4dJQEZqvrQJ7)
-- [VAE note (ja)](http://localhost:4000/notes/vae.pdf)
+- [VAE note (ja)](./notes/vae.pdf)
 
 ---
