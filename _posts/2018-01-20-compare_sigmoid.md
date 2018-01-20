@@ -85,4 +85,26 @@ def cal_sigmoid_cache(data):
 後者がやっぱり速い．
 
 cacheの生成は，実際にsigmoid呼ぶ回数の総数と比べれば，とても小さいため，今回は無視している．
-問題としては，`numpy.array` に対しては使えないかもしれないこと．
+~~問題としては，`numpy.array` に対しては使えないかもしれないこと．~~
+
+`np.vectorize` 関数に渡すと `numpy.array` に対しても使えるようになる ([助言いただいたツイート](https://twitter.com/MtJuney/status/954681191868743681))．
+
+
+```python
+vectorzed_sigmoid_cache =  np.vectorize(sigmoid_cache)
+```
+
+``` jupyter-notebook
+%timeit sigmoid(data)
+
+161 µs ± 6.56 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+```
+
+``` jupyter-notebook
+%timeit vectorzed_sigmoid_cache(data)
+
+8.13 ms ± 173 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+```
+
+負けた．
+ちなみに，キャッシュしないほうを`math.exp`にしても負けた．
