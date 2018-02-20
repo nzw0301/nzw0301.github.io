@@ -8,7 +8,7 @@ permalink: /publications/
 
 ## Under review
 
-1. Kento Nozawa, Masanari Kimura, and Atsunori Kanemura. Node Centralities and Classification Performance for Characterizing Node Embedding Algorithms, In ICLR Workshop Track, 2018. [[pdf](https://openreview.net/pdf?id=Sk9QRnCIM)], [[Openreview](https://openreview.net/forum?id=Sk9QRnCIM)], [[code](https://github.com/nzw0301/iclrw2018)].
+1. Kento Nozawa, Masanari Kimura, and Atsunori Kanemura. Node Centralities and Classification Performance for Characterizing Node Embedding Algorithms, In ICLR Workshop Track, 2018. [[pdf](https://openreview.net/pdf?id=Sk9QRnCIM)], [[Openreview](https://openreview.net/forum?id=Sk9QRnCIM)], [[arXiv](https://arxiv.org/abs/1802.06368)], [[code](https://github.com/nzw0301/iclrw2018)].
 
 ## Workshop (refereed)
 
