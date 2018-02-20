@@ -75,8 +75,8 @@ E_n &=& \frac{1}{2} ||\boldsymbol{y} - \boldsymbol{d} ||^2 \tag{2}\\\
 
 \begin{eqnarray}
 \frac{\partial y} {\partial u} &=& \frac{\partial}{\partial u} \frac{1}{1+\exp(-u)} \\\
-&=& \frac{(-1)(1+\exp(-u))(-1)}{(1+\exp(-u))^2}\\\
-&=& \frac{1+\exp(-u)}{(1+\exp(-u))^2}\\\
+&=& \frac{(-1)(\exp(-u))(-1)}{(1+\exp(-u))^2}\\\
+&=& \frac{\exp(-u)}{(1+\exp(-u))^2}\\\
 &=&(\frac{1}{1+\exp(-u)})(1-\frac{1}{1+\exp(-u)})\\\
 &=&y(1-y)
 \end{eqnarray}
