@@ -4,13 +4,7 @@ title: 論文等
 permalink: /publications_ja/
 ---
 
-[en]({{ site.url }}/publications)
-
-## ワークショップ（査読有）
-
-1. Kento Nozawa and Kei Wakabayashi. Scalable Algorithm for Probabilistic Overlapping Community Detection. In Proc. WSDM 1st Workshop on Scholarly Web Mining, pp. 9--16, 2017. [[slide](https://ornlcda.github.io/SWM2017/slides/swm_2017-paper_5.pdf)], [[acm](http://dl.acm.org/citation.cfm?id=3057150&CFID=755784727&CFTOKEN=89060339)], [[BibTex](http://nzw0301.github.io/bibtex/nzw-swm2017.bib)]
-
----
+日本語論文のみ，[英語論文のリストはこちら (English Publications is here.)]({{ site.url }}/publications)
 
 ## 論文誌
 
@@ -32,6 +26,10 @@ permalink: /publications_ja/
 1. 野沢 健人, 中岡 義貴, 山本 修平, 佐藤 哲司. word2vecを用いた代替食材の発見手法の提案. 電子情報通信学会技術研究報告. DE, データ工学, 2014. [[pdf](http://ci.nii.ac.jp/els/110009950250.pdf?id=ART0010496990&type=pdf&lang=jp&host=cinii&order_no=&ppv_type=0&lang_sw=&no=1474952459&cp=)]
 
 ---
+
+## 修士論文
+
+- トピックモデルを用いたグラフ表現に対する潜在的意味解析に関する研究. 平成29年度 筑波大学大学院 図書館情報メディア研究科 図書館情報メディア専攻 情報学プログラム 修士論文.
 
 ## 学位論文
 
