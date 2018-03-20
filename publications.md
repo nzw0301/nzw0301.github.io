@@ -6,21 +6,21 @@ permalink: /publications/
 
 [ja]({{ site.url }}/publications_ja)
 
-## Under review
+## Preprint
 
-1. Kento Nozawa, Masanari Kimura, and Atsunori Kanemura. Node Centralities and Classification Performance for Characterizing Node Embedding Algorithms, In ICLR Workshop Track, 2018. [[pdf](https://openreview.net/pdf?id=Sk9QRnCIM)], [[Openreview](https://openreview.net/forum?id=Sk9QRnCIM)], [[arXiv](https://arxiv.org/abs/1802.06368)], [[code](https://github.com/nzw0301/iclrw2018)].
+1. Kento Nozawa, Masanari Kimura, and Atsunori Kanemura. Node Centralities and Classification Performance for Characterizing Node Embedding Algorithms, 2018. [[arXiv](https://arxiv.org/abs/1802.06368)], [[code](https://github.com/nzw0301/iclrw2018)].
 
 ---
 
 ## Workshop (refereed)
 
-1. Kento Nozawa and Kei Wakabayashi. Scalable Algorithm for Probabilistic Overlapping Community Detection. In Proc. WSDM 1st Workshop on Scholarly Web Mining, pp. 9--16, 2017. [[slide](https://ornlcda.github.io/SWM2017/slides/swm_2017-paper_5.pdf)], [[acm](http://dl.acm.org/citation.cfm?id=3057150&CFID=755784727&CFTOKEN=89060339)], [[BibTex](http://nzw0301.github.io/bibtex/nzw-swm2017.bib)]
+1. Kento Nozawa and Kei Wakabayashi. Scalable Algorithm for Probabilistic Overlapping Community Detection. In *Proc. WSDM 1st Workshop on Scholarly Web Mining*, pp. 9--16, 2017. [[slide](https://ornlcda.github.io/SWM2017/slides/swm_2017-paper_5.pdf)], [[acm](http://dl.acm.org/citation.cfm?id=3057150&CFID=755784727&CFTOKEN=89060339)], [[BibTex](http://nzw0301.github.io/bibtex/nzw-swm2017.bib)]
 
 ---
 
 ## Journal (in Japanese)
 
-1. Kento Nozawa and Kei Wakabayashi. Overlapping Community Detection in Large-scale Networks Using Topic Models. IPSJ Transaction on Database, vol.9, no.2, pp.1--10, 2016. [[pdf](https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=165288&item_no=1&page_id=13&block_id=8)].
+1. Kento Nozawa and Kei Wakabayashi. Overlapping Community Detection in Large-scale Networks Using Topic Models. *IPSJ Transaction on Database*, vol.9, no.2, pp.1--10, 2016. [[pdf](https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=165288&item_no=1&page_id=13&block_id=8)].
 
 ---
 
