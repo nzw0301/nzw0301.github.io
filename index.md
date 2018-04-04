@@ -8,7 +8,7 @@ _Last updated: 01 Apr. 2018_
 
 __Kento NOZAWA__ is a Ph.D. student who does research on machine learning.
 
-- E-mail: k_nzw {atmark} klis.tsukuba.ac.jp
+- E-mail: nozawa {atmark} ms.k.u-tokyo.ac.jp
 - Links:
   - [Resume](https://drive.google.com/file/d/1CTvegAadEhl1VtETyZSGigJELC-l0r5u/view)
   - [Github](http://github.com/nzw0301)
