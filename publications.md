@@ -4,7 +4,11 @@ title: Publications
 permalink: /publications/
 ---
 
+_Last updated: 07 Apr. 2018_
+
 [ja]({{ site.url }}/publications_ja)
+
+---
 
 ## Preprint
 
