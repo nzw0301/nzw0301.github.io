@@ -26,15 +26,15 @@ from matplotlib import pyplot as plt
 # visualization
 def draw_digit(data, row, col, n):
     size = 28
-    plt.subplot(row, col, n)    
+    plt.subplot(row, col, n)
     plt.imshow(data)
     plt.gray()
-    
+
 show_size = 10
 total = 0
 plt.figure(figsize=(20,20))
 for i in range(show_size):
-    for j in range(show_size):        
+    for j in range(show_size):
         draw_digit(X_train[total], show_size, show_size, total+1)
         total += 1
 plt.show()

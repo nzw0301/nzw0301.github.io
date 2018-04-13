@@ -13,7 +13,7 @@ harmony:
   # 'meta_description:' Write an awesome description for your new site here.
   # It will appear in your document head meta (for Google search results) and
   # in your feed.xml site description.
-  meta_description: nzw's blog
+  meta_description: nzw page
   basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
   author: # Author details
     name: nzw
