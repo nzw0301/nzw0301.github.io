@@ -21,7 +21,7 @@ where $$\langle \cdot, \cdot \rangle$$ means inner product. When $$F(p) = \sum_i
 \begin{eqnarray}
 \mathfrak{B}_{F}(p, q) &=& \sum_i (p_i \log(p_i))
                       - \sum_i (q_i \log(q_i))
-                      - \langle \sum_i \big( \log(q_i)+1 \big), \sum_i p_i-q_i \rangle \newline
+                      - \langle  \log(q) + \mathbf{1} ,  p-q \rangle \newline
                   &=& \sum_i (p_i \log(p_i))
                       - \sum_i p_i \log (q_i) - \sum_i p_i + \sum_i q_i \newline \newline
                   &=& \sum_i p_i \log \frac{p_i}{q_i} \newline
