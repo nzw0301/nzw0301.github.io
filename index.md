@@ -2,7 +2,7 @@
 layout: page
 ---
 
-_Last updated: 01 Apr. 2018_
+_Last updated: 27 Apr. 2018_
 
 ---
 
@@ -49,6 +49,13 @@ __Kento NOZAWA__ is a Ph.D. student who does research on machine learning.
 
 ----
 
+## Research Grant
+
+1. Apr. 2018 -- Mar. 2021: Grant-in-Aid for JSPS Fellows. <br />
+   2 800 000 yen / three years
+
+----
+
 ## Awards
 
 1. Mar. 2018, Graduate School of Library, Information and Media Studies Provost's Award
@@ -75,13 +82,11 @@ __Kento NOZAWA__ is a Ph.D. student who does research on machine learning.
 
 ## Teaching Experience
 
-- Apr. 2017 -- July 2017: Teaching Assistant, <br />
-  Information mathematics at university of Tsukuba.
-- July 2016 --  Sept. 2017: Teaching Assistant, <br />
-  Programming 1 at university of Tsukuba.
-- Sept. 2016 --  Des. 2017: Teaching Assistant, <br />
-  Programming 2 at university of Tsukuba.
-
+| From       | To         | Position           | Subject Name            | Place                 |
+|:----------:|:----------:|:------------------:|:-----------------------:|:---------------------:|
+| Apr. 2017  | July 2017  | Teaching Assistant | Information mathematics | University of Tsukuba |
+| Sept. 2017 | Feb. 2017  | Teaching Assistant | Programming 2           | University of Tsukuba |
+| July 2016  | Sept. 2016 | Teaching Assistant | Programming 1           | University of Tsukuba |
 
 ----
 
