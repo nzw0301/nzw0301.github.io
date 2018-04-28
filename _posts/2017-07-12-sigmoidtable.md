@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "sigmoid table for word2vec&fasttext"
-comments: false
+comments: true
 abstract: 計算テクニック
 ---
 

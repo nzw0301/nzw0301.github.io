@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Neural Variational Inference For Topic Models"
-comments: false
+comments: true
 abstract: NVIでLDA
 ---
 
 ### メタデータとか
 
-Akash Srivastava, Charles Suttonの[論文](https://openreview.net/forum?id=BybtVK9lg)でICLR2017のレビュー中．ICLRの投稿論文の一覧を眺めていて面白そうだったので読んだ．[著者実装](https://github.com/akashgit/Neural-Variational-Inference-for-Topic-Models)も公開している．
+Akash Srivastava, Charles Suttonの[論文](https://openreview.net/forum?id=BybtVK9lg)でICLR2017のレビュー中だった（通ってた）．ICLRの投稿論文の一覧を眺めていて面白そうだったので読んだ．[著者実装](https://github.com/akashgit/Neural-Variational-Inference-for-Topic-Models)も公開している．
 
 数式はおってません．
 

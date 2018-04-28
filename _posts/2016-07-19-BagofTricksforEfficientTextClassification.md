@@ -2,7 +2,7 @@
 layout: post
 title: "Bag of Tricks for Efficient Text Classification"
 date: 2016-07-19 03:20:00 +0900
-comments: false
+comments: true
 ---
 
 # メタデータとか

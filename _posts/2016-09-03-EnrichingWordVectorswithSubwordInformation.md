@@ -2,7 +2,7 @@
 layout: post
 title: "Enriching Word Vectors with Subword Information"
 date: 2016-09-03 22:20:00 +0900
-comments: false
+comments: true
 abstract: 分散表現の論文紹介
 ---
 

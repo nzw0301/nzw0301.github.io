@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Derivation of KL divergence by Bregman divergence
-comments: false
+comments: True
 abstract: Calculation
 lang: english
 ---

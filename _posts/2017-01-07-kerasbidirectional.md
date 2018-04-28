@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "BidirectionalRNNはKerasだと1行でかける"
-comments: false
+comments: true
 abstract: KerasのBidirectionalの使い方
 ---
 

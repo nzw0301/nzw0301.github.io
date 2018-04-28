@@ -2,7 +2,7 @@
 layout: post
 title: "Alternative structures for character-level RNNs"
 date: 2016-09-24 18:00:00 +0900
-comments: false
+comments: true
 abstract: 文字単位のRNNの論文紹介
 ---
 

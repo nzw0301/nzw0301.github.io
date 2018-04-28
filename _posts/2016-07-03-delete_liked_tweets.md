@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "Delete liked tweets"
-date: 2016-07-03 18:00:00 +0900
+date: 2016-07-03 18:00:00
 comments: false
+lang: english
 ---
 
-# requirement 
+# requirement
 
 - twitter 5.16.0 (ruby gem)
 - ruby 2.3.0

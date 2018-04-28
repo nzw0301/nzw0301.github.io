@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Negative Samplingの配列の作り方"
-comments: false
+comments: true
 abstract: Negative samplingの前計算のテクニック
 ---
 

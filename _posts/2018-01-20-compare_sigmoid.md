@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sigmoid関数の速度比較"
-comments: false
+comments: true
 ---
 
 ### 背景
