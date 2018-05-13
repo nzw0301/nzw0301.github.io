@@ -2,7 +2,7 @@
 layout: page
 ---
 
-_Last updated: 27 Apr. 2018_
+_Last updated: 14 May 2018_
 
 ---
 
@@ -69,14 +69,13 @@ __Kento NOZAWA__ is a Ph.D. student who does research on machine learning.
 
 ## Work Experience
 
-| From      | To         | Position           | Place                                         |
+| From      | To         | Position           | Place                                        |
 |:---------:|:----------:|:------------------:|:---------------------------------------------:|
+| May 2018  | Present    | Research Assistant | [RIKEN AIP](https://aip.riken.jp/)                |
 | Oct. 2017 | Mar. 2018  | Research Assistant | [AIRC](http://www.airc.aist.go.jp/en/)              |
 | Aug. 2017 | Sept. 2017 | Engineer Intern    | [Treasure Data Inc.](https://www.treasuredata.com/) |
 | Apr. 2016 | July 2017  | Research Assistant | [AIRC](http://www.airc.aist.go.jp/en/)              |
 | Dec. 2015 | Mar. 2016  | Technical Staff    | [AIRC](http://www.airc.aist.go.jp/en/)              |
-
-
 
 ----
 
