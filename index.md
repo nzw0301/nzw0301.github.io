@@ -7,8 +7,9 @@ _Last updated: 14 May 2018_
 ---
 
 __Kento NOZAWA__ is a Ph.D. student who does research on machine learning.
+My current research interests are _representation learning for discrete data_ and _unsupervised machine learning_.
 
-- E-mail: nozawa {atmark} ms.k.u-tokyo.ac.jp
+- E-mail: nozawa {at mark} ms.k.u-tokyo.ac.jp
 - Links:
   - [CV](https://drive.google.com/file/d/10pLTn4oHRJGwIfYo20uF6UCZ28z-1ElI/view?usp=sharing)
   - [Github](https://github.com/nzw0301)
@@ -49,7 +50,7 @@ __Kento NOZAWA__ is a Ph.D. student who does research on machine learning.
 
 ----
 
-## Research Grant
+## Research Grants
 
 1. Apr. 2018 -- Mar. 2021: Grant-in-Aid for JSPS Fellows. <br />
    2 800 000 yen / three years
@@ -71,7 +72,7 @@ __Kento NOZAWA__ is a Ph.D. student who does research on machine learning.
 
 | From      | To         | Position           | Place                                        |
 |:---------:|:----------:|:------------------:|:---------------------------------------------:|
-| May 2018  | Present    | Research Assistant | [RIKEN AIP](https://aip.riken.jp/)                |
+| May 2018  | Present    | Research Assistant | [RIKEN AIP](https://aip.riken.jp/?lang=en)                |
 | Oct. 2017 | Mar. 2018  | Research Assistant | [AIRC](http://www.airc.aist.go.jp/en/)              |
 | Aug. 2017 | Sept. 2017 | Engineer Intern    | [Treasure Data Inc.](https://www.treasuredata.com/) |
 | Apr. 2016 | July 2017  | Research Assistant | [AIRC](http://www.airc.aist.go.jp/en/)              |
