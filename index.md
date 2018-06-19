@@ -16,8 +16,7 @@ His current research interests are _representation learning for discrete data_ a
   - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
   - [Speakerdeck](https://speakerdeck.com/nzw0301)
   - [Twitter](https://twitter.com/nzw0301) (mostly in Japanese)
-  - [Facebook](https://www.facebook.com/knt.nzw)
-  - [HP of Lab](http://www.ms.k.u-tokyo.ac.jp/)
+  - [Lab](http://www.ms.k.u-tokyo.ac.jp/)
 - Language: Python, Julia, Java
 
 ---
