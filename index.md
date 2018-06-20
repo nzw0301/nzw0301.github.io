@@ -11,7 +11,7 @@ His current research interests are _representation learning for discrete data_ a
 
 - E-mail: nozawa {at mark} ms.k.u-tokyo.ac.jp
 - Links:
-  - [CV](https://drive.google.com/file/d/10pLTn4oHRJGwIfYo20uF6UCZ28z-1ElI/view?usp=sharing)
+  - [CV](https://drive.google.com/file/d/16geHK8rtMxMDBtg7_Ai6I15ugxkeR5cw/view?usp=sharing)
   - [Github](https://github.com/nzw0301)
   - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
   - [Speakerdeck](https://speakerdeck.com/nzw0301)
