@@ -45,19 +45,20 @@ His current research interests are _representation learning for discrete data_ a
 
 1. Apr. 2018 -- Mar. 2021: Research Fellowship for Young Scientists (DC1). <br />
    [Japan Society for the Promotion of Science](http://www.jsps.go.jp/english/). <br />
-   200 000 yen / month
+   200 000 JPY / month
 
 ----
 
 ## Research Grants
 
 1. Apr. 2018 -- Mar. 2021: Grant-in-Aid for JSPS Fellows. <br />
-   2 800 000 yen / three years
+   2 800 000 JPY / three years
 
 ----
 
 ## Awards
 
+1. May. 2018, Repayment Exemption for Students with Excellent Grades, Japan Student Services Organization (JASSO) Type I (interest-free) scholarship (Exemption of half of loan, 1 056 000 JPY)
 1. Mar. 2018, Graduate School of Library, Information and Media Studies Provost's Award
 1. Oct. 2017, 2nd Prize, [The Mangaki Data Challenge](http://research.mangaki.fr/2017/10/08/mangaki-data-challenge-winners-en/)
 1. Jul. 2016, [IPSJ Computer Science Research Award for Young Scientists](https://www.ipsj.or.jp/award/cs-awardee-2016.html)
