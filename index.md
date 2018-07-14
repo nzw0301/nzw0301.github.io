@@ -6,8 +6,10 @@ _Last updated: 07 July 2018_
 
 ---
 
+<!-- ![profile image](https://avatars0.githubusercontent.com/u/7121753?s=160 "nzw") -->
+
 __Kento Nozawa__ is a Ph.D. student who does research on machine learning.
-His current research interests are _representation learning for discrete data_ and _unsupervised machine learning_.
+His current research interests are _representation learning for discrete data_ and _unsupervised machine learning_. 
 
 - E-mail: nozawa {at mark} ms.k.u-tokyo.ac.jp
 - Links:
@@ -90,8 +92,13 @@ His current research interests are _representation learning for discrete data_ a
 
 ----
 
-## Misc
+### Links
 
-- [Something2vec paper List](https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e)
+- [Something2vec paper list](https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e)
 - [Cat photos](https://goo.gl/photos/LRmdx4dJQEZqvrQJ7)
 - [VAE note (ja)](./notes/vae.pdf)
+
+### Visited cities
+
+- Cambridge, United Kingdam. WSDM. Feb. 2017
+- Stockholm, Sweden. ICML. July 2018
