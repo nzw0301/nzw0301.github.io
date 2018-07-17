@@ -2,24 +2,23 @@
 layout: page
 ---
 
-_Last updated: 07 July 2018_
+_Last updated: 15 July 2018_
 
----
 
-<!-- ![profile image](https://avatars0.githubusercontent.com/u/7121753?s=160 "nzw") -->
+![profile image](https://avatars0.githubusercontent.com/u/7121753?s=177&v=4 "nzw")
 
 __Kento Nozawa__ is a Ph.D. student who does research on machine learning.
-His current research interests are _representation learning for discrete data_ and _unsupervised machine learning_. 
+His current research interests are _representation learning for discrete data_ and _unsupervised machine learning_.
 
-- E-mail: nozawa {at mark} ms.k.u-tokyo.ac.jp
-- Links:
-  - [CV](https://drive.google.com/file/d/1CTcv1rBk1eOQCpDYG7hVTEkMJPm5VGUk/view?usp=sharing)
-  - [Github](https://github.com/nzw0301)
-  - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
-  - [Speakerdeck](https://speakerdeck.com/nzw0301)
-  - [Twitter](https://twitter.com/nzw0301) (mostly in Japanese)
-  - [Lab](http://www.ms.k.u-tokyo.ac.jp/)
+- E-mail_0: nozawa {at_mark} ms.k.u-tokyo.ac.jp
+- E-mail_1: k_nzw {at_mark} klis.tsukuba.ac.jp
 - Language: Python, Julia, Java
+- [CV](https://drive.google.com/file/d/1CTcv1rBk1eOQCpDYG7hVTEkMJPm5VGUk/view?usp=sharing)
+- [Github](https://github.com/nzw0301)
+- [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
+- [Speakerdeck](https://speakerdeck.com/nzw0301)
+- [Twitter](https://twitter.com/nzw0301)
+- [Sugiyama-Sato-Honda Lab at the University of Tokyo](http://www.ms.k.u-tokyo.ac.jp/)
 
 ---
 
