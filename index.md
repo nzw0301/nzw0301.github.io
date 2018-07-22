@@ -18,7 +18,7 @@ His current research interests are _representation learning for discrete data_ a
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
 - [Speakerdeck](https://speakerdeck.com/nzw0301)
 - [Twitter](https://twitter.com/nzw0301)
-- [Sugiyama-Sato-Honda Lab at the University of Tokyo](http://www.ms.k.u-tokyo.ac.jp/)
+- [Sugiyama-Sato-Honda Lab @ the University of Tokyo](http://www.ms.k.u-tokyo.ac.jp/)
 
 ---
 
