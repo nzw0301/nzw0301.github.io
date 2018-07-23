@@ -2,14 +2,12 @@
 layout: page
 images:
   - https://avatars0.githubusercontent.com/u/7121753?s=177&v=4
-  - https://www.dropbox.com/s/qwkevymdc2t746l/icon.jpg?dl=1
 
 ---
 
-_Last updated: 15 July 2018_
+_Last updated: 24 July 2018_
 
 ![profile image]({{ page.images | sample }} "nzw"){:height="177px" width="177px"}
-
 
 __Kento Nozawa__ is a Ph.D. student who does research on machine learning.
 His current research interests are _representation learning for discrete data_ and _unsupervised machine learning_.
