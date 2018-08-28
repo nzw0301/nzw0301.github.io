@@ -7,13 +7,13 @@
 
 # Harmony theme configuration. Please change accordingly.
 harmony:
-  name: Kento Nozawa
+  name: 紅翠黒白
   # Little description about your site
-  description:
+  description: Kento Nozawa
   # 'meta_description:' Write an awesome description for your new site here.
   # It will appear in your document head meta (for Google search results) and
   # in your feed.xml site description.
-  meta_description: nzw page
+  meta_description: Kento Nozawa's personal web page
   basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
   author: # Author details
     name: nzw
@@ -25,7 +25,7 @@ harmony:
   # Profile links, leave blank to ignore
   social:
     github: nzw0301
-    twitter: nzw0301
+    twitter: nozawa_kento
     facebook: knt.nzw
     pinterest:
   # Toggle disclaimer in footer

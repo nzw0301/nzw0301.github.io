@@ -19,7 +19,7 @@ His current research interests are _representation learning for discrete data_ a
 - [Github](https://github.com/nzw0301)
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
 - [Speakerdeck](https://speakerdeck.com/nzw0301)
-- [Twitter](https://twitter.com/nzw0301)
+- [Twitter](https://twitter.com/nozawa_kento)
 - [Sugiyama-Sato-Honda Lab @ the University of Tokyo](http://www.ms.k.u-tokyo.ac.jp/)
 
 ---
@@ -98,8 +98,3 @@ His current research interests are _representation learning for discrete data_ a
 - [Something2vec paper list](https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e)
 - [Cat photos](https://goo.gl/photos/LRmdx4dJQEZqvrQJ7)
 - [VAE note (ja)](./notes/vae.pdf)
-
-### Visited cities
-
-- Cambridge, United Kingdam. WSDM. Feb. 2017
-- Stockholm, Sweden. ICML. July 2018
