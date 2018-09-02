@@ -6,7 +6,7 @@ permalink: /publications/
 
 _Last updated: 07 Apr. 2018_
 
-[ja]({{ site.url }}/publications_ja)
+[Ja]({{ site.url }}/publications_ja)
 
 ---
 
@@ -16,7 +16,7 @@ _Last updated: 07 Apr. 2018_
 
 ---
 
-## Conference (refereed)
+## Conference
 
 1. Atsunori Kanemura, Yuhsen Cheng, Takumi Kaneko, <u>Kento Nozawa</u>, and Shuichi Fukunaga.  __Imputing Missing Values in EEG with Multivariate Autoregressive Models__, In *Proc. EMBC*, 2018.
 
