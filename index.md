@@ -16,10 +16,8 @@ His current research interests are _representation learning for discrete data_ a
 - E-mail_1: k_nzw {at_mark} klis.tsukuba.ac.jp
 - Language: Python, Julia, Java
 - [CV](https://drive.google.com/file/d/1CTcv1rBk1eOQCpDYG7hVTEkMJPm5VGUk/view?usp=sharing)
-- [Github](https://github.com/nzw0301)
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
 - [Speakerdeck](https://speakerdeck.com/nzw0301)
-- [Twitter](https://twitter.com/nozawa_kento)
 - [Sugiyama-Sato-Honda Lab @ the University of Tokyo](http://www.ms.k.u-tokyo.ac.jp/)
 
 ---
@@ -61,7 +59,7 @@ His current research interests are _representation learning for discrete data_ a
 
 ## Awards
 
-1. May. 2018, Repayment Exemption for Students with Excellent Grades, Japan Student Services Organization (JASSO) Type I (interest-free) scholarship (Exemption of half of loan, 1 056 000 JPY)
+1. May. 2018, Repayment Exemption for Students with Excellent Grades, Japan Student Services Organization (JASSO) Type I (interest-free) Scholarship (Exemption of half of loan, 1 056 000 JPY)
 1. Mar. 2018, Graduate School of Library, Information and Media Studies Provost's Award
 1. Oct. 2017, 2nd Prize, [The Mangaki Data Challenge](http://research.mangaki.fr/2017/10/08/mangaki-data-challenge-winners-en/)
 1. Jul. 2016, [IPSJ Computer Science Research Award for Young Scientists](https://www.ipsj.or.jp/award/cs-awardee-2016.html)
@@ -98,3 +96,10 @@ His current research interests are _representation learning for discrete data_ a
 - [Something2vec paper list](https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e)
 - [Cat photos](https://goo.gl/photos/LRmdx4dJQEZqvrQJ7)
 - [VAE note (ja)](./notes/vae.pdf)
+
+----
+
+### Q&A
+
+Q. What does this site's title, `紅翠黒白`, mean? <br />
+A. It is the modified title of a mystery book written by [my favorite writer](https://en.wikipedia.org/wiki/Hiroshi_Mori_(writer)). The original title, `赤緑黒白`, implies a name of fictional scientist: _Shiki Magata_.
