@@ -99,7 +99,4 @@ His current research interests are _representation learning for discrete data_ a
 
 ----
 
-### Q&A
-
-Q. What does this site's title, `紅翠黒白`, mean? <br />
-A. It is the modified title of a mystery book written by [my favorite writer](https://en.wikipedia.org/wiki/Hiroshi_Mori_(writer)). The original title, `赤緑黒白`, implies a name of fictional scientist: _Shiki Magata_.
+`Red Green Black and White` means a name of fictional scientist: _Shiki Magata_.
