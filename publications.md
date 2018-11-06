@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications/
 ---
 
-_Last updated: 17 Sep. 2018_
+_Last updated: 06 Nov. 2018_
 
 [Ja]({{ site.url }}/publications_ja)
 
@@ -12,7 +12,8 @@ _Last updated: 17 Sep. 2018_
 
 ## Conference
 
-1. Atsunori Kanemura, Yuhsen Cheng, Takumi Kaneko, <u>Kento Nozawa</u>, and Shuichi Fukunaga.  __Imputing Missing Values in EEG with Multivariate Autoregressive Models__, In *Proc. EMBC*, 2018.
+1. Atsunori Kanemura, Yuhsen Cheng, Takumi Kaneko, <u>Kento Nozawa</u>, and Shuichi Fukunaga.  __Imputing Missing Values in EEG with Multivariate Autoregressive Models__, In *Proc. EMBC*, 2018. <br />
+[[IEEE Xplore Digital Library](https://ieeexplore.ieee.org/document/8512790)]
 
 ---
 
