@@ -6,10 +6,10 @@ comments: false
 ---
 
 #### メタデータ
-Linzen, T, et al. の[論文](http://tallinzen.net/media/papers/linzen_dupoux_spector_under_review.pdf)．
+T. Linzen et al. の[論文](http://tallinzen.net/media/papers/linzen_dupoux_spector_under_review.pdf)．
 
 Twitterで著者がリンクを貼っていたので読んだ．
-現在査読中の論文らしい．
+現在査読中の論文．
 
 単語の並びだけじゃなくてもっと文脈のリッチな情報（構造など）を使って学習したほうがいいかもねという結論．
 
@@ -23,9 +23,8 @@ Twitterで著者がリンクを貼っていたので読んだ．
 1. 1.のタスクに関して，データの規模を変化させて性能比較
 
 モデルは _skip-gram_ だけを使い， Levyらの[hyperwords](https://bitbucket.org/omerlevy/hyperwords)を使ってパラメータの調節を行う．
-（Levyらのコードは卒論でだいぶお世話になった．．．）
 
-##### 1. analogy 
+##### 1. analogy
 
 既存研究で言われているパラメータで学習したモデルに対して，全180通りを使ってanalogyのタスクを解かせて性能の評価．
 完全一致ではなく上位100単語に含まれているか否かで評価．
