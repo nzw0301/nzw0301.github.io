@@ -4,6 +4,9 @@ title: 論文等
 permalink: /publications_ja/
 ---
 
+最終更新日: 2018年11月06日
+
+
 日本語論文のみ，[英語論文のリストはこちら (English Publication list is here.)]({{ site.url }}/publications)
 
 ## 論文誌
