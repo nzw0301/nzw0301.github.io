@@ -99,4 +99,4 @@ His current research interests are _representation learning for discrete data_ a
 
 ----
 
-`Red Green Black and White` means a name of fictional scientist: _Shiki Magata_.
+`Red Green Black and White` means a name of fictional scientist: _MAGATA Shiki_.
