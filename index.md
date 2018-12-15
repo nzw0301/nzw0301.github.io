@@ -7,7 +7,7 @@ images:
 
 _Last updated: 24 July 2018_
 
-![profile image]({{ page.images | sample }} "nzw"){:height="177px" width="177px"}
+![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
 
 __Kento Nozawa__ is a Ph.D. student who does research on machine learning.
 His current research interests are _representation learning for discrete data_ and _unsupervised machine learning_.
@@ -35,7 +35,7 @@ His current research interests are _representation learning for discrete data_ a
   - Advisors: Kei Wakabayashi, Taro Tezuka
   - NOTE: Provost's Award
 - Apr. 2012 -- Mar. 2016, __B.A. in Library and Information Science__
-  - [College of Knowledge and Library Sciences, School of Informatics](klis.tsukuba.ac.jp/guidance_eng.html), <br />
+  - College of Knowledge and Library Sciences, School of Informatics, <br />
   [University of Tsukuba](http://www.tsukuba.ac.jp/en/).
   - Advisor: Kei Wakabayashi
   - NOTE: Provost’s Award
