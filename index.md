@@ -9,8 +9,8 @@ _Last updated: 24 July 2018_
 
 ![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
 
-__Kento Nozawa__ is a Ph.D. student who does research on machine learning.
-His current research interests are _representation learning for discrete data_ and _unsupervised machine learning_.
+__NOZAWA Kento__ is a Ph.D. student who does research on machine learning.
+His current research interests are _representation learning for discrete data_.
 
 - E-mail_0: nozawa {at_mark} ms.k.u-tokyo.ac.jp
 - E-mail_1: k_nzw {at_mark} klis.tsukuba.ac.jp
