@@ -4,7 +4,7 @@ title: 論文等
 permalink: /publications_ja/
 ---
 
-最終更新日: 2018年11月06日
+最終更新日: 2019年01月31日
 
 
 日本語論文のみ，[英語論文のリストはこちら (English Publication list is here.)]({{ site.url }}/publications)
@@ -25,7 +25,7 @@ permalink: /publications_ja/
 
 1. <u>野沢 健人</u>, 若林 啓. __ランダムウォークによる擬似文書を用いたトピックモデルの学習__. _[第19回情報論的学習理論ワークショップ (IBIS)](http://ibisml.org/ibis2016/)_, 2016.
 1. <u>野沢 健人</u>, 星野 貴行, 福田拓也, 兼村厚範. __脳波データへの深層学習の適用__. _[第19回情報論的学習理論ワークショップ (IBIS)](http://ibisml.org/ibis2016/)_, 2016. NOTE: ポスターのみ，産総研のRAとして発表．
-1. <u>野沢 健人</u>, 若林 啓. __トピックモデルによる分散表現の獲得手法の提案__. _[言語処理学会第22回年次大会 (NLP)](http://www.anlp.jp/nlp2016/)_, 2016. <br /> [[slide](https://speakerdeck.com/nzw0301/tohitukumoteruniji-tukuda-gui-mo-netutowakufalsezhong-fu-komiyuniteifa-jian)], [[pdf](http://www.anlp.jp/proceedings/annual_meeting/2016/pdf_dir/B3-2.pdf)].
+1. <u>野沢 健人</u>, 若林 啓. __トピックモデルによる分散表現の獲得手法の提案__. _[言語処理学会第22回年次大会 (NLP)](http://www.anlp.jp/nlp2016/)_, 2016. <br /> [[slide](https://speakerdeck.com/nzw0301/topitukumoderuniyorufen-san-biao-xian-huo-de-shou-fa-falseti-an)], [[pdf](http://www.anlp.jp/proceedings/annual_meeting/2016/pdf_dir/B3-2.pdf)].
 1. <u>野沢 健人</u>, 中岡 義貴, 山本 修平, 佐藤 哲司. __word2vecを用いた代替食材の発見手法の提案__. _電子情報通信学会技術研究報告. DE, データ工学_, 2014. <br />
 
 ---
