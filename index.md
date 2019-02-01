@@ -32,12 +32,12 @@ His current research interests are _representation learning for discrete data_.
 - Apr. 2016 -- Mar. 2018, __M.S. in Informatics__
   - [Department of Library, Information and Media Studies, Graduate School of Library, Information and Media Studies](http://www.slis.tsukuba.ac.jp/grad/english/index-e.html), <br />
   [University of Tsukuba](http://www.tsukuba.ac.jp/en/).
-  - Advisors: Kei Wakabayashi, Taro Tezuka
+  - Advisors: [Kei Wakabayashi](http://trios.tsukuba.ac.jp/en/researcher/0000003269), [Taro Tezuka](https://tarotez.github.io/taro_e.html)
   - NOTE: Provost's Award
 - Apr. 2012 -- Mar. 2016, __B.A. in Library and Information Science__
   - College of Knowledge and Library Sciences, School of Informatics, <br />
   [University of Tsukuba](http://www.tsukuba.ac.jp/en/).
-  - Advisor: Kei Wakabayashi
+  - Advisor: [Kei Wakabayashi](http://trios.tsukuba.ac.jp/en/researcher/0000003269)
   - NOTE: Provost’s Award
 
 ----
