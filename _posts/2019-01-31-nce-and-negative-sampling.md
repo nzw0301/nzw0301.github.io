@@ -107,7 +107,7 @@ $$
 $$
 \begin{align}
 \Delta s(w_c, w_t) &= s(w_c, w_t) - \ln [k p_n(w_c)],\\
-                   &= \mathbf{u}_{w_t}^{\top} \mathbf{v}_{w_c} - c_{w_t} - \ln [k p_n(w_c)],
+    &= \mathbf{u}_{w_t}^{\top} \mathbf{v}_{w_c} - c_{w_t} - \ln [k p_n(w_c)],
 \end{align}
 $$
 
@@ -121,12 +121,9 @@ NCE や negative sampling のような softmax の近似方法は `深層学習�
 <a href="https://www.amazon.co.jp/dp/4061529242/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=algebrae-22&linkId=50f99a975d15751085eb23c1e0719a5c&language=ja_JP" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4061529242&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=algebrae-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=algebrae-22&language=ja_JP&l=li3&o=9&a=4061529242" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </center>
 
-
 $$c=1$$ としても学習することを `self-normalization` とか言います。ちなみにこれだと安定しないらしく $$c=9$$ にしたりとか色々なヒューリスティックが提案されています。
 
-
-間違えてたらおしえてください [@twitter](https://twitter.com/nozawa_kento)。
-
+間違えてたらおしえてください [@twitter](https://twitter.com/nzw0301)。
 
 ---
 
