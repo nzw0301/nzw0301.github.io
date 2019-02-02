@@ -112,18 +112,20 @@ vectorzed_sigmoid_cache =  np.vectorize(sigmoid_cache)
 
 #### Numba
 
-これだとつまらなかったので [`numba`](http://numba.pydata.org/) を使って高速化する．環境が少し新しくなって，python 3.7.2 (anaconda3-latest) での `numba 0.42.0` で試している．
+これだとつまらなかったので [`numba`](http://numba.pydata.org/) を使って高速化する．環境が少し新しくなって，python 3.7.2 (anaconda3-latest) の `numba 0.42.0` ．
 
-まず，配列対応してない方の両方とも `numba` の `@njit` をつけてみる．
+といっても単純に `numba` の `@njit` をつけるだけ．
 
 ```python
 import numpy as np
 from numba import njit, vectorize, float64
 
+# no cache
 @njit
 def sigmoid(x):
     return 1. / (1. + np.exp(-x))
 
+# cache
 SIGMOID_TABLE_SIZE = 512
 MAX_SIGMOID = 8
 
