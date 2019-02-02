@@ -89,18 +89,17 @@ cacheの生成は，実際にsigmoid呼ぶ回数の総数と比べれば，と�
 
 `np.vectorize` 関数に渡すと `numpy.array` に対しても使えるようになる ([助言いただいたツイート](https://twitter.com/MtJuney/status/954681191868743681))．
 
-
 ```python
 vectorzed_sigmoid_cache =  np.vectorize(sigmoid_cache)
 ```
 
-``` jupyter-notebook
+```jupyter-notebook
 %timeit sigmoid(data)
 
 161 µs ± 6.56 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 ```
 
-``` jupyter-notebook
+```jupyter-notebook
 %timeit vectorzed_sigmoid_cache(data)
 
 8.13 ms ± 173 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
@@ -108,3 +107,75 @@ vectorzed_sigmoid_cache =  np.vectorize(sigmoid_cache)
 
 負けた．
 ちなみに，キャッシュしないほうを`math.exp`にしても負けた．
+
+---
+
+#### Numba
+
+これだとつまらなかったので [`numba`](http://numba.pydata.org/) を使って高速化する．環境が少し新しくなって，python 3.7.2 (anaconda3-latest) での `numba 0.42.0` で試している．
+
+まず，配列対応してない方の両方とも `numba` の `@njit` をつけてみる．
+
+```python
+import numpy as np
+from numba import njit, vectorize, float64
+
+@njit
+def sigmoid(x):
+    return 1. / (1. + np.exp(-x))
+
+SIGMOID_TABLE_SIZE = 512
+MAX_SIGMOID = 8
+
+t_sigmoid = np.zeros(SIGMOID_TABLE_SIZE)
+
+for i in range(SIGMOID_TABLE_SIZE):
+    x = (i / SIGMOID_TABLE_SIZE * 2 - 1) * MAX_SIGMOID
+    t_sigmoid[i] = 1. / (1. + np.exp(-x))
+
+
+@njit
+def sigmoid_cache(x):
+    if x >= MAX_SIGMOID:
+        return 1.
+    elif x <= -MAX_SIGMOID:
+        return 0.
+    else:
+        return t_sigmoid[(int)((x + MAX_SIGMOID) * (SIGMOID_TABLE_SIZE / MAX_SIGMOID / 2))]
+
+
+rnd = np.random.RandomState(7)
+data = rnd.uniform(low=-10, high=10, size=10000)
+
+@njit
+def cal_sigmoid(data):
+    for x in data:
+        sigmoid(x)
+
+@njit
+def cal_sigmoid_cache(data):
+    for x in data:
+        sigmoid_cache(x)
+```
+
+```jupyter-notebook
+%timeit cal_sigmoid(data)
+
+79.5 µs ± 5.25 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+```
+
+```jupyter-notebook
+%timeit cal_sigmoid_cache(data)
+
+391 ns ± 36.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+```
+
+両方ともかなり高速化できたが，特にキャシュするほうが ns になっている．この場合だと `np.ndarray` を直接渡してもキャッシュしたほうが速い．
+
+```juputer-notebook
+%timeit sigmoid(data)
+
+95.1 µs ± 16.1 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+```
+
+雑に `@vectorize` とかもつけたりしたがキャシュするほうは上の方法が一番速かった．
