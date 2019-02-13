@@ -15,7 +15,7 @@ His current research interests are _representation learning for discrete data_.
 - E-mail_0: nozawa {at_mark} ms.k.u-tokyo.ac.jp
 - E-mail_1: k_nzw {at_mark} klis.tsukuba.ac.jp
 - Language: Python, Julia, Java
-- [CV](https://drive.google.com/file/d/1j9TU5kdgtJDBBq9sYltyRxbqoM5HOxQL/view?usp=sharing)
+- [CV](https://www.dropbox.com/s/5ci6h8cb02ttf5h/main.pdf?dl=0)
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
 - [Speakerdeck](https://speakerdeck.com/nzw0301)
 - [Sugiyama-Sato-Honda Lab @ the University of Tokyo](http://www.ms.k.u-tokyo.ac.jp/)
