@@ -4,9 +4,15 @@ title: Publications
 permalink: /publications/
 ---
 
-_Last updated: 17 Nov. 2018_
+_Last updated: 13 Feb. 2019_
 
 [Ja]({{ site.url }}/publications_ja)
+
+---
+
+## Preprints
+
+1. <u>Kento Nozawa</u> and Issei Sato. __PAC-Bayes Analysis of Sentence Representation__, 2019. <br /> [[arXiv](https://arxiv.org/abs/1902.04247)].
 
 ---
 
