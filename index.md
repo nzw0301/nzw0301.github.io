@@ -19,6 +19,7 @@ His current research interests are _representation learning for discrete data_.
 - Language: Python, Julia, Java
 - [CV](https://www.dropbox.com/s/5ci6h8cb02ttf5h/main.pdf?dl=0)
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
+- [DBLP](https://dblp.uni-trier.de/pers/hd/n/Nozawa:Kento)
 - [Speakerdeck](https://speakerdeck.com/nzw0301)
 - [Sugiyama-Sato-Honda Lab @ the University of Tokyo](http://www.ms.k.u-tokyo.ac.jp/)
 
