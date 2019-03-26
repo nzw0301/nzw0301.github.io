@@ -5,7 +5,9 @@ images:
 
 ---
 
-_Last updated: 24 July 2018_
+**Finding job (researcher/engineer)! My CV is [here](https://www.dropbox.com/s/5ci6h8cb02ttf5h/main.pdf?dl=0)**.
+
+_Last updated: 16 March 2019_
 
 ![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
 
