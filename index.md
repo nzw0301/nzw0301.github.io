@@ -5,15 +5,15 @@ images:
 
 ---
 
-_Last updated: 16 March 2019_
+_Last updated: 10 April 2019_
 
 ![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
 
 __NOZAWA Kento__ is a Ph.D. student who does research on machine learning.
-His current research interests are _representation learning for discrete data_.
+His current research interests are _representation learnnv eing for discrete data_.
 
-- E-mail_0: nozawa {at_mark} ms.k.u-tokyo.ac.jp
-- E-mail_1: k_nzw {at_mark} klis.tsukuba.ac.jp
+
+- E-mail: k_nzw {at_mark} klis.tsukuba.ac.jp
 - Language: Python, Julia, Java
 - [CV](https://www.dropbox.com/s/5ci6h8cb02ttf5h/main.pdf?dl=0)
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
@@ -67,18 +67,20 @@ His current research interests are _representation learning for discrete data_.
 1. Mar. 2016, School of Informatics Provost's Award
 1. Mar. 2016, Representative of College of Knowledge and Library Science
 1. Nov. 2015, WebDB Forum 2015 Excellent Paper Award
+{: reversed="reversed"}
 
 ----
 
-## Work Experience
+## Work/Research Experience
 
-| From      | To         | Position           | Place                                        |
-|:---------:|:----------:|:------------------:|:---------------------------------------------:|
-| May 2018  | Present    | Research Assistant | [RIKEN AIP](https://aip.riken.jp/?lang=en)                |
-| Oct. 2017 | Mar. 2018  | Research Assistant | [AIRC](http://www.airc.aist.go.jp/en/)              |
-| Aug. 2017 | Sept. 2017 | Engineer Intern    | [Treasure Data Inc.](https://www.treasuredata.com/) |
-| Apr. 2016 | July 2017  | Research Assistant | [AIRC](http://www.airc.aist.go.jp/en/)              |
-| Dec. 2015 | Mar. 2016  | Technical Staff    | [AIRC](http://www.airc.aist.go.jp/en/)              |
+| From      | To         | Position            | Place                                               |
+|:---------:|:----------:|:-------------------:|:---------------------------------------------------:|
+| June 2019 | Sep. 2019  | Visiting Researcher | [APRIORI](https://project.inria.fr/apriori/) at UCL |
+| May  2018 | Present    | Research Assistant  | [RIKEN AIP](https://aip.riken.jp/?lang=en)          |
+| Oct. 2017 | Mar. 2018  | Research Assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
+| Aug. 2017 | Sept. 2017 | Engineer Intern     | [Treasure Data Inc.](https://www.treasuredata.com/) |
+| Apr. 2016 | July 2017  | Research Assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
+| Dec. 2015 | Mar. 2016  | Technical Staff     | [AIRC](http://www.airc.aist.go.jp/en/)              |
 
 ----
 
