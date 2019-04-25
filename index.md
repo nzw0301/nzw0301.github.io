@@ -12,9 +12,7 @@ _Last updated: 10 April 2019_
 __NOZAWA Kento__ is a Ph.D. student who does research on machine learning.
 His current research interests are _representation learnnv eing for discrete data_.
 
-
 - E-mail: k_nzw {at_mark} klis.tsukuba.ac.jp
-- Language: Python, Julia, Java
 - [CV](https://www.dropbox.com/s/5ci6h8cb02ttf5h/main.pdf?dl=0)
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
 - [DBLP](https://dblp.uni-trier.de/pers/hd/n/Nozawa:Kento)
@@ -41,7 +39,7 @@ His current research interests are _representation learnnv eing for discrete dat
   - Advisor: [Kei Wakabayashi](http://trios.tsukuba.ac.jp/en/researcher/0000003269)
   - NOTE: Provost’s Award
 
-----
+---
 
 ## Fellowships
 
@@ -49,14 +47,14 @@ His current research interests are _representation learnnv eing for discrete dat
    [Japan Society for the Promotion of Science](http://www.jsps.go.jp/english/). <br />
    200 000 JPY / month
 
-----
+---
 
 ## Research Grants
 
 1. Apr. 2018 -- Mar. 2021: Grant-in-Aid for JSPS Fellows. <br />
    2 800 000 JPY / three years
 
-----
+---
 
 ## Awards
 
@@ -69,7 +67,7 @@ His current research interests are _representation learnnv eing for discrete dat
 1. Nov. 2015, WebDB Forum 2015 Excellent Paper Award
 {: reversed="reversed"}
 
-----
+---
 
 ## Work/Research Experience
 
@@ -82,7 +80,7 @@ His current research interests are _representation learnnv eing for discrete dat
 | Apr. 2016 | July 2017  | Research Assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
 | Dec. 2015 | Mar. 2016  | Technical Staff     | [AIRC](http://www.airc.aist.go.jp/en/)              |
 
-----
+---
 
 ## Teaching Experience
 
@@ -92,7 +90,7 @@ His current research interests are _representation learnnv eing for discrete dat
 | Sept. 2017 | Feb. 2017  | Teaching Assistant | Programming 2           | University of Tsukuba |
 | July 2016  | Sept. 2016 | Teaching Assistant | Programming 1           | University of Tsukuba |
 
-----
+---
 
 ### Links
 
@@ -100,6 +98,6 @@ His current research interests are _representation learnnv eing for discrete dat
 - [Cat photos](https://goo.gl/photos/LRmdx4dJQEZqvrQJ7)
 - [VAE note (ja)](./notes/vae.pdf)
 
-----
+---
 
 `Red Green Black and White` means a name of fictional scientist: _MAGATA Shiki_.
