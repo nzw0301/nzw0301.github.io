@@ -9,15 +9,14 @@ _Last updated: 10 April 2019_
 
 ![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
 
-__NOZAWA Kento__ is a Ph.D. student who does research on machine learning.
-His current research interests are _representation learnnv eing for discrete data_.
+__NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised representation learning for discrete data_.
 
 - E-mail: k_nzw {at_mark} klis.tsukuba.ac.jp
 - [CV](https://www.dropbox.com/s/5ci6h8cb02ttf5h/main.pdf?dl=0)
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
 - [DBLP](https://dblp.uni-trier.de/pers/hd/n/Nozawa:Kento)
 - [Speakerdeck](https://speakerdeck.com/nzw0301)
-- [Sugiyama-Sato-Honda Lab @ the University of Tokyo](http://www.ms.k.u-tokyo.ac.jp/)
+- [Lab HP](http://www.ms.k.u-tokyo.ac.jp/)
 
 ---
 
