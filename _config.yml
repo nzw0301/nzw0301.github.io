@@ -13,10 +13,10 @@ harmony:
   # 'meta_description:' Write an awesome description for your new site here.
   # It will appear in your document head meta (for Google search results) and
   # in your feed.xml site description.
-  meta_description: Kento Nozawa's personal web page
+  meta_description: NOZAWA Kento's personal site
   basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
   author: # Author details
-    name: nzw
+    name: NOZAWA Kento
     url: https://nzw0301.github.io
 
   # Google Analytics key, leave blank to ignore

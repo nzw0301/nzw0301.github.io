@@ -15,8 +15,7 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 ## News
 
-- 
-I will be at UCL from 18 June to 22 Sep. (2019) as a visiting researcher.
+- I will be at UCL from 18 June to 22 Sep. (2019) as a visiting researcher.
 - New paper: [PAC-Bayes Analysis of Sentence Representation](https://arxiv.org/abs/1902.04247)
 
 ---
@@ -81,7 +80,7 @@ I will be at UCL from 18 June to 22 Sep. (2019) as a visiting researcher.
 
 ## Work/Research Experience
 
-| From      | To         | Position            | Place                                               |
+| **From**  | **To**     | **Position**        | **Place**                                           |
 |:---------:|:----------:|:-------------------:|:---------------------------------------------------:|
 | June 2019 | Sep. 2019  | Visiting Researcher | [APRIORI](https://project.inria.fr/apriori/) at UCL |
 | May  2018 | Present    | Research Assistant  | [RIKEN AIP](https://aip.riken.jp/?lang=en)          |
@@ -94,11 +93,11 @@ I will be at UCL from 18 June to 22 Sep. (2019) as a visiting researcher.
 
 ## Teaching Experience
 
-| From       | To         | Position           | Subject Name            | Place                 |
+| **From**   | **To**     | **Position**       | **Subject Name**        | **Place**             |
 |:----------:|:----------:|:------------------:|:-----------------------:|:---------------------:|
-| Apr. 2017  | July 2017  | Teaching Assistant | Information mathematics | University of Tsukuba |
-| Sept. 2017 | Feb. 2017  | Teaching Assistant | Programming 2           | University of Tsukuba |
-| July 2016  | Sept. 2016 | Teaching Assistant | Programming 1           | University of Tsukuba |
+| Apr. 2017  | July 2017  | TA | Information mathematics | Univ of Tsukuba |
+| Sept. 2017 | Feb. 2017  | TA | Programming 2           | Univ of Tsukuba |
+| July 2016  | Sept. 2016 | TA | Programming 1           | Univ of Tsukuba |
 
 ---
 

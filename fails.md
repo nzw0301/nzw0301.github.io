@@ -8,33 +8,32 @@ I imitate [this interesting CV](https://www.princeton.edu/~joha/Johannes_Haushof
 
 ## Paper Rejections
 
-| Year      | Conference Name |
-|:---------:|:---------------:|
-| 2016      |    WSDM         | 
-| 2018      |  ICLR Workshop  | 
-| 2018      |    CIKM         | 
-| 2019      |    ICML         | 
-
+| **Year**  | **Conference Name** |
+|:---------:|:-------------------:|
+|  2016     |        WSDM         |
+|  2018     |      ICLR Workshop  |
+|  2018     |        CIKM         |
+|  2019     |        ICML         |
 
 ## Job Positions I did not get (Only CS Area)
 
-| Year      |       Company Name             |
+| **Year**      |     **Company Name**       |
 |:---------:|:------------------------------:|
-| 2013      | Cygames Summer Internship      | 
-| 2014      | Cygames Summer Internship      | 
-| 2014      | Wantedly Summer Internship     | 
-| 2014      | ABEJA Summer Internship        | 
-| 2014      | LINE Summer Internship         | 
-| 2015      | Treasure Data Summer Internship| 
-| 2016      | IBM Research Summer Internship | 
-| 2016      | PFI/PFN Summer Internship      | 
-| 2016      | Gunosy Summer Internship       | 
-| 2018      | MSRA Internship                | 
-| 2019      | Google Internship              | 
-| 2019      | FAIR Internship                | 
+| 2013      | Cygames Summer Internship      |
+| 2014      | Cygames Summer Internship      |
+| 2014      | Wantedly Summer Internship     |
+| 2014      | ABEJA Summer Internship        |
+| 2014      | LINE Summer Internship         |
+| 2015      | Treasure Data Summer Internship|
+| 2016      | IBM Research Summer Internship |
+| 2016      | PFI/PFN Summer Internship      |
+| 2016      | Gunosy Summer Internship       |
+| 2018      | MSRA Internship                |
+| 2019      | Google Internship              |
+| 2019      | FAIR Internship                |
 
-# Grants / Fellowships I did not get
+## Grants / Fellowships I did not get
 
-| Year     |       Name        |
+| **Year** |     **Name**      |
 |:--------:|:-----------------:|
-| 2018     | Google Fellowship |
+|   2018   | Google Fellowship |
