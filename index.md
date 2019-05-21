@@ -9,7 +9,7 @@ _Last updated: 10 April 2019_
 
 ![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
 
-__NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised representation learning for discrete data_.
+__NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised learning for discrete data_.
 
 ---
 
@@ -81,6 +81,7 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 | **From**  | **To**     | **Position**        | **Place**                                           |
 |:---------:|:----------:|:-------------------:|:---------------------------------------------------:|
+| June 2019 | Sep. 2019  | Internship | [APRIORI](https://project.inria.fr/apriori/) at UCL |
 | May  2018 | Present    | Research Assistant  | [RIKEN AIP](https://aip.riken.jp/?lang=en)          |
 | Oct. 2017 | Mar. 2018  | Research Assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
 | Aug. 2017 | Sept. 2017 | Engineer Intern     | [Treasure Data Inc.](https://www.treasuredata.com/) |

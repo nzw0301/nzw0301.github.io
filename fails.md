@@ -6,6 +6,12 @@ permalink: /failures/
 
 I imitate [this interesting CV](https://www.princeton.edu/~joha/Johannes_Haushofer_CV_of_Failures.pdf) to ...
 
+## Paper Submission
+
+| **Year**  | **Conference Name** | **Reason**|
+|:---------:|:-------------------:|:---------:|
+|  2019     |        NeurIPS      | Bad experimental results & Some duty |
+
 ## Paper Rejections
 
 | **Year**  | **Conference Name** |
