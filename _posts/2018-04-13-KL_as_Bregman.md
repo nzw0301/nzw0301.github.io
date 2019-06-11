@@ -32,4 +32,4 @@ From Line 2 to Line 3, $$\sum_i p_i = \sum_i q_i = 1$$ since $$p$$ is a probabil
 
 # Reference
 
-[This blog post](http://mark.reid.name/blog/meet-the-bregman-divergences.html) explains about Bregman divergence in detail and gives useful links.
+[This blog post](http://mark.reid.name/blog/meet-the-bregman-divergences.html) explains Bregman divergence in detail and gives useful links.
