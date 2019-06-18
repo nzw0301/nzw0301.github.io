@@ -15,7 +15,7 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 ## News
 
-- I will be at UCL from 18 June to 22 Sep. (2019).
+- I will be at UCL from 28 June to 22 Sep. (2019).
 - New paper: [PAC-Bayes Analysis of Sentence Representation](https://arxiv.org/abs/1902.04247)
 
 ---
@@ -81,7 +81,7 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 | **From**  | **To**     | **Position**        | **Place**                                           |
 |:---------:|:----------:|:-------------------:|:---------------------------------------------------:|
-| June 2019 | Sep. 2019  | Internship | [APRIORI](https://project.inria.fr/apriori/) at UCL |
+| June 2019 | Sep. 2019  | Visiting | [APRIORI](https://project.inria.fr/apriori/) at UCL |
 | May  2018 | Present    | Research Assistant  | [RIKEN AIP](https://aip.riken.jp/?lang=en)          |
 | Oct. 2017 | Mar. 2018  | Research Assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
 | Aug. 2017 | Sept. 2017 | Engineer Intern     | [Treasure Data Inc.](https://www.treasuredata.com/) |
