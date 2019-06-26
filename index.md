@@ -5,18 +5,18 @@ images:
 
 ---
 
-_Last updated: 10 April 2019_
+_Last updated: 26 June 2019_
 
 ![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
 
-__NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised learning for discrete data_.
+__NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised learning for discrete data and PAC-Bayes theory_.
 
 ---
 
 ## News
 
-- I will be at UCL from 28 June to 22 Sep. (2019).
-- New paper: [PAC-Bayes Analysis of Sentence Representation](https://arxiv.org/abs/1902.04247)
+- I will be at UCL from 28 June to 22 Sep. 2019.
+- New pre-print paper: [PAC-Bayes Analysis of Sentence Representation](https://arxiv.org/abs/1902.04247)
 
 ---
 
