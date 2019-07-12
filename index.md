@@ -9,7 +9,7 @@ _Last updated: 26 June 2019_
 
 ![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
 
-__NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised learning for discrete data and PAC-Bayes theory_.
+__NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised learning for NLP and PAC-Bayes theory_.
 
 ---
 
