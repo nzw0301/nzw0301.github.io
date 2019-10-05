@@ -1,13 +1,13 @@
 ---
 layout: page
-images:
-  - https://avatars0.githubusercontent.com/u/7121753?s=177&v=4
-
 ---
 
-_Last updated: 26 June 2019_
+_Last updated: 05 Oct. 2019_
 
-![profile image]({{page.images|sample}} "nzw"){:height="177px" width="177px"}
+<script src="{{ base.url | prepend: site.url }}/assets/js/random_image.js"></script>
+<script type="text/javascript">
+    document.write(getImageTag());
+</script>
 
 __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised learning for NLP and PAC-Bayes theory_.
 
@@ -15,8 +15,7 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 ## News
 
-- I will be at UCL from 28 June to 22 Sep. 2019.
-- New pre-print paper: [PAC-Bayes Analysis of Sentence Representation](https://arxiv.org/abs/1902.04247)
+- Feb. 2019; New pre-print paper: [PAC-Bayes Analysis of Sentence Representation](https://arxiv.org/abs/1902.04247)
 
 ---
 
@@ -77,16 +76,28 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 ---
 
-## Work/Research Experience
+## Reviewer
+
+Not yet :(
+
+---
+
+## Work
 
 | **From**  | **To**     | **Position**        | **Place**                                           |
 |:---------:|:----------:|:-------------------:|:---------------------------------------------------:|
-| June 2019 | Sep. 2019  | Visiting | [APRIORI](https://project.inria.fr/apriori/) at UCL |
-| May  2018 | Present    | Research Assistant  | [RIKEN AIP](https://aip.riken.jp/?lang=en)          |
-| Oct. 2017 | Mar. 2018  | Research Assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
-| Aug. 2017 | Sept. 2017 | Engineer Intern     | [Treasure Data Inc.](https://www.treasuredata.com/) |
-| Apr. 2016 | July 2017  | Research Assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
-| Dec. 2015 | Mar. 2016  | Technical Staff     | [AIRC](http://www.airc.aist.go.jp/en/)              |
+| May  2018 | Present    | Research assistant  | [RIKEN AIP](https://aip.riken.jp/?lang=en)          |
+| Oct. 2017 | Mar. 2018  | Research assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
+| Aug. 2017 | Sept. 2017 | Engineer intern     | [Treasure Data Inc.](https://www.treasuredata.com/) |
+| Apr. 2016 | July 2017  | Research assistant  | [AIRC](http://www.airc.aist.go.jp/en/)              |
+| Dec. 2015 | Mar. 2016  | Technical staff     | [AIRC](http://www.airc.aist.go.jp/en/)              |
+
+## Visiting ($$\geq 2$$ days)
+
+| **From**  | **To**     |  **Place**                                          |
+|:---------:|:----------:|:---------------------------------------------------:|
+| June 2019 | Sep. 2019 | [UCLCS](https://www.ucl.ac.uk/computer-science/)     |
+| Sep. 2019 | Sep. 2019 | [MODAL at Inria Lille](https://modal.lille.inria.fr) |
 
 ---
 
@@ -94,8 +105,8 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 | **From**   | **To**     | **Position**       | **Subject Name**        | **Place**             |
 |:----------:|:----------:|:------------------:|:-----------------------:|:---------------------:|
-| Apr. 2017  | July 2017  | TA | Information mathematics | Univ of Tsukuba |
-| Sept. 2017 | Feb. 2017  | TA | Programming 2           | Univ of Tsukuba |
+| Apr. 2017  | July  2017 | TA | Information mathematics | Univ of Tsukuba |
+| Sept. 2017 | Feb.  2017 | TA | Programming 2           | Univ of Tsukuba |
 | July 2016  | Sept. 2016 | TA | Programming 1           | Univ of Tsukuba |
 
 ---
@@ -108,4 +119,8 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 ---
 
-`Red Green Black and White` means a name of fictional scientist: _MAGATA Shiki_.
+- Q. What does `Red Green Black and White` mean?
+- A. It means name of fictional scientist: _MAGATA Shiki_.
+
+- Q. Okay, fair enough... But why do you use it as the title of your page?
+- A. Because I really respect her.
