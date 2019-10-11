@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications/
 ---
 
-_Last updated: 13 Feb. 2019_
+_Last updated: Oct. 11 2019_
 
 [Ja]({{ site.url }}/publications_ja)
 
@@ -12,7 +12,9 @@ _Last updated: 13 Feb. 2019_
 
 ## Preprints
 
+1. <u>Kento Nozawa</u>, Pascal Germain, and Benjamin Guedj. __PAC-Bayesian Contrastive Unsupervised Representation Learning__, 2019. <br /> [[arXiv](https://arxiv.org/abs/1910.04464)].
 1. <u>Kento Nozawa</u> and Issei Sato. __PAC-Bayes Analysis of Sentence Representation__, 2019. <br /> [[arXiv](https://arxiv.org/abs/1902.04247)].
+
 {: reversed="reversed"}
 
 ---

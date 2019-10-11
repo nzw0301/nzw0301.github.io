@@ -2,7 +2,7 @@
 layout: page
 ---
 
-_Last updated: 05 Oct. 2019_
+_Last updated: Oct. 11 2019_
 
 <script src="{{ base.url | prepend: site.url }}/assets/js/random_image.js"></script>
 <script type="text/javascript">
@@ -15,6 +15,7 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 ## News
 
+- Oct. 2019; New pre-print paper: [PAC-Bayesian Contrastive Unsupervised Representation Learning](https://arxiv.org/abs/1910.04464)
 - Feb. 2019; New pre-print paper: [PAC-Bayes Analysis of Sentence Representation](https://arxiv.org/abs/1902.04247)
 
 ---
