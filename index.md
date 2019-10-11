@@ -95,10 +95,10 @@ Not yet :(
 
 ## Visiting ($$\geq 2$$ days)
 
-| **From**  | **To**     |  **Place**                                          |
-|:---------:|:----------:|:---------------------------------------------------:|
-| June 2019 | Sep. 2019 | [UCLCS](https://www.ucl.ac.uk/computer-science/)     |
-| Sep. 2019 | Sep. 2019 | [MODAL at Inria Lille](https://modal.lille.inria.fr) |
+| **From**  | **To**     |  **Place**                                                        |
+|:---------:|:----------:|:-----------------------------------------------------------------:|
+| June 2019 | Sep. 2019 | [UCL CS](https://www.ucl.ac.uk/computer-science/)                  |
+| Sep. 2019 | Sep. 2019 | [MODAL at Inria Lille - Nord Europe](https://modal.lille.inria.fr) |
 
 ---
 
