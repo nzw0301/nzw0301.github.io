@@ -5,9 +5,7 @@ layout: page
 _Last updated: Oct. 11 2019_
 
 <script src="{{ base.url | prepend: site.url }}/assets/js/random_image.js"></script>
-<script type="text/javascript">
-    document.write(getImageTag());
-</script>
+<script type="text/javascript">document.write(getImageTag());</script>
 
 __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His current research interests are _self-supervised learning for NLP and PAC-Bayes theory_.
 
@@ -77,7 +75,7 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 
 ---
 
-## Reviewer
+## Review
 
 Not yet :(
 
@@ -124,4 +122,4 @@ Not yet :(
 - A. It means name of fictional scientist: _MAGATA Shiki_.
 
 - Q. Okay, fair enough... But why do you use it as the title of your page?
-- A. Because I really respect her.
+- A. Because I really respect her...
