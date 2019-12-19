@@ -104,9 +104,9 @@ Not yet :(
 
 | **From**   | **To**     | **Position**       | **Subject Name**        | **Place**             |
 |:----------:|:----------:|:------------------:|:-----------------------:|:---------------------:|
-| Apr. 2017  | July  2017 | TA | Information mathematics | Univ of Tsukuba |
-| Sept. 2017 | Feb.  2017 | TA | Programming 2           | Univ of Tsukuba |
-| July 2016  | Sept. 2016 | TA | Programming 1           | Univ of Tsukuba |
+| Apr. 2017  | July  2017 |       TA           | Information mathematics |    Univ of Tsukuba    |
+| Sept. 2017 | Feb.  2017 |       TA           | Programming 2           |    Univ of Tsukuba    |
+| July 2016  | Sept. 2016 |       TA           | Programming 1           |    Univ of Tsukuba    |
 
 ---
 
@@ -115,11 +115,3 @@ Not yet :(
 - [Something2vec paper list](https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e)
 - [Cat photos](https://goo.gl/photos/LRmdx4dJQEZqvrQJ7)
 - [VAE note (ja)](./notes/vae.pdf)
-
----
-
-- Q. What does `Red Green Black and White` mean?
-- A. It means name of fictional scientist: _MAGATA Shiki_.
-
-- Q. Okay, fair enough... But why do you use it as the title of your page?
-- A. Because I really respect her...

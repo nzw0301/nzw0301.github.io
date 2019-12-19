@@ -7,14 +7,14 @@
 
 # Harmony theme configuration. Please change accordingly.
 harmony:
-  name: Red Green Black and White
+  name: NOZAWA Kento
   # Little description about your site
-  description: NOZAWA Kento
+  # description: NOZAWA Kento's personal site
   # 'meta_description:' Write an awesome description for your new site here.
   # It will appear in your document head meta (for Google search results) and
   # in your feed.xml site description.
   meta_description: NOZAWA Kento's personal site
-  basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
+  basetheme: theme-base-01 # pre defined themes are darken, blue-water, redish.
   author: # Author details
     name: NOZAWA Kento
     url: https://nzw0301.github.io
@@ -27,12 +27,12 @@ harmony:
     github: nzw0301
     twitter: nzw0301
     facebook: knt.nzw
-    pinterest:
   # Toggle disclaimer in footer
   show_disclaimer: true
 
 # Conversion / Build settings
 markdown: kramdown
+
 # This is how you put pygments config in jekyll 2.0 instead of pygments: true
 highlighter: rouge
 
@@ -58,4 +58,4 @@ sass:
 timezone: JPN
 future: true
 
-livereload: true     # You no longer need to include --livereload
+livereload: true # You no longer need to include --livereload
