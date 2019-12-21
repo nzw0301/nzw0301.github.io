@@ -19,7 +19,7 @@ __NOZAWA Kento__ is a Ph.D. student who does research on machine learning. His c
 ---
 
 - E-mail: k_nzw {at_mark} klis.tsukuba.ac.jp
-- [CV](https://www.dropbox.com/s/5ci6h8cb02ttf5h/main.pdf?dl=0)
+- [CV](https://www.dropbox.com/s/n9io5mme16uiukz/main.pdf?dl=0)
 - [Google Scholar](https://scholar.google.co.jp/citations?user=DSdjj8AAAAAJ&hl=en)
 - [DBLP](https://dblp.uni-trier.de/pers/hd/n/Nozawa:Kento)
 - [Speakerdeck](https://speakerdeck.com/nzw0301)
