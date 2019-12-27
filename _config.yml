@@ -56,6 +56,6 @@ sass:
     style: :compressed
 
 timezone: JPN
-future: true
+future: false
 
 livereload: true # You no longer need to include --livereload
