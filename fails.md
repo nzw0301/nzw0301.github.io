@@ -8,7 +8,7 @@ I imitate [this interesting CV](https://www.princeton.edu/~joha/Johannes_Haushof
 
 ## Paper Submission
 
-| **Year**  | **Conference** |         **Reason**       | 
+| **Year**  | **Conference** |         **Reason**       |
 |:---------:|:--------------:|:------------------------:|
 |  2019     |   NeurIPS      | Bad experimental results |
 
@@ -16,10 +16,11 @@ I imitate [this interesting CV](https://www.princeton.edu/~joha/Johannes_Haushof
 
 | **Year**  | **Conference** |
 |:---------:|:--------------:|
-|  2016     |          WSDM  |
+|  2016     | WSDM           |
 |  2018     | ICLR Workshop  |
-|  2018     |          CIKM  |
-|  2019     |          ICML  |
+|  2018     | CIKM           |
+|  2019     | ICML           |
+|  2020     | AISTATS        |
 
 ## Job Positions I did not get (Only CS Area)
 
