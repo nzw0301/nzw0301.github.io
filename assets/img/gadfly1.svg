@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="101.6mm" height="76.2mm" viewBox="0 0 101.6 76.2"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="img-a7fd6374-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="img-a7fd6374-2">
+    <text x="57.55" y="64.59" text-anchor="middle" dy="0.6em">x</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="img-a7fd6374-3">
+    <text x="20.5" y="57.91" text-anchor="middle" dy="0.6em">0.0</text>
+    <text x="57.55" y="57.91" text-anchor="middle" dy="0.6em">0.5</text>
+    <text x="94.6" y="57.91" text-anchor="middle" dy="0.6em">1.0</text>
+  </g>
+<g clip-path="url(#img-a7fd6374-4)">
+  <g id="img-a7fd6374-5">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="img-a7fd6374-6">
+      <rect x="18.5" y="5" width="78.1" height="51.91"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-a7fd6374-7">
+      <path fill="none" d="M18.5,54.91 L 96.6 54.91"/>
+      <path fill="none" d="M18.5,42.94 L 96.6 42.94"/>
+      <path fill="none" d="M18.5,30.96 L 96.6 30.96"/>
+      <path fill="none" d="M18.5,18.98 L 96.6 18.98"/>
+      <path fill="none" d="M18.5,7 L 96.6 7"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-a7fd6374-8">
+      <path fill="none" d="M20.5,5 L 20.5 56.91"/>
+      <path fill="none" d="M57.55,5 L 57.55 56.91"/>
+      <path fill="none" d="M94.6,5 L 94.6 56.91"/>
+    </g>
+    <g class="plotpanel" id="img-a7fd6374-9">
+      <g class="geometry" id="img-a7fd6374-10">
+        <g class="color_RGBA{Float32}(0.0f0,0.74736935f0,1.0f0,1.0f0)" stroke="#FFFFFF" stroke-width="0.3" fill="#00BFFF" id="img-a7fd6374-11">
+          <use xlink:href="#img-a7fd6374-12" x="59.72" y="47.28"/>
+          <use xlink:href="#img-a7fd6374-12" x="34.98" y="39.01"/>
+          <use xlink:href="#img-a7fd6374-12" x="65.94" y="25.03"/>
+          <use xlink:href="#img-a7fd6374-12" x="81.04" y="11.02"/>
+          <use xlink:href="#img-a7fd6374-12" x="48.79" y="10.87"/>
+          <use xlink:href="#img-a7fd6374-12" x="38.39" y="24.26"/>
+          <use xlink:href="#img-a7fd6374-12" x="21.67" y="27.87"/>
+          <use xlink:href="#img-a7fd6374-12" x="74.23" y="31.51"/>
+          <use xlink:href="#img-a7fd6374-12" x="44.59" y="10.68"/>
+          <use xlink:href="#img-a7fd6374-12" x="24.83" y="13.31"/>
+          <use xlink:href="#img-a7fd6374-12" x="91.11" y="54.55"/>
+          <use xlink:href="#img-a7fd6374-12" x="81.57" y="12.21"/>
+          <use xlink:href="#img-a7fd6374-12" x="47.9" y="35.5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="img-a7fd6374-13">
+    <text x="17.5" y="54.91" text-anchor="end" dy="0.35em">0.00</text>
+    <text x="17.5" y="42.94" text-anchor="end" dy="0.35em">0.25</text>
+    <text x="17.5" y="30.96" text-anchor="end" dy="0.35em">0.50</text>
+    <text x="17.5" y="18.98" text-anchor="end" dy="0.35em">0.75</text>
+    <text x="17.5" y="7" text-anchor="end" dy="0.35em">1.00</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="img-a7fd6374-14">
+    <text x="8.81" y="30.96" text-anchor="end" dy="0.35em">y</text>
+  </g>
+</g>
+<defs>
+  <clipPath id="img-a7fd6374-4">
+  <path d="M18.5,5 L 96.6 5 96.6 56.91 18.5 56.91" />
+</clipPath>
+  <g id="img-a7fd6374-12">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+</defs>
+</svg>
