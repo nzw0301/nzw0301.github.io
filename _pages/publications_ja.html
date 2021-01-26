@@ -5,12 +5,11 @@ title: 日本語の論文
 years: [2016,2015,2014]
 ---
 
-<a href="{{ '/publications/' | prepend: site.url }}">英語の出版物はこちら</a>
+<a href="{{ site.url }}">英語の出版物はこちら</a>
 
 <div class="publications">
 {% for y in page.years %}
   <h2 class="year">{{y}}</h2>
   {% bibliography -f papers_ja -q @*[year={{y}}]* %}
 {% endfor %}
-
 </div>
