@@ -10,6 +10,9 @@ nav: true
 __Kento Nozawa__ is a 3rd year Ph.D. student who does research on machine learning. His current research interests are _self-supervised learning and PAC-Bayes theory_.
  He is supervised by [Dr. Issei Sato](https://www.ml.is.s.u-tokyo.ac.jp/issei-sato-en) at [Issei Sato Lab](https://www.ml.is.s.u-tokyo.ac.jp/home-en).
 
+I am probably on the 2021-2022 academic job market.
+
+
 He is also a part-time research assistant at [RIKEN AIP](https://aip.riken.jp/).
 
 During summer 2019, he visited at [UCL AI Centre](https://www.ucl.ac.uk/ai-centre/) and [Modal team](https://team.inria.fr/modal/) Inria Lille Nord Europe to work on [PAC-Bayes and contrastive representation learning](https://arxiv.org/abs/1910.04464).
