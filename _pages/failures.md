@@ -24,6 +24,9 @@ I imitate [this interesting CV](https://www.princeton.edu/~joha/Johannes_Haushof
 
 | **Year**  |          **Position**           |
 |:---------:|:-------------------------------:|
+| 2021      |                 FAIR Internship |
+| 2021      |      Amazon Research Internship |
+| 2021      | Sales force Research Internship |
 | 2020      |      Amazon Research Internship |
 | 2019      |      Google Research Internship |
 | 2019      |                 FAIR Internship |
