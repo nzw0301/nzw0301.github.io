@@ -12,7 +12,7 @@ permalink: /blog/
     {% endfor %}
     <br />
     <h3>Japanese</h3>
-    <p>注意：テンプレのダークモードと数式の相性が悪いので、ライトモードの方を推奨します。</p>
+    <p>注意：テンプレのダークモードとコードブロックの相性が悪いので、コードを含んでいる投稿を見られる場合は、ライトモードを推奨します。</p>
 
     {% for post in site.posts %}
         {% if post.lang != "english" %}
