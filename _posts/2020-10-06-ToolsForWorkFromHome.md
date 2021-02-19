@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "在宅環境のもろもろ"
-lang: ja
 ---
 
 [友達の投稿](http://blog.dakko.site/2020-07-25/real-dev-env/)のマネです。
@@ -36,15 +35,27 @@ Amazonで買った1100円くらいのまな板スタンドに立ててます。
 
 ### モニター
 
-左は4Kのディスプレイは [LGの27UL850-W 27インチ](https://amzn.to/3mb9OpP) です。USB Type-CでMBPに給電と映像を送れます。Type-C接続時に、Mac側でディスプレイのHDRが有効になっているとコントラスとかが狂うので、外したほうがよさそうです。詳しいことは [このnoteの投稿](https://note.com/sunakujira/n/n50d1c79a799e)を参考にしました。右は23.8インチで修士のころにAmazonで買った手頃なもです。ディスプレイの高さが低すぎるとよくないらしいので、本で高さを出してます。
+左は4Kのディスプレイは [LGの27UL850-W 27インチ](https://amzn.to/3mb9OpP) です。USB Type-CでMBPに給電と映像を送れます。Type-C接続時に、Mac側でディスプレイのHDRが有効になっているとコントラスとかが狂うので、外したほうがよさそうです。詳しいことは [このnoteの投稿](https://note.com/sunakujira/n/n50d1c79a799e)を参考にしました。右は23.8インチで修士のころにAmazonで買った手頃なもです。
 
 以前はMBPの画面も使っていたので3枚ディスプレイがありましたが、MBPの上に有線のHHKB置くとトラックパッド触ってしまったり、有線が画面に被ったりで、クラムシェルにしました。
+
+改善点：同じディスプレイで揃えるか、でかいもの1枚にする。
+
+### モニターアーム: [Flexispot ガス圧式モニターアームD8D](https://flexispot.jp/monitor-mounts/gas-spring/d8d.html)
+
+奥行きが狭いと思ったので、購入しました。2枚で使ってたので、2枚つけれるものの中でお手頃そうなものを選びました。
+
+注意事項として、持っているディスプレイがVESA規格に対応してないとつけられません。右のディスプレイはVESA規格対応してなかったので、adaptorを別売りで買いました。
+
+改善点：高さ調節機能をつける
 
 #### 周辺機器
 
 #### キーボード: [HHKB Professional 2](https://www.pfu.fujitsu.com/hhkeyboard/hhkbpro2/)
 
-2019年にイギリスいたときにメインPCのチャタリングがひどすぎたので、HHKB Professional 2をamazon.co.uk で買いました。無線にすればよかったです。
+2019年にイギリスいたときにメインPCのチャタリングがひどすぎたので、HHKB Professional 2をamazon.co.uk で買いました。
+
+改善点：無線
 
 #### Magic trackpad2
 
@@ -67,11 +78,18 @@ Amazonで買った1100円くらいのまな板スタンドに立ててます。
 
 #### 作業スタイル
 
-基本的に座ってます。ソファとYogibo Midiもあるので iPadや本を読む場合はどちらかに移動することもありますが、基本的にはデスクにいます。
+座ったり、立ったりです。主に眠いときは立ちます。ソファとYogibo Midiもあるので iPadや本を読む場合はどちらかに移動することもありますが、基本的にはデスクにいます。
 
-#### 机
+#### 机：[Flexispot 電動式スタンディングデスク E7](https://flexispot.jp/desk/height-adjustable-desks/e7-set.html) + 160 $$\times$$ 70cmの天板
 
-組み立て式のL字の机です。4年前にAmazonで購入したもので、1万したかどうかくらいです。昇降デスクを導入するのは（予算的に）現実的ではないんですが、欲しいです。
+電動式昇降デスクです。高さが2箇所記憶できるので、立ったときと座ったときを記憶させています。
+
+注意事項としては、
+
+- 足だけで34.1kgあり、天板いれるとかなり重い
+- 天板は何箇所か自力でネジ穴をあける必要がある
+
+です。組み立てを一人でやりましたが、全然おすすめしません。
 
 #### 椅子：[Herman Miller Sayl Chairs](https://www.hermanmiller.com/en_eur/products/seating/office-chairs/sayl-chairs/)
 
