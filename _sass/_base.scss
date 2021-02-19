@@ -196,7 +196,7 @@ footer.fixed-bottom {
   a {
     color: var(--global-footer-link-color);
     &:hover {
-      color: pink;
+      color: var(--global-theme-color);
       text-decoration: none;
     }
   }
@@ -289,8 +289,13 @@ footer.sticky-bottom {
       }
     }
   }
-  .card img {
-    width: 100%;
+  .card {
+    img {
+      width: 100%;
+    }
+    .card-title {
+      color: $black-color;
+    }
   }
 }
 
@@ -417,8 +422,10 @@ footer.sticky-bottom {
 }
 
 // Rouge Color Customization
+pre,
 code {
   color: var(--global-theme-color);
+  background-color: var(--global-code-bg-color);
 }
 // Transitioning Themes
 html.transition,
