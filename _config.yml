@@ -57,8 +57,8 @@ research_gate_profile: # your profile on ResearchGate
 blogger_url: # your blogger URL
 semantic_id: Kento-Nozawa/13613520  # https://www.semanticscholar.org/author/
 
-google_analytics:  # out your google-analytics code
-# UA-56934733-2
+google_analytics: UA-56934733-2
+#
 
 # -----------------------------------------------------------------------------
 # Blog
