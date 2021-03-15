@@ -27,6 +27,7 @@ I imitate [this interesting CV](https://www.princeton.edu/~joha/Johannes_Haushof
 | 2021      |                 FAIR Internship |
 | 2021      |       Adobe Research Internship |
 | 2021      |      Amazon Research Internship |
+| 2021      |      Leapmind fulltime engineer |
 | 2021      | Sales force Research Internship |
 | 2019      |      Google Research Internship |
 | 2019      |                 FAIR Internship |
@@ -40,6 +41,7 @@ I imitate [this interesting CV](https://www.princeton.edu/~joha/Johannes_Haushof
 | 2014      |          LINE Summer Internship |
 | 2014      |       Cygames Summer Internship |
 | 2013      |       Cygames Summer Internship |
+
 
 For earlier years, 2013 -- 2015, I had not have enough experience as a software engineer or machine learning researchers. Then I have not have strong publications...
 
