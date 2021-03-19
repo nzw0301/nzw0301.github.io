@@ -24,7 +24,7 @@ navbar_fixed: true
 footer_fixed: true
 
 # Dimensions
-max_width: 800px
+max_width: 1024px
 
 # TODO: add layout settings (single page vs. multi-page)
 
@@ -56,6 +56,9 @@ publons_id: # your ID on Publons
 research_gate_profile: # your profile on ResearchGate
 blogger_url: # your blogger URL
 semantic_id: Kento-Nozawa/13613520  # https://www.semanticscholar.org/author/
+stackoverflow_id: 2406562/nzw0301  # https://stackoverflow.com/users/
+dblp_id: 215/4422  # https://dblp.org/pid/
+speakerdeck_username: nzw0301
 
 google_analytics: UA-56934733-2
 #
@@ -183,8 +186,8 @@ show_social_icons:        true
 # -----------------------------------------------------------------------------
 
 academicons:
-  version: "1.9.0"
-  integrity: "sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg=="
+  version: "1.9.1"
+  # integrity: "sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg=="
 bootstrap:
   version: "4.5.2"
   integrity:
