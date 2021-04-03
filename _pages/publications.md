@@ -12,7 +12,7 @@ __Kento Nozawa__ is a 4th year Ph.D. student who does research on machine learni
 
 __I am probably on the 2021-2023 job market.__
 
-He is also a part-time research assistant at [RIKEN AIP](https://aip.riken.jp/) and part-time engineer at [Preferred Networks, Inc.](https://www.preferred.jp/en/) for [Optuna](https://github.com/optuna).
+He is also a part-time research assistant at [RIKEN AIP](https://aip.riken.jp/) and a part-time engineer at [Preferred Networks, Inc.](https://www.preferred.jp/en/) for [Optuna](https://github.com/optuna).
 
 During summer 2019, he visited [UCL AI Centre](https://www.ucl.ac.uk/ai-centre/) and [Modal team](https://team.inria.fr/modal/) Inria Lille Nord Europe to work on [PAC-Bayes and contrastive representation learning](https://arxiv.org/abs/1910.04464).
 
