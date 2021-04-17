@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Kento  Nozawa | プログラミング演習I事前テキスト</title>
+<meta name="description" content="Kento Nozawa's personal page
+">
+
+<!-- Open Graph -->
+
+
+<!-- Bootstrap & MDB -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inria+Sans">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inria+Serif">
+
+<!-- Code Syntax Highlighting -->
+<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+
+<!-- Styles -->
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<link rel="canonical" href="/2016/06/prog1-pre">
+
+<!-- Theming-->
+
+  <script src="/assets/js/theme.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-56934733-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-56934733-2');
+</script>
+
+    
+<!-- MathJax -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
+</script>
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+  </head>
+
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+
+    <header>
+
+    <!-- Nav Bar -->
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+    <div class="container">
+      
+      <a class="navbar-brand title font-weight-lighter" href="/">
+        <span class="font-weight-bold">Kento</span>   Nozawa
+      </a>
+      
+      <!-- Navbar Toogle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+
+          <!-- About -->
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="/">
+              About
+              
+            </a>
+          </li> -->
+
+          <!-- Blog -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/blog/">
+              Blog
+              
+            </a>
+          </li>
+
+          <!-- Publication -->
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="/publications/">
+              Publication
+              
+            </a>
+          </li> -->
+
+          <!-- CV -->
+          <li class="nav-item">
+            <a class="nav-link" href="https://drive.google.com/file/d/1PCdgZlcMC5ixrQcyfAXJjW_g44I9EIPy/view?usp=sharing">
+              CV
+            </a>
+          </li>
+
+          
+            <div class = "toggle-container">
+              <a id = "light-toggle">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+              </a>
+            </div>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <!-- Content -->
+
+    <div class="container mt-5">
+      
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">プログラミング演習I事前テキスト</h1>
+    <p class="post-meta">June 24, 2016</p>
+  </header>
+
+  <article class="post-content">
+    <h2 id="おことわり">おことわり</h2>
+
+<p>この投稿は以前プログラミング演習を受講した私一個人が感じたことをもとに書いた勝手な記事です．</p>
+
+<h2 id="エディタ">エディタ</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Meadow</code>を使いなさいというような趣旨のことがありますが，
+ファイル保存のショートカットキーが<code class="language-plaintext highlighter-rouge">C-x C-s</code>と情報基礎実習で教えられた
+WordやExcel，PowerPointなどの保存のショートカットキー<code class="language-plaintext highlighter-rouge">C-s</code>とは違います．
+プログラミングだけでも大変かと思いますが，エディタの使い方も覚えることになると頭がパンクしてしまいそうです．
+新しいことを覚えることもいいですが，
+エディタはシャーペンのようなものなので，みなさんが好きなもの（慣れているもの）を使ったほうがいいかと思っています．
+というわけでofficeと似た感じで使えるものをいくつかピックアップしてみます．</p>
+
+<p>全学計算機ですぐに使えるエディタにサクラエディタがあります．
+<code class="language-plaintext highlighter-rouge">C-s</code>でファイル保存などオフィスと共通する箇所が多いので，お勧めします．
+それ以外には，Sublime-textやAtomというものが私の周りで流行っています．
+ただ，全学計算機では使うのが手間なので気になった方は聞いてください．</p>
+
+<p><code class="language-plaintext highlighter-rouge">Meadow</code>が嫌なのかメモ帳を使おうとする方が毎年いますが絶対にやめましょう．</p>
+
+<hr />
+
+<h2 id="rubyプログラミングへの準備">Rubyプログラミングへの準備</h2>
+
+<h3 id="23-エラーのググり方">2.3 エラーのググり方</h3>
+
+<p>図3にエラー文の例があります．</p>
+
+<p><code class="language-plaintext highlighter-rouge">hello.rb:2: syntax error, unexpected $end, expecting ')'</code></p>
+
+<p>慣れるまでは，エラーが表示されたらGoogleで検索するしかありません．
+簡単なエラーであれば，英語を読んで対処できる場合もあります．
+図3のエラーの対処法を書いてみます．</p>
+
+<p>上のようなエラーが出た場合は，
+<code class="language-plaintext highlighter-rouge">hello.rb:2: syntax error, unexpected $end, expecting ')'</code>
+をそのまま検索してもうまくいきません．</p>
+
+<p>このエラーの意味は</p>
+
+<p>「<code class="language-plaintext highlighter-rouge">hello.rb</code>の<code class="language-plaintext highlighter-rouge">2</code>行目で構文の誤り，予期しない<code class="language-plaintext highlighter-rouge">$end</code>があります．<code class="language-plaintext highlighter-rouge">)</code>が来るべきです．」</p>
+
+<p>ということを意味します(英語と同じようにRubyでも<code class="language-plaintext highlighter-rouge">(</code>を使ったら<code class="language-plaintext highlighter-rouge">)</code>で閉じる必要があり，そのためエラーが出ています)．</p>
+
+<p>Googleで検索する場合は<code class="language-plaintext highlighter-rouge">syntax error, unexpected $end, expecting ')'</code>だけで検索してください．
+<code class="language-plaintext highlighter-rouge">hello.rb:2</code>はみなさんが実行したファイル名とその行数であるので，Googleはそんなことを知らないからです．</p>
+
+<h3 id="24-インデント">2.4 インデント</h3>
+
+<p><code class="language-plaintext highlighter-rouge">if</code>と<code class="language-plaintext highlighter-rouge">end</code>，や<code class="language-plaintext highlighter-rouge">while</code>と<code class="language-plaintext highlighter-rouge">end</code>の内側にあるコードはインデントとして空白を2つ入れます．
+<code class="language-plaintext highlighter-rouge">Meadow</code>を使う場合は，Tabがいい感じにしてくれますが，サクラエディタだとTab記号をそのまま入れてしまうので設定を変える必要があります．
+変え方がわからない人は遠慮せずにTAに聞いてみましょう．</p>
+
+<p>最初は簡単なコードしか書かないので，インデントはいちいち面倒臭いと思いますが，必ずつける癖をつけてください．
+プログラムの行数が増えたとき，見易さが全然違うため，課題にかかる時間が変わると思います．</p>
+
+<p>インデントあり</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">50</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"50よりも小さい"</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"50以上100よりも小さい"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">else</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">"100より小さい"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>インデントなし</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">50</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"50よりも小さい"</span><span class="p">)</span>
+<span class="k">else</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"50以上100よりも小さい"</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="k">else</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"100より小さい"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>を比べたらわかり易さが全然違うと思います．</p>
+
+<h3 id="体験談">体験談</h3>
+
+<p>受講の心構え的なことを書こうかと思います．
+受講者の大半と同じで，私も大学生から初めて自分のパソコンを持つようになりました．
+なので，プログラミングはこの演習が初めてでした（ちなみに実家にパソコンはありません）．</p>
+
+<p>同期などでプログラミング演習で辛そうにしていた人は，講義資料を全部解いていませんでした（チェック項目に関係する箇所だけ解いていたようです）．</p>
+
+<p>最初の方はそれでもなんとかなるのですが，レポートやプログラミング演習2，来年度は知識情報演習1の後半でRubyをそこそこ使うことがあります．
+「こういうの苦手だな」と思う人こそ，できるだけ全部解くようにしてください．</p>
+
+<p>とはいうものの資料の演習問題を講義中に全部解いていたら時間が足りなくなるかもしれません．
+また，以下のような理由で私は講義中に演習室にほとんどいませんでした．</p>
+
+<ul>
+  <li>まわりに人がいて集中できない</li>
+  <li>音楽を聴きながらやりたい</li>
+  <li>いつも使っているPCでやりたい</li>
+  <li>自分が呼ばれるまでの時間が無駄</li>
+</ul>
+
+<p>なので以下のような感じで受講してました．</p>
+
+<ul>
+  <li>家のPCにRubyを入れる
+    <ul>
+      <li><a href="https://www.ruby-lang.org/ja/documentation/installation/#rubyinstaller">インストール方法</a></li>
+      <li>インストール方法がよくわからない/怖いという人はTAに聞いてみましょう</li>
+    </ul>
+  </li>
+  <li>自宅であらかじめ解いておく</li>
+  <li>講義開始時即，チェック課題を提出して，OKをもらったら帰る
+    <ul>
+      <li>早い日は9:10とかに帰って気がします</li>
+      <li>家で寝るか次回分の資料に取り組む</li>
+    </ul>
+  </li>
+</ul>
+
+  </article>
+
+  
+
+</div>
+
+    </div>
+
+    <!-- Footer -->
+
+    
+<footer class="fixed-bottom">
+  <div class="container mt-0">
+    &copy; Copyright 2021 Kento  Nozawa.
+    Powered by <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+
+    
+  </div>
+</footer>
+
+
+
+  </body>
+
+  <!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+  <!-- Bootsrap & MDB scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
+
+  
+<!-- Mansory & imagesLoaded -->
+<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+
+
+  
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+<!-- Load DarkMode JS -->
+<script src="/assets/js/dark_mode.js"></script>
+
+
+</html>

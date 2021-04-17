@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Kento  Nozawa | SparseLDAの導出</title>
+<meta name="description" content="Kento Nozawa's personal page
+">
+
+<!-- Open Graph -->
+
+
+<!-- Bootstrap & MDB -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inria+Sans">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inria+Serif">
+
+<!-- Code Syntax Highlighting -->
+<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+
+<!-- Styles -->
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<link rel="canonical" href="/2016/02/sparseLDA">
+
+<!-- Theming-->
+
+  <script src="/assets/js/theme.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-56934733-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-56934733-2');
+</script>
+
+    
+<!-- MathJax -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
+</script>
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+  </head>
+
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+
+    <header>
+
+    <!-- Nav Bar -->
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+    <div class="container">
+      
+      <a class="navbar-brand title font-weight-lighter" href="/">
+        <span class="font-weight-bold">Kento</span>   Nozawa
+      </a>
+      
+      <!-- Navbar Toogle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+
+          <!-- About -->
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="/">
+              About
+              
+            </a>
+          </li> -->
+
+          <!-- Blog -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/blog/">
+              Blog
+              
+            </a>
+          </li>
+
+          <!-- Publication -->
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="/publications/">
+              Publication
+              
+            </a>
+          </li> -->
+
+          <!-- CV -->
+          <li class="nav-item">
+            <a class="nav-link" href="https://drive.google.com/file/d/1PCdgZlcMC5ixrQcyfAXJjW_g44I9EIPy/view?usp=sharing">
+              CV
+            </a>
+          </li>
+
+          
+            <div class = "toggle-container">
+              <a id = "light-toggle">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+              </a>
+            </div>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <!-- Content -->
+
+    <div class="container mt-5">
+      
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">SparseLDAの導出</h1>
+    <p class="post-meta">February 25, 2016</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="はじめに">はじめに</h3>
+
+<p>間違っていたら<a href="https://twitter.com/nzw0301">nzw</a>までお願いします．</p>
+
+<p>pythonでLDAの実装をしましたが，遅くて使い物になりません．
+そこで高速化するSparse LDAの論文を読んで実装したいと思いました．</p>
+
+<p>モデル自体は<a href="https://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf">Blei+, 2003</a>と等価で，サンプリング式の計算を工夫して高速化します．<img src="/assets/img/topic_model.svg" alt="topicModel" /></p>
+
+<p>この論文の3.4を読んでまとめました．</p>
+
+<h3 id="本題">本題</h3>
+
+<p>単語\(w\)にトピック\(z\)を割り当てる確率は以下の式に比例する．</p>
+
+\[\begin{aligned}
+p(z=t|w) \propto (\alpha_{t} + n_{t|d})  \frac{\beta + n_{w|t}}{\beta V + n_{\cdot|t}}
+\end{aligned}\]
+
+<p>上の値を\(q(z)\)と表記し，以下の連続一様分布から実数値\(U\)を1つサンプルする．</p>
+
+\[\begin{aligned}
+U \sim \mathcal{U}(0, \sum_{z} q(z))
+\end{aligned}\]
+
+<p>先の一様分布からサンプルした\(U\)を使って，以下の式を満たすような\(t\)をトピックとして単語\(w\)に割り当てる．</p>
+
+\[\begin{aligned}
+\sum_{z=1}^{t-1} q(z) &lt; U &lt; \sum_{z=1}^{t} q(z)
+\end{aligned}\]
+
+<p>ただし，これを順番に計算する必要があり，計算を軽くしたい．</p>
+
+<p>まず，式(5)を展開して依存関係をわかりやすくする．</p>
+
+\[\begin{aligned}
+p(z=t \mid w) \propto \frac{\alpha_t\beta}{\beta V + n_{\cdot \mid t}} + \frac{n_{t \mid d}\beta}{\beta V + n_{\cdot \mid t}} + \frac{(\alpha_t+ n_{t \mid d})n_{w \mid t}}{\beta V + n_{\cdot \mid t}}
+\end{aligned}\]
+
+<ul>
+  <li>第1項：全文書に対して固定</li>
+  <li>第2項：現在の単語タイプに対して独立</li>
+</ul>
+
+<p>変形した結果から \(\sum_z q(z) = s+r+q\) と表せる．</p>
+
+<p>ただし，</p>
+
+\[\begin{aligned}
+s &amp;= \sum_{t} \frac{\alpha_{t} \beta}{\beta V + n_{\cdot \mid t}} \\
+r &amp;= \sum_{t} \frac{n_{t \mid d}\beta}{\beta V + n_{\cdot \mid t}} \\
+q &amp;= \sum_{t} \frac{(\alpha_{t}+ n_{t \mid d})n_{w \mid t}}{\beta V + n_{\cdot \mid t}} \\
+\end{aligned}\]
+
+<p>以上より，\(U\)のサンプル式は以下のように書き換えることができる．</p>
+
+\[\begin{aligned}
+U \sim {\cal u}(0, s+r+q)
+\end{aligned}\]
+
+<hr />
+
+<p>以下ではこれらの項ごとに条件分岐を行う．</p>
+
+<h4 id="smoothing-only-bucket">“smoothing only” bucket</h4>
+
+<p>\(U &lt; s\) のときは，式(7)の総和の中身 \(\frac{\alpha_{t} \beta}{\beta V + n_{\cdot \mid t}}\)
+だけを順番に加算していく．</p>
+
+<p>つまり以下を満たすような\(t\)を見つけることになる．</p>
+
+\[\begin{aligned}
+\sum_{z=1}^{t-1} \frac{\alpha_z \beta}{\beta V + n_{\cdot \mid z}} &lt; U &lt; \sum_{z=1}^{t}
+\frac{\alpha_z \beta}{\beta V + n_{\cdot \mid z}}
+\end{aligned}\]
+
+<p>\(r\)と\(q\)の部分を使わないので，計算量が減っている．</p>
+
+<h4 id="document-topic-bucket">“document topic” bucket</h4>
+
+<p>\(s &lt; U &lt; (s+r)\)のとき，\(r\)に注目する．
+\(r\)は，現在の単語が含まれる文書依存なので，文書に現れるトピック\(z\)だけを考慮すればよい．
+つまり，\(n_{t|d} \neq 0\) だけを走査する．</p>
+
+\[\begin{aligned}
+\sum_{z=1}^{t-1} \frac{n_{t \mid d}\beta}{\beta V + n_{\cdot \mid z}} &lt; U-s &lt; \sum_{z=1}^{t} \frac{n_{t \mid d}\beta}{\beta V + n_{\cdot \mid z}}
+\end{aligned}\]
+
+<p>このあたりは参考文献[2]を見るとわかりやすい．</p>
+
+<h4 id="topic-word-bucket">“topic word” bucket</h4>
+
+<p>if \((s+r) &lt; U\)のときは\(q\)の項に注目する．
+この項は，現在の単語\(w\)に依存する．
+“document topic” bucketと似ていて，
+\(n_{w|t} \neq 0\)だけを走査はすればよい．</p>
+
+\[\begin{aligned}
+\sum_{z=1}^{t-1}
+\frac{(\alpha_{z}+ n_{z \mid d})n_{w \mid z}}{\beta V + n_{\cdot \mid z}}
+&lt; U-(s+r) &lt;
+\sum_{z=1}^{t}
+\frac{(\alpha_{z}+ n_{z \mid d})n_{w \mid z}}{\beta V + n_{\cdot \mid z}}
+\end{aligned}\]
+
+<p>条件分岐ここまで．</p>
+
+<hr />
+
+<h4 id="srqの計算">\(s,r,q\)の計算</h4>
+<p>一様分布のパラメータに出てくるため，
+\(s,r,q\)の値を計算する必要がある．</p>
+
+<ul>
+  <li>\(s\)はDicichlet分布のパラメータ\({\boldsymbol \alpha}\)が更新したら更新</li>
+  <li>\(r\)は，1つの文書をgibbs samplingする前に一旦\(r\)を計算し，gibbs samplingで更新したら\(r\)を更新</li>
+</ul>
+
+<p>\(q\)だけやや複雑になる．
+まず，\(q\)を以下のように2つの項に分解する．</p>
+
+\[\sum_{t} \Bigl[\frac{\alpha_{t}+ n_{t \mid d}}{\beta V + n_{\cdot \mid t}} \times n_{w \mid t} \Bigr]\]
+
+<p>ここで，単語に依存しない\(\frac{\alpha_{t} + n_{t \mid d}}{\beta V + n_{\cdot \mid t}}\)は，各トピックごとにキャッシュしておく．キャッシュした項と\(n_{w \mid t} \neq 0\)の積から\(q\)を求められる．また，ほとんど\(n_{t \mid d}=0\)であるのでこのとき，キャッシュしておく項は，\(\frac{\alpha_{t}}{\beta V + n_{\cdot \mid t}}\)となる．なので，更新する必要があるキャッシュは，その文書に割り当てられているトピック数が非零なトピックの部分だけで済む．</p>
+
+<hr />
+
+<p>論文では，\(\alpha\)と\(\beta\)の値が小さいと約90%くらいは”topic word” bucketに落ちると言及している．（例えば，ディリクレ分布のパラメータが全体的に小さいとのっぺりとした分布になるので，単語が特定のトピックが偏らないで配分されるので，”topic word” bucketに落ちるという認識をしました，また実際問題\(\beta\)と\(\alpha\)は小さい値なのでこの特徴は重要）</p>
+
+<p>このことから”word topic” bucketにかかる時間を高速化する．ここで式(10)の中身は，\(n_{w \mid t}\)の比に見えるので，（できるだけ大きい方から計算したほうが見つかりやすいために）\(n_{w \mid t} \neq 0\)を降順に求めることで”topic word” bucketで示した大小関係を満たすトピックを速く見つける．</p>
+
+<p>これについては，計算式ではなくて，データ構造を工夫する．(\(t\), \(n_{w \mid t}\))のタプルを32ビットの整数で1つで表現する．この整数のビットを，\(n_{w \mid t}\)を割り当てる部分とトピック番号を割り当てる部分の2つに分割する．トピックに必要なビット数は，\(2^m \geq T\)をみたすようなで末尾\(m\)ビットで残りを\(n_{w \mid t}\)を表現するのに使用する．（完全に余談だけど，ノンパラメトリックベイズのような場合はどうなるんだろうか）</p>
+
+<p>このデータ構造への操作は以下通りビット演算を使用する</p>
+
+<ul>
+  <li>\(n_{w \mid t}\)を加える場合，\(n_{w \mid t}\)を\(m\)だけ左シフトしてトピックの番号だけ加算</li>
+  <li>\(n_{w \mid t}\)とトピック\(t\)を読み出す場合
+    <ul>
+      <li>タプルの整数表記を\(m\)だけ右シフトして\(n_{w \mid t}\)を読み出す（右シフトすると\(t\)の情報が落ちる）</li>
+      <li>タプルの整数表記から下\(m\)桁を取り出すビットマスクをかけて，トピック番号を読み出す</li>
+    </ul>
+  </li>
+</ul>
+
+<p>単語ごとに上記のタプルの整数表記を要素に持つ配列に格納する．ただし，\(n_{w \mid t} = 0\)は格納しない．</p>
+
+<p>この構造のメリットは以下の2つ</p>
+
+<ol>
+  <li>単語に対して，トピック数次元の配列が不要</li>
+  <li>\(n_{w \mid t}\)は上位ビットなので，トピックを意識せずに頻度順にソート可能</li>
+</ol>
+
+<p>これによってHashMapで同じ構造ことを行った場合と比べて2倍高速化したらしい．</p>
+
+<p>このデータ構造について具体的にみてみる．トピック数\(T=60\)として，単語”book”がトピック1に3回，トピック16に10回配分されたとする．このとき，トピックの番号に使うビット数は，\(m=6\)である．</p>
+
+<ul>
+  <li>\(n_{book \mid t=1 } = 3\) .</li>
+  <li>\(n_{book \mid t=16} = 10\) .</li>
+  <li>\(m=6\) .</li>
+</ul>
+
+<p>以下 <code class="language-plaintext highlighter-rouge">Jupyter</code> で計算する．</p>
+
+<script src="https://gist.github.com/nzw0301/660fd011197e9c0a3443.js"></script>
+
+<p>確かにトピック番号と\(n_{w \mid t}\)が取り出せている．</p>
+
+<h3 id="終わりに">終わりに</h3>
+
+<p>これらを実装すればLDAが速くなります．</p>
+
+<p>実装はそのうち上げると思います．</p>
+
+<hr />
+
+<h3 id="参考文献など">参考文献など</h3>
+
+<ol>
+  <li><a href="http://dl.acm.org/citation.cfm?id=1557121">Efficient methods for topic model inference on streaming document collections （論文）</a></li>
+  <li><a href="http://mimno.infosci.cornell.edu/slides/fast-sparse-sampling.pdf">Efficient Inference for Multinomial Mixed Membership Models（スライド）</a></li>
+</ol>
+
+  </article>
+
+  
+
+</div>
+
+    </div>
+
+    <!-- Footer -->
+
+    
+<footer class="fixed-bottom">
+  <div class="container mt-0">
+    &copy; Copyright 2021 Kento  Nozawa.
+    Powered by <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+
+    
+  </div>
+</footer>
+
+
+
+  </body>
+
+  <!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+  <!-- Bootsrap & MDB scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
+
+  
+<!-- Mansory & imagesLoaded -->
+<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+
+
+  
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+<!-- Load DarkMode JS -->
+<script src="/assets/js/dark_mode.js"></script>
+
+
+</html>

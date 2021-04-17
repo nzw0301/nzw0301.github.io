@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Kento  Nozawa | A Scalable Asynchronous Distributed Algorithm for Topic Modeling</title>
+<meta name="description" content="Kento Nozawa's personal page
+">
+
+<!-- Open Graph -->
+
+
+<!-- Bootstrap & MDB -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inria+Sans">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inria+Serif">
+
+<!-- Code Syntax Highlighting -->
+<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+
+<!-- Styles -->
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<link rel="canonical" href="/2017/09/F+LDA">
+
+<!-- Theming-->
+
+  <script src="/assets/js/theme.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-56934733-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-56934733-2');
+</script>
+
+    
+<!-- MathJax -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
+</script>
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+  </head>
+
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+
+    <header>
+
+    <!-- Nav Bar -->
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+    <div class="container">
+      
+      <a class="navbar-brand title font-weight-lighter" href="/">
+        <span class="font-weight-bold">Kento</span>   Nozawa
+      </a>
+      
+      <!-- Navbar Toogle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+
+          <!-- About -->
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="/">
+              About
+              
+            </a>
+          </li> -->
+
+          <!-- Blog -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/blog/">
+              Blog
+              
+            </a>
+          </li>
+
+          <!-- Publication -->
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="/publications/">
+              Publication
+              
+            </a>
+          </li> -->
+
+          <!-- CV -->
+          <li class="nav-item">
+            <a class="nav-link" href="https://drive.google.com/file/d/1PCdgZlcMC5ixrQcyfAXJjW_g44I9EIPy/view?usp=sharing">
+              CV
+            </a>
+          </li>
+
+          
+            <div class = "toggle-container">
+              <a id = "light-toggle">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+              </a>
+            </div>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <!-- Content -->
+
+    <div class="container mt-5">
+      
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">A Scalable Asynchronous Distributed Algorithm for Topic Modeling</h1>
+    <p class="post-meta">September 3, 2017</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="メタデータとか">メタデータとか</h3>
+
+<p>Hsiang-Fu Yu et al.の<a href="http://dl.acm.org/citation.cfm?id=2741682">論文</a>でWWW2015。LightLDAと同じ年で同じ会議。</p>
+
+<h3 id="背景">背景</h3>
+
+<p>collapsed Gibbs sampling (CGS) の LDA について並列計算せずに高速化を試みてるアルゴリズムとしては、以下が挙げられる。</p>
+
+<ul>
+  <li>SparseLDA, 2009</li>
+  <li>AliasLDA, 2014</li>
+  <li>LightLDA, 2015</li>
+  <li>F+LDA, 2015</li>
+  <li>warpLDA, 2016</li>
+</ul>
+
+<p>SparseLDA 以外は並列計算についても言及されている。</p>
+
+<p>このうち F+LDA と warpLDA については知らなかったので、前者についてアルゴリズムを読んだ。SparseLDA と F+LDA は CGS の高速化であるのに対して、これら以外は棄却サンプリング（MH法）を使う。</p>
+
+<h3 id="前準備">前準備</h3>
+
+<p>F+LDA では、トピック数を\(T\)としたときに、</p>
+
+<ul>
+  <li>初期化: \(O(T)\)</li>
+  <li>更新: \(O(\log T)\)</li>
+  <li>サンプル: \(O(\log(T))\)</li>
+</ul>
+
+<p>を満たすデータ構造である F+tree を使う。F+Treeは、全ノードが値をもつ完全2分木。葉ノードに各トピックの（正規化されてない）確率値をもち、親ノードが子ノード値の和をもつ。詳しい図は論文の <code class="language-plaintext highlighter-rouge">Fig. 1</code> を見ていただければと思います。</p>
+
+<h3 id="ldaのサンプリング">LDAのサンプリング</h3>
+
+<p>LDAのトピックのサンプル式は</p>
+
+\[p(z_{i, d}=t \mid w_{i, d} = w) \approx \frac{(n_{t, d} + \alpha_{t})(n_{t, w} + \beta_{w})}{n_{t} + V \beta}\]
+
+<p>から計算できる。ただし、</p>
+
+<ul>
+  <li>\(z, t\): トピックID</li>
+  <li>\(i\): 文書内のインデックス</li>
+  <li>\(d\): 文書ID</li>
+  <li>\(w\): 単語</li>
+  <li>\(n_{t, d}\): 文書 \(d\) においてトピック \(t\) が割り当てられている単語総数</li>
+  <li>\(n_{t, w}\): 単語 \(w\) にトピック \(t\) が割り当てられている頻度</li>
+  <li>\(n_t\): トピック \(t\) が割り当てられている頻度</li>
+  <li>\(\alpha, \beta\): Dirichlet 分布のハイパーパラメータ</li>
+  <li>\(V\): 語彙数</li>
+</ul>
+
+<p>とする。以下、略記としてサンプル式の右辺を \(p(t)\) とする。論文では、2通りのサンプリング方法を示している。</p>
+
+<h4 id="document-by-document">document-by-document</h4>
+
+<p>サンプル式を以下のように変形する。</p>
+
+\[\begin{aligned}
+    p(t) &amp;= \beta(\frac{n_{t,d} + \alpha_t}{n_t + V\beta})+ n_{t,w}(\frac{n_{t,d} + \alpha_t}{n_t + V \beta}) \\
+         &amp;= \beta q_t + r_t
+\end{aligned}\]
+
+<p>ただし、</p>
+
+\[\begin{aligned}
+q_t &amp;= \frac{n_{t,d} + \alpha_t}{n_t + V \beta}
+r_t &amp;= n_{t,w} q_t
+\end{aligned}\]
+
+<p>とする。\(q\) と \(r\) のどっちの項からサンプルするかを決めてからトピックをサンプルする：\(U(0, \sum(p_t))\) からサンプルした \(u\) が \(\sum(r_t)\) よりも小さければ \(r\) からサンプルし、そうでなければ、\(q\) からサンプル。</p>
+
+<p>次に2つのそれぞれのサンプルについて見ていく。</p>
+
+<p>CGS では1つの単語に対して</p>
+
+<ol>
+  <li>割り当てられているトピック\(z_{i d}\)が関係する統計量から1減らす</li>
+  <li>\(p(t)\)からトピック \(z_{i, d}^{new}\)をサンプルする</li>
+  <li>新しいトピック\(z_{i,d}^{new}\)が関係する統計量に1加える</li>
+</ol>
+
+<p>という操作を行う。</p>
+
+<p>まず \(q_t\)について。この値は、全\(t\)に対して非ゼロになる。これは\(\alpha_t\) が Dirichlet 分布のパラメータであるため。1で更新をする場合、\(q_{z_{i,j}}\)のみが更新対象なので、先程導入したF+Treeを使う。なので更新に関する計算量は\(O(\log(T))\)。また、これは1つの文書の中では使いまわすことができる。2ではF+Treeの性質から\(O(\log(T))\)でサンプル。3では1と同様で更新があったトピックのみを更新。</p>
+
+<p>次に\(r_t\)について。これは\(n_{t,w}\)があるためにスパースになる。しかし、文書内の単語ごとに全体を計算し直す必要があるのでF+Treeは使えない。このため、まず\(r_t\)の累積和の配列を計算する。この計算量は\(O(\mid T_w \mid )\) （単語\(w\)に割り当てられているトピックのユニーク数）。累積和の配列からbinary searchでサンプルを行う。この計算量は\(O(\log( \mid T_w \mid ))\)。</p>
+
+<p>というわけでサンプルは常に対数オーダーになる。</p>
+
+<h4 id="word-by-word">word-by-word</h4>
+
+<p>document-by-documentと同じ手順になるが、分解方法を変える。まず、サンプル式を以下のように分解する。</p>
+
+\[\begin{aligned}
+    p(t) &amp;= \alpha_t(\frac{n_{t,w} + \beta}{n_t + V\beta})+ n_{t,d}(\frac{n_{t,w} + \beta}{n_t + V\beta}) \\
+        &amp;= \alpha_t q_t + r_t
+\end{aligned}\]
+
+<p>ただし、</p>
+
+\[q_t = \frac{n_{t,w} + \beta}{n_t + V \beta}\]
+
+\[r_t = n_{t,d} q_t\]
+
+<p>とする。</p>
+
+<p>まず \(q_t\) については、全 \(t\) に対して非ゼロになる。これは \(\beta\) が Dirichlet 分布のパラメータであるため。\(q_t\)は単語\(w_{i,j}\)に依存するので毎回作り直す必要があるが、少し見方を変える。通常のLDAでは</p>
+
+<figure class="highlight"><pre><code class="language-julia" data-lang="julia"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="k">for</span> <span class="n">d</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">D</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">Dj</span>
+        <span class="n">sample</span><span class="x">(</span><span class="n">wdi</span><span class="x">,</span> <span class="n">zdi</span><span class="x">)</span>
+<span class="o">%</span> <span class="x">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>のように文書ごとにそこに含まれる単語についてサンプルを行う。
+ここでは、逆にして単語ごとみて、その単語が含まれる文書について順番にサンプルする。
+こうすることでB+Treeを使いまわす。</p>
+
+<p>次に\(r_t\)について。これは\(n_{t,d}\)があるためにスパースになる。文書ごとに再計算の必要があるので\(r_t\)の累積和の配列を計算し、binary searchでサンプルを行う。
+構築の計算量は \(O(\mid T_d \mid)\)で、サンプルの計算量は \(O(\log(\mid T_d \mid ))\)。</p>
+
+<hr />
+
+<p>この2つについてどちらがサンプルの計算量が優れているかを考える。前者は\(O(\log(\mid T_w \mid))\)で後者は\(O(\log(\mid T_d \mid))\)であった。今回はトピック数が\(T=1024\)のようにトピック数が多い場合について考えている。この場合、前者のほうが上限値が大きくなることが予想される。例えば<code class="language-plaintext highlighter-rouge">the</code>のような高頻度語やストップワードではない高頻度語は、トピック数を超える頻度をもつため、\(O(\log(\mid T_w \mid))\)は最悪の場合、\(\mid T_w \mid =T\)となる。</p>
+
+<p>一方で後者の上限は、文書長になるため（文書数が長くないデータセットでは）\(\mid T_d \mid &lt; T = 1024\)となる。もちろん、この傾向はデータ依存で、論文の実験では、文書数が大きいデータ（NY times、文書数: \(298\,000\) ）では <code class="language-plaintext highlighter-rouge">word-by-word</code> のほうが速く、文書数が小さいデータ（Enron、文書数: \(37\,861\) ）では <code class="language-plaintext highlighter-rouge">document-by-document</code> が速いという結果が報告されている。ちなみに、小さいデータに関しては <code class="language-plaintext highlighter-rouge">word-by-word</code> は <code class="language-plaintext highlighter-rouge">SparseLDA</code> に負けている。</p>
+
+<hr />
+
+<h3 id="その他">その他</h3>
+
+<p>warpLDA以外は<a href="https://github.com/dmlc/experimental-lda">C++の実装が公開</a>されている。Document-by-documentのほうは<a href="https://github.com/nzw0301/TopicModels.jl">juliaで実装した</a>。</p>
+
+  </article>
+
+  
+
+</div>
+
+    </div>
+
+    <!-- Footer -->
+
+    
+<footer class="fixed-bottom">
+  <div class="container mt-0">
+    &copy; Copyright 2021 Kento  Nozawa.
+    Powered by <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+
+    
+  </div>
+</footer>
+
+
+
+  </body>
+
+  <!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+  <!-- Bootsrap & MDB scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
+
+  
+<!-- Mansory & imagesLoaded -->
+<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+
+
+  
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+<!-- Load DarkMode JS -->
+<script src="/assets/js/dark_mode.js"></script>
+
+
+</html>
