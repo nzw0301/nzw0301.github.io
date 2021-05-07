@@ -48,6 +48,24 @@ plugins:
   - jekyll-feed
 
 
+# Markdown and syntax highlight
+# markdown: kramdown
+# highlighter: rouge
+# highlight_theme: github  # https://github.com/jwarby/jekyll-pygments-themes
+# kramdown:
+#   input: GFM
+#   syntax_highlighter_opts:
+#     css_class: 'highlight'
+#     span:
+#       line_numbers: false
+#     block:
+#       line_numbers: false
+#       start_line: 1
+
+livereload: true # You no longer need to include --livereload
+timezone: JPN
+future: true
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
