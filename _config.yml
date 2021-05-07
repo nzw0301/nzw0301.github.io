@@ -88,3 +88,5 @@ fontawesome:
 
 sass:
   style: compressed
+
+  permalink: /:year/:month/:title
