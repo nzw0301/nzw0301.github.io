@@ -19,18 +19,39 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Kento Nozawa
-email: your-email@example.com
+author: Kento Nozawa
+email: k_nzw@klis.tsukuba.ac.jp
 description: >- # this means to ignore newlines until "baseurl:"
   foo bar
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: nzw0301
-github_username: nzw0301
+
+
+# social
+github_username: nzw0301 # your GitHub user name
+twitter_username: nzw0301 # your Twitter handle
+linkedin_username: nozawa-kento-0301 # your LinkedIn user name
+scholar_userid: DSdjj8AAAAAJ # your Google Scholar ID
+facebook_username: knt.nzw
+youtube_username: UC2oHHAcwIZpmvs003guto_A
+orcid_id: 0000-0002-7468-9897
+medium_username: # your Medium username
+quora_username: # your Quora username
+semantic_id: Kento-Nozawa/13613520  # https://www.semanticscholar.org/author/
+stackoverflow_id: 2406562/nzw0301  # https://stackoverflow.com/users/
+dblp_id: 215/4422  # https://dblp.org/pid/
+speakerdeck_username: nzw0301
+
 
 # Build settings
 theme: minima
+
 plugins:
   - jekyll-feed
+  - jekyll-last-modified-at
+
+last-modified-at:
+    date-format: '%d %B, %Y'
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -46,3 +67,11 @@ exclude:
   - gemfiles/
   - Gemfile
   - Gemfile.lock
+
+academicons:
+  version: "1.9.1"
+fontawesome:
+  version: "5.14.0"
+
+sass:
+  style: compressed

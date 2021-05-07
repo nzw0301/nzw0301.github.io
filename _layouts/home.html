@@ -3,12 +3,14 @@ layout: default
 ---
 
 <div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- if site.author -%}
+    <p class="author">{{ site.author | escape }}
+    <br /> {% last_modified_at %}
   {%- endif -%}
+  </p>
 
   {{ content }}
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+    <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
 
 </div>

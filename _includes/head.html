@@ -9,8 +9,13 @@
         {%- include google-analytics.html -%}
     {%- endif -%}
 
+    <!-- latex.css and its dependencies -->
     <link rel="stylesheet" href="https://latex.now.sh/style.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ site.fontawesome.version }}/css/all.min.css"  integrity="{{ site.fontawesome.integrity }}" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/{{ site.academicons.version }}/css/academicons.min.css" integrity="{{ site.academicons.integrity }}" crossorigin="anonymous">
 </head>
