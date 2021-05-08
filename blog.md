@@ -9,8 +9,9 @@ permalink: /blog/
     <ul>
     {% for post in site.posts %}
         {% if post.lang == "english" %}
-            <li> [{{ post.date | date: '%d %B %Y' }}]
+            <li>
                 <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                <sub>[{{ post.date | date: '%d %B %Y' }}]</sub>
             </li>
         {% endif %}
     {% endfor %}
@@ -20,8 +21,9 @@ permalink: /blog/
     <ul>
     {% for post in site.posts %}
         {% if post.lang != "english" %}
-            <li> [{{ post.date | date: '%d %B %Y' }}]
+            <li>
                 <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                <sub>[{{ post.date | date: '%d %B %Y' }}]</sub>
             </li>
         {% endif %}
     {% endfor %}
