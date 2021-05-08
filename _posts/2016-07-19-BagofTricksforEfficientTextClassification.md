@@ -5,7 +5,7 @@ date: 2016-07-19 03:20:00 +0900
 comments: true
 ---
 
-$# メタデータとか
+## メタデータなど
 
 FAIR所属のArmand Joulin, Edouard Grave, Piotr Bojanowski, Tomas Mikolovの[論文](https://arxiv.org/abs/1607.01759)．
 Last authorはword2vecで有名なTomas Mikolov氏．
