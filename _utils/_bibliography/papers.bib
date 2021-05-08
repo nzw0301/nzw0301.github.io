@@ -1,0 +1,64 @@
+@inproceedings{KI2018,
+    author = {Nozawa, Kento and Sato, Issei},
+    booktitle = {NeurIPS Workshop on Bayesian Deep Learning},
+    title = {{PAC-Bayes Analysis of Transferred Sentence Vectors}},
+    year = {2018},
+    poster = {assets/pdf/NeurIPS-BDL2018-poster.pdf},
+    abstract = {{Learning sentence vectors from an unlabeled corpus have attracted attention because such vectors are able to represent sentences flexibility. Simple heuristic methods using pre-trained word vectors are a strong baseline for machine learning tasks. However, they are not well understood from a theoretical perspective. We analyze sentence vector algorithms from a transfer learning perspective by using a PAC-Bayes bound, which enables us to understand existing heuristic methods and provides novel sentence vector algorithms.}}
+}
+
+@inproceedings{KMA2018,
+    author = {Nozawa, Kento and Kimura, Masanari and Kanemura, Atsunori},
+    booktitle = {ICDM Workshop on Large Scale Graph Representation Learning and Applications},
+    title = {{Analyzing Centralities of Embedded Nodes}},
+    year = {2018},
+    abstract = {{Given a dataset described as a graph such as social networks, node embedding algorithms estimate a real-valued vector for each node that can later be used for a machine learning task such as node classification. These embedding vectors simplify the task and often improve the task performance. Although word embeddings, e.g., skip-gram and CBOW, have been well analyzed, little is known about the properties of node embeddings. In this paper, we analyze empirical distributions of several node centrality measures, such as PageRank, based on node classification results. Experimental results give insights into the properties of embeddings, which can provide cues to improve embedding algorithms.}}
+}
+
+@inproceedings{KK2017,
+    author = {Nozawa, Kento and Wakabayashi, Kei},
+    booktitle = {WSDM 1st Workshop on Scholarly Web Mining},
+    title = {{Scalable Algorithm for Probabilistic Overlapping Community Detection}},
+    year = {2017},
+    pages = {9--16},
+    slides = {assets/pdf/swm_2017-paper_5.pdf},
+    abstract = {{In the data mining field, community detection, which decomposes a graph into multiple subgraphs, is one of the major techniques to analyze graph data. In recent years, the scalability of the community detection algorithm has been a crucial issue because of the growing size of real-world networks such as the co-author network and web graph. In this paper, we propose a scalable overlapping community detection method by using the stochastic variational Bayesian training of latent Dirichlet allocation (LDA) models, which predicts sets of neighbor nodes with a community mixture distribution. In the experiment, we show that the proposed method is much faster than previous methods and is capable of detecting communities even in a huge network that contains 60 million nodes and 1.8 billion edges. Furthermore, we compared different mini-batch sizes and the number of iterations in stochastic variational Bayesian inference to determine an empirical trade-off between efficiency and quality of overlapping community detection.}}
+}
+
+@inproceedings{AYTKS2017,
+    author = {Kanemura, Atsunori and Cheng, Yuhsen and Kaneko, Takumi and Nozawa, Kento and Fukunaga, Shuichi},
+    booktitle = {EMBC},
+    title = {{Imputing Missing Values in EEG with Multivariate Autoregressive Models}},
+    year = {2018},
+    pages={2639--2642},
+    abstract = {{Wearable measurement for electroencephalogram (EEG) is expected to enable brain-computer interfaces, biomedical engineering, and neuroscience studies in real environments. When wearable devices are in practical use, only the user (subject) can take care of measurement, unlike laboratory- oriented experiments, where experimenters are always with the subject. As a result, measurement troubles such as artifact contamination or electrode impairment cannot be easily corrected, and EEG recordings will become incomplete, including many missing values. If the missing values are imputed (interpolated) and complete data without missing entries are available, we can employ existing signal analysis techniques that assume compete data. In this paper, we propose an EEG signal imputation method based on multivariate autoregressive (MAR) modeling and its iterative estimation and simulation, inspired by the multiple imputation procedure. We evaluated the proposed method with real data with artificial missing entries. Experimental results show that the proposed method outperforms popular baseline interpolation methods. Our iterative scheme is simple yet effective, and can be the foundation for many extensions.}}
+}
+
+@techreport{KI2019,
+    author = {Nozawa, Kento and Sato, Issei},
+    title = {{PAC-Bayes Analysis of Sentence Representation}},
+    year = {2019},
+    arxiv = {1902.04247},
+    abstract = {{Learning sentence vectors from an unlabeled corpus has attracted attention because such vectors can represent sentences in a lower dimensional and continuous space. Simple heuristics using pre-trained word vectors are widely applied to machine learning tasks. However, they are not well understood from a theoretical perspective. We analyze learning sentence vectors from a transfer learning perspective by using a PAC-Bayes bound that enables us to understand existing heuristics. We show that simple heuristics such as averaging and inverse document frequency weighted averaging are derived by our formulation. Moreover, we propose novel sentence vector learning algorithms on the basis of our PAC-Bayes analysis.}}
+}
+
+@inproceedings{KPB2020,
+    author = {Nozawa, Kento and Germain, Pascal and Guedj, Benjamin},
+    title = {{PAC-Bayesian Contrastive Unsupervised Representation Learning}},
+    booktitle = {UAI},
+    year = {2020},
+    pages = {21--30},
+    code = {http://github.com/nzw0301/pb-contrastive},
+    arxiv = {1910.04464},
+    video = {https://youtu.be/s-PrWBoakw0},
+    slides = {assets/pdf/uai2020.pdf},
+    abstract = {{Contrastive unsupervised representation learning (CURL) is the state-of-the-art technique to learn representations (as a set of features) from unlabelled data. While CURL has collected several empirical successes recently, theoretical understanding of its performance was still missing. In a recent work, Arora et al. (2019) provide the first generalisation bounds for CURL, relying on a Rademacher complexity. We extend their framework to the flexible PAC-Bayes setting, allowing to deal with the non-iid setting. We present PAC-Bayesian generalisation bounds for CURL, which are then used to derive a new representation learning algorithm. Numerical experiments on real-life datasets illustrate that our algorithm achieves competitive accuracy, and yields generalisation bounds with non-vacuous values.}}
+}
+
+@techreport{KI2021,
+    author = {Nozawa, Kento and Sato, Issei},
+    title = {{Understanding Negative Samples in Instance Discriminative Self-supervised Representation Learning}},
+    year = {2021},
+    arxiv = {2102.06866},
+    abstract = {{Instance discriminative self-supervised representation learning has been attracted attention thanks to its unsupervised nature and informative feature representation for downstream tasks. Self-supervised representation learning commonly uses more negative samples than the number of supervised classes in practice. However, there is an inconsistency in the existing analysis; theoretically, a large number of negative samples degrade supervised performance, while empirically, they improve the performance. We theoretically explain this empirical result regarding negative samples. We empirically confirm our analysis by conducting numerical experiments on CIFAR-10/100 datasets.}}
+}
