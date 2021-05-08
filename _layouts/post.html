@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article>
+    <header>
+        <p class="author">{{ page.title | escape }}
+            <br />
+            {{ site.last_update | date_to_long_string }}
+        </p>
+    </header>
+
+    {{ content }}
+
+</article>
