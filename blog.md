@@ -6,16 +6,24 @@ permalink: /blog/
 
 <div class="post">
     <h3>English</h3>
+    <ul>
     {% for post in site.posts %}
         {% if post.lang == "english" %}
-            <p class="post-meta">[{{ post.date | date: '%B %-d, %Y' }}] <a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
+            <li> [{{ post.date | date: '%d %B %Y' }}]
+                <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </li>
         {% endif %}
     {% endfor %}
-    <br />
+    </ul>
 
+    <h3>Japanese</h3>
+    <ul>
     {% for post in site.posts %}
         {% if post.lang != "english" %}
-            <p class="post-meta">[{{ post.date | date: '%B %-d, %Y' }}] <a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
+            <li> [{{ post.date | date: '%d %B %Y' }}]
+                <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </li>
         {% endif %}
     {% endfor %}
+    </ul>
 </div>
