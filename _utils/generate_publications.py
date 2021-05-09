@@ -9,22 +9,34 @@ bibtex_files = {
     "ja": "_bibliography/papers_ja.bib"
 }
 
-myself = "Nozawa, Kento"
+myself = "Kento Nozawa"
 
 with open("./coauthors.yml") as f:
     coauthor_info = yaml.load(f, Loader=yaml.FullLoader)
 
 
 def add_markdown_to_authors(authors):
-    authors = authors.replace(myself, f"<ins>{myself}</ins>")
+
     author_list = authors.split(" and ")
     for i, author in enumerate(author_list):
+        # convert author name format
+        author_elements = author.split(", ")
+        author = author_elements[1] + " " + author_elements[0]
+
         if author in coauthor_info:
             author = f'[{author}]({coauthor_info[author]["url"]})'
 
+        if author == myself:
+            author = author.replace(myself, f"<ins>{myself}</ins>")
+
         author_list[i] = author
 
-    return " and ".join(author_list)
+    if len(author_list) == 1:
+        return author_list[0]
+    elif len(author_list) == 2:
+        return " and ".join(author_list)
+    else:
+        return ", ".join(author_list[:-1]) + " and " + author_list[-1]
 
 
 # english
