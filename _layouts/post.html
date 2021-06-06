@@ -1,13 +1,19 @@
 ---
 layout: default
 ---
+
 <article>
     <header>
-        <p class="author">{{ page.title | escape }}
+        <h1>
+            {{ page.title | escape }}
+        </h1>
+        <p class="author">
+            {{ site.author | escape }}
             <br />
             {{ page.date | date_to_long_string }}
-        </p>
+        </>
     </header>
+
 
     {{ content }}
 

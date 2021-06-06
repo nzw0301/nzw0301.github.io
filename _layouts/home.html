@@ -3,11 +3,10 @@ layout: default
 ---
 
 <div class="home">
-  {%- if site.author -%}
-    <p class="author">{{ site.author | escape }}
-    <br />
-    {{ site.last_update | date_to_long_string }}
-  {%- endif -%}
+  <h1>{{ site.author | escape }}</h1>
+    <p class="author">
+      <br />
+      {{ site.last_update | date_to_long_string }}
   </p>
 
   {{ content }}

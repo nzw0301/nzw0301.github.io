@@ -2,6 +2,7 @@
 layout: page
 title: Blog
 permalink: /blog/
+date: 2021-04-01
 ---
 
 <div class="post">
