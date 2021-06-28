@@ -24,7 +24,7 @@ email: k_nzw@klis.tsukuba.ac.jp
 # description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-last_update: 2021-05-09 00:00:00 +0900
+last_update: 2021-06-28 00:00:00 +0900
 
 # social
 github_username: nzw0301 # your GitHub user name

@@ -2,7 +2,7 @@
 layout: page
 title: CV of Failures
 permalink: /failures/
-date: 2021-04-01
+date: 2021-06-28
 ---
 
 I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV_of_Failures.pdf).
@@ -136,6 +136,10 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align: center">2021</td>
+      <td style="text-align: center">JST ACT-X</td>
+    </tr>  
     <tr>
       <td style="text-align: center">2020</td>
       <td style="text-align: center">Toyota / Dwango Advanced AI Scholarship</td>
