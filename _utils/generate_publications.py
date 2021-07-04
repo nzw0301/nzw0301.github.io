@@ -27,7 +27,7 @@ def add_markdown_to_authors(authors):
             author = f'[{author}]({coauthor_info[author]["url"]})'
 
         if author == myself:
-            author = author.replace(myself, f"<ins>{myself}</ins>")
+            author = author.replace(myself, f"__{myself}__")
 
         author_list[i] = author
 
