@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kronecker積を使った全結合層のパラメータ削減
+title: Kronecker積によるパラメータ削減
 comments: True
 abstract: 雑記
 lang: ja
@@ -12,9 +12,7 @@ lang: ja
 
 ### 導入
 
-[Kronecker積](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%8D%E3%83%83%E3%82%AB%E3%83%BC%E7%A9%8D)（以下kron）という行列演算があります。
-Graph x MLだと、JureさんのKronecker graphやその派生系で使われてたりします。そこで知りました。
-[Wikipediaによる](Kronecker graph)とスパコンのベンチマークの `Graph500` でKronecker graphが使われているそうです。
+[Kronecker積](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%8D%E3%83%83%E3%82%AB%E3%83%BC%E7%A9%8D)（以下kron）という行列演算があります。Graph MLだと、JureさんのKronecker graphやその派生系で使われてたりします。そこで知りました。[Wikipediaの記事によると](https://en.wikipedia.org/wiki/Kronecker_graph)スパコンのベンチマークの `Graph500` でKronecker graphが使われているそうです。
 
 例えば $$A, B \in \mathbb{R}^{2 \times 2}$$ という行列に対するkronは、以下のようになります。
 
