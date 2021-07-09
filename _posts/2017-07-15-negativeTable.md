@@ -1,13 +1,11 @@
 ---
 layout: post
 title: "Negative Samplingの配列の作り方"
-comments: true
-abstract: Negative samplingの前計算のテクニック
 ---
 
 ### はじめに
 
-word2vecのNegativeSamplingを読んでいたら[Aliasメソッド](http://e-musu.github.io/other/2016/03/31/alias-method)的な処理に感動したので記事にする。
+word2vecのNegativeSamplingを読んでいたら[Aliasメソッド](https://en.wikipedia.org/wiki/Alias_method)的な処理に感動したので記事にする。
 
 NegativeSamplingでは単語頻度に$$3/4$$乗した以下の分布から単語をサンプルしまくる。
 
