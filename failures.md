@@ -56,6 +56,10 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
   <tbody>
     <tr>
       <td style="text-align: center">2021</td>
+      <td style="text-align: center">Adobe Research Internship</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2021</td>
       <td style="text-align: center">FAIR Internship</td>
     </tr>
     <tr>
@@ -139,7 +143,7 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
     <tr>
       <td style="text-align: center">2021</td>
       <td style="text-align: center">JST ACT-X</td>
-    </tr>  
+    </tr>
     <tr>
       <td style="text-align: center">2020</td>
       <td style="text-align: center">Toyota / Dwango Advanced AI Scholarship</td>
