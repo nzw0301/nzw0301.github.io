@@ -56,10 +56,11 @@
     abstract = {{Contrastive unsupervised representation learning (CURL) is the state-of-the-art technique to learn representations (as a set of features) from unlabelled data. While CURL has collected several empirical successes recently, theoretical understanding of its performance was still missing. In a recent work, Arora et al. (2019) provide the first generalisation bounds for CURL, relying on a Rademacher complexity. We extend their framework to the flexible PAC-Bayes setting, allowing to deal with the non-iid setting. We present PAC-Bayesian generalisation bounds for CURL, which are then used to derive a new representation learning algorithm. Numerical experiments on real-life datasets illustrate that our algorithm achieves competitive accuracy, and yields generalisation bounds with non-vacuous values.}}
 }
 
-@techreport{KI2021,
+@inproceedings{KI2021,
     author = {Nozawa, Kento and Sato, Issei},
     title = {{Understanding Negative Samples in Instance Discriminative Self-supervised Representation Learning}},
     year = {2021},
+    booktitle = {NeurIPS},
     arxiv = {2102.06866},
     abstract = {{Instance discriminative self-supervised representation learning has been attracted attention thanks to its unsupervised nature and informative feature representation for downstream tasks. Self-supervised representation learning commonly uses more negative samples than the number of supervised classes in practice. However, there is an inconsistency in the existing analysis; theoretically, a large number of negative samples degrade supervised performance, while empirically, they improve the performance. We theoretically explain this empirical result regarding negative samples. We empirically confirm our analysis by conducting numerical experiments on CIFAR-10/100 datasets.}}
 }
