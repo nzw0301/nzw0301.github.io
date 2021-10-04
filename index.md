@@ -12,4 +12,8 @@ layout: home
   </p>
 </div>
 
+
+I'll be graduating in Sept. 2022, so I'm on the job market!
+
+
 {% include_relative _includes/publication.md %}
