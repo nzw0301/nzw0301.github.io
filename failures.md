@@ -56,6 +56,10 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
   <tbody>
     <tr>
       <td style="text-align: center">2021</td>
+      <td style="text-align: center">Github Senior ML Researcher</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2021</td>
       <td style="text-align: center">Adobe Research Internship</td>
     </tr>
     <tr>
