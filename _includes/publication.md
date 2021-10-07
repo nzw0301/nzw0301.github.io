@@ -6,4 +6,5 @@
 
 ## Pre-print
 
+1. Han Bao, Yoshihiro Nagano and Kento  Nozawa. Sharp Learning Bounds for Contrastive Unsupervised Representation Learning. 2021. [`arXiv`](https://arxiv.org/abs/2110.02501).
 1. __Kento Nozawa__ and [Issei Sato](https://www.ml.is.s.u-tokyo.ac.jp/issei-sato-en). PAC-Bayes Analysis of Sentence Representation. 2019. [`arXiv`](https://arxiv.org/abs/1902.04247).
