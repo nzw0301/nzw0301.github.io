@@ -2,7 +2,7 @@
 layout: page
 title: CV of Failures
 permalink: /failures/
-date: 2021-06-28
+date: 2021-10-07
 ---
 
 I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV_of_Failures.pdf).
