@@ -6,5 +6,5 @@
 
 ## Pre-print
 
-1. [Han Bao](https://hermite.jp/), [Yoshihiro Nagano](http://ganow.me/) and __Kento Nozawa__. Sharp Learning Bounds for Contrastive Unsupervised Representation Learning. 2021. [`arXiv`](https://arxiv.org/abs/2110.02501).
+1. [Han Bao](https://hermite.jp/), [Yoshihiro Nagano](http://ganow.me/) and __Kento Nozawa__. Sharp Learning Bounds for Contrastive Unsupervised Representation Learning. 2021. [`arXiv`](https://arxiv.org/abs/2110.02501).<label for="sn-1" class="sidenote-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="sidenote-toggle" /><span class="sidenote">Alphabetical ordering and equal contribution</span>
 1. __Kento Nozawa__ and [Issei Sato](https://www.ml.is.s.u-tokyo.ac.jp/issei-sato-en). PAC-Bayes Analysis of Sentence Representation. 2019. [`arXiv`](https://arxiv.org/abs/1902.04247).
