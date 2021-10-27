@@ -63,6 +63,11 @@ $$
 
 $$K$$が小さい時の議論や、$$K$$が増えた時の影響についても議論していますが、ここでは省略します。camera-readyではNLPの実験も増える予定です。
 
+
 ## 余談
 
 2019年12月くらいに、[CPC+InfoNCE](https://arxiv.org/abs/1807.03748)に対してCURLの解析ができないかどうかを考えはじめたのがはじまりでした。当時は別の論文の査読を待っていたり、UCL行く前にやっていてどこにも通っていない内容をどうしようか考えていると2020年の夏の終わりくらいになり、本格的にはじめました。2020年の夏の終わりというとすでにSimCLRとかMoCoとかBYOLとかSWaVが出てきて、手法が単純かつ性能がよいSimCLRに寄せたような記憶があります。CURL論文はUCL滞在時に[PAC-Bayesを使った拡張](https://arxiv.org/abs/1910.04464)をやっていて、CURLは普通の教師あり学習に対して理論解析が機能しないことがわかっていたので、self-supervised representation learningで観測されている事象とストーリーを合わせました。
+
+## その他
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nK46OGjoosQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
