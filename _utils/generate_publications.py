@@ -101,10 +101,7 @@ with open(path) as bibtex_file:
 
         # misc info
         if "note" in entry:
-
-            print(entry["note"], "alphabetical")
             line += '<label for="sn-1" class="sidenote-toggle sidenote-number"></label>' + '<input type="checkbox" id="sn-1" class="sidenote-toggle" />' + '<span class="sidenote">Alphabetical ordering and equal contribution.</span>'
-            print(line)
 
         if entry["ENTRYTYPE"] == "techreport":
             preprint_list.append(line)
