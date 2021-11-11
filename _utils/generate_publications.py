@@ -83,18 +83,18 @@ with open(path) as bibtex_file:
         # external links
         external_links = []
 
+        # additional content
+        # mainly they are on external platform such as youtue
+        for material in ["paper", "video", "pdf", "slides", "code", "poster"]:
+            if material in entry:
+                link = f'[`{material}`]({entry[material]})'
+                external_links.append(link)
+
         # arXiv
         if "arxiv" in entry:
             arxiv_url = f'https://arxiv.org/abs/{entry["arxiv"]}'
             arxiv_link = f'[`arXiv`]({arxiv_url})'
             external_links.append(arxiv_link)
-
-        # additional content
-        # mainly they are on external platform such as youtue
-        for material in ["video", "pdf", "slides", "code", "poster"]:
-            if material in entry:
-                link = f'[`{material}`]({entry[material]})'
-                external_links.append(link)
 
         if external_links:
             line += " " + ", ".join(external_links) + "."
