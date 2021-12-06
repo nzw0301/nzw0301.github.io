@@ -84,7 +84,7 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
     </tr>
     <tr>
       <td style="text-align: center">2021</td>
-      <td style="text-align: center">Salesforce Research Internship</td>
+      <td style="text-align: center">Salesforce Research Asia Research Internship</td>
     </tr>
     <tr>
       <td style="text-align: center">2019</td>
