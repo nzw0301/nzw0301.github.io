@@ -144,7 +144,7 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
 <br />
 
 <table>
-<caption>Grants / Fellowships I did not get</caption>
+<caption>Scholarship / Grants / Fellowships I did not get</caption>
   <thead>
     <tr>
       <th style="text-align: center"><strong>Year</strong></th>
@@ -154,7 +154,7 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
   <tbody>
     <tr>
       <td style="text-align: center">2021</td>
-      <td style="text-align: center">JST ACT-X</td>
+      <td style="text-align: center">JST ACT-X (Grants)</td>
     </tr>
     <tr>
       <td style="text-align: center">2020</td>
@@ -162,11 +162,15 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
     </tr>
     <tr>
       <td style="text-align: center">2019</td>
-      <td style="text-align: center">JST AIP Challenge</td>
+      <td style="text-align: center">JST AIP Challenge (Grants)</td>
     </tr>
     <tr>
       <td style="text-align: center">2018</td>
       <td style="text-align: center">Google Fellowship</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2012</td>
+      <td style="text-align: center">My hometown's Scholarship</td>
     </tr>
   </tbody>
 </table>
