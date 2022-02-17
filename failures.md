@@ -59,6 +59,10 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
   </thead>
   <tbody>
     <tr>
+      <td style="text-align: center">2022</td>
+      <td style="text-align: center">Twitter Singapore Engineering Internship</td>
+    </tr>
+    <tr>
       <td style="text-align: center">2021</td>
       <td style="text-align: center">Salesforce Research Asia Research Internship</td>
     </tr>
