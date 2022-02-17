@@ -7,22 +7,16 @@ title: "在宅環境のもろもろ"
 
 COVID-19 の世界的大流行で在宅で作業しています。ちなみに、所属する研究室では、少なくとも2020年度いっぱいは在宅のようです。
 
-さっそくですが、こんな感じです。
-
-![alt text](https://www.dropbox.com/s/y3wi9o4yg38ka3h/desk.jpg?raw=1 "Desk"){:height="400px"}
-
 ### 計算機周り
 
 #### メインPC
 
-- モデル：MBP2018年 15インチ
-- CPU: Intel Core i9
+- モデル：MBP2020年 13インチ
+- CPU: Apple M1
 - メモリ: 16GB
-- 記憶領域: 500GB SSD
+- 記憶領域: 2TB SSD
 
-研究費です。メモリ16GBだとたまにきついことがあるかもくらいです。キーボードのチャタリングがすごいことになってます。
-
-Amazonで買った1100円くらいのまな板スタンドに立ててます。
+研究費です。PCスタンドの上においています。
 
 #### サブ
 
@@ -35,17 +29,13 @@ Amazonで買った1100円くらいのまな板スタンドに立ててます。
 
 ### モニター
 
-左は4Kのディスプレイは [LGの27UL850-W 27インチ](https://amzn.to/3mb9OpP) です。USB Type-CでMBPに給電と映像を送れます。Type-C接続時に、Mac側でディスプレイのHDRが有効になっているとコントラスとかが狂うので、外したほうがよさそうです。詳しいことは [このnoteの投稿](https://note.com/sunakujira/n/n50d1c79a799e)を参考にしました。右は23.8インチで修士のころにAmazonで買った手頃なもです。
-
-以前はMBPの画面も使っていたので3枚ディスプレイがありましたが、MBPの上に有線のHHKB置くとトラックパッド触ってしまったり、有線が画面に被ったりで、クラムシェルにしました。
-
-改善点：同じディスプレイで揃えるか、でかいもの1枚にする。
+ディスプレイは [LGの27UL850-W 27インチ](https://amzn.to/3mb9OpP) です。4Kです。USB Type-CでMBPに給電と映像を送れます。Type-C接続時に、Mac側でディスプレイのHDRが有効になっているとコントラスとかが狂うので、外したほうがよさそうです。詳しいことは [このnoteの投稿](https://note.com/sunakujira/n/n50d1c79a799e)を参考にしました。
 
 ### モニターアーム: [Flexispot ガス圧式モニターアームD8D](https://flexispot.jp/monitor-mounts/gas-spring/d8d.html)
 
-奥行きが狭いと思ったので、購入しました。2枚で使ってたので、2枚つけれるものの中でお手頃そうなものを選びました。
+奥行きが狭いと思ったので、購入しました。当時2枚で使ってたので、2枚つけれるものの中でお手頃そうなものを選びましたが、今は片側しかついていません。
 
-注意事項として、持っているディスプレイがVESA規格に対応してないとつけられません。右のディスプレイはVESA規格対応してなかったので、adaptorを別売りで買いました。
+注意事項として、持っているディスプレイがVESA規格に対応してないとつけられません。
 
 改善点：高さ調節機能をつける
 
@@ -57,7 +47,7 @@ HHKB Professional 2が良かったので購入。キータッチが軽くなっ�
 
 #### Magic trackpad2
 
-クラムシェルにするために必要でした。充電コードがType-Cで統一できなくなるのが少し残念…
+充電コードがType-Cで統一できなくなるのが少し残念…
 
 #### ヘッドホン：[Sony WH-1000XM4](https://www.sony.jp/headphone/products/WH-1000XM4/)
 
@@ -65,14 +55,11 @@ Sony WH-1000XM3がよかったので、購入。XM3より軽くなった気が�
 
 Sony WH-1000XM3を2018年くらいに[himkt](https://twitter.com/himkt)が、ヘッドホン売るからといって秋葉原のeイヤホンについていったら、このヘッドホンをそそのかされて買いました。ノイズキャンセリングがすごい。一生の恩を感じてます。ありがとうございます。
 
-#### カメラ
+speak to chat機能が勝手にオンになったりノイズがXM3の時よりも入りやすいので、XM3でもよかったのではとたまに思っています。
 
-クラムシェルにすると内蔵のカメラがつかえなくなります。
+### スピーカー：[Sony SRS-XB43](https://www.sony.jp/active-speaker/products/SRS-XB43/)
 
-<blockquote class="twitter-tweet" data-conversation="none" data-lang="en" data-theme="dark"><p lang="ja" dir="ltr">epoccamでスマホをカメラ&amp;マイクとして使えますよ，多分</p>&mdash; crcrpar (@crcrpar) <a href="https://twitter.com/crcrpar/status/1325697028144291841?ref_src=twsrc%5Etfw">November 9, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-スマホがiPhoneなら[epoccam](https://www.elgato.com/en/epoccam)がよさそうです。自分はAndroidスマホとiPadでつなぎたかったので、似たアプリの[iriun](http://iriun.com/)にしました。
-
+ヘッドセットつけてるとストレッチとかしにくいのと耳元で
 
 ### 家具的なもの
 
@@ -95,7 +82,7 @@ Sony WH-1000XM3を2018年くらいに[himkt](https://twitter.com/himkt)が、ヘ
 
 腰痛防止。以前使っていた椅子はAmazonで2--3千円くらいの安い椅子だったので、いいものを買おうと思いました。住んでいるアパートが狭いので、小さめのセイルチェアにしました。基本的にPCを使ってる姿勢なので、前傾姿勢が取れるタイプです。[オフィスバスターズ](https://www.officebusters.com/)に行くとアーロンチェア等もありますが、アーロンチェアの安いやつものは前傾姿勢とれないので、要注意です。
 
-ちなみに、Herman Millerの商品ですが、大塚家具に2020年9月にいった際に、展示品を試すことだけはできるが、入荷目処が立ってないと言われました。国産高級椅子であれば2ヶ月待ち程度だそうです。
+ちなみに、Herman Millerの商品ですが、大塚家具に2020年9月に訪れた際に、展示品を試すことだけはできるが、入荷目処が立ってないと言われました。国産高級椅子であれば2ヶ月待ち程度だそうです。
 
 #### [Yogibo Midi](https://yogibo.jp/products/detail/mid)
 
