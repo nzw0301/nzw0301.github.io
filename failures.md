@@ -68,6 +68,10 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
     </tr>
     <tr>
       <td style="text-align: center">2021</td>
+      <td style="text-align: center">LINE AI Company CV Lab</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2021</td>
       <td style="text-align: center">Github Senior ML Researcher</td>
     </tr>
     <tr>
