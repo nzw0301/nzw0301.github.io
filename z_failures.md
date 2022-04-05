@@ -2,7 +2,7 @@
 layout: page
 title: CV of Failures
 permalink: /failures/
-date: 2022-01-21
+date: 2022-04-06
 ---
 
 I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV_of_Failures.pdf).
@@ -61,6 +61,10 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
     <tr>
       <td style="text-align: center">2022</td>
       <td style="text-align: center">Twitter Singapore Engineering Internship</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2021</td>
+      <td style="text-align: center">Apple Japan AI Engineering & Research Internship</td>
     </tr>
     <tr>
       <td style="text-align: center">2021</td>
