@@ -77,7 +77,7 @@
     year = {2021},
     arxiv = {2110.02501},
     abstract = {{Contrastive unsupervised representation learning (CURL) encourages data representation to make semantically similar pairs closer than randomly drawn negative samples, which has been successful in various domains such as vision, language, and graphs. Although recent theoretical studies have attempted to explain its success by upper bounds of a downstream classification loss by the contrastive loss, they are still not sharp enough to explain an experimental fact: larger negative samples improve the classification performance. This study establishes a downstream classification loss bound with a tight intercept in the negative sample size. By regarding the contrastive loss as a downstream loss estimator, our theory not only improves the existing learning bounds substantially but also explains why downstream classification empirically improves with larger negative samples—because the estimation variance of the downstream loss decays with larger negative samples. We verify that our theory is consistent with experiments on synthetic, vision, and language datasets.}},
-    note = {alphabetical}
+    footnote = {Alphabetical ordering and equal contribution.}
 }
 
 @inproceedings{KI2022,
@@ -85,4 +85,16 @@
     title = {{Evaluation Methods for Representation Learning: A Survey}},
     booktitle = {IJCAI-ECAI Survey Track},
     year = {2022},
+    footnote = {Extended version: ``Empirical Evaluation and Theoretical Analysis for Representation Learning: A Survey''. 2022. [`arXiv`](https://arxiv.org/abs/2204.08226)}
+}
+
+@techreport{KI2022arxiv,
+    author = {Nozawa, Kento and Sato, Issei},
+    title = {{Empirical Evaluation and Theoretical Analysis for Representation Learning: A Survey
+    }},
+    year = {2022},
+    arxiv = {2204.08226},
+    abstract = {{Representation learning enables us to automatically extract generic feature representations from a dataset to solve another machine learning task. Recently, extracted feature representations by a representation learning algorithm and a simple predictor have exhibited state-of-the-art performance on several machine learning tasks. Despite its remarkable progress, there exist various ways to evaluate representation learning algorithms depending on the application because of the flexibility of representation learning. To understand the current representation learning, we review evaluation methods of representation learning algorithms and theoretical analyses. On the basis of our evaluation survey, we also discuss the future direction of representation learning. Note that this survey is the extended version of Nozawa and Sato (2022).
+    }},
+    exclude = {{}},
 }

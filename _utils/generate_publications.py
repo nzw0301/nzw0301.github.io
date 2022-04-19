@@ -100,10 +100,10 @@ with open(path) as bibtex_file:
             line += " " + ", ".join(external_links) + "."
 
         # misc info
-        if "note" in entry:
-            line += '<label for="sn-1" class="sidenote-toggle sidenote-number"></label>' + '<input type="checkbox" id="sn-1" class="sidenote-toggle" />' + '<span class="sidenote">Alphabetical ordering and equal contribution.</span>'
+        if "footnote" in entry:
+            line += '<label for="sn-1" class="sidenote-toggle sidenote-number"></label>' + '<input type="checkbox" id="sn-1" class="sidenote-toggle" />' + f'<span class="sidenote">{entry["footnote"]}</span>'
 
-        if entry["ENTRYTYPE"] == "techreport":
+        if entry["ENTRYTYPE"] == "techreport" and "exclude" not in entry:
             preprint_list.append(line)
         else:
             # exclude workshop
