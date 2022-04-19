@@ -9,7 +9,9 @@ bibtex_files = {
     "ja": "_bibliography/papers_ja.bib"
 }
 
+
 myself = "Kento Nozawa"
+ignore_paper_ids = {"KI2022arxiv"}
 
 with open("./coauthors.yml") as f:
     coauthor_info = yaml.load(f, Loader=yaml.FullLoader)
@@ -51,6 +53,9 @@ with open(path) as bibtex_file:
     sorted_entries = sorted(bib_database.entries, key= lambda x: -int(x["year"]))
 
     for entry in sorted_entries:
+        if entry["ID"] in ignore_paper_ids:
+            continue
+
         authors = add_markdown_to_authors(entry["author"])
 
         title = entry["title"][1:-1]
@@ -103,12 +108,13 @@ with open(path) as bibtex_file:
         if "footnote" in entry:
             line += '<label for="sn-1" class="sidenote-toggle sidenote-number"></label>' + '<input type="checkbox" id="sn-1" class="sidenote-toggle" />' + f'<span class="sidenote">{entry["footnote"]}</span>'
 
-        if entry["ENTRYTYPE"] == "techreport" and "exclude" not in entry:
+        if entry["ENTRYTYPE"] == "techreport":
             preprint_list.append(line)
         else:
             # exclude workshop
-            if "Workshop" not in line:
-                selected_list.append(line)
+            if "Workshop" in line:
+                continue
+            selected_list.append(line)
 
 with open("../_includes/publication.md", "w") as f:
     f.write("## Journal / Conference papers\n\n")
