@@ -2,7 +2,7 @@
 layout: page
 title: CV of Failures
 permalink: /failures/
-date: 2022-04-28
+date: 2022-05-25
 ---
 
 I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV_of_Failures.pdf).
@@ -168,6 +168,10 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align: center">2022</td>
+      <td style="text-align: center">GSFS Challenging New Area Doctoral Research Grant </td>
+    </tr>
     <tr>
       <td style="text-align: center">2021</td>
       <td style="text-align: center">JST ACT-X (Grants)</td>
