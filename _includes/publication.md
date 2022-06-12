@@ -8,4 +8,4 @@
 
 ## Pre-print
 
-1. __Kento Nozawa__ and [Issei Sato](https://www.ml.is.s.u-tokyo.ac.jp/issei-sato-en). PAC-Bayes Analysis of Sentence Representation. 2019. [`arXiv`](https://arxiv.org/abs/1902.04247).
+:(

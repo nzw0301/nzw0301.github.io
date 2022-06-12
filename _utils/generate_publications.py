@@ -1,7 +1,6 @@
 import yaml
 
 import bibtexparser
-from bibtexparser.bibdatabase import BibDatabase
 
 
 bibtex_files = {
@@ -11,7 +10,7 @@ bibtex_files = {
 
 
 myself = "Kento Nozawa"
-ignore_paper_ids = {"KI2022arxiv"}
+ignore_paper_ids = {"KI2022arxiv", "KI2019"}
 
 with open("./coauthors.yml") as f:
     coauthor_info = yaml.load(f, Loader=yaml.FullLoader)
@@ -123,5 +122,8 @@ with open("../_includes/publication.md", "w") as f:
     f.write("\n")
 
     f.write("## Pre-print\n\n")
-    f.write("\n".join(preprint_list))
+    if len(preprint_list) > 0:
+        f.write("\n".join(preprint_list))
+    else:
+        f.write(":(")
     f.write("\n")

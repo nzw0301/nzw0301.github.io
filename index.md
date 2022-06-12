@@ -18,3 +18,7 @@ Hopefully, he'll be graduating in Sept. 2022, so he is on the job market.
 
 
 {% include_relative _includes/publication.md %}
+
+
+
+The full publication list is available on [Google Scholar](https://scholar.google.co.uk/citations?user=DSdjj8AAAAAJ).
