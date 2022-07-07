@@ -2,7 +2,7 @@
 layout: page
 title: CV of Failures
 permalink: /failures/
-date: 2022-05-25
+date: 2022-07-06
 ---
 
 I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV_of_Failures.pdf).
@@ -16,6 +16,10 @@ I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align: center">2022</td>
+      <td style="text-align: center">European Journal of Sport Science</td>
+    </tr>
     <tr>
       <td style="text-align: center">2022</td>
       <td style="text-align: center">ICLR</td>
