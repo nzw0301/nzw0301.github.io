@@ -49,7 +49,7 @@ preprint_list = []
 with open(path) as bibtex_file:
     bib_database = bibtexparser.load(bibtex_file)
 
-    sorted_entries = sorted(bib_database.entries, key= lambda x: -int(x["year"]))
+    sorted_entries = sorted(bib_database.entries, key=lambda x: -int(x["year"]))
 
     for entry in sorted_entries:
         if entry["ID"] in ignore_paper_ids:
