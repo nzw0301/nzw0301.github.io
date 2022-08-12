@@ -24,7 +24,7 @@ email: k_nzw@klis.tsukuba.ac.jp
 # description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-last_update: 2022-07-20 11:00:00 +0100
+last_update: 2022-08-12
 
 # social
 github_username: nzw0301 # your GitHub user name
@@ -35,13 +35,13 @@ scholar_userid: DSdjj8AAAAAJ # your Google Scholar ID
 facebook_username: knt.nzw
 youtube_username: UC2oHHAcwIZpmvs003guto_A
 orcid_id: 0000-0002-7468-9897
-medium_username: # your Medium username
+medium_username: nzw0301
 quora_username: # your Quora username
 semantic_id: Kento-Nozawa/13613520  # https://www.semanticscholar.org/author/
 stackoverflow_id: 2406562/nzw0301  # https://stackoverflow.com/users/
 dblp_id: 215/4422  # https://dblp.org/pid/
 speakerdeck_username: nzw0301
-buymecoffee_username: nzw0301
+# buymecoffee_username: nzw0301
 
 google_analytics: UA-56934733-2
 
@@ -73,9 +73,9 @@ exclude:
   - .gitignore
 
 academicons:
-  version: "1.9.1"
+  version: "1.9.2"
 fontawesome:
-  version: "5.14.0"
+  version: "6.1.2"
 
 sass:
   style: compressed

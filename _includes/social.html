@@ -1,16 +1,17 @@
 <div class="social">
     <span class="contact-icon text-center">
-        {%- if site.email -%}<a href=mailto:{{ site.email | encode_email }}><i class="fas fa-envelope"></i></a>{%- endif -%}
-        {%- if site.scholar_userid -%}<a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{%- endif -%}
-        {%- if site.semantic_id -%}<a href="https://www.semanticscholar.org/author/{{ site.semantic_id }}" target="_blank" title="SemanticScholar"><i class="ai ai-semantic-scholar"></i></a>{%- endif -%}
-        {%- if site.dblp_id -%}<a href="https://dblp.org/pid/{{ site.dblp_id }}.html" target="_blank" title="dblp"><i class="ai ai-dblp"></i></a>{%- endif -%}
-        {%- if site.github_username -%}<a href="https://github.com/{{ site.github_username }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>{%- endif -%}
-        {%- if site.gitlab_username -%}<a href="https://gitlab.com/{{ site.github_username }}" target="_blank" title="GitLab"><i class="fab fa-gitlab"></i></a>{%- endif -%}
-        {%- if site.linkedin_username -%}<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>{%- endif -%}
-        {%- if site.twitter_username -%}<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>{%- endif -%}
-        {%- if site.facebook_username -%}<a href="https://facebook.com/{{ site.facebook_username }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>{%- endif -%}
-        {%- if site.youtube_username -%}<a href="https://www.youtube.com/channel/{{ site.youtube_username }}" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a>{%- endif -%}
-        {%- if site.stackoverflow_id -%}<a href="https://stackoverflow.com/users/{{ site.stackoverflow_id }}" target="_blank" title="stackoverflow"><i class="ai ai-stackoverflow"></i></a>{%- endif -%}
-        {%- if site.speakerdeck_username -%}<a href="https://speakerdeck.com/{{ site.speakerdeck_username }}" target="_blank" title="speaker-deck"><i class="fab fa-speaker-deck"></i></a>{%- endif -%}
+        <a href=mailto:{{ site.email | encode_email }}><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+        <a href="https://www.semanticscholar.org/author/{{ site.semantic_id }}" target="_blank" title="SemanticScholar"><i class="ai ai-semantic-scholar"></i></a>
+        <a href="https://dblp.org/pid/{{ site.dblp_id }}.html" target="_blank" title="dblp"><i class="ai ai-dblp"></i></a>
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://gitlab.com/{{ site.github_username }}" target="_blank" title="GitLab"><i class="fab fa-gitlab"></i></a>
+        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://facebook.com/{{ site.facebook_username }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.youtube.com/channel/{{ site.youtube_username }}" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a>
+        <a href="https://stackoverflow.com/users/{{ site.stackoverflow_id }}" target="_blank" title="stackoverflow"><i class="ai ai-stackoverflow"></i></a>
+        <a href="https://speakerdeck.com/{{ site.speakerdeck_username }}" target="_blank" title="speaker-deck"><i class="fab fa-speaker-deck"></i></a>
+        <a href="https://medium.com/@{{ site.medium_username }}" target="_blank" title="medium"><i class="fa-brands fa-medium"></i></a>
     </span>
 </div>
