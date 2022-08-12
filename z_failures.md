@@ -7,194 +7,54 @@ date: 2022-07-06
 
 I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV_of_Failures.pdf).
 
-<table>
-<caption>Paper Rejections</caption>
-  <thead>
-    <tr>
-      <th style="text-align: center"><strong>Year</strong></th>
-      <th style="text-align: center"><strong>Conference</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">2022</td>
-      <td style="text-align: center">European Journal of Sport Science</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2022</td>
-      <td style="text-align: center">ICLR</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">ICML</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2020</td>
-      <td style="text-align: center">AISTATS</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2019</td>
-      <td style="text-align: center">ICML</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2018</td>
-      <td style="text-align: center">CIKM</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2018</td>
-      <td style="text-align: center">ICLR Workshop</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2016</td>
-      <td style="text-align: center">WSDM</td>
-    </tr>
-  </tbody>
-</table>
+
+| Year | Paper Rejections at ... |
+|:----:|:----------:|
+| 2022 | European Journal of Sport Science |
+| 2022 | ICLR |
+| 2021 | ICML |
+| 2020 | AISTATS |
+| 2019 | ICML |
+| 2018 | CIKM |
+| 2018 | ICLR Workshop |
+| 2016 | WSDM |
 
 <br />
 
-<table>
-  <caption>Job Positions I did not get (Only CS Area)</caption>
-  <thead>
-    <tr>
-      <th style="text-align: center"><strong>Year</strong></th>
-      <th style="text-align: center"><strong>Position</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">2022</td>
-      <td style="text-align: center">Preferred Networks, Inc. New Graduates - Researcher</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2022</td>
-      <td style="text-align: center">Twitter Singapore Engineering Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">Apple Japan AI Engineering & Research Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">Salesforce Research Asia Research Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">LINE AI Company CV Lab</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">Github Senior ML Researcher</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">Adobe Research Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">FAIR Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">Adobe Research Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">Amazon Research Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">Leapmind Fulltime Engineer</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">Salesforce Research Asia Research Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2019</td>
-      <td style="text-align: center">Google Research Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2019</td>
-      <td style="text-align: center">FAIR Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2018</td>
-      <td style="text-align: center">MSRA Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2016</td>
-      <td style="text-align: center">IBM Research Summer Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2016</td>
-      <td style="text-align: center">PFI/PFN Summer Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2016</td>
-      <td style="text-align: center">Gunosy Summer Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2015</td>
-      <td style="text-align: center">Treasure Data Summer Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2014</td>
-      <td style="text-align: center">Wantedly Summer Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2014</td>
-      <td style="text-align: center">ABEJA Summer Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2014</td>
-      <td style="text-align: center">LINE Summer Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2014</td>
-      <td style="text-align: center">Cygames Summer Internship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2013</td>
-      <td style="text-align: center">Cygames Summer Internship</td>
-    </tr>
-  </tbody>
-</table>
+| Year | Job Positions I did not get (Only CS Area) |
+|:----:|:----------:|
+| 2022 | Preferred Networks, Inc. New Graduates - Researcher |
+| 2022 | Twitter Singapore Engineering Internship |
+| 2021 | Apple Japan AI Engineering & Research Internship |
+| 2021 | Salesforce Research Asia Research Internship |
+| 2021 | LINE AI Company CV Lab |
+| 2021 | Github Senior ML Researcher |
+| 2021 | Adobe Research Internship |
+| 2021 | FAIR Internship |
+| 2021 | Adobe Research Internship |
+| 2021 | Amazon Research Internship |
+| 2021 | Leapmind Fulltime Engineer |
+| 2021 | Salesforce Research Asia Research Internship |
+| 2019 | Google Research Internship |
+| 2019 | FAIR Internship |
+| 2018 | MSRA Internship |
+| 2016 | IBM Research Summer Internship |
+| 2016 | PFI/PFN Summer Internship |
+| 2016 | Gunosy Summer Internship |
+| 2015 | Treasure Data Summer Internship |
+| 2014 | Wantedly Summer Internship |
+| 2014 | ABEJA Summer Internship |
+| 2014 | LINE Summer Internship |
+| 2014 | Cygames Summer Internship |
+| 2013 | Cygames Summer Internship |
 
 <br />
 
-<table>
-<caption>Scholarship / Grants / Fellowships I did not get</caption>
-  <thead>
-    <tr>
-      <th style="text-align: center"><strong>Year</strong></th>
-      <th style="text-align: center"><strong>Name</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">2022</td>
-      <td style="text-align: center">GSFS Challenging New Area Doctoral Research Grant </td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2021</td>
-      <td style="text-align: center">JST ACT-X (Grants)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2020</td>
-      <td style="text-align: center">Toyota / Dwango Advanced AI Scholarship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2019</td>
-      <td style="text-align: center">JST AIP Challenge (Grants)</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2018</td>
-      <td style="text-align: center">Google Fellowship</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2012</td>
-      <td style="text-align: center">My hometown's Scholarship</td>
-    </tr>
-  </tbody>
-</table>
+| Year | Scholarship / Grants / Fellowships I did not get |
+|:----:|:----------:|
+| 2022 | GSFS Challenging New Area Doctoral Research Grant |
+| 2021 | JST ACT-X (Grants) |
+| 2020 | Toyota / Dwango Advanced AI Scholarship |
+| 2019 | JST AIP Challenge (Grants) |
+| 2018 | Google Fellowship |
+| 2012 | My hometown's Scholarship |
