@@ -116,7 +116,7 @@ with open(path) as bibtex_file:
             selected_list.append(line)
 
 with open("../_includes/publication.md", "w") as f:
-    f.write("## Journal / Conference papers\n\n")
+    f.write("## Selected Journal / Conference papers\n\n")
     f.write("\n".join(selected_list))
     f.write("\n")
     f.write("\n")
