@@ -24,22 +24,22 @@ email: k_nzw@klis.tsukuba.ac.jp
 # description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-last_update: 2022-10-01
+last_update: 2023-05-07
 
 # social
-github_username: nzw0301 # your GitHub user name
-gitlab_username: nzw0301 # your Gitlab user name
-twitter_username: nzw0301 # your Twitter handle
-linkedin_username: nozawa-kento-0301 # your LinkedIn user name
-scholar_userid: DSdjj8AAAAAJ # your Google Scholar ID
+github_username: nzw0301
+gitlab_username: nzw0301
+twitter_username: nzw0301
+linkedin_username: nozawa-kento-0301
+scholar_userid: DSdjj8AAAAAJ
 facebook_username:
 youtube_username: UC2oHHAcwIZpmvs003guto_A
 orcid_id: 0000-0002-7468-9897
 medium_username: nzw0301
-quora_username: # your Quora username
-semantic_id: Kento-Nozawa/13613520  # https://www.semanticscholar.org/author/
-stackoverflow_id: 2406562/nzw0301  # https://stackoverflow.com/users/
-dblp_id: 215/4422  # https://dblp.org/pid/
+quora_username:
+semantic_id: Kento-Nozawa/13613520
+stackoverflow_id: 2406562/nzw0301
+dblp_id: 215/4422
 speakerdeck_username: nzw0301
 mastodon_username: nzw
 # buymecoffee_username: nzw0301
@@ -74,9 +74,9 @@ exclude:
   - .gitignore
 
 academicons:
-  version: "1.9.2"
+  version: "1.9.3"
 fontawesome:
-  version: "6.1.2"
+  version: "6.4.0"
 
 sass:
   style: compressed
