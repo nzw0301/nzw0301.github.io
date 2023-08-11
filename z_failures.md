@@ -2,10 +2,14 @@
 layout: page
 title: CV of Failures
 permalink: /failures/
-date: 2022-07-06
+date: 2023-08-11
 ---
 
+__No longer would this page be updated to hide my activity at my affiliation. Of course, I've failed like before since then.__
+
+
 I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV_of_Failures.pdf).
+
 
 
 | Year | Paper Rejections at ... |
