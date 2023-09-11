@@ -7,9 +7,7 @@ date: 2023-08-11
 
 __No longer would this page be updated to hide my activity at my affiliation. Of course, I've failed like before since then.__
 
-
-I imitate [this interesting CV](https://haushofer.ne.su.se/Johannes_Haushofer_CV_of_Failures.pdf).
-
+This page is the CV of failures of Kento Nozawa inspired by a column on Nature [A CV of Failures](https://www.nature.com/articles/nj7322-467a) written by Prof. Melanie Stefan.
 
 
 | Year | Paper Rejections at ... |
