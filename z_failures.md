@@ -2,7 +2,7 @@
 layout: page
 title: CV of Failures
 permalink: /failures/
-date: 2023-08-11
+date: 2023-09-11
 ---
 
 __No longer would this page be updated to hide my activity at my affiliation. Of course, I've failed like before since then.__
