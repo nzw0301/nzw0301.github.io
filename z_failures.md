@@ -7,7 +7,7 @@ date: 2023-09-11
 
 __No longer would this page be updated to hide my activity at my affiliation. Of course, I've failed like before since then.__
 
-This page is the CV of failures of Kento Nozawa inspired by a column on Nature [A CV of Failures](https://www.nature.com/articles/nj7322-467a) written by Prof. Melanie Stefan.
+This page is the CV of failures of Kento Nozawa inspired by a column on Nature _[A CV of Failures](https://www.nature.com/articles/nj7322-467a)_ written by Prof. Melanie Stefan.
 
 
 | Year | Paper Rejections at ... |
@@ -32,15 +32,15 @@ This page is the CV of failures of Kento Nozawa inspired by a column on Nature [
 | 2021 | LINE AI Company CV Lab |
 | 2021 | Github Senior ML Researcher |
 | 2021 | Adobe Research Internship |
-| 2021 | FAIR Internship |
+| 2021 | Facebook AI Research Internship |
 | 2021 | Adobe Research Internship |
 | 2021 | Amazon Research Internship |
 | 2021 | Leapmind Fulltime Engineer |
 | 2021 | Salesforce Research Asia Research Internship |
 | 2019 | Google Research Internship |
-| 2019 | FAIR Internship |
-| 2018 | MSRA Internship |
-| 2016 | IBM Research Summer Internship |
+| 2019 | Facebook AI Research Internship |
+| 2018 | Microsoft Research Asia Internship |
+| 2016 | IBM Research – Tokyo Internship |
 | 2016 | PFI/PFN Summer Internship |
 | 2016 | Gunosy Summer Internship |
 | 2015 | Treasure Data Summer Internship |
