@@ -59,7 +59,6 @@ speak to chat機能が勝手にオンになったりノイズがXM3の時より�
 
 ### スピーカー：[Sony SRS-XB43](https://www.sony.jp/active-speaker/products/SRS-XB43/)
 
-ヘッドセットつけてるとストレッチとかしにくいのと耳元で
 
 ### 家具的なもの
 
