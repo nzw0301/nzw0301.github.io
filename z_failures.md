@@ -2,10 +2,8 @@
 layout: page
 title: CV of Failures
 permalink: /failures/
-date: 2023-09-11
+date: 2024-01-25
 ---
-
-__No longer would this page be updated to hide my activity at my affiliation. Of course, I've failed like before since then.__
 
 This page is the CV of failures of Kento Nozawa inspired by a column on Nature _[A CV of Failures](https://www.nature.com/articles/nj7322-467a)_ written by Prof. Melanie Stefan.
 
@@ -25,6 +23,9 @@ This page is the CV of failures of Kento Nozawa inspired by a column on Nature _
 
 | Year | Job Positions I did not get (Only CS Area) |
 |:----:|:----------:|
+| 2024 | Game Freak, Inc., R&D Programmer: Machine Learning Engineer |
+| 2024 | Sony AI Research (Japan) Scientist – Vision Foundation Model |
+| 2023 | Nvidia (Japan), Solution Architect, Deep Learning |
 | 2022 | Preferred Networks, Inc. New Graduates - Researcher |
 | 2022 | Twitter Singapore Engineering Internship |
 | 2021 | Apple Japan AI Engineering & Research Internship |
