@@ -45,6 +45,7 @@ path = bibtex_files["en"]
 
 selected_list = []
 preprint_list = []
+sidenode_index = 1
 
 with open(path) as bibtex_file:
     bib_database = bibtexparser.load(bibtex_file)
@@ -105,7 +106,8 @@ with open(path) as bibtex_file:
 
         # misc info
         if "footnote" in entry:
-            line += '<label for="sn-1" class="sidenote-toggle sidenote-number"></label>' + '<input type="checkbox" id="sn-1" class="sidenote-toggle" />' + f'<span class="sidenote">{entry["footnote"]}</span>'
+            line += f'<label for="sn-{sidenode_index}" class="sidenote-toggle sidenote-number"></label>' + f'<input type="checkbox" id="sn-{sidenode_index}" class="sidenote-toggle" />' + f'<span class="sidenote">{entry["footnote"]}</span>'
+            sidenode_index += 1
 
         if entry["ENTRYTYPE"] == "techreport":
             preprint_list.append(line)
