@@ -172,3 +172,15 @@ $on-laptop:        800px !default;
       }
     }
 }
+
+// Centring embedded YouTube video.
+iframe {
+  display: block;
+  margin: 0 auto;
+}
+
+// Centring embedded tweets.
+.twitter-tweet {
+  display: block;
+  margin: 0 auto;
+}

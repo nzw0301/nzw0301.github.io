@@ -5,7 +5,9 @@ title: "怪文書：転"
 
 本題と関係ないSirSLowのエピソードです。
 
+<p></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MgE-e65W5oI?si=QiCfXR3ocH3R1yUn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p></p>
 
 ------
 
@@ -18,8 +20,9 @@ title: "怪文書：転"
 ### 転職活動をやるぞ！！
 
 IBMの同僚である数理科学チームと給与には不満はありませんでしたし、働き方もかなり自由でした。同僚の皆さん本当にお世話になりました。なんで辞めるのかというと、業務上でしか知り得ない話になるので、書けません。
+<p></p>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I get asked a lot: why stay in academia, all the excitement in AI is happening in industry with massive compute. And I am seeing some profs leaving academia, but also seeing lots of researchers in industry looking to go back to academia, especially those who don’t work on LLMs.…</p>&mdash; Russ Salakhutdinov (@rsalakhu) <a href="https://twitter.com/rsalakhu/status/1702702142640042386?ref_src=twsrc%5Etfw">September 15, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">I get asked a lot: why stay in academia, all the excitement in AI is happening in industry with massive compute. And I am seeing some profs leaving academia, but also seeing lots of researchers in industry looking to go back to academia, especially those who don’t work on LLMs.…</p>&mdash; Russ Salakhutdinov (@rsalakhu) <a href="https://twitter.com/rsalakhu/status/1702702142640042386?ref_src=twsrc%5Etfw">September 15, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 このような観点もあるようです。
 
