@@ -66,6 +66,7 @@ exclude:
   - Gemfile.lock
   - _utils/
   - .gitignore
+  - vendor/
 
 academicons:
   version: "1.9.4"
