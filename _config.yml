@@ -24,7 +24,7 @@ email: k_nzw@klis.tsukuba.ac.jp
 # description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-last_update: 2024-03-01
+last_update: 2024-08-24
 
 # social
 default_username: nzw0301
@@ -71,7 +71,7 @@ exclude:
 academicons:
   version: "1.9.4"
 fontawesome:
-  version: "6.5.1"
+  version: "6.6.0"
 
 sass:
   style: compressed

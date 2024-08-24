@@ -108,3 +108,11 @@
     }},
     exclude = {{}},
 }
+@techreport{NMT2024arxiv,
+    author = {Nozawa, Kento and Masuko, Takashi and Taniguchi, Toru},
+    title = {{Enhancing Large Language Model-based Speech Recognition by Contextualization for Rare and Ambiguous Words}},
+    year = {2024},
+    arxiv = {2408.08027},
+    abstract = {{We develop a large language model (LLM) based automatic speech recognition (ASR) system that can be contextualized by providing keywords as prior information in text prompts. We adopt decoder-only architecture and use our in-house LLM, PLaMo-100B, pre-trained from scratch using datasets dominated by Japanese and English texts as the decoder. We adopt a pre-trained Whisper encoder as an audio encoder, and the audio embeddings from the audio encoder are projected to the text embedding space by an adapter layer and concatenated with text embeddings converted from text prompts to form inputs to the decoder. By providing keywords as prior information in the text prompts, we can contextualize our LLM-based ASR system without modifying the model architecture to transcribe ambiguous words in the input audio accurately. Experimental results demonstrate that providing keywords to the decoder can significantly improve the recognition performance of rare and ambiguous words.}},
+    exclude = {{}},
+}

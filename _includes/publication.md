@@ -8,4 +8,4 @@
 
 ## Pre-print
 
-:(
+1. __Kento Nozawa__, Takashi Masuko and Toru Taniguchi. Enhancing Large Language Model-based Speech Recognition by Contextualization for Rare and Ambiguous Words. 2024. [`arXiv`](https://arxiv.org/abs/2408.08027).
