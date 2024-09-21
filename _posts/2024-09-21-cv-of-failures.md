@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CV of Failures (失敗の履歴書)"
+title: "CV of Failures (失敗の履歴書) について"
 ---
 
 まずCVですが、日本でいう履歴書相当のものです。CVは、curriculum vitaeの略語で、その意味は国等によって少し異なります。
@@ -20,12 +20,11 @@ title: "CV of Failures (失敗の履歴書)"
 
 _A CV of Failures_ [[Stefan, 2010](https://www.nature.com/articles/nj7322-467a)] はNatureに掲載されている1ページほどcolumnです。おおまかに説明します。冒頭で書いた通りCVは基本的に良いことを書きますが、CVに書いてある業績に至る過程（ex. 研究予算・論文の非採択）には研究活動上は不可避でエフォートを割いているにも関わらず、その部分はCVから見えないようになっています。なので、自分が失敗し他人が成功しているのを見ると落ち込んだり孤独を感じます[^1]。
 
-上記のcolumnではfootball選手の例を出していて、選手は失敗（試合に未出場選出されない、怪我、大事な場面でのシュートミス）を隠せないが、それは実は良いことかもしれない[^2]；次の世代に向けてfootball選手になるというのはどういうことか示しており、加えて自分が失敗に対処する際にも役に立つと言っています。
+上記のcolumnではfootball選手の例を出していて、選手は失敗（試合に未出場、怪我、大事な場面でのシュートミス）を隠せないが、それは実は良いことかもしれない[^2]；次の世代に向けてfootball選手になるというのはどういうことか示しており、加えて自分が失敗に対処する際にも役に立つ、とみたいなことを言っています。
 
 _A CV of Failures_ では、研究者も似たことをしませんかという提案をしていて
 
 > Compile an 'alternative' CV of failures. Log every unsuccessful application, refused grant proposal and rejected paper. ... and can afford to — make it public.
-
 
 ということで私も博士後期ときから[そのようなページ](https://nzw0301.github.io/failures/)を作っていて、機会があると修士の学生に見せて励ますつもりで使っています [^3]。
 
