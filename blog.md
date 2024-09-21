@@ -2,7 +2,7 @@
 layout: page
 title: Blog
 permalink: /blog/
-date: 2024-01-29
+date: 2024-09-21
 ---
 
 <div class="post">
