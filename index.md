@@ -6,7 +6,7 @@ layout: home
 <div class="abstract">
   <h2>Short bio</h2>
   <p>
-    {{ site.author | escape }} is an engineer at Preferred Networks, Inc. and Preferred Elements, Inc.
+    {{ site.author | escape }} is an engineer at Preferred Networks, Inc.
     Recently, he has fine-tuned in-house LLMs, <a href="https://plamo.preferredai.jp/">PLaMo</a>.
     <!-- He has been working on machine learning, especially self-supervised representation learning. -->
     <!-- His interest is to understand simple and practical algorithms from theoretical perspective. He's contributed open-source software occasionally not to think about his life. -->
