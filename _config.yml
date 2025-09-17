@@ -30,14 +30,11 @@ last_update: 2025-04-01
 default_username: nzw0301
 linkedin_username: nozawa-kento-0301
 scholar_userid: DSdjj8AAAAAJ
-facebook_username:
 orcid_id: 0000-0002-7468-9897
 # quora_username:
 semantic_id: Kento-Nozawa/13613520
 stackoverflow_id: 2406562/nzw0301
 dblp_id: 215/4422
-# buymecoffee_username: nzw0301
-
 google_analytics: UA-56934733-2
 
 # Build settings
@@ -71,7 +68,7 @@ exclude:
 academicons:
   version: "1.9.4"
 fontawesome:
-  version: "6.6.0"
+  version: "7.0.1"
 
 sass:
   style: compressed
