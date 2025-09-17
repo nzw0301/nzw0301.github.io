@@ -16,13 +16,16 @@ with open("./coauthors.yml") as f:
     coauthor_info = yaml.load(f, Loader=yaml.FullLoader)
 
 
-def add_markdown_to_authors(authors):
+def add_markdown_to_authors(authors: list[str]):
 
     author_list = authors.split(" and ")
     for i, author in enumerate(author_list):
         # convert author name format
         author_elements = author.split(", ")
-        author = author_elements[1] + " " + author_elements[0]
+        if len(author_elements) == 1:
+            author = author_elements[0]
+        else:
+            author = author_elements[1] + " " + author_elements[0]
 
         if author in coauthor_info:
             author = f'[{author}]({coauthor_info[author]["url"]})'
@@ -110,7 +113,8 @@ with open(path) as bibtex_file:
             sidenode_index += 1
 
         if entry["ENTRYTYPE"] == "techreport":
-            preprint_list.append(line)
+            if "exclude" not in entry:
+                preprint_list.append(line)
         else:
             # exclude workshop
             if "Workshop" in line:

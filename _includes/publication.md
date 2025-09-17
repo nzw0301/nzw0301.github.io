@@ -1,4 +1,4 @@
-## Selected papers
+## Selected journal / Conference papers
 
 1. [Han Bao](https://hermite.jp/), [Yoshihiro Nagano](http://ganow.me/) and __Kento Nozawa__. On the Surrogate Gap between Contrastive and Supervised Losses. In _ICML_, pages 1585--1606, 2022. [`paper`](https://proceedings.mlr.press/v162/bao22e.html), [`video`](https://slideslive.com/38983196/on-the-surrogate-gap-between-contrastive-and-supervised-losses), [`code`](https://github.com/nzw0301/gap-contrastive-and-supervised-losses), [`poster`](https://hermite.jp/posters/202207_ICML.pdf), [`arXiv`](https://arxiv.org/abs/2110.02501).<label for="sn-1" class="sidenote-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="sidenote-toggle" /><span class="sidenote">Alphabetical ordering and equal contribution.</span>
 1. __Kento Nozawa__ and [Issei Sato](https://www.ml.is.s.u-tokyo.ac.jp/issei-sato-en). Evaluation Methods for Representation Learning: A Survey. In _IJCAI-ECAI Survey Track_, pages 5556--5563, 2022. [`paper`](https://www.ijcai.org/proceedings/2022/0776.pdf), [`video`](https://www.ijcai.org/proceedings/2022/video/776), [`slides`](https://speakerdeck.com/nzw0301/evaluation-methods-for-representation-learning-a-survey).<label for="sn-2" class="sidenote-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="sidenote-toggle" /><span class="sidenote">Extended version: ``Empirical Evaluation and Theoretical Analysis for Representation Learning: A Survey''. 2022. [`arXiv`](https://arxiv.org/abs/2204.08226)</span>
@@ -8,4 +8,4 @@
 
 ## Pre-print
 
-1. __Kento Nozawa__, Takashi Masuko and Toru Taniguchi. Enhancing Large Language Model-based Speech Recognition by Contextualization for Rare and Ambiguous Words. 2024. [`arXiv`](https://arxiv.org/abs/2408.08027).
+1. Preferred Networks, Kaizaburo Chubachi, Yasuhiro Fujita, Shinichi Hemmi, Yuta Hirokawa, Toshiki Kataoka, Goro Kobayashi, Kenichi Maehashi, Calvin Metzger, Hiroaki Mikami, Shogo Murai, Daisuke Nishino, __Kento Nozawa__, Shintarou Okada, Daisuke Okanohara, Shunta Saito, Shotaro Sano, Shuji Suzuki, Daisuke Tanaka, Avinash Ummadisingu, Hanqin Wang, Sixue Wang and Tianqi Xu. PLaMo 2 Technical Report. 2025. [`arXiv`](https://arxiv.org/abs/2509.04897).
