@@ -24,7 +24,8 @@ table {
 }
 
 body {
-  font-family: 'Libre Franklin';
+  font-family: 'Spectral';
+  line-height: 1.75;
 }
 
 code, pre, kbd {
@@ -34,8 +35,9 @@ code, pre, kbd {
 // bit more british spacing for headings?
 h1, h2 {
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.025em;
 }
+
 
 // from minima
 
