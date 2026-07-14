@@ -1,18 +1,21 @@
+import pathlib
 import yaml
 
 import bibtexparser
 
 
-bibtex_files = {
-    "en": "_bibliography/papers.bib",
-    "ja": "_bibliography/papers_ja.bib"
-}
 
+current_dir = pathlib.Path(__file__).parent.resolve()
+
+bibtex_files = {
+    "en": current_dir / "_bibliography/papers.bib",
+    "ja": current_dir / "_bibliography/papers_ja.bib"
+}
 
 myself = "Kento Nozawa"
 ignore_paper_ids = {"KI2022arxiv", "KI2019"}
 
-with open("./coauthors.yml") as f:
+with open(current_dir / "coauthors.yml") as f:
     coauthor_info = yaml.load(f, Loader=yaml.FullLoader)
 
 
@@ -121,7 +124,7 @@ with open(path) as bibtex_file:
                 continue
             selected_list.append(line)
 
-with open("../_includes/publication.md", "w") as f:
+with open(current_dir / "../_includes/publication.md", "w") as f:
     f.write("## Selected journal and conference papers\n\n")
     f.write("\n".join(selected_list))
     f.write("\n")

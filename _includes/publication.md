@@ -8,4 +8,4 @@
 
 ## Pre-print
 
-1. Preferred Networks, Kaizaburo Chubachi, Yasuhiro Fujita, Shinichi Hemmi, Yuta Hirokawa, Toshiki Kataoka, Goro Kobayashi, Kenichi Maehashi, Calvin Metzger, Hiroaki Mikami, Shogo Murai, Daisuke Nishino, __Kento Nozawa__, Shintarou Okada, Daisuke Okanohara, Shunta Saito, Shotaro Sano, Shuji Suzuki, Daisuke Tanaka, Avinash Ummadisingu, Hanqin Wang, Sixue Wang and Tianqi Xu. PLaMo 2 Technical Report. 2025. [`arXiv`](https://arxiv.org/abs/2509.04897).
+:(
