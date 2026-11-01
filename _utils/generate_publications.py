@@ -13,7 +13,7 @@ bibtex_files = {
 }
 
 myself = "Kento Nozawa"
-ignore_paper_ids = {"KI2022arxiv", "KI2019"}
+ignore_paper_ids = {"KI2022arxiv", "KI2019", "AYTKS2017"}
 
 with open(current_dir / "coauthors.yml") as f:
     coauthor_info = yaml.load(f, Loader=yaml.FullLoader)

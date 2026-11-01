@@ -21,9 +21,10 @@
 title: Kento Nozawa
 author: Kento Nozawa
 email: k_nzw@klis.tsukuba.ac.jp
-# description: >- # this means to ignore newlines until "baseurl:"
+description: >-
+  Personal website of Kento Nozawa, with research publications and blog posts on machine learning.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://nzw0301.github.io"
 # social
 default_username: nzw0301
 linkedin_username: nozawa-kento-0301
