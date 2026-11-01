@@ -2,6 +2,8 @@
 layout: post
 title: "sigmoid table used in word2vec and fasttext"
 comments: true
+mathjax: true
+syntax_highlighting: true
 ---
 
 ### はじめに

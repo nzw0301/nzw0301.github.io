@@ -4,6 +4,7 @@ title: Derivation of KL divergence by Bregman divergence
 comments: True
 abstract: Calculation
 lang: english
+mathjax: true
 ---
 
 [Bregman divergence](https://en.wikipedia.org/wiki/Bregman_divergence) is a general class to measure "difference" between two data points.

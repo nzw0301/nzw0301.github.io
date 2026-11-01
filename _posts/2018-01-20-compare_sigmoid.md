@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Sigmoid関数の速度比較"
+mathjax: true
+syntax_highlighting: true
 ---
 
 ### 背景

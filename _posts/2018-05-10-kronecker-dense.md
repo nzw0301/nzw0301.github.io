@@ -4,6 +4,8 @@ title: Kronecker積によるパラメータ削減
 comments: True
 abstract: 雑記
 lang: ja
+mathjax: true
+syntax_highlighting: true
 ---
 
 博士課程に入って36ヶ月の1ヶ月が過ぎてビビっています。

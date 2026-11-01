@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Negative Samplingの配列の作り方"
+mathjax: true
 ---
 
 ### はじめに

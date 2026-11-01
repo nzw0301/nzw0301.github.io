@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Understanding Negative Samples in Instance Discriminative Self-supervised Representation Learning の概要"
+mathjax: true
 ---
 
 

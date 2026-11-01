@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "在宅環境 (2024)"
+mathjax: true
 ---
 
 機材周りについて話すことがあったので、現状について[3年前の同様の記事]({{ site.baseurl }}{% link _posts/2020-10-06-ToolsForWorkFromHome.md %})と似たようなことを書こうと思います。本記事のリンクはすべてアフィリエイトではありません。

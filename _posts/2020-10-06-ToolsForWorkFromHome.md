@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "在宅環境のもろもろ"
+mathjax: true
 ---
 
 [友達の投稿](http://blog.dakko.site/2020-07-25/real-dev-env/)のマネです。

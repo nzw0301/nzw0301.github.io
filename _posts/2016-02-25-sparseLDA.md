@@ -3,6 +3,7 @@ layout: post
 title: "SparseLDAの導出"
 date: 2016-02-25 23:25:00 +0900
 comments: false
+mathjax: true
 ---
 
 ### はじめに
